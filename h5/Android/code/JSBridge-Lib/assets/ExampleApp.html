@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport"
+	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<style type='text/css'>
+html {
+	font-family: Helvetica;
+	color: #222;
+}
+
+h1 {
+	color: steelblue;
+	font-size: 24px;
+	margin-top: 24px;
+}
+
+button {
+	margin: 0 3px 10px;
+	font-size: 14px;
+}
+
+.logLine {
+	border-bottom: 1px solid #ccc;
+	padding: 4px 2px;
+	font-family: courier;
+	font-size: 11px;
+}
+</style>
+<!--    <script type="application/javascript" charset="utf-8" src="H5JSBridge_1_0.js"></script>-->
+
+<!-- 该js文件是桥接的基础之一，请确保注册 js_api前该文件已经加载 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridge_V1_0.js"></script>
+</head>
+<body>
+	<h1>WebViewJavascriptBridge Demo</h1>
+
+	<div id='buttons'></div>
+	<div id='logSection'>
+		<button type="button" class="blue" onclick="clearLog()">清空Log</button>
+		<div id='log'></div>
+	</div>
+
+	<li>
+		<button type="button" class="blue" onclick="testGPS()">测试调用Native的GPS</button>
+	</li>
+	
+	<li>
+		<button type="button" class="blue" onclick="testErrorName()">测试非法方法</button>
+	</li>
+	
+	<li>
+		<button type="button" class="blue" onclick="testDemo()">演示demo</button>
+	</li>
+	<li> 
+		<button type="button" class="blue" onclick="testLTRDemo()">测试耗时任务</button>
+	</li>
+	
+	
+
+</body>
+
+<script type="text/javascript">
+	var uniqueId = 1
+	//打印Log到页面 
+	function log(message, data) {
+		var log = document.getElementById('log')
+		var el = document.createElement('div')
+		el.className = 'logLine'
+		el.innerHTML = uniqueId++ + '. ' + message + ':<br/>'
+				+ JSON.stringify(data)
+		if (log.children.length) {
+			log.insertBefore(el, log.children[0])
+		} else {
+			log.appendChild(el)
+		}
+	}
+	
+	function clearLog() {
+		document.getElementById('log').innerHTML = '';
+	}
+
+	function testGPS() {
+		callNativeOpenGPSAndResponseLocation(function(responseData) {
+			log("response form native", responseData);
+		});
+	}
+	
+	function testErrorName () {
+		callErrorFunc();
+	}
+	
+	function testDemo() {
+		var data = {'jsKeyOne':'origen value1','jsKeyTwo':'origen value2'};
+		var callback = function(responseData) {
+			log('demo测试.Native返回结果：',responseData);
+		}
+		callDemo(data,callback);
+	}
+	
+	function testLTRDemo() {
+		var data = {'jsKeyOne':'origen value1','jsKeyTwo':'origen value2'};
+		var callback = function(responseData) {
+			log('demo测试.Native返回结果：',responseData);
+		}
+		callLongTimeDemo(data,callback);
+	}
+</script>
+
+
+<!-- 加载js_api，实际：注册api 供Native调用 -->
+<!-- 该js的文件名命名规范由H5人员制定，JSAPI_name只是我给的一个例子 -->
+<script type="application/javascript" charset="utf-8"
+	src="JSAPI_name.js"></script>
+
+<!-- 加载Native API列表 -->
+<script type="application/javascript" charset="utf-8"
+	src="NativeAPICollection.js"></script>
+
+
+</html>

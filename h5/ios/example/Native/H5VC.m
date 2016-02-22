@@ -70,7 +70,7 @@
 - (void)sendAction:(id)sender {
     //调H5方法
     id data = @{ @"key1": @"严庆扬.数据内容" };
-    NSString *key=@"JF_DEMO";
+    NSString *key=@"JS_FUNCTION_DEMO";
     [self.bridgeMain callHandler:key data:data responseCallback:^(id response) {
         NSLog(@">>>%@: %@",key, response);
     }];
@@ -87,13 +87,6 @@
 }
 
 - (void)loadExamplePage:(WKWebView*)webView {
-//    NSString *path = [[NSBundle mainBundle] bundlePath];
-//    NSURL *baseURL = [NSURL fileURLWithPath:path];
-//    NSString * htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp"
-//                                                          ofType:@"html"];
-//    NSString * htmlCont = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-//    [webView loadHTMLString:htmlCont baseURL:baseURL];
-    
     NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
     NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
     NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
@@ -110,8 +103,8 @@
 - (void)listener:(WKWebViewJavascriptBridge*)bridge{
     [super listener:bridge];
     
-    [bridge registerHandler:@"NF_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 NF_DEMO: %@",data);
+    [bridge registerHandler:@"NATIVE_FUNCTION_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
         //回传给H5
         responseCallback(@"nv监听回传给H5 data");
     }];

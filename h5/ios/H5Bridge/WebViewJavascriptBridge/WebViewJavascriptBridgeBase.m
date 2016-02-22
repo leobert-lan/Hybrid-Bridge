@@ -105,7 +105,7 @@ static int logMaxLength = 500;
             WVJBHandler handler = self.messageHandlers[message[@"handlerName"]];
             
             if (!handler) {
-                NSLog(@"WVJBNoHandlerException, No handler for message from JS: %@", message);
+                NSLog(@">>>Error<<< NoHandlerName:%@, for message from JS: %@",message[@"handlerName"], message);
                 continue;
             }
             

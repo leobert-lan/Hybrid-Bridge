@@ -20,13 +20,14 @@ setupJSBridge(function(bridge) {
 						
 						//此处打log看一下数据是否收到，非必须
 						log("data from Native:",data)
-						
+						alert("JS listener: JS_FUNCTION_DEMO")
 						//此处实现API逻辑
 						//...
 						
 						//此处返回处理结果给native
 						var responseData = {"key1":"i am result form js"};
 						responseCallback(responseData);
+                           
 					});
 })
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 #import "WKWebViewJavascriptBridge.h"
-@interface BaseWKWebViewVC : UIViewController<WKNavigationDelegate>
+@interface BaseWKWebViewVC : UIViewController<WKNavigationDelegate,WKUIDelegate>
 {
     
 }

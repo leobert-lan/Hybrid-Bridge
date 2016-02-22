@@ -36,6 +36,7 @@
         
         self.webViewMain = [[NSClassFromString(@"WKWebView") alloc] initWithFrame:vTest1.bounds];
         self.webViewMain.navigationDelegate = self;
+        self.webViewMain.UIDelegate = self;
         [vTest1 addSubview:self.webViewMain];
     }
     
@@ -126,6 +127,8 @@
 
 #pragma mark - 添加监听
 - (void)listener:(WKWebViewJavascriptBridge*)bridge{
+    [super listener:bridge];
+    
     [bridge registerHandler:@"oneClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"H5 调 oneClick: %@",data);
         //回传给H5

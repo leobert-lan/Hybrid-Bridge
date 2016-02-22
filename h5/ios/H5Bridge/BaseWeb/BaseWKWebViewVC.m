@@ -45,15 +45,29 @@
 
 
 #pragma mark - WKNavigationDelegate
-//
-//- (void)webViewDidStartLoad:(UIWebView *)webView {
-//    NSLog(@"webViewDidStartLoad");
-//}
-//
-//- (void)webViewDidFinishLoad:(UIWebView *)webView {
-//    NSLog(@"webViewDidFinishLoad");
-//}
 
+- (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@">>>web didFailNavigation:%@",error.description);
+}
+
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
+    NSLog(@">>>web didFailProvisionalNavigation:%@",error.description);
+}
+
+#pragma mark - WKUIDelegate
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
+    
+    UIAlertController *alt = [UIAlertController alertControllerWithTitle:webView.title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *can = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alt addAction:can];
+    [self presentViewController:alt animated:YES completion:nil];
+    
+}
+
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler{
+    
+}
 #pragma mark - web UI
 
 - (void)WebUIInit{

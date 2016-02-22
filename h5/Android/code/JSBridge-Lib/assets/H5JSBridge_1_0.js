@@ -1,5 +1,5 @@
 //本JS  是H5端的桥，配合Native端的桥搭起底层，请不要修改任何内容
-function connectWebViewJavascriptBridge(callback) {
+function setupJSBridge(callback) {
 	if (window.WebViewJavascriptBridge) {
 		return callback(WebViewJavascriptBridge);
 	} else {
@@ -23,7 +23,7 @@ function connectWebViewJavascriptBridge(callback) {
 	}, 0);
 }
 
-connectWebViewJavascriptBridge(function(bridge) {
+setupJSBridge(function(bridge) {
 	bridge.init(function(message, responseCallback) {
 		//该方法体实现内容无所谓，关键是需要init
 //		console.log('JS got a message', message);

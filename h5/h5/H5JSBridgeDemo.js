@@ -1,9 +1,17 @@
+//document illustration:
+//包含注册一个已实现的js API
+//和调用一个Native 已经注册的API的"抽象方法"
+
+//原则上，每个js文件按照业务进行维护，例如两端都存在业务 calculate，本JS包含注册JS calculate业务的代码，
+//也包含调用Native 相应API的"抽象方法"
+
+
 //js API 实现及注册，这仅仅是一个demo，意在说明如何注册一个API供Native调用，以及需要注意的地方
 //首先，JSHandlerRegisterBasicFunc.js必须先加载完成，因为存在js依赖关系，
 //这里牵涉到异步加载啦、AMD规范啦什么的我们就不怎么懂了。。。（省略N个字）
 //关键：bridge.registerHandler("API_Name",function(data,responseCallback))
 //API_Name是实际注册的名称，Native会按照该值进行调用，而本js的名称与调用无关（注意API的维护）
-connectWebViewJavascriptBridge(function(bridge) {
+setupJSBridge(function(bridge) {
 	bridge
 			.registerHandler(
 					"JF_DEMO",
@@ -22,3 +30,10 @@ connectWebViewJavascriptBridge(function(bridge) {
 						responseCallback(responseData);
 					});
 })
+
+//调用原生基本示例demo
+function callNativeDemo(data,callback) {
+	setupJSBridge(function(bridge) {
+		bridge.callHandler('NF_DEMO',data,callback);
+	})
+}

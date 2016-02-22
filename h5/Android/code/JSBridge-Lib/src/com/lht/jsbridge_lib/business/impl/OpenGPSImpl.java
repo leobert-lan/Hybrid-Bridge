@@ -85,34 +85,15 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 
 	LocationListener locationListener = new LocationListener() {
 
-		/**
-		 * 位置信息变化时触发
-		 */
 		public void onLocationChanged(Location location) {
-			Log.i(TAG, "经度：" + location.getLongitude());
-			Log.i(TAG, "纬度：" + location.getLatitude());
 		}
 
-		/**
-		 * GPS状态变化时触发
-		 */
 		public void onStatusChanged(String provider, int status, Bundle extras) {
 		}
 
-		/**
-		 * GPS开启时触发
-		 */
 		public void onProviderEnabled(String provider) {
-			Location location = locationManager.getLastKnownLocation(provider);
-			Log.i(TAG, "时间：" + location.getTime());
-			Log.i(TAG, "经度：" + location.getLongitude());
-			Log.i(TAG, "纬度：" + location.getLatitude());
-			Log.i(TAG, "海拔：" + location.getAltitude());
 		}
 
-		/**
-		 * GPS禁用时触发
-		 */
 		public void onProviderDisabled(String provider) {
 			Log.i(TAG, "gps disabled");
 		}

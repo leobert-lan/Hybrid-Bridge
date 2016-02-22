@@ -34,10 +34,25 @@
     if (self.webViewMain == nil) {
 
         
-        self.webViewMain = [[NSClassFromString(@"WKWebView") alloc] initWithFrame:vTest1.bounds];
+//        self.webViewMain = [[NSClassFromString(@"WKWebView") alloc] initWithFrame:vTest1.bounds];
+//        WKWebViewConfiguration *configuretion=[[WKWebViewConfiguration alloc]init];
+//        // Webview的偏好设置
+//        configuretion.preferences = [WKPreferences new];
+//        configuretion.preferences.minimumFontSize = 10;
+//        configuretion.preferences.javaScriptEnabled = true;
+//        // 默认是不能通过JS自动打开窗口的，必须通过用户交互才能打开
+//        configuretion.preferences.javaScriptCanOpenWindowsAutomatically = YES;
+//        self.webViewMain = [[WKWebView alloc]initWithFrame:vTest1.bounds configuration:configuretion];
+    
+        self.webViewMain = [[WKWebView alloc]init];
+        self.webViewMain.frame=vTest1.bounds;
         self.webViewMain.navigationDelegate = self;
-//        self.webViewMain.UIDelegate = self;
+        self.webViewMain.UIDelegate = self;
         [vTest1 addSubview:self.webViewMain];
+        
+        
+     
+        
     }
     
     
@@ -115,4 +130,6 @@
         responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
     }];
 }
+
+
 @end

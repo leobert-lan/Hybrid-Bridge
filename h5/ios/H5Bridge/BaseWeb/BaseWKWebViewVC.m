@@ -44,15 +44,15 @@
 
 
 
-
-
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"webViewDidStartLoad");
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"webViewDidFinishLoad");
-}
+#pragma mark - WKNavigationDelegate
+//
+//- (void)webViewDidStartLoad:(UIWebView *)webView {
+//    NSLog(@"webViewDidStartLoad");
+//}
+//
+//- (void)webViewDidFinishLoad:(UIWebView *)webView {
+//    NSLog(@"webViewDidFinishLoad");
+//}
 
 #pragma mark - web UI
 

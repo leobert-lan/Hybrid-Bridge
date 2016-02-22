@@ -14,9 +14,9 @@ import com.lht.jsbridge_lib.DefaultHandler;
 import com.lht.jsbridge_lib.R;
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
-import com.lht.jsbridge_lib.base.model.DemoImpl;
-import com.lht.jsbridge_lib.base.model.TestLTRImpl;
+import com.lht.jsbridge_lib.business.impl.DemoImpl;
 import com.lht.jsbridge_lib.business.impl.OpenGPSImpl;
+import com.lht.jsbridge_lib.business.impl.TestLTRImpl;
 
 public class MainActivity extends Activity implements OnClickListener {
 

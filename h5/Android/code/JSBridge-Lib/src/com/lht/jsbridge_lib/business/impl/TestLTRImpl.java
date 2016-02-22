@@ -1,10 +1,9 @@
-package com.lht.jsbridge_lib.base.model;
+package com.lht.jsbridge_lib.business.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
-import com.lht.jsbridge_lib.business.impl.ABSLTRApiImpl;
 
 /**
  * @ClassName: TestLTRImpl

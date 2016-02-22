@@ -1,4 +1,4 @@
-package com.lht.jsbridge_lib.base.model;
+package com.lht.jsbridge_lib.business.impl;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -8,7 +8,6 @@ import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.bean.DemoBean;
 import com.lht.jsbridge_lib.business.bean.DemoResponseBean;
-import com.lht.jsbridge_lib.business.impl.ABSApiImpl;
 
 /**
  * @ClassName: DemoImpl

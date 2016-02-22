@@ -10,6 +10,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
@@ -25,13 +27,15 @@ import com.lht.jsbridge_lib.business.bean.GPSResponseBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class OpenGPSImpl extends ABSApiImpl implements API.GPSHandler {
+public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 
 	private LocationManager locationManager;
 
 	private final Context mContext;
-	
+
 	private GPSResponseBean gpsResponseBean;
+
+	private CallBackFunction mFunction;
 
 	public OpenGPSImpl(Context ctx) {
 		this.mContext = ctx;
@@ -40,35 +44,9 @@ public class OpenGPSImpl extends ABSApiImpl implements API.GPSHandler {
 	@SuppressLint("DefaultLocale")
 	@Override
 	public void handler(String data, CallBackFunction function) {
-		// TODO Auto-generated method stub
 		gpsResponseBean = new GPSResponseBean();
-		
-		locationManager = (LocationManager) mContext
-				.getSystemService(Context.LOCATION_SERVICE);
-		if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-			String ret = getLocation();
-			if (ret != null)
-				function.onCallBack(ret);
-			else {
-				Log.d(TAG, "gps location is null");
-				function.onCallBack("gps location is null,error may happen on native");
-			}
-				
-		} else {
-			// 打开gps并获取位置
-			Log.d(TAG, "gps not opened");
-			toggleGPS();
-			String ret = getLocation();
-			if (ret != null)
-				function.onCallBack(ret);
-			else {
-				Log.d(TAG, "gps location is null");
-				function.onCallBack("gps location is null,error may happen on native");
-			}
-		}
-		
-
-//		function.onCallBack(data.toUpperCase());
+		mFunction = function;
+		execute(getLTRExecutor());
 	}
 
 	@Override
@@ -87,15 +65,6 @@ public class OpenGPSImpl extends ABSApiImpl implements API.GPSHandler {
 			PendingIntent.getBroadcast(mContext, 0, gpsIntent, 0).send();
 		} catch (CanceledException e) {
 			e.printStackTrace();
-			locationManager
-					.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-							1000, 0, locationListener);
-			Location location = locationManager
-					.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-			if (location != null) {
-				// latitude = location1.getLatitude(); // 经度
-				// longitude = location1.getLongitude(); // 纬度
-			}
 		}
 	}
 
@@ -104,7 +73,8 @@ public class OpenGPSImpl extends ABSApiImpl implements API.GPSHandler {
 				.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		if (location != null) {
 			gpsResponseBean.setLatitude(String.valueOf(location.getLatitude()));
-			gpsResponseBean.setLongitude(String.valueOf(location.getLongitude()));
+			gpsResponseBean
+					.setLongitude(String.valueOf(location.getLongitude()));
 			return JSON.toJSONString(gpsResponseBean);
 		} else {
 			locationManager.requestLocationUpdates(
@@ -115,29 +85,104 @@ public class OpenGPSImpl extends ABSApiImpl implements API.GPSHandler {
 
 	LocationListener locationListener = new LocationListener() {
 
-		@Override
+		/**
+		 * 位置信息变化时触发
+		 */
 		public void onLocationChanged(Location location) {
-			// TODO Auto-generated method stub
-
+			Log.i(TAG, "经度：" + location.getLongitude());
+			Log.i(TAG, "纬度：" + location.getLatitude());
 		}
 
-		@Override
+		/**
+		 * GPS状态变化时触发
+		 */
 		public void onStatusChanged(String provider, int status, Bundle extras) {
-			// TODO Auto-generated method stub
-
 		}
 
-		@Override
+		/**
+		 * GPS开启时触发
+		 */
 		public void onProviderEnabled(String provider) {
-			// TODO Auto-generated method stub
-
+			Location location = locationManager.getLastKnownLocation(provider);
+			Log.i(TAG, "时间：" + location.getTime());
+			Log.i(TAG, "经度：" + location.getLongitude());
+			Log.i(TAG, "纬度：" + location.getLatitude());
+			Log.i(TAG, "海拔：" + location.getAltitude());
 		}
 
-		@Override
+		/**
+		 * GPS禁用时触发
+		 */
 		public void onProviderDisabled(String provider) {
-			// TODO Auto-generated method stub
-
+			Log.i(TAG, "gps disabled");
 		}
 	};
+
+	@Override
+	protected LTRHandler getLTRHandler() {
+		return new LTRHandler() {
+
+			@Override
+			public void onJobExecuted(String data) {
+				mFunction.onCallBack(data);
+			}
+
+		};
+	}
+
+	@Override
+	protected LTRExecutor getLTRExecutor() {
+		return new GPSExecutor(getLTRHandler());
+	}
+
+	class GPSExecutor extends LTRExecutor {
+
+		public GPSExecutor(LTRHandler h) {
+			super(h);
+		}
+
+		@Override
+		public void run() {
+			Looper.prepare();
+			locationManager = (LocationManager) mContext
+					.getSystemService(Context.LOCATION_SERVICE);
+			if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+				String ret = getLocation();
+				if (ret != null)
+					onJobExecuted(ret);
+				else {
+					Log.d(TAG, "gps location is null");
+					new Handler().postDelayed(new Runnable() {
+						@Override
+						public void run() {
+							String ret = getLocation();
+							if (ret != null)
+								onJobExecuted(ret);
+							else
+								onJobExecuted("gps location is null,error may happen on native");
+						}
+					}, 2000);
+				}
+
+			} else {
+				// 打开gps并获取位置
+				Log.d(TAG, "gps not opened");
+				toggleGPS();
+				new Handler().postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						String ret = getLocation();
+						if (ret != null)
+							onJobExecuted(ret);
+						else
+							onJobExecuted("gps location is null,error may happen on native");
+					}
+				}, 2000);
+			}
+
+			Looper.loop();
+		}
+
+	}
 
 }

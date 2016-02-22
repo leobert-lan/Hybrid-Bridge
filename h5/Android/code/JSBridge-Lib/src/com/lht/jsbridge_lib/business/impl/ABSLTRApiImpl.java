@@ -17,7 +17,7 @@ import android.util.Log;
 @SuppressLint("HandlerLeak")
 public abstract class ABSLTRApiImpl extends ABSApiImpl {
 	
-	private final String TAG = "ABSLTRApiImpl";
+	protected final String TAG = "ABSLTRApiImpl";
 
 	protected void execute(LTRExecutor executor) {
 		new Thread(executor).start();

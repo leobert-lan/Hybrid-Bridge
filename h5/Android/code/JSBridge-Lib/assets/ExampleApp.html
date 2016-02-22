@@ -31,7 +31,7 @@ button {
 
 <!-- 该js文件是桥接的基础之一，请确保注册 js_api前该文件已经加载 -->
 <script type="application/javascript" charset="utf-8"
-	src="H5JSBridge_V1_0.js"></script>
+	src="H5JSBridge_1_0.js"></script>
 </head>
 <body>
 	<h1>WebViewJavascriptBridge Demo</h1>
@@ -43,21 +43,52 @@ button {
 	</div>
 
 	<li>
+		<button type="button" class="blue" onclick="testDemo()">演示demo</button>
+	</li>
+
+	<li>
 		<button type="button" class="blue" onclick="testGPS()">测试调用Native的GPS</button>
 	</li>
-	
+
 	<li>
 		<button type="button" class="blue" onclick="testErrorName()">测试非法方法</button>
 	</li>
-	
+
 	<li>
-		<button type="button" class="blue" onclick="testDemo()">演示demo</button>
-	</li>
-	<li> 
 		<button type="button" class="blue" onclick="testLTRDemo()">测试耗时任务</button>
 	</li>
 	
+	<!-- TO Be Continued -->
+
+	<li>
+		<button type="button" class="blue" onclick="testDemo()">click</button>
+	</li>
+
+	<li>
+		<button type="button" class="blue" onclick="testDemo()">Camera</button>
+	</li>
 	
+	<li>
+		<button type="button" class="blue" onclick="testDemo()">VirtualApp</button>
+	</li>
+
+	<li>
+		<button type="button" class="blue" onclick="testDemo()">login</button>
+	</li>
+
+	<li>
+		<button type="button" class="blue" onclick="testDemo()">logout</button>
+	</li>
+
+	<li>
+		<button type="button" class="blue" onclick="testDemo()">share</button>
+	</li>
+
+	<li>
+		<button type="button" class="blue" onclick="testDemo()">pay</button>
+	</li>
+
+
 
 </body>
 
@@ -96,7 +127,7 @@ button {
 		var callback = function(responseData) {
 			log('demo测试.Native返回结果：',responseData);
 		}
-		callDemo(data,callback);
+		callNativeDemo(data,callback);
 	}
 	
 	function testLTRDemo() {
@@ -109,14 +140,18 @@ button {
 </script>
 
 
-<!-- 加载js_api，实际：注册api 供Native调用 -->
-<!-- 该js的文件名命名规范由H5人员制定，JSAPI_name只是我给的一个例子 -->
+<!-- 加载API调用“库” -->
 <script type="application/javascript" charset="utf-8"
-	src="JSAPI_name.js"></script>
+	src="H5JSBridgeCamera.js"></script>
 
-<!-- 加载Native API列表 -->
 <script type="application/javascript" charset="utf-8"
-	src="NativeAPICollection.js"></script>
+	src="H5JSBridgeDemo.js"></script>
+
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeGPS.js"></script>
+
+<script type="application/javascript" charset="utf-8" src="Testtemp.js"></script>
+
 
 
 </html>

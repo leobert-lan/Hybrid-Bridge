@@ -13,7 +13,7 @@ import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 public interface API {
 	
 	interface Demo extends BridgeHandler{
-		public static String API_NAME = "NF_DEMO";
+		public static String API_NAME = "NATIVE_FUNCTION_DEMO";
 	}
 	
 	interface openFile extends BridgeHandler {
@@ -21,14 +21,14 @@ public interface API {
 	}
 	
 	interface GPSHandler extends BridgeHandler {
-		public static String API_NAME = "NF_OPENGPS";
+		public static String API_NAME = "NATIVE_FUNCTION_OPENGPS";
 	}
 	
 	interface TestLTRHandler extends BridgeHandler {
 		/**
 		 * API_NAME:耗时任务测试接口
 		 */
-		public static String API_NAME = "NF_LTDEMO";
+		public static String API_NAME = "NATIVE_FUNCTION_LTDEMO";
 	}
 	
 	

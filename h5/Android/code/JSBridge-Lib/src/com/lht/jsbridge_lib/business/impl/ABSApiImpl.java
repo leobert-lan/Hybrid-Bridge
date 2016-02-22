@@ -15,6 +15,8 @@ import com.lht.jsbridge_lib.business.API.API;
  * @version 1.0
  */
 public abstract class ABSApiImpl implements API {
+	
+	protected final String TAG = "ABSApiImpl";
 
 	protected final boolean BEAN_IS_ERROR = true;
 

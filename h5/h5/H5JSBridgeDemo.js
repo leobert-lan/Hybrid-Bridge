@@ -14,7 +14,7 @@
 setupJSBridge(function(bridge) {
 	bridge
 			.registerHandler(
-					"JF_DEMO",
+					"JS_FUNCTION_DEMO",
 					function(data, responseCallback) {
 						//data 是native 发送的数据，此处实现该JsAPI业务，得到responseData 通过回调
 						//将处理结果返回Native 注意定义好Bean
@@ -34,6 +34,6 @@ setupJSBridge(function(bridge) {
 //调用原生基本示例demo
 function callNativeDemo(data,callback) {
 	setupJSBridge(function(bridge) {
-		bridge.callHandler('NF_DEMO',data,callback);
+		bridge.callHandler('NATIVE_FUNCTION_DEMO',data,callback);
 	})
 }

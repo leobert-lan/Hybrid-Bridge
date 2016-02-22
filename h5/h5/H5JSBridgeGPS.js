@@ -30,7 +30,7 @@
 function callNativeOpenGPSAndResponseLocation(onNativeResponseCallback) {
 
 	setupJSBridge(function(bridge) {
-		bridge.callHandler('NF_OPENGPS', null, onNativeResponseCallback)
+		bridge.callHandler('NATIVE_FUNCTION_OPENGPS', null, onNativeResponseCallback)
 	})
 
 };

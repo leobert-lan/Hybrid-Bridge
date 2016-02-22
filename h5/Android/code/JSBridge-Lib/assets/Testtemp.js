@@ -24,6 +24,6 @@ function callErrorFunc() {
 
 function callLongTimeDemo(data,callback) {
 	setupJSBridge(function(bridge) {
-		bridge.callHandler('NF_LTDEMO',data,callback);
+		bridge.callHandler('NATIVE_FUNCTION_LTDEMO',data,callback);
 	})
 }

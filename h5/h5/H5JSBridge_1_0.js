@@ -50,15 +50,6 @@ setupJSBridge(function(bridge) {
               })
 
 
-//fct
-//function toNativOnclick() {
-//    alert("点击触发");
-//    setupJSBridge(function(bridge) {
-//                  bridge.callHandler('oneClick', {'key1': 'Value1','key2': 'Value2'}, function(response) {
-//                                     //回传数据，实现方法
-//                                     })
-//                  
-//                  })
-//}
+
 
 

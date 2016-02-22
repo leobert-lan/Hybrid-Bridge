@@ -36,7 +36,7 @@
         
         self.webViewMain = [[NSClassFromString(@"WKWebView") alloc] initWithFrame:vTest1.bounds];
         self.webViewMain.navigationDelegate = self;
-        self.webViewMain.UIDelegate = self;
+//        self.webViewMain.UIDelegate = self;
         [vTest1 addSubview:self.webViewMain];
     }
     

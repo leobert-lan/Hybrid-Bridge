@@ -113,7 +113,7 @@
     [bridge registerHandler:@"NF_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"H5 调 NF_DEMO: %@",data);
         //回传给H5
-        responseCallback(@"监听回传给H5 data");
+        responseCallback(@"nv监听回传给H5 data");
     }];
     
     [bridge registerHandler:@"GPSCallback" handler:^(id data, WVJBResponseCallback responseCallback) {

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<style type='text/css'>
+		html { font-family:Helvetica; color:#222; }
+		h1 { color:steelblue; font-size:24px; margin-top:24px; }
+		button { margin:0 3px 10px; font-size:12px; }
+		.logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+	</style>
+    <script type="application/javascript" charset="utf-8" src="H5JSBridge_1_0.js"></script>
+    
+    </head>
+<body>
+	<h1>WebViewJavascriptBridge Demo</h1>
+	
+	<div id='buttons'></div>
+    <div id='log'></div>
+    
+    <li>
+        <button type="button" class="blue" onclick="toNativOnclick()">click</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="toNativGPS()">GPS</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="onclick1()">Camera</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="onclick1()">VirtualApp</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="onclick1()">login</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="onclick1()">logout</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="onclick1()">share</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="onclick1()">pay</button>
+    </li>
+</body>
+
+<script type="application/javascript" charset="utf-8" src="H5JSBridgeGPS.js"></script>
+
+</html>

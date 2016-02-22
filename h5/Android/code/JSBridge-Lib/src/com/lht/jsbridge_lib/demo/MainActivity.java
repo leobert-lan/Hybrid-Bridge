@@ -84,7 +84,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		webView.registerHandler(DemoImpl.API_NAME, new DemoImpl());
 
-		webView.registerHandler(OpenGPSImpl.API_NAME, new OpenGPSImpl());
+		webView.registerHandler(OpenGPSImpl.API_NAME, new OpenGPSImpl(MainActivity.this));
 		
 		webView.registerHandler(TestLTRImpl.API_NAME, new TestLTRImpl());
 

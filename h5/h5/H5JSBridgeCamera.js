@@ -29,6 +29,6 @@
 function callNativeOpenCamera(data,onResponseCallback) {
 //	alert("调原生camera");
 	setupJSBridge(function(bridge) {
-		bridge.callHandler('NF_OPENCAMERA', data,onResponseCallback);
+		bridge.callHandler('NATIVE_FUNCTION_OPENCAMERA', data,onResponseCallback);
 	})
 }

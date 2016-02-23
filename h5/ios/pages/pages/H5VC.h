@@ -13,4 +13,7 @@
 {
     IBOutlet UIView *vTest1,*vTest2;
 }
+
+@property (nonatomic, strong) WKWebView* webView2;
+@property (nonatomic,strong) WKWebViewJavascriptBridge* bridge2;
 @end

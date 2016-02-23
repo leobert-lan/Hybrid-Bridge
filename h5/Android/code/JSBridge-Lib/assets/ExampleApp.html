@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport"
-	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" charset="utf-8">
 <style type='text/css'>
 html {
 	font-family: Helvetica;
@@ -57,10 +57,11 @@ button {
 	<li>
 		<button type="button" class="blue" onclick="testLTRDemo()">测试耗时任务</button>
 	</li>
-	
+
 	<li>
 		<button type="button" class="blue" onclick="testCallDemo()">Call-Call-Call</button>
 	</li>
+	
 	<li>
 		<button type="button" class="blue" onclick="testCopyDemo()">Copy-Copy-Copy</button>
 	</li>
@@ -73,7 +74,7 @@ button {
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">Camera</button>
 	</li>
-	
+
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">VirtualApp</button>
 	</li>
@@ -98,7 +99,7 @@ button {
 
 </body>
 
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8">
 	var uniqueId = 1
 	//打印Log到页面 
 	function log(message, data) {
@@ -143,22 +144,22 @@ button {
 		}
 		callLongTimeDemo(data,callback);
 	}
+	
 	function testCallDemo(){
 		var data = {'telphone':'18332561383'};
 		var callback = function(responseData) {
-			log('demo测试.Native返回结果：',responseData);
+			log('telphone number',responseData);
 		}
 		callNativeCallDemo(data,callback);
 	}
 	function testCopyDemo(){
 		var data = {'content':'18332561383'};
 		var callback = function(responseData) {
-			log('demo测试.Native返回结果：',responseData);
+			log('your copy to clipboard',responseData);
 		}
 		callNativeCopyDemo(data,callback);
 	}
 </script>
-
 
 <!-- 加载API调用“库” -->
 <script type="application/javascript" charset="utf-8"
@@ -172,8 +173,10 @@ button {
 
 <script type="application/javascript" charset="utf-8" src="Testtemp.js"></script>
 
-<script type="application/javascript" charset="utf-8" src="H5JSBridgeCall.js"></script>
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeCall.js"></script>
 
-<script type="application/javascript" charset="utf-8" src="H5JSBridgeCopyClipboard.js"></script>
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeCopyToClipboard.js"></script>
 
 </html>

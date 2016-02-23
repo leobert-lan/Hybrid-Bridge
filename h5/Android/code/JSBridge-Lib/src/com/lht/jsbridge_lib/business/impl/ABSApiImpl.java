@@ -1,5 +1,6 @@
 package com.lht.jsbridge_lib.business.impl;
 
+import com.lht.jsbridge_lib.BuildConfig;
 import com.lht.jsbridge_lib.business.API.API;
 
 /**
@@ -35,5 +36,12 @@ public abstract class ABSApiImpl implements API {
 	// you should modify a interface and a interface-set function,
 	// the instance of interface should be initializes by presenter or
 	// controller,function should be implemented to update view
+	
+	protected void Log(String msg) {
+		if (BuildConfig.DEBUG) {
+			android.util.Log.d(TAG, msg);
+		}
+		
+	}
 
 }

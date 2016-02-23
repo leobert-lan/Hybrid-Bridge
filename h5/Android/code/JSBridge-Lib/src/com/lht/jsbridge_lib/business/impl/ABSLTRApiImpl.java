@@ -1,5 +1,7 @@
 package com.lht.jsbridge_lib.business.impl;
 
+import com.lht.jsbridge_lib.BuildConfig;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,10 +31,10 @@ public abstract class ABSLTRApiImpl extends ABSApiImpl {
 
 	public abstract class LTRExecutor implements Runnable ,OnLTRJobExecuted{
 		
-		protected final LTRHandler mhHandler;
+		protected final LTRHandler mHandler;
 
 		public LTRExecutor(LTRHandler h) {
-			this.mhHandler = h;
+			this.mHandler = h;
 		}
 		
 		public void onJobExecuted(String data) {
@@ -44,7 +46,7 @@ public abstract class ABSLTRApiImpl extends ABSApiImpl {
 			Message message = new Message();
 			message.what = LTRHandler.MSG_JOBEXECUTED;
 			message.setData(b);
-			mhHandler.sendMessage(message);
+			mHandler.sendMessage(message);
 		}
 
 	}
@@ -60,7 +62,7 @@ public abstract class ABSLTRApiImpl extends ABSApiImpl {
 			// TODO Auto-generated method stub
 			super.handleMessage(msg);
 			if (msg.what == MSG_JOBEXECUTED) {
-				Log.d(TAG, "main get message,execute and do callback");
+				Log("main get message,execute and do callback");
 				onJobExecuted(msg.getData().getString(KEY_DATA));
 			}
 		}
@@ -69,6 +71,12 @@ public abstract class ABSLTRApiImpl extends ABSApiImpl {
 	
 	interface OnLTRJobExecuted {
 		void onJobExecuted(String data);
+	}
+	
+	public void Log(String msg) {
+		if (BuildConfig.DEBUG) {
+			android.util.Log.d(TAG, msg);
+		}
 	}
 
 }

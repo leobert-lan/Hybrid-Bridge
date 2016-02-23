@@ -1,22 +1,18 @@
 package com.lht.jsbridge_lib.business.impl;
 
 import android.annotation.SuppressLint;
-import android.app.PendingIntent;
-import android.app.PendingIntent.CanceledException;
 import android.content.Context;
-import android.content.Intent;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
+import android.os.Message;
 
 import com.alibaba.fastjson.JSON;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
+import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.GPSResponseBean;
 
 /**
@@ -29,13 +25,12 @@ import com.lht.jsbridge_lib.business.bean.GPSResponseBean;
  */
 public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 
-	private LocationManager locationManager;
-
 	private final Context mContext;
 
-	private GPSResponseBean gpsResponseBean;
-
 	private CallBackFunction mFunction;
+
+	public LocationClient mLocationClient = null;
+	public MyLocationListener myListener = new MyLocationListenerImpl();
 
 	public OpenGPSImpl(Context ctx) {
 		this.mContext = ctx;
@@ -44,7 +39,6 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 	@SuppressLint("DefaultLocale")
 	@Override
 	public void handler(String data, CallBackFunction function) {
-		gpsResponseBean = new GPSResponseBean();
 		mFunction = function;
 		execute(getLTRExecutor());
 	}
@@ -54,57 +48,14 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 		return BEAN_IS_CORRECT;
 	}
 
-	private void toggleGPS() {
-		Intent gpsIntent = new Intent();
-		gpsIntent.setClassName("com.android.settings",
-				"com.android.settings.widget.SettingsAppWidgetProvider");
-		gpsIntent.addCategory("android.intent.category.ALTERNATIVE");
-		gpsIntent.setData(Uri.parse("custom:3"));
-		try {
-			Log.d(TAG, "call open");
-			PendingIntent.getBroadcast(mContext, 0, gpsIntent, 0).send();
-		} catch (CanceledException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private String getLocation() {
-		Location location = locationManager
-				.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-		if (location != null) {
-			gpsResponseBean.setLatitude(String.valueOf(location.getLatitude()));
-			gpsResponseBean
-					.setLongitude(String.valueOf(location.getLongitude()));
-			return JSON.toJSONString(gpsResponseBean);
-		} else {
-			locationManager.requestLocationUpdates(
-					LocationManager.GPS_PROVIDER, 1000, 0, locationListener);
-			return null;
-		}
-	}
-
-	LocationListener locationListener = new LocationListener() {
-
-		public void onLocationChanged(Location location) {
-		}
-
-		public void onStatusChanged(String provider, int status, Bundle extras) {
-		}
-
-		public void onProviderEnabled(String provider) {
-		}
-
-		public void onProviderDisabled(String provider) {
-			Log.i(TAG, "gps disabled");
-		}
-	};
-
 	@Override
 	protected LTRHandler getLTRHandler() {
 		return new LTRHandler() {
 
 			@Override
 			public void onJobExecuted(String data) {
+				Log("try callback"+data);
+				
 				mFunction.onCallBack(data);
 			}
 
@@ -121,49 +72,79 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 		public GPSExecutor(LTRHandler h) {
 			super(h);
 		}
-
+		
 		@Override
 		public void run() {
 			Looper.prepare();
-			locationManager = (LocationManager) mContext
-					.getSystemService(Context.LOCATION_SERVICE);
-			if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-				String ret = getLocation();
-				if (ret != null)
-					onJobExecuted(ret);
-				else {
-					Log.d(TAG, "gps location is null");
-					new Handler().postDelayed(new Runnable() {
-						@Override
-						public void run() {
-							String ret = getLocation();
-							if (ret != null)
-								onJobExecuted(ret);
-							else
-								onJobExecuted("gps location is null,error may happen on native");
-						}
-					}, 2000);
-				}
+			mLocationClient = new LocationClient(mContext);
+			myListener.setLTRHandler(this.mHandler);
+			mLocationClient.registerLocationListener(myListener);
 
-			} else {
-				// 打开gps并获取位置
-				Log.d(TAG, "gps not opened");
-				toggleGPS();
-				new Handler().postDelayed(new Runnable() {
-					@Override
-					public void run() {
-						String ret = getLocation();
-						if (ret != null)
-							onJobExecuted(ret);
-						else
-							onJobExecuted("gps location is null,error may happen on native");
-					}
-				}, 2000);
-			}
-
+			mLocationClient.start();
 			Looper.loop();
 		}
 
 	}
 
+	interface MyLocationListener extends BDLocationListener {
+		void setLTRHandler(LTRHandler h);
+	}
+
+	class MyLocationListenerImpl implements MyLocationListener {
+
+		private LTRHandler handler;
+
+		public void setLTRHandler(LTRHandler h) {
+			handler = h;
+		}
+
+		@Override
+		public void onReceiveLocation(BDLocation location) {
+
+			GPSResponseBean bean = new GPSResponseBean();
+			bean.setTime(location.getTime());
+			bean.setLongitude(String.valueOf(location.getLongitude()));
+			bean.setLatitude(String.valueOf(location.getLatitude()));
+			bean.setRadius(String.valueOf(location.getRadius()));
+
+			String data = JSON.toJSONString(bean);
+
+			BaseResponseBean baseResponseBean = new BaseResponseBean();
+			baseResponseBean.setData(data);
+
+			if (location.getLocType() == BDLocation.TypeGpsLocation) {
+				baseResponseBean.setRet(GPSResponseBean.RET_SUCCESS);
+				baseResponseBean.setMsg("gps定位成功");
+
+			} else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
+				baseResponseBean.setRet(GPSResponseBean.RET_SUCCESS);
+				baseResponseBean.setMsg("网络定位成功");
+			} else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
+				baseResponseBean.setRet(GPSResponseBean.RET_SUCCESS);
+				baseResponseBean.setMsg("离线定位成功");
+			} else if (location.getLocType() == BDLocation.TypeServerError) {
+				baseResponseBean.setRet(GPSResponseBean.RET_FAILURE);
+				baseResponseBean
+						.setMsg("服务端网络定位失败;");
+			} else if (location.getLocType() == BDLocation.TypeNetWorkException) {
+				baseResponseBean.setRet(GPSResponseBean.RET_FAILURE);
+				baseResponseBean.setMsg("网络不同导致定位失败，请检查网络是否通畅");
+			} else if (location.getLocType() == BDLocation.TypeCriteriaException) {
+				baseResponseBean.setRet(GPSResponseBean.RET_FAILURE);
+				baseResponseBean
+						.setMsg("无法获取有效定位依据导致定位失败，一般是由于手机的原因");
+			} else {
+				baseResponseBean.setRet(GPSResponseBean.RET_FAILURE);
+				baseResponseBean.setMsg("unknown error");
+			}
+			String response = JSON.toJSONString(baseResponseBean);
+//			Log(response);
+			Message msg = new Message();
+			msg.what = LTRHandler.MSG_JOBEXECUTED;
+			Bundle bundle = new Bundle();
+			bundle.putString(LTRHandler.KEY_DATA, response);
+			msg.setData(bundle);
+			handler.sendMessage(msg);
+		}
+	}
 }

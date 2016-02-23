@@ -49,6 +49,8 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 		}
 	}
 
+	//逻辑判断
+	
 	@Override
 	protected boolean isBeanError(Object o) {
 		

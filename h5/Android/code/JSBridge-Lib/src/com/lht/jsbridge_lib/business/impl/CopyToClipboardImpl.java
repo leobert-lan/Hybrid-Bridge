@@ -40,22 +40,35 @@ public class CopyToClipboardImpl extends ABSApiImpl implements API.CopyHandler {
 		CopyToClipboardBean copyClipboardBean = JSON.parseObject(data, CopyToClipboardBean.class);
 		boolean bool = isBeanError(copyClipboardBean);
 
+		Log.i("zhang", bool+"");
 		if (!bool) {
+			String clipBoard = copyClipboardBean.getContent();
+			ClipboardManager myClipboardManager = (ClipboardManager) mContext
+					.getSystemService(Context.CLIPBOARD_SERVICE);
+			ClipData myClip;
+			myClip = ClipData.newPlainText("text", clipBoard);
+			myClipboardManager.setPrimaryClip(myClip);			
+		}else {
 			
 		}
-		String clipBoard = copyClipboardBean.getContent();
-		ClipboardManager myClipboardManager = (ClipboardManager) mContext
-				.getSystemService(Context.CLIPBOARD_SERVICE);
-		ClipData myClip;
-		myClip = ClipData.newPlainText("text", clipBoard);
-		myClipboardManager.setPrimaryClip(myClip);
-		
 	}
 
 	@Override
 	protected boolean isBeanError(Object o) {
-		
-		return BEAN_IS_CORRECT;
+		if (o instanceof CopyToClipboardBean) {
+			CopyToClipboardBean bean = (CopyToClipboardBean) o;
+			if (TextUtils.isEmpty(bean.getContent())) {
+				Log.wtf(API_NAME,
+						"501,data error,check bean:" + JSON.toJSONString(bean));
+				return BEAN_IS_ERROR;
+			}
+			return BEAN_IS_CORRECT;
+
+		} else {
+			Log.wtf(API_NAME,
+					"check you code,bean not match because your error");
+			return BEAN_IS_ERROR;
+		}
 	}
 
 }

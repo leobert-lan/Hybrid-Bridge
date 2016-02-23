@@ -15,7 +15,7 @@
 {
     
 }
-@property (nonatomic, strong) IBOutlet WKWebView* webViewMain;
+@property (nonatomic, strong) WKWebView* webViewMain;
 @property (nonatomic,strong) WKWebViewJavascriptBridge* bridgeMain;
 
 #pragma mark - web UI

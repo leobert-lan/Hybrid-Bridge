@@ -67,14 +67,14 @@ static int logMaxLength = 500;
 
 - (void)flushMessageQueue:(NSString *)messageQueueString{
     if (messageQueueString == nil || messageQueueString.length == 0) {
-        NSLog(@"WebViewJavascriptBridge: WARNING: ObjC got nil while fetching the message queue JSON from webview. This can happen if the WebViewJavascriptBridge JS is not currently present in the webview, e.g if the webview just loaded a new page.");
+        DLog(@"WebViewJavascriptBridge: WARNING: ObjC got nil while fetching the message queue JSON from webview. This can happen if the WebViewJavascriptBridge JS is not currently present in the webview, e.g if the webview just loaded a new page.");
         return;
     }
 
     id messages = [self _deserializeMessageJSON:messageQueueString];
     for (WVJBMessage* message in messages) {
         if (![message isKindOfClass:[WVJBMessage class]]) {
-            NSLog(@"WebViewJavascriptBridge: WARNING: Invalid %@ received: %@", [message class], message);
+            DLog(@"WebViewJavascriptBridge: WARNING: Invalid %@ received: %@", [message class], message);
             continue;
         }
         [self _log:@"RCVD" json:message];
@@ -105,7 +105,7 @@ static int logMaxLength = 500;
             WVJBHandler handler = self.messageHandlers[message[@"handlerName"]];
             
             if (!handler) {
-                NSLog(@">>>Error<<< NoHandlerName:%@, for message from JS: %@",message[@"handlerName"], message);
+                DLog(@">>>Error<<< NoHandlerName:%@, for message from JS: %@",message[@"handlerName"], message);
                 continue;
             }
             
@@ -147,7 +147,7 @@ static int logMaxLength = 500;
 }
 
 -(void)logUnkownMessage:(NSURL*)url {
-    NSLog(@"WebViewJavascriptBridge: WARNING: Received unknown WebViewJavascriptBridge command %@://%@", kCustomProtocolScheme, [url path]);
+    DLog(@"WebViewJavascriptBridge: WARNING: Received unknown WebViewJavascriptBridge command %@://%@", kCustomProtocolScheme, [url path]);
 }
 
 -(NSString *)webViewJavascriptCheckCommand {
@@ -210,9 +210,9 @@ static int logMaxLength = 500;
         json = [self _serializeMessage:json pretty:YES];
     }
     if ([json length] > logMaxLength) {
-        NSLog(@"WVJB %@: %@ [...]", action, [json substringToIndex:logMaxLength]);
+        DLog(@"WVJB %@: %@ [...]", action, [json substringToIndex:logMaxLength]);
     } else {
-        NSLog(@"WVJB %@: %@", action, json);
+        DLog(@"WVJB %@: %@", action, json);
     }
 }
 

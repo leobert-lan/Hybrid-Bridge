@@ -47,17 +47,16 @@
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    NSLog(@">>>web didFailNavigation:%@",error.description);
+    DLog(@">>>web didFailNavigation:%@",error.description);
 }
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
-    NSLog(@">>>web didFailProvisionalNavigation:%@",error.description);
+    DLog(@">>>web didFailProvisionalNavigation:%@",error.description);
 }
 
 #pragma mark - WKUIDelegate
 //alert弹出框
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
-    NSLog(@"JS:%@ msg:%@",webView.title,message);
     UIAlertController *alt = [UIAlertController alertControllerWithTitle:webView.title message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();
@@ -88,25 +87,17 @@
 - (void)WebUIInit{
     
 }
-//- (void)callHandler:(id)sender {
-//    id data = @{ @"greetingFromObjC": @"Hi there, JS!" };
-//    [self.bridgeMain callHandler:@"testJavascriptHandler" data:data responseCallback:^(id response) {
-//        NSLog(@"testJavascriptHandler responded: %@", response);
-//    }];
-//}
+
 
 #pragma mark - 添加监听 
 - (void)listener:(WKWebViewJavascriptBridge*)bridge{
+    /*
     [bridge registerHandler:@"oneClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"H5 调 oneClick: %@",data);
         //回传给H5
-        
-    }];
-    
-    [bridge registerHandler:@"GPSCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 GPS: %@",data);
-        //回传给H5
         responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
     }];
+    */
+   
 }
 @end

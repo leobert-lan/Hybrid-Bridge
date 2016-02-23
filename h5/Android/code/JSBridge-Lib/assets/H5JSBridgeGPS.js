@@ -28,9 +28,7 @@
 
 //调原生GPS定位信息
 function callNativeOpenGPSAndResponseLocation(onNativeResponseCallback) {
-
 	setupJSBridge(function(bridge) {
 		bridge.callHandler('NATIVE_FUNCTION_OPENGPS', null, onNativeResponseCallback)
 	})
-
 };

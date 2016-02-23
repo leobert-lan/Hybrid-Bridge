@@ -146,14 +146,14 @@ button {
 	function testCallDemo(){
 		var data = {'telphone':'18332561383'};
 		var callback = function(responseData) {
-			log('demo测试.Native返回结果：',responseData);
+			log('telphone number',responseData);
 		}
 		callNativeCallDemo(data,callback);
 	}
 	function testCopyDemo(){
 		var data = {'content':'18332561383'};
 		var callback = function(responseData) {
-			log('demo测试.Native返回结果：',responseData);
+			log('your copy to clipboard'',responseData);
 		}
 		callNativeCopyDemo(data,callback);
 	}

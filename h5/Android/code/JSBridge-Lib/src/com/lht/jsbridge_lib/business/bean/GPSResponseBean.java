@@ -3,7 +3,7 @@ package com.lht.jsbridge_lib.business.bean;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import android.annotation.SuppressLint;
 import com.lht.jsbridge_lib.business.API.NativeRet;
 
 /**
@@ -68,6 +68,7 @@ public class GPSResponseBean implements NativeRet.NativeGpsRet {
 		this.radius = radius;
 	}
 
+	@SuppressLint("SimpleDateFormat")
 	private static String transferStringDateT2Stamp(String formatDate, String date) {
 		SimpleDateFormat sdf = new SimpleDateFormat(formatDate);
 		Date dt;

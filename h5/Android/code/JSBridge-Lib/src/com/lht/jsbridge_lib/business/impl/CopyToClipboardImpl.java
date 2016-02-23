@@ -11,7 +11,9 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
+import com.lht.jsbridge_lib.business.API.NativeRet;
 import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
+import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
 import com.lht.jsbridge_lib.business.bean.DemoBean;
 import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
@@ -47,8 +49,13 @@ public class CopyToClipboardImpl extends ABSApiImpl implements API.CopyHandler {
 					.getSystemService(Context.CLIPBOARD_SERVICE);
 			ClipData myClip;
 			myClip = ClipData.newPlainText("text", clipBoard);
-			myClipboardManager.setPrimaryClip(myClip);		
-			mFunction.onCallBack(CopyHandler.API_NAME);
+			myClipboardManager.setPrimaryClip(myClip);	
+			
+			BaseResponseBean bean = new BaseResponseBean();
+			bean.setRet(NativeRet.NativeCopyToClipBorad.RET_SUCCESS);
+			bean.setMsg("OK");
+			bean.setData("");
+			mFunction.onCallBack(JSON.toJSONString(bean));
 		}else {
 			
 		}

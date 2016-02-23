@@ -23,4 +23,7 @@ public interface NativeRet {
 		public int RET_FAILURE_PERMISSION = 26001; 
 	}
 
+	interface NativeCopyToClipBorad extends NativeRet {
+		public int RET_FAILURE = 21000;
+	}
 }

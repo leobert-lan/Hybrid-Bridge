@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport"
-	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" charset="utf-8">
 <style type='text/css'>
 html {
 	font-family: Helvetica;
@@ -61,6 +61,7 @@ button {
 	<li>
 		<button type="button" class="blue" onclick="testCallDemo()">Call-Call-Call</button>
 	</li>
+	
 	<li>
 		<button type="button" class="blue" onclick="testCopyDemo()">Copy-Copy-Copy</button>
 	</li>
@@ -98,7 +99,7 @@ button {
 
 </body>
 
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8">
 	var uniqueId = 1
 	//打印Log到页面 
 	function log(message, data) {
@@ -143,6 +144,7 @@ button {
 		}
 		callLongTimeDemo(data,callback);
 	}
+	
 	function testCallDemo(){
 		var data = {'telphone':'18332561383'};
 		var callback = function(responseData) {
@@ -153,7 +155,7 @@ button {
 	function testCopyDemo(){
 		var data = {'content':'18332561383'};
 		var callback = function(responseData) {
-			log('your copy to clipboard'',responseData);
+			log('your copy to clipboard',responseData);
 		}
 		callNativeCopyDemo(data,callback);
 	}

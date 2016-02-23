@@ -49,30 +49,18 @@
         self.webViewMain.navigationDelegate = self;
         self.webViewMain.UIDelegate = self;
         [vTest1 addSubview:self.webViewMain];
-        
-        
-     
-        
     }
     
     
     
-//    [self.bridgeMain callHandler:@"testJavascriptHandler" data:@{ @"foo":@"before ready" }];
+//    [self.bridgeMain callHandler:@"toH5" data:@{ @"auth":@"USER_ID_AND_TOKEN" }];
     
     [self loadExamplePage:self.webViewMain];
-    
-//    [self renderButtons];
+
 }
 
-- (void)renderButtons {
+- (void)reload {
     UIFont* font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
-    
-    UIButton *callbackButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [callbackButton setTitle:@"Call handler" forState:UIControlStateNormal];
-    [callbackButton addTarget:self action:@selector(sendAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:callbackButton];
-    callbackButton.frame = CGRectMake(10, 400, 100, 35);
-    callbackButton.titleLabel.font = font;
     
     UIButton* reloadButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [reloadButton setTitle:@"Reload webview" forState:UIControlStateNormal];
@@ -91,19 +79,12 @@
     dd[@"data"]=[NSDictionary dictionaryWithObjectsAndKeys:@"value",@"key1", nil];
     NSString *key=@"JS_FUNCTION_DEMO";
     [self.bridgeMain callHandler:key data:dd responseCallback:^(id response) {
-        NSLog(@">>>%@: %@",key, response);
+        DLog(@">>>%@: %@",key, response);
     }];
     
 //    [self send2Action:nil];
 }
 
-- (void)send2Action:(id)sender {
-    id data = @{ @"user": @"严庆扬" };
-    NSString *key=@"authH5Handler";
-    [self.bridgeMain callHandler:key data:data responseCallback:^(id response) {
-        NSLog(@">>>%@: %@",key, response);
-    }];
-}
 
 - (void)loadExamplePage:(WKWebView*)webView {
     NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
@@ -123,13 +104,13 @@
     [super listener:bridge];
     
     [bridge registerHandler:@"NATIVE_FUNCTION_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
+        DLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
         //回传给H5
         responseCallback(@"nv监听回传给H5 data");
     }];
     
     [bridge registerHandler:@"GPSCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 GPS: %@",data);
+        DLog(@"H5 调 GPS: %@",data);
         //回传给H5
         responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
     }];

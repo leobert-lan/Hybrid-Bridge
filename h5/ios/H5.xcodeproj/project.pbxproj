@@ -407,6 +407,10 @@
 		A306E1A31C7C335300C111CC /* H5VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H5VC.h; sourceTree = "<group>"; };
 		A306E1A41C7C335300C111CC /* H5VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H5VC.m; sourceTree = "<group>"; };
 		A306E1A51C7C335300C111CC /* H5VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = H5VC.xib; sourceTree = "<group>"; };
+		A306E1B01C7C341400C111CC /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		A306E1B11C7C341400C111CC /* API_DEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_DEV.h; sourceTree = "<group>"; };
+		A306E1B21C7C341400C111CC /* RConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RConstant.h; sourceTree = "<group>"; };
+		A306E1B31C7C341400C111CC /* RCSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSS.h; sourceTree = "<group>"; };
 		A33B10BB1C64327D003C6A65 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A347FF871C61C2BD00F402A7 /* H5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = H5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A347FF8B1C61C2BD00F402A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1004,6 +1008,7 @@
 		A306E19D1C7C32B500C111CC /* views */ = {
 			isa = PBXGroup;
 			children = (
+				A306E1AF1C7C341400C111CC /* config */,
 				A306E1A21C7C335300C111CC /* pages */,
 				A306E19E1C7C32B500C111CC /* BaseWeb */,
 			);
@@ -1028,6 +1033,17 @@
 				A306E1A51C7C335300C111CC /* H5VC.xib */,
 			);
 			path = pages;
+			sourceTree = "<group>";
+		};
+		A306E1AF1C7C341400C111CC /* config */ = {
+			isa = PBXGroup;
+			children = (
+				A306E1B01C7C341400C111CC /* API.h */,
+				A306E1B11C7C341400C111CC /* API_DEV.h */,
+				A306E1B21C7C341400C111CC /* RConstant.h */,
+				A306E1B31C7C341400C111CC /* RCSS.h */,
+			);
+			path = config;
 			sourceTree = "<group>";
 		};
 		A33B10B31C642A8C003C6A65 /* example */ = {

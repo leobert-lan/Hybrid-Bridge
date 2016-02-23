@@ -1,5 +1,7 @@
 package com.lht.jsbridge_lib.business.impl;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +11,7 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
+import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
 import com.lht.jsbridge_lib.business.bean.DemoBean;
 import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
 
@@ -20,13 +23,13 @@ import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
+public class CopyToClipboardImpl extends ABSApiImpl implements API.CopyHandler {
 
 	private final Context mContext;
 
 	private CallBackFunction mFunction;
 
-	public CallTelImpl(Context mContext) {
+	public CopyToClipboardImpl(Context mContext) {
 		this.mContext = mContext;
 	}
 
@@ -34,23 +37,21 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 	public void handler(String data, CallBackFunction function) {
 		mFunction = function;
 
-		PhoneNumBean phoneNumBean = JSON.parseObject(data, PhoneNumBean.class);
-		
-		boolean bool = isBeanError(phoneNumBean);
-		if (!bool) {			
-			String number = phoneNumBean.getTelphone();
-			Intent intent = new Intent();
-			intent.setAction(Intent.ACTION_DIAL);
-			intent.setData(Uri.parse("tel:" + number));
-			mContext.startActivity(intent);
-			mFunction.onCallBack(CallTelHandler.API_NAME);
-		}else{
+		CopyToClipboardBean copyClipboardBean = JSON.parseObject(data, CopyToClipboardBean.class);
+		boolean bool = isBeanError(copyClipboardBean);
+
+		if (!bool) {
 			
 		}
+		String clipBoard = copyClipboardBean.getContent();
+		ClipboardManager myClipboardManager = (ClipboardManager) mContext
+				.getSystemService(Context.CLIPBOARD_SERVICE);
+		ClipData myClip;
+		myClip = ClipData.newPlainText("text", clipBoard);
+		myClipboardManager.setPrimaryClip(myClip);
+		
 	}
 
-	//逻辑判断
-	
 	@Override
 	protected boolean isBeanError(Object o) {
 		

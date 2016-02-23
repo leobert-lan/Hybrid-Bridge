@@ -9,6 +9,8 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
+import com.lht.jsbridge_lib.business.API.NativeRet;
+import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.DemoBean;
 import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
 
@@ -43,12 +45,19 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 			intent.setAction(Intent.ACTION_DIAL);
 			intent.setData(Uri.parse("tel:" + number));
 			mContext.startActivity(intent);
-			mFunction.onCallBack(CallTelHandler.API_NAME);
+			BaseResponseBean bean = new BaseResponseBean();
+			bean.setRet(NativeRet.NativeCallTelRet.RET_SUCCESS);
+			bean.setMsg("hehehe");
+			bean.setData("");
+			
+			mFunction.onCallBack(JSON.toJSONString(bean));
 		}else{
 			
 		}
 	}
 
+	//逻辑判断
+	
 	@Override
 	protected boolean isBeanError(Object o) {
 		

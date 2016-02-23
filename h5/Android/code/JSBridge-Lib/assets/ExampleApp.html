@@ -61,6 +61,9 @@ button {
 	<li>
 		<button type="button" class="blue" onclick="testCallDemo()">Call-Call-Call</button>
 	</li>
+	<li>
+		<button type="button" class="blue" onclick="testCopyDemo()">Copy-Copy-Copy</button>
+	</li>
 	<!-- TO Be Continued -->
 
 	<li>
@@ -147,6 +150,13 @@ button {
 		}
 		callNativeCallDemo(data,callback);
 	}
+	function testCopyDemo(){
+		var data = {'content':'18332561383'};
+		var callback = function(responseData) {
+			log('demo测试.Native返回结果：',responseData);
+		}
+		callNativeCopyDemo(data,callback);
+	}
 </script>
 
 
@@ -163,5 +173,7 @@ button {
 <script type="application/javascript" charset="utf-8" src="Testtemp.js"></script>
 
 <script type="application/javascript" charset="utf-8" src="H5JSBridgeCall.js"></script>
+
+<script type="application/javascript" charset="utf-8" src="H5JSBridgeCopyClipboard.js"></script>
 
 </html>

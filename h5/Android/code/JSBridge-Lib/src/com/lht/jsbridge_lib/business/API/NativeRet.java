@@ -18,5 +18,9 @@ public interface NativeRet {
 		
 		//...
 	}
+	
+	interface NativeCallTelRet extends NativeRet {
+		public int RET_FAILURE_PERMISSION = 26001; 
+	}
 
 }

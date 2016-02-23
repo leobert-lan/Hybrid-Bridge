@@ -47,17 +47,16 @@
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    NSLog(@">>>web didFailNavigation:%@",error.description);
+    DLog(@">>>web didFailNavigation:%@",error.description);
 }
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
-    NSLog(@">>>web didFailProvisionalNavigation:%@",error.description);
+    DLog(@">>>web didFailProvisionalNavigation:%@",error.description);
 }
 
 #pragma mark - WKUIDelegate
 //alert弹出框
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
-    NSLog(@"JS:%@ msg:%@",webView.title,message);
     UIAlertController *alt = [UIAlertController alertControllerWithTitle:webView.title message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();

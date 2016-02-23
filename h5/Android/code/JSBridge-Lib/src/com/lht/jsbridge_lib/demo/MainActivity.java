@@ -14,6 +14,8 @@ import com.lht.jsbridge_lib.DefaultHandler;
 import com.lht.jsbridge_lib.R;
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
+import com.lht.jsbridge_lib.business.impl.CallTelImpl;
+import com.lht.jsbridge_lib.business.impl.CopyToClipboardImpl;
 import com.lht.jsbridge_lib.business.impl.DemoImpl;
 import com.lht.jsbridge_lib.business.impl.OpenGPSImpl;
 import com.lht.jsbridge_lib.business.impl.TestLTRImpl;
@@ -88,6 +90,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		webView.registerHandler(TestLTRImpl.API_NAME, new TestLTRImpl());
 
+		webView.registerHandler(CallTelImpl.API_NAME, new CallTelImpl(MainActivity.this));
+		
+		webView.registerHandler(CopyToClipboardImpl.API_NAME, new CopyToClipboardImpl(MainActivity.this));
+		
 		testCallJs();
 	}
 

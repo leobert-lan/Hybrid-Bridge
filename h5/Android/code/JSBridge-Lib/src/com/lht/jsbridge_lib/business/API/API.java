@@ -31,6 +31,13 @@ public interface API {
 		public static String API_NAME = "NATIVE_FUNCTION_LTDEMO";
 	}
 	
+	interface CallTelHandler extends BridgeHandler {
+		
+		public static String API_NAME = "NATIVE_FUNCTION_CALLTEL";
+	}
 	
+	interface CopyHandler extends BridgeHandler {
+		public static String API_NAME = "NATIVE_FUNCTION_SENDTOCLIPBOARD";
+	}
 
 }

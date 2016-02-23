@@ -44,16 +44,45 @@
 
 
 
+#pragma mark - WKNavigationDelegate
 
-
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"webViewDidStartLoad");
+- (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@">>>web didFailNavigation:%@",error.description);
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"webViewDidFinishLoad");
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
+    NSLog(@">>>web didFailProvisionalNavigation:%@",error.description);
 }
 
+#pragma mark - WKUIDelegate
+//alert弹出框
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
+    NSLog(@"JS:%@ msg:%@",webView.title,message);
+    UIAlertController *alt = [UIAlertController alertControllerWithTitle:webView.title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }];
+    [alt addAction:ok];
+    [self presentViewController:alt animated:YES completion:nil];
+    
+}
+
+///
+ //Confirm弹出框
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler{
+    UIAlertController *alt = [UIAlertController alertControllerWithTitle:webView.title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(true);
+    }];
+    [alt addAction:ok];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(false);
+    }];
+    [alt addAction:cancel];
+    [self presentViewController:alt animated:YES completion:nil];
+}
+//*/
 #pragma mark - web UI
 
 - (void)WebUIInit{

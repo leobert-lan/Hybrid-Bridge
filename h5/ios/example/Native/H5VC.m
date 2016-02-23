@@ -34,31 +34,28 @@
     if (self.webViewMain == nil) {
 
         
-        self.webViewMain = [[NSClassFromString(@"WKWebView") alloc] initWithFrame:vTest1.bounds];
+//        self.webViewMain = [[NSClassFromString(@"WKWebView") alloc] initWithFrame:vTest1.bounds];
+//        WKWebViewConfiguration *configuretion=[[WKWebViewConfiguration alloc]init];
+//        // Webview的偏好设置
+//        configuretion.preferences = [WKPreferences new];
+//        configuretion.preferences.minimumFontSize = 10;
+//        configuretion.preferences.javaScriptEnabled = true;
+//        // 默认是不能通过JS自动打开窗口的，必须通过用户交互才能打开
+//        configuretion.preferences.javaScriptCanOpenWindowsAutomatically = YES;
+//        self.webViewMain = [[WKWebView alloc]initWithFrame:vTest1.bounds configuration:configuretion];
+    
+        self.webViewMain = [[WKWebView alloc]init];
+        self.webViewMain.frame=vTest1.bounds;
         self.webViewMain.navigationDelegate = self;
+        self.webViewMain.UIDelegate = self;
         [vTest1 addSubview:self.webViewMain];
+        
+        
+     
+        
     }
     
-    //监听H5方法
-    //oneClick
-    [self.bridgeMain registerHandler:@"oneClick" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 oneClick: %@",data);
-        //回传给H5
-        
-    }];
     
-    [self.bridgeMain registerHandler:@"GPSCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 GPS: %@",data);
-        //回传给H5
-        responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
-    }];
-    
-    //NF_OPENGPS
-    [self.bridgeMain registerHandler:@"NF_OPENGPS" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 NF_OPENGPS: %@",data);
-        //回传给H5
-//        responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
-    }];
     
 //    [self.bridgeMain callHandler:@"testJavascriptHandler" data:@{ @"foo":@"before ready" }];
     
@@ -87,13 +84,13 @@
 
 - (void)sendAction:(id)sender {
     //调H5方法
-    id data = @{ @"key1": @"数据内容" };
-    NSString *key=@"testJavascriptHandler";
+    id data = @{ @"key1": @"严庆扬.数据内容" };
+    NSString *key=@"JS_FUNCTION_DEMO";
     [self.bridgeMain callHandler:key data:data responseCallback:^(id response) {
         NSLog(@">>>%@: %@",key, response);
     }];
     
-    [self send2Action:nil];
+//    [self send2Action:nil];
 }
 
 - (void)send2Action:(id)sender {
@@ -105,13 +102,6 @@
 }
 
 - (void)loadExamplePage:(WKWebView*)webView {
-//    NSString *path = [[NSBundle mainBundle] bundlePath];
-//    NSURL *baseURL = [NSURL fileURLWithPath:path];
-//    NSString * htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp"
-//                                                          ofType:@"html"];
-//    NSString * htmlCont = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-//    [webView loadHTMLString:htmlCont baseURL:baseURL];
-    
     NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
     NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
     NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
@@ -126,10 +116,12 @@
 
 #pragma mark - 添加监听
 - (void)listener:(WKWebViewJavascriptBridge*)bridge{
-    [bridge registerHandler:@"oneClick" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 oneClick: %@",data);
+    [super listener:bridge];
+    
+    [bridge registerHandler:@"NATIVE_FUNCTION_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
         //回传给H5
-        
+        responseCallback(@"nv监听回传给H5 data");
     }];
     
     [bridge registerHandler:@"GPSCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
@@ -138,4 +130,6 @@
         responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
     }];
 }
+
+
 @end

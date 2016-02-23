@@ -10,6 +10,10 @@
 		A306DFFB1C7ACCED00C111CC /* ExampleApp.html in Resources */ = {isa = PBXBuildFile; fileRef = A306DFF81C7ACCED00C111CC /* ExampleApp.html */; };
 		A306DFFC1C7ACCED00C111CC /* H5JSBridge_1_0.js in Resources */ = {isa = PBXBuildFile; fileRef = A306DFF91C7ACCED00C111CC /* H5JSBridge_1_0.js */; };
 		A306DFFD1C7ACCED00C111CC /* H5JSBridgeGPS.js in Resources */ = {isa = PBXBuildFile; fileRef = A306DFFA1C7ACCED00C111CC /* H5JSBridgeGPS.js */; };
+		A306E0001C7ACE8600C111CC /* H5JSBridgeCamera.js in Resources */ = {isa = PBXBuildFile; fileRef = A306DFFE1C7ACE8600C111CC /* H5JSBridgeCamera.js */; };
+		A306E0011C7ACE8600C111CC /* H5JSBridgeDatabase.js in Resources */ = {isa = PBXBuildFile; fileRef = A306DFFF1C7ACE8600C111CC /* H5JSBridgeDatabase.js */; };
+		A306E0031C7AE00200C111CC /* H5JSBridgeDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = A306E0021C7AE00200C111CC /* H5JSBridgeDemo.js */; };
+		A306E0051C7AE01500C111CC /* Testtemp.js in Resources */ = {isa = PBXBuildFile; fileRef = A306E0041C7AE01500C111CC /* Testtemp.js */; };
 		A33B10BA1C642A8C003C6A65 /* H5VC.m in Sources */ = {isa = PBXBuildFile; fileRef = A33B10B81C642A8C003C6A65 /* H5VC.m */; };
 		A33B10BC1C64327D003C6A65 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33B10BB1C64327D003C6A65 /* WebKit.framework */; };
 		A33B10C71C643E83003C6A65 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A33B10C01C643E83003C6A65 /* WebViewJavascriptBridge.m */; };
@@ -30,6 +34,10 @@
 		A306DFF81C7ACCED00C111CC /* ExampleApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ExampleApp.html; sourceTree = "<group>"; };
 		A306DFF91C7ACCED00C111CC /* H5JSBridge_1_0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridge_1_0.js; sourceTree = "<group>"; };
 		A306DFFA1C7ACCED00C111CC /* H5JSBridgeGPS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeGPS.js; sourceTree = "<group>"; };
+		A306DFFE1C7ACE8600C111CC /* H5JSBridgeCamera.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeCamera.js; sourceTree = "<group>"; };
+		A306DFFF1C7ACE8600C111CC /* H5JSBridgeDatabase.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeDatabase.js; sourceTree = "<group>"; };
+		A306E0021C7AE00200C111CC /* H5JSBridgeDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeDemo.js; sourceTree = "<group>"; };
+		A306E0041C7AE01500C111CC /* Testtemp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Testtemp.js; sourceTree = "<group>"; };
 		A33B10B71C642A8C003C6A65 /* H5VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H5VC.h; sourceTree = "<group>"; };
 		A33B10B81C642A8C003C6A65 /* H5VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H5VC.m; sourceTree = "<group>"; };
 		A33B10BB1C64327D003C6A65 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -72,7 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				A306DFF81C7ACCED00C111CC /* ExampleApp.html */,
+				A306E0041C7AE01500C111CC /* Testtemp.js */,
 				A306DFF91C7ACCED00C111CC /* H5JSBridge_1_0.js */,
+				A306E0021C7AE00200C111CC /* H5JSBridgeDemo.js */,
+				A306DFFE1C7ACE8600C111CC /* H5JSBridgeCamera.js */,
+				A306DFFF1C7ACE8600C111CC /* H5JSBridgeDatabase.js */,
 				A306DFFA1C7ACCED00C111CC /* H5JSBridgeGPS.js */,
 			);
 			name = h5;
@@ -232,12 +244,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A306E0051C7AE01500C111CC /* Testtemp.js in Resources */,
 				A306DFFC1C7ACCED00C111CC /* H5JSBridge_1_0.js in Resources */,
 				A306DFFB1C7ACCED00C111CC /* ExampleApp.html in Resources */,
+				A306E0031C7AE00200C111CC /* H5JSBridgeDemo.js in Resources */,
+				A306E0011C7ACE8600C111CC /* H5JSBridgeDatabase.js in Resources */,
 				A347FF9A1C61C2BD00F402A7 /* LaunchScreen.storyboard in Resources */,
 				A36895591C7418C20040B4E8 /* H5VC.xib in Resources */,
 				A347FF971C61C2BD00F402A7 /* Assets.xcassets in Resources */,
 				A306DFFD1C7ACCED00C111CC /* H5JSBridgeGPS.js in Resources */,
+				A306E0001C7ACE8600C111CC /* H5JSBridgeCamera.js in Resources */,
 				A347FF951C61C2BD00F402A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +387,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = H5/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landhightech.H5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -384,7 +400,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = H5/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landhightech.H5;
 				PRODUCT_NAME = "$(TARGET_NAME)";

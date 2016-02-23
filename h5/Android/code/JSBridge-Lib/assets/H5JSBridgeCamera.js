@@ -7,7 +7,7 @@
 //
 
 //启动监听
-//不存在Native 调用 JS GPS相关的API
+//不存在Native调用JS和相机有关的API，无注册JS API的必要
 //setupJSBridge(function(bridge) {
 //
 //	bridge.registerHandler('testJavascriptHandler', function(data,
@@ -25,12 +25,10 @@
 //
 //})
 
-
-//调原生GPS定位信息
-function callNativeOpenGPSAndResponseLocation(onNativeResponseCallback) {
-
+//调原生
+function callNativeOpenCamera(data,onResponseCallback) {
+//	alert("调原生camera");
 	setupJSBridge(function(bridge) {
-		bridge.callHandler('NATIVE_FUNCTION_OPENGPS', null, onNativeResponseCallback)
+		bridge.callHandler('NATIVE_FUNCTION_OPENCAMERA', data,onResponseCallback);
 	})
-
-};
+}

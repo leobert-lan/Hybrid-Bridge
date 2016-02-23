@@ -58,6 +58,9 @@ button {
 		<button type="button" class="blue" onclick="testLTRDemo()">测试耗时任务</button>
 	</li>
 	
+	<li>
+		<button type="button" class="blue" onclick="testCallDemo()">Call-Call-Call</button>
+	</li>
 	<!-- TO Be Continued -->
 
 	<li>
@@ -137,6 +140,13 @@ button {
 		}
 		callLongTimeDemo(data,callback);
 	}
+	function testCallDemo(){
+		var data = {'telphone':'18332561383'};
+		var callback = function(responseData) {
+			log('demo测试.Native返回结果：',responseData);
+		}
+		callNativeCallDemo(data,callback);
+	}
 </script>
 
 
@@ -152,6 +162,6 @@ button {
 
 <script type="application/javascript" charset="utf-8" src="Testtemp.js"></script>
 
-
+<script type="application/javascript" charset="utf-8" src="H5JSBridgeCall.js"></script>
 
 </html>

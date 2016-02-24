@@ -27,7 +27,7 @@ import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class GetClipboardImpl extends ABSApiImpl implements API.GetClipBoard {
+public class GetClipboardImpl extends ABSApiImpl implements API.GetClipBoardHandler {
 
 	private final Context mContext;
 
@@ -74,14 +74,13 @@ public class GetClipboardImpl extends ABSApiImpl implements API.GetClipBoard {
 			GetClipboardBean bean = (GetClipboardBean) o;
 			if (TextUtils.isEmpty(bean.getContent())) {
 				Log.wtf(API_NAME,
-						"501,data error,check bean:" + JSON.toJSONString(bean));
+						"20000:data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;
 			}
 			return BEAN_IS_CORRECT;
-
 		} else {
 			Log.wtf(API_NAME,
-					"check you code,bean not match because your error");
+					"42000:check you code,bean not match because your error");
 			return BEAN_IS_ERROR;
 		}
 	}

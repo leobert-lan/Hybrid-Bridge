@@ -27,7 +27,7 @@ import com.lht.jsbridge_lib.business.bean.SendMessageBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class SendMessageImpl extends ABSApiImpl implements API.SendMessage {
+public class SendMessageImpl extends ABSApiImpl implements API.SendMessageHandler {
 
 	private final Context mContext;
 
@@ -69,11 +69,15 @@ public class SendMessageImpl extends ABSApiImpl implements API.SendMessage {
 			SendMessageBean bean = (SendMessageBean) o;
 			if (TextUtils.isEmpty(bean.getContacts())) {
 				Log.wtf(API_NAME,
-						"501,data error,check bean:" + JSON.toJSONString(bean));
+						"41001,data error,check bean:" + JSON.toJSONString(bean));
+				return BEAN_IS_ERROR;
+			}
+			if (TextUtils.isEmpty(bean.getMessageContent())) {
+				Log.wtf(API_NAME,
+						"41002,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;
 			}
 			return BEAN_IS_CORRECT;
-
 		} else {
 			Log.wtf(API_NAME,
 					"check you code,bean not match because your error");

@@ -10,6 +10,7 @@ package com.lht.jsbridge_lib.business.API;
 public interface NativeRet {
 	
 	int RET_SUCCESS = 10000;
+	int RET_NULL = 20000;
 	
 	//...
 	

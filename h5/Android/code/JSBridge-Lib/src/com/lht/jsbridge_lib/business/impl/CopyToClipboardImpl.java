@@ -67,16 +67,15 @@ public class CopyToClipboardImpl extends ABSApiImpl implements API.CopyHandler {
 			CopyToClipboardBean bean = (CopyToClipboardBean) o;
 			if (TextUtils.isEmpty(bean.getContent())) {
 				Log.wtf(API_NAME,
-						"501,data error,check bean:" + JSON.toJSONString(bean));
+						"20000,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;
 			}
 			return BEAN_IS_CORRECT;
 
 		} else {
 			Log.wtf(API_NAME,
-					"check you code,bean not match because your error");
+					"41000:check you code,bean not match because your error");
 			return BEAN_IS_ERROR;
 		}
 	}
-
 }

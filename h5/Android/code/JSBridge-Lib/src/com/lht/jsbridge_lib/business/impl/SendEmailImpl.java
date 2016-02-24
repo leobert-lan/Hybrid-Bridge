@@ -1,5 +1,8 @@
 package com.lht.jsbridge_lib.business.impl;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -27,7 +30,7 @@ import com.lht.jsbridge_lib.business.bean.SendEmailBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class SendEmailImpl extends ABSApiImpl implements API.SendEmail {
+public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 
 	private final Context mContext;
 
@@ -47,14 +50,13 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmail {
 
 		if (!bool) {
 
-			String[] reciver = new String[] { "247998690@qq.com","32415861@qq.com" };  
-	        Log.i("zhang", JSON.toJSONString(reciver));
-//	        Log.i("zhang", sendEmailBean.getAddressee());
-	        Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);  
-	        myIntent.setType("plain/text");  
-	        myIntent.putExtra(android.content.Intent.EXTRA_EMAIL, sendEmailBean.getAddressee());  
-	        myIntent.putExtra(android.content.Intent.EXTRA_TEXT, sendEmailBean.getMessage());  
-	        mContext.startActivity(Intent.createChooser(myIntent, "请选择邮件"));  
+			Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);
+			myIntent.setType("plain/text");
+			myIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
+					sendEmailBean.getAddressee());
+			myIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+					sendEmailBean.getMessage());
+			mContext.startActivity(Intent.createChooser(myIntent, "请选择邮件"));
 
 			BaseResponseBean bean = new BaseResponseBean();
 			bean.setRet(NativeRet.NativeCopyToClipBorad.RET_SUCCESS);
@@ -75,6 +77,9 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmail {
 						"501,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;
 			}
+//			if (Pattern.compile("^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$").matches(bean.getAddressee())) {
+//				
+//			}
 			return BEAN_IS_CORRECT;
 
 		} else {
@@ -83,5 +88,12 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmail {
 			return BEAN_IS_ERROR;
 		}
 	}
+
+//	private void checkEmail() {
+//		String check = ;
+//		Pattern regex = Pattern.compile(check);
+//		Matcher matcher = regex.matcher("12241@qq.name");
+//		boolean isMatched = matcher.matches();
+//	}
 
 }

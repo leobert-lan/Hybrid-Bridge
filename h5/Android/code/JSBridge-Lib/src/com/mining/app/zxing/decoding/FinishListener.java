@@ -22,7 +22,6 @@ import android.content.DialogInterface;
 /**
  * Simple listener used to exit the app in a few cases.
  *
- * @author Sean Owen
  */
 public final class FinishListener
     implements DialogInterface.OnClickListener, DialogInterface.OnCancelListener, Runnable {
@@ -33,15 +32,18 @@ public final class FinishListener
     this.activityToFinish = activityToFinish;
   }
 
-  public void onCancel(DialogInterface dialogInterface) {
+  @Override
+public void onCancel(DialogInterface dialogInterface) {
     run();
   }
 
-  public void onClick(DialogInterface dialogInterface, int i) {
+  @Override
+public void onClick(DialogInterface dialogInterface, int i) {
     run();
   }
 
-  public void run() {
+  @Override
+public void run() {
     activityToFinish.finish();
   }
 

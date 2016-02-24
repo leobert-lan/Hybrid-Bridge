@@ -43,7 +43,7 @@ public final class CameraManager {
   private static final int MAX_FRAME_WIDTH = 600;
   private static final int MAX_FRAME_HEIGHT = 600;
   
-  private static final int DEFAULT_BARHEIGHT = 64;
+//  private static final int DEFAULT_BARHEIGHT = 64;
 
   private static CameraManager cameraManager;
 
@@ -229,8 +229,13 @@ public final class CameraManager {
       } else if (height > MAX_FRAME_HEIGHT) {
         height = MAX_FRAME_HEIGHT;
       }
+      
+      int edge = height<width?height:width;
+      height = edge;
+      width = edge;
+      
       int leftOffset = (screenResolution.x - width) / 2;
-      int topOffset = (screenResolution.y - DEFAULT_BARHEIGHT- height) / 2;
+      int topOffset = (screenResolution.y - height) / 2;
       framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
       Log.d(TAG, "Calculated framing rect: " + framingRect);
     }
@@ -251,10 +256,10 @@ public final class CameraManager {
 //      rect.right = rect.right * cameraResolution.x / screenResolution.x;
 //      rect.top = rect.top * cameraResolution.y / screenResolution.y;
 //      rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
-      rect.left = rect.left * cameraResolution.y / screenResolution.x;
-      rect.right = rect.right * cameraResolution.y / screenResolution.x;
-      rect.top = rect.top * cameraResolution.x / screenResolution.y;
-      rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+      rect.left = rect.left * cameraResolution.y / screenResolution.x;      
+      rect.right = rect.right * cameraResolution.y / screenResolution.x;      
+      rect.top = rect.top * cameraResolution.x / screenResolution.y;      
+      rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;   
       framingRectInPreview = rect;
     }
     return framingRectInPreview;

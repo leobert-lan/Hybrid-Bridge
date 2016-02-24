@@ -16,6 +16,8 @@
 
 package com.mining.app.zxing.camera;
 
+import java.util.regex.Pattern;
+
 import android.content.Context;
 import android.graphics.Point;
 import android.hardware.Camera;
@@ -23,8 +25,6 @@ import android.os.Build;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
-
-import java.util.regex.Pattern;
 
 final class CameraConfigurationManager {
 
@@ -49,7 +49,7 @@ final class CameraConfigurationManager {
 	/**
 	 * Reads, one time, values from the camera that are needed by the app.
 	 */
-	//TODO
+	// TODO
 	// changed by leobert
 	// void initFromCameraParameters(Camera camera) {
 	// Camera.Parameters parameters = camera.getParameters();
@@ -70,27 +70,21 @@ final class CameraConfigurationManager {
 		Camera.Parameters parameters = camera.getParameters();
 		previewFormat = parameters.getPreviewFormat();
 		previewFormatString = parameters.get("preview-format");
-		Log.d(TAG, "Default preview format: " + previewFormat + '/'
-				+ previewFormatString);
 		WindowManager manager = (WindowManager) context
 				.getSystemService(Context.WINDOW_SERVICE);
 		Display display = manager.getDefaultDisplay();
-		screenResolution = new Point(display.getWidth(), display.getHeight());
-		Log.d(TAG, "Screen resolution: " + screenResolution);
+		int width = display.getWidth();
+		int height = display.getHeight();
 
-		Point screenResolutionForCamera = new Point();
-		screenResolutionForCamera.x = screenResolution.x;
-		screenResolutionForCamera.y = screenResolution.y;
-
-		// preview size is always something like 480*320, other 320*480
-		if (screenResolution.x < screenResolution.y) {
-			screenResolutionForCamera.x = screenResolution.y;
-			screenResolutionForCamera.y = screenResolution.x;
+//		int edge = width < height ? width : height;
+		screenResolution = new Point(width, height);
+//		cameraResolution = getCameraResolution(parameters, screenResolution);
+		if (width < height) {
+			cameraResolution = getCameraResolution(parameters, new Point(
+					height, width));
+		} else {
+			cameraResolution = getCameraResolution(parameters, screenResolution);
 		}
-
-		cameraResolution = getCameraResolution(parameters,
-				screenResolutionForCamera);
-		Log.d(TAG, "Camera resolution: " + screenResolution);
 	}
 
 	/**
@@ -100,6 +94,7 @@ final class CameraConfigurationManager {
 	 * In the future we may want to force YUV420SP as it's the smallest, and the
 	 * planar Y can be used for barcode scanning without a copy in some cases.
 	 */
+	@SuppressWarnings("deprecation")
 	void setDesiredCameraParameters(Camera camera) {
 		Camera.Parameters parameters = camera.getParameters();
 		Log.d(TAG, "Setting preview size: " + cameraResolution);
@@ -159,7 +154,7 @@ final class CameraConfigurationManager {
 			CharSequence previewSizeValueString, Point screenResolution) {
 		int bestX = 0;
 		int bestY = 0;
-		int diff = Integer.MAX_VALUE;
+		float diff = Float.MAX_VALUE;
 		for (String previewSize : COMMA_PATTERN.split(previewSizeValueString)) {
 
 			previewSize = previewSize.trim();
@@ -179,8 +174,11 @@ final class CameraConfigurationManager {
 				continue;
 			}
 
-			int newDiff = Math.abs(newX - screenResolution.x)
-					+ Math.abs(newY - screenResolution.y);
+			// int newDiff = Math.abs(newX - screenResolution.x)
+			// + Math.abs(newY - screenResolution.y);
+
+			float newDiff = Math.abs(screenResolution.x * 1.0f / newY
+					- screenResolution.y * 1.0f / newX);
 			if (newDiff == 0) {
 				bestX = newX;
 				bestY = newY;

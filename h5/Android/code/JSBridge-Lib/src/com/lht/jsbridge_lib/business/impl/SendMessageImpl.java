@@ -1,7 +1,5 @@
 package com.lht.jsbridge_lib.business.impl;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,9 +11,6 @@ import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
-import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
-import com.lht.jsbridge_lib.business.bean.DemoBean;
-import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
 import com.lht.jsbridge_lib.business.bean.SendMessageBean;
 
 /**

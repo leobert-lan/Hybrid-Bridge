@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A306DFFB1C7ACCED00C111CC /* ExampleApp.html in Resources */ = {isa = PBXBuildFile; fileRef = A306DFF81C7ACCED00C111CC /* ExampleApp.html */; };
-		A306DFFC1C7ACCED00C111CC /* H5JSBridge_1_0.js in Resources */ = {isa = PBXBuildFile; fileRef = A306DFF91C7ACCED00C111CC /* H5JSBridge_1_0.js */; };
-		A306DFFD1C7ACCED00C111CC /* H5JSBridgeGPS.js in Resources */ = {isa = PBXBuildFile; fileRef = A306DFFA1C7ACCED00C111CC /* H5JSBridgeGPS.js */; };
-		A306E0001C7ACE8600C111CC /* H5JSBridgeCamera.js in Resources */ = {isa = PBXBuildFile; fileRef = A306DFFE1C7ACE8600C111CC /* H5JSBridgeCamera.js */; };
-		A306E0011C7ACE8600C111CC /* H5JSBridgeDatabase.js in Resources */ = {isa = PBXBuildFile; fileRef = A306DFFF1C7ACE8600C111CC /* H5JSBridgeDatabase.js */; };
-		A306E0031C7AE00200C111CC /* H5JSBridgeDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = A306E0021C7AE00200C111CC /* H5JSBridgeDemo.js */; };
-		A306E0051C7AE01500C111CC /* Testtemp.js in Resources */ = {isa = PBXBuildFile; fileRef = A306E0041C7AE01500C111CC /* Testtemp.js */; };
 		A306E1141C7C237400C111CC /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E00B1C7C237400C111CC /* AFHTTPSessionManager.m */; };
 		A306E1151C7C237400C111CC /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E00E1C7C237400C111CC /* AFNetworkReachabilityManager.m */; };
 		A306E1161C7C237400C111CC /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E0101C7C237400C111CC /* AFSecurityPolicy.m */; };
@@ -150,16 +143,16 @@
 		A347FF951C61C2BD00F402A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A347FF931C61C2BD00F402A7 /* Main.storyboard */; };
 		A347FF971C61C2BD00F402A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A347FF961C61C2BD00F402A7 /* Assets.xcassets */; };
 		A347FF9A1C61C2BD00F402A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A347FF981C61C2BD00F402A7 /* LaunchScreen.storyboard */; };
+		A3E948FA1C7D5F5A00D254BA /* ExampleApp.html in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F31C7D5F5A00D254BA /* ExampleApp.html */; };
+		A3E948FB1C7D5F5A00D254BA /* H5JSBridge_1_0.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F41C7D5F5A00D254BA /* H5JSBridge_1_0.js */; };
+		A3E948FC1C7D5F5A00D254BA /* H5JSBridgeCamera.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F51C7D5F5A00D254BA /* H5JSBridgeCamera.js */; };
+		A3E948FD1C7D5F5A00D254BA /* H5JSBridgeDatabase.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F61C7D5F5A00D254BA /* H5JSBridgeDatabase.js */; };
+		A3E948FE1C7D5F5A00D254BA /* H5JSBridgeDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F71C7D5F5A00D254BA /* H5JSBridgeDemo.js */; };
+		A3E948FF1C7D5F5A00D254BA /* H5JSBridgeGPS.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F81C7D5F5A00D254BA /* H5JSBridgeGPS.js */; };
+		A3E949001C7D5F5A00D254BA /* Testtemp.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F91C7D5F5A00D254BA /* Testtemp.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A306DFF81C7ACCED00C111CC /* ExampleApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ExampleApp.html; sourceTree = "<group>"; };
-		A306DFF91C7ACCED00C111CC /* H5JSBridge_1_0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridge_1_0.js; sourceTree = "<group>"; };
-		A306DFFA1C7ACCED00C111CC /* H5JSBridgeGPS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeGPS.js; sourceTree = "<group>"; };
-		A306DFFE1C7ACE8600C111CC /* H5JSBridgeCamera.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeCamera.js; sourceTree = "<group>"; };
-		A306DFFF1C7ACE8600C111CC /* H5JSBridgeDatabase.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeDatabase.js; sourceTree = "<group>"; };
-		A306E0021C7AE00200C111CC /* H5JSBridgeDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeDemo.js; sourceTree = "<group>"; };
-		A306E0041C7AE01500C111CC /* Testtemp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Testtemp.js; sourceTree = "<group>"; };
 		A306E00A1C7C237400C111CC /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		A306E00B1C7C237400C111CC /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		A306E00C1C7C237400C111CC /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -422,6 +415,13 @@
 		A347FF961C61C2BD00F402A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A347FF991C61C2BD00F402A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A347FF9B1C61C2BD00F402A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3E948F31C7D5F5A00D254BA /* ExampleApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ExampleApp.html; sourceTree = "<group>"; };
+		A3E948F41C7D5F5A00D254BA /* H5JSBridge_1_0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridge_1_0.js; sourceTree = "<group>"; };
+		A3E948F51C7D5F5A00D254BA /* H5JSBridgeCamera.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeCamera.js; sourceTree = "<group>"; };
+		A3E948F61C7D5F5A00D254BA /* H5JSBridgeDatabase.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeDatabase.js; sourceTree = "<group>"; };
+		A3E948F71C7D5F5A00D254BA /* H5JSBridgeDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeDemo.js; sourceTree = "<group>"; };
+		A3E948F81C7D5F5A00D254BA /* H5JSBridgeGPS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeGPS.js; sourceTree = "<group>"; };
+		A3E948F91C7D5F5A00D254BA /* Testtemp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Testtemp.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,21 +438,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A306DFF71C7ACCED00C111CC /* h5 */ = {
-			isa = PBXGroup;
-			children = (
-				A306DFF81C7ACCED00C111CC /* ExampleApp.html */,
-				A306E0041C7AE01500C111CC /* Testtemp.js */,
-				A306DFF91C7ACCED00C111CC /* H5JSBridge_1_0.js */,
-				A306E0021C7AE00200C111CC /* H5JSBridgeDemo.js */,
-				A306DFFE1C7ACE8600C111CC /* H5JSBridgeCamera.js */,
-				A306DFFF1C7ACE8600C111CC /* H5JSBridgeDatabase.js */,
-				A306DFFA1C7ACCED00C111CC /* H5JSBridgeGPS.js */,
-			);
-			name = h5;
-			path = ../../h5;
-			sourceTree = "<group>";
-		};
 		A306E0061C7C237400C111CC /* module */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,22 +1031,14 @@
 			path = config;
 			sourceTree = "<group>";
 		};
-		A33B10B31C642A8C003C6A65 /* example */ = {
-			isa = PBXGroup;
-			children = (
-				A306DFF71C7ACCED00C111CC /* h5 */,
-			);
-			path = example;
-			sourceTree = "<group>";
-		};
 		A347FF7E1C61C2BD00F402A7 = {
 			isa = PBXGroup;
 			children = (
 				A33B10BB1C64327D003C6A65 /* WebKit.framework */,
 				A306E18D1C7C31FB00C111CC /* libsqlite3.tbd */,
+				A3E948F21C7D5F5A00D254BA /* h5 */,
 				A306E19D1C7C32B500C111CC /* views */,
 				A306E0061C7C237400C111CC /* module */,
-				A33B10B31C642A8C003C6A65 /* example */,
 				A347FF891C61C2BD00F402A7 /* H5 */,
 				A347FF881C61C2BD00F402A7 /* Products */,
 			);
@@ -1097,6 +1074,21 @@
 				A347FF8B1C61C2BD00F402A7 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3E948F21C7D5F5A00D254BA /* h5 */ = {
+			isa = PBXGroup;
+			children = (
+				A3E948F31C7D5F5A00D254BA /* ExampleApp.html */,
+				A3E948F41C7D5F5A00D254BA /* H5JSBridge_1_0.js */,
+				A3E948F51C7D5F5A00D254BA /* H5JSBridgeCamera.js */,
+				A3E948F61C7D5F5A00D254BA /* H5JSBridgeDatabase.js */,
+				A3E948F71C7D5F5A00D254BA /* H5JSBridgeDemo.js */,
+				A3E948F81C7D5F5A00D254BA /* H5JSBridgeGPS.js */,
+				A3E948F91C7D5F5A00D254BA /* Testtemp.js */,
+			);
+			name = h5;
+			path = ../h5;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1157,12 +1149,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E948FC1C7D5F5A00D254BA /* H5JSBridgeCamera.js in Resources */,
 				A306E1291C7C237400C111CC /* backward_nor@2x.png in Resources */,
 				A306E1721C7C237400C111CC /* playbutton.png in Resources */,
-				A306E0051C7AE01500C111CC /* Testtemp.js in Resources */,
 				A306E1301C7C237400C111CC /* pause_disable@2x.png in Resources */,
 				A306E1371C7C237400C111CC /* video_num_front@2x.png in Resources */,
-				A306DFFC1C7ACCED00C111CC /* H5JSBridge_1_0.js in Resources */,
+				A3E948FF1C7D5F5A00D254BA /* H5JSBridgeGPS.js in Resources */,
 				A306E12E1C7C237400C111CC /* forward_disable@2x.png in Resources */,
 				A306E1321C7C237400C111CC /* play_disable@2x.png in Resources */,
 				A306E1391C7C237400C111CC /* video_volume_bg@2x.png in Resources */,
@@ -1170,28 +1162,28 @@
 				A306E1281C7C237400C111CC /* backward_disable@2x.png in Resources */,
 				A306E1A71C7C335400C111CC /* H5VC.xib in Resources */,
 				A306E12A1C7C237400C111CC /* fast_backward_disable@2x.png in Resources */,
-				A306DFFB1C7ACCED00C111CC /* ExampleApp.html in Resources */,
+				A3E948FD1C7D5F5A00D254BA /* H5JSBridgeDatabase.js in Resources */,
 				A306E1361C7C237400C111CC /* video_num_bg@2x.png in Resources */,
 				A306E1381C7C237400C111CC /* video_tips@2x.png in Resources */,
-				A306E0031C7AE00200C111CC /* H5JSBridgeDemo.js in Resources */,
 				A306E1311C7C237400C111CC /* pause_nor@2x.png in Resources */,
-				A306E0011C7ACE8600C111CC /* H5JSBridgeDatabase.js in Resources */,
 				A347FF9A1C61C2BD00F402A7 /* LaunchScreen.storyboard in Resources */,
+				A3E948FB1C7D5F5A00D254BA /* H5JSBridge_1_0.js in Resources */,
 				A306E1331C7C237400C111CC /* play_nor@2x.png in Resources */,
 				A347FF971C61C2BD00F402A7 /* Assets.xcassets in Resources */,
-				A306DFFD1C7ACCED00C111CC /* H5JSBridgeGPS.js in Resources */,
 				A306E12F1C7C237400C111CC /* forward_nor@2x.png in Resources */,
+				A3E949001C7D5F5A00D254BA /* Testtemp.js in Resources */,
 				A306E1821C7C237400C111CC /* QYDatePicker.xib in Resources */,
 				A306E14C1C7C237400C111CC /* MBProgressHUD.bundle in Resources */,
-				A306E0001C7ACE8600C111CC /* H5JSBridgeCamera.js in Resources */,
 				A306E1351C7C237400C111CC /* video_brightness_bg@2x.png in Resources */,
 				A306E1711C7C237400C111CC /* pausebutton.png in Resources */,
+				A3E948FE1C7D5F5A00D254BA /* H5JSBridgeDemo.js in Resources */,
 				A306E13C1C7C237400C111CC /* JRPlayerViewController.xib in Resources */,
 				A306E12C1C7C237400C111CC /* fast_forward_disable@2x.png in Resources */,
 				A306E12B1C7C237400C111CC /* fast_backward_nor@2x.png in Resources */,
 				A347FF951C61C2BD00F402A7 /* Main.storyboard in Resources */,
 				A306E15C1C7C237400C111CC /* MJRefresh.bundle in Resources */,
 				A306E12D1C7C237400C111CC /* fast_forward_nor@2x.png in Resources */,
+				A3E948FA1C7D5F5A00D254BA /* ExampleApp.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@ import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
+import com.lht.jsbridge_lib.business.bean.GetClipboardBean;
 
 /**
  * @ClassName: DemoImpl
@@ -36,10 +37,10 @@ public class GetClipboardContentImpl extends ABSApiImpl implements
 	public void handler(String data, CallBackFunction function) {
 		mFunction = function;
 
-		CopyToClipboardBean copyClipboardBean = JSON.parseObject(data,
-				CopyToClipboardBean.class);
+		GetClipboardBean copyClipboardBean = JSON.parseObject(data, GetClipboardBean.class);
 		boolean bool = isBeanError(copyClipboardBean);
 
+		Log.i("zhang", JSON.toJSONString(copyClipboardBean));
 		if (!bool) {
 			String clipBoard = copyClipboardBean.getContent();
 			ClipboardManager myClipboardManager = (ClipboardManager) mContext
@@ -48,10 +49,17 @@ public class GetClipboardContentImpl extends ABSApiImpl implements
 			myClip = ClipData.newPlainText("text", clipBoard);
 			myClipboardManager.setPrimaryClip(myClip);
 
+			myClipboardManager.setPrimaryClip(myClip);	
+			
+			/*//获取剪切板的数据
+			ClipboardManager clipboard = (ClipboardManager)mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+			clipboard.setText(copyClipboardBean.getContent());
+			String text = clipboard.getText().toString();
+			*/
 			BaseResponseBean bean = new BaseResponseBean();
 			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
-			bean.setData("");
+			bean.setData(copyClipboardBean.getContent());
 			mFunction.onCallBack(JSON.toJSONString(bean));
 		} else {
 
@@ -60,8 +68,8 @@ public class GetClipboardContentImpl extends ABSApiImpl implements
 
 	@Override
 	protected boolean isBeanError(Object o) {
-		if (o instanceof CopyToClipboardBean) {
-			CopyToClipboardBean bean = (CopyToClipboardBean) o;
+		if (o instanceof GetClipboardBean) {
+			GetClipboardBean bean = (GetClipboardBean) o;
 			if (TextUtils.isEmpty(bean.getContent())) {
 				Log.wtf(API_NAME,
 						"501,data error,check bean:" + JSON.toJSONString(bean));

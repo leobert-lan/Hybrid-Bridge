@@ -12,6 +12,12 @@ import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
+<<<<<<< HEAD
+=======
+import com.lht.jsbridge_lib.business.bean.DemoBean;
+import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
+import com.lht.jsbridge_lib.business.bean.SendMessageBean;
+>>>>>>> 5ea60f936592c6188004228c49d996fd00b97ee2
 
 /**
  * @ClassName: DemoImpl
@@ -21,7 +27,7 @@ import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class SendMessageImpl extends ABSApiImpl implements API.CopyHandler {
+public class SendMessageImpl extends ABSApiImpl implements API.SendMessage {
 
 	private final Context mContext;
 
@@ -35,6 +41,7 @@ public class SendMessageImpl extends ABSApiImpl implements API.CopyHandler {
 	public void handler(String data, CallBackFunction function) {
 		mFunction = function;
 
+<<<<<<< HEAD
 		CopyToClipboardBean copyClipboardBean = JSON.parseObject(data,
 				CopyToClipboardBean.class);
 		boolean bool = isBeanError(copyClipboardBean);
@@ -46,6 +53,19 @@ public class SendMessageImpl extends ABSApiImpl implements API.CopyHandler {
 			ClipData myClip;
 			myClip = ClipData.newPlainText("text", clipBoard);
 			myClipboardManager.setPrimaryClip(myClip);
+=======
+		SendMessageBean sendMessageBean = JSON.parseObject(data,
+				SendMessageBean.class);
+		boolean bool = isBeanError(sendMessageBean);
+
+		if (!bool) {
+			String message = sendMessageBean.getMessageContent();
+			Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"
+					+ sendMessageBean.getContacts()));
+			intent.putExtra("sms_body", message);
+			mContext.startActivity(intent);
+			mContext.startActivity(intent);
+>>>>>>> 5ea60f936592c6188004228c49d996fd00b97ee2
 
 			BaseResponseBean bean = new BaseResponseBean();
 			bean.setRet(NativeRet.RET_SUCCESS);
@@ -59,9 +79,9 @@ public class SendMessageImpl extends ABSApiImpl implements API.CopyHandler {
 
 	@Override
 	protected boolean isBeanError(Object o) {
-		if (o instanceof CopyToClipboardBean) {
-			CopyToClipboardBean bean = (CopyToClipboardBean) o;
-			if (TextUtils.isEmpty(bean.getContent())) {
+		if (o instanceof SendMessageBean) {
+			SendMessageBean bean = (SendMessageBean) o;
+			if (TextUtils.isEmpty(bean.getContacts())) {
 				Log.wtf(API_NAME,
 						"501,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;

@@ -18,7 +18,7 @@ import android.util.Log;
  */
 @SuppressLint("HandlerLeak")
 public abstract class ABSLTRApiImpl extends ABSApiImpl {
-	
+
 	protected final String TAG = "ABSLTRApiImpl";
 
 	protected void execute(LTRExecutor executor) {
@@ -26,21 +26,22 @@ public abstract class ABSLTRApiImpl extends ABSApiImpl {
 	}
 
 	protected abstract LTRHandler getLTRHandler();
-	
+
 	protected abstract LTRExecutor getLTRExecutor();
 
-	public abstract class LTRExecutor implements Runnable ,OnLTRJobExecuted{
-		
+	public abstract class LTRExecutor implements Runnable, OnLTRJobExecuted {
+
 		protected final LTRHandler mHandler;
 
 		public LTRExecutor(LTRHandler h) {
 			this.mHandler = h;
 		}
-		
+
+		@Override
 		public void onJobExecuted(String data) {
-			
+
 			Log.d(TAG, "thread job over,send message");
-			
+
 			Bundle b = new Bundle();
 			b.putString(LTRHandler.KEY_DATA, data);
 			Message message = new Message();
@@ -51,10 +52,11 @@ public abstract class ABSLTRApiImpl extends ABSApiImpl {
 
 	}
 
-	public abstract class LTRHandler extends Handler implements OnLTRJobExecuted{
+	public abstract class LTRHandler extends Handler implements
+			OnLTRJobExecuted {
 		// public LTRHandler()
 		public final static int MSG_JOBEXECUTED = 1;
-		
+
 		public final static String KEY_DATA = "DATA";
 
 		@Override
@@ -68,11 +70,12 @@ public abstract class ABSLTRApiImpl extends ABSApiImpl {
 		}
 
 	}
-	
+
 	interface OnLTRJobExecuted {
 		void onJobExecuted(String data);
 	}
-	
+
+	@Override
 	public void Log(String msg) {
 		if (BuildConfig.DEBUG) {
 			android.util.Log.d(TAG, msg);

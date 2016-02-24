@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta name="viewport"
-	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" charset="utf-8">
+	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"
+	charset="utf-8">
 <style type='text/css'>
 html {
 	font-family: Helvetica;
@@ -61,7 +62,7 @@ button {
 	<li>
 		<button type="button" class="blue" onclick="testCallDemo()">Call-Call-Call</button>
 	</li>
-	
+
 	<li>
 		<button type="button" class="blue" onclick="testCopyDemo()">Copy-Copy-Copy</button>
 	</li>
@@ -81,7 +82,7 @@ button {
 	</li>
 
 	<li>
-		<button type="button" class="blue" onclick="testDemo()">Camera</button>
+		<button type="button" class="blue" onclick="testScan()">测试扫码</button>
 	</li>
 
 	<li>
@@ -180,6 +181,14 @@ button {
 		
 	}
 	
+	//测试扫码 - android added 
+	function testScan() {
+		var callback = function(responseData) {
+			Log2("response scan result:",responseData);
+		};
+		callNativeOpenCameraForScan(callback);
+	}
+	
 </script>
 
 <!-- 加载API调用“库” -->
@@ -199,5 +208,8 @@ button {
 
 <script type="application/javascript" charset="utf-8"
 	src="H5JSBridgeCopyToClipboard.js"></script>
+
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeScan.js"></script>
 
 </html>

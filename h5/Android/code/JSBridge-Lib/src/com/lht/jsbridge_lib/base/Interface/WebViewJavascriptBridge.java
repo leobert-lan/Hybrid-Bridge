@@ -1,30 +1,29 @@
 package com.lht.jsbridge_lib.base.Interface;
 
-
-/** 
- * @ClassName: WebViewJavascriptBridge 
+/**
+ * @ClassName: WebViewJavascriptBridge
  * @Description: Native向js发送数据的接口
  * @date 2016年2月17日 上午10:43:24
- *  
+ * 
  * @author leobert.lan
- * @version 1.0 
+ * @version 1.0
  */
 public interface WebViewJavascriptBridge {
 
-	/** 
-	 * @Title: send 
+	/**
+	 * @Title: send
 	 * @Description: 单纯发送数据
 	 * @author: leobert.lan
-	 * @param data    
+	 * @param data
 	 */
 	public void send(String data);
 
-	/** 
-	 * @Title: send 
+	/**
+	 * @Title: send
 	 * @Description: 发送回调方法产生的数据
 	 * @author: leobert.lan
 	 * @param data
-	 * @param responseCallback    
+	 * @param responseCallback
 	 */
 	public void send(String data, CallBackFunction responseCallback);
 

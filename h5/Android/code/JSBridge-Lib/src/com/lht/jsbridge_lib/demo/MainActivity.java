@@ -14,11 +14,18 @@ import com.lht.jsbridge_lib.DefaultHandler;
 import com.lht.jsbridge_lib.R;
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
+import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
+import com.lht.jsbridge_lib.business.API.API.CopyHandler;
+import com.lht.jsbridge_lib.business.API.API.Demo;
+import com.lht.jsbridge_lib.business.API.API.GPSHandler;
+import com.lht.jsbridge_lib.business.API.API.GetClipBoardContentHandler;
+import com.lht.jsbridge_lib.business.API.API.ScanCodeHandler;
+import com.lht.jsbridge_lib.business.API.API.TestLTRHandler;
 import com.lht.jsbridge_lib.business.impl.CallTelImpl;
 import com.lht.jsbridge_lib.business.impl.CopyToClipboardImpl;
 import com.lht.jsbridge_lib.business.impl.DemoImpl;
-import com.lht.jsbridge_lib.business.impl.GetClipboardImpl;
 import com.lht.jsbridge_lib.business.impl.OpenGPSImpl;
+import com.lht.jsbridge_lib.business.impl.ScanCodeImpl;
 import com.lht.jsbridge_lib.business.impl.SendEmailImpl;
 import com.lht.jsbridge_lib.business.impl.SendMessageImpl;
 import com.lht.jsbridge_lib.business.impl.TestLTRImpl;
@@ -87,21 +94,32 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		});
 
-		webView.registerHandler(DemoImpl.API_NAME, new DemoImpl());
+		webView.registerHandler(Demo.API_NAME, new DemoImpl());
 
-		webView.registerHandler(OpenGPSImpl.API_NAME, new OpenGPSImpl(MainActivity.this));
-		
-		webView.registerHandler(TestLTRImpl.API_NAME, new TestLTRImpl());
+		webView.registerHandler(GPSHandler.API_NAME, new OpenGPSImpl(
+				MainActivity.this));
 
-		webView.registerHandler(CallTelImpl.API_NAME, new CallTelImpl(MainActivity.this));
+		webView.registerHandler(TestLTRHandler.API_NAME, new TestLTRImpl());
+
+		webView.registerHandler(CallTelHandler.API_NAME, new CallTelImpl(
+				MainActivity.this));
+
+		webView.registerHandler(CopyHandler.API_NAME,
+				new CopyToClipboardImpl(MainActivity.this));
+
+		//TODO
+		webView.registerHandler(GetClipBoardContentHandler.API_NAME,
+				new CopyToClipboardImpl(MainActivity.this));
+
+		//TODO
+		webView.registerHandler(CopyHandler.API_NAME, new SendEmailImpl(
+				MainActivity.this));
+
+		//TODO
+		webView.registerHandler(CopyHandler.API_NAME, new SendMessageImpl(
+				MainActivity.this));
 		
-		webView.registerHandler(CopyToClipboardImpl.API_NAME, new CopyToClipboardImpl(MainActivity.this));
-		
-		webView.registerHandler(GetClipboardImpl.API_NAME, new CopyToClipboardImpl(MainActivity.this));
-		
-		webView.registerHandler(SendEmailImpl.API_NAME, new SendEmailImpl(MainActivity.this));
-		
-		webView.registerHandler(SendMessageImpl.API_NAME, new SendMessageImpl(MainActivity.this));
+		webView.registerHandler(ScanCodeHandler.API_NAME, new ScanCodeImpl(MainActivity.this));
 		testCallJs();
 	}
 
@@ -134,13 +152,13 @@ public class MainActivity extends Activity implements OnClickListener {
 		if (button.equals(v)) {
 			JSONObject jObj = new JSONObject();
 			jObj.put("Nkey1", "Nvalue1");
-			
+
 			webView.callJsDemo(JSON.toJSONString(jObj), new CallBackFunction() {
-				
+
 				@Override
 				public void onCallBack(String data) {
 					// TODO Auto-generated method stub
-					Log.d(TAG, "receive from js:"+data);
+					Log.d(TAG, "receive from js:" + data);
 				}
 			});
 		}

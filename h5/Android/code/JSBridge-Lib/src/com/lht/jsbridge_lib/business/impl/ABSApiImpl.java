@@ -16,19 +16,19 @@ import com.lht.jsbridge_lib.business.API.API;
  * @version 1.0
  */
 public abstract class ABSApiImpl implements API {
-	
+
 	protected final String TAG = "ABSApiImpl";
 
 	protected final boolean BEAN_IS_ERROR = true;
 
 	protected final boolean BEAN_IS_CORRECT = false;
 
-	/** 
-	 * @Title: isBeanError 
+	/**
+	 * @Title: isBeanError
 	 * @Description: check the data from js is correct and enough for a API-job
 	 * @author: leobert.lan
 	 * @param o
-	 * @return    BEAN_IS_ERROR(true) if error, BEAN_IS_CORRECT(false) otherwise;
+	 * @return BEAN_IS_ERROR(true) if error, BEAN_IS_CORRECT(false) otherwise;
 	 */
 	protected abstract boolean isBeanError(Object o);
 
@@ -36,12 +36,12 @@ public abstract class ABSApiImpl implements API {
 	// you should modify a interface and a interface-set function,
 	// the instance of interface should be initializes by presenter or
 	// controller,function should be implemented to update view
-	
+
 	protected void Log(String msg) {
 		if (BuildConfig.DEBUG) {
 			android.util.Log.d(TAG, msg);
 		}
-		
+
 	}
 
 }

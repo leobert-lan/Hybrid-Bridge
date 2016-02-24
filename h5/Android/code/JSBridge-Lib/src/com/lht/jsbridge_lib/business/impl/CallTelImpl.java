@@ -36,23 +36,23 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 		mFunction = function;
 
 		PhoneNumBean phoneNumBean = JSON.parseObject(data, PhoneNumBean.class);
-		
+
 		boolean bool = isBeanError(phoneNumBean);
-		
-		if (!bool) {			
+
+		if (!bool) {
 			String number = phoneNumBean.getTelphone();
 			Intent intent = new Intent();
 			intent.setAction(Intent.ACTION_DIAL);
 			intent.setData(Uri.parse("tel:" + number));
 			mContext.startActivity(intent);
 			BaseResponseBean bean = new BaseResponseBean();
-			bean.setRet(NativeRet.NativeCallTelRet.RET_SUCCESS);
+			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData("");
-			
+
 			mFunction.onCallBack(JSON.toJSONString(bean));
-		}else{
-			
+		} else {
+
 		}
 	}
 

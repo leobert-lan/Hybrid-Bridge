@@ -35,6 +35,7 @@ public class JSConfirmDialog {
 		// 不需要绑定按键事件
 		// 屏蔽keycode等于84之类的按键
 		builder.setOnKeyListener(new OnKeyListener() {
+			@Override
 			public boolean onKey(DialogInterface dialog, int keyCode,
 					KeyEvent event) {
 				Log.v("onJsAlert", "keyCode==" + keyCode + "event=" + event);
@@ -63,12 +64,12 @@ public class JSConfirmDialog {
 				setPositive(bean.getPositiveContent());
 			else
 				setPositive("确定");
-			
+
 			if (!TextUtils.isEmpty(bean.getNegativeContent()))
 				setNegative(bean.getNegativeContent());
-			else 
+			else
 				setNegative("取消");
-			
+
 			builder.setMessage(bean.getMessage());
 		} else {
 			builder.setMessage(data);
@@ -80,6 +81,7 @@ public class JSConfirmDialog {
 
 	private void setPositive(String content) {
 		builder.setPositiveButton(content, new OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				result.confirm();
 			}
@@ -88,6 +90,7 @@ public class JSConfirmDialog {
 
 	private void setNegative(String content) {
 		builder.setNegativeButton(content, new OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				result.cancel();
 			}

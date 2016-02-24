@@ -160,13 +160,12 @@ public class Message {
 		return m;
 	}
 
-	/** 
-	 * @Title: toArrayList 
+	/**
+	 * @Title: toArrayList
 	 * @Description: 反序列化 [{message1},{message2},....]
 	 * @author: leobert.lan
 	 * @param jsonStr
-	 * @return    
-	 * List &lt Message &gt
+	 * @return List &lt Message &gt
 	 */
 	public static List<Message> toArrayList(String jsonStr) {
 		List<Message> list = new ArrayList<Message>();

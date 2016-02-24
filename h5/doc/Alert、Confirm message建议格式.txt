@@ -1,0 +1,10 @@
+
+	alert 建议message数据格式
+	
+	{'message':'ASD','positiveContent':'ok','title':'dialogtitle','debug':true}
+	
+	confirm 建议message数据格式
+	
+	{'message':'ASD','positiveContent':'submit','title':'dialogtitle','negativeContent':'cancel'}
+	
+	当然，容错应当被考虑

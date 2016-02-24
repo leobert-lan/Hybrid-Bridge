@@ -57,7 +57,7 @@ public class GPSResponseBean implements NativeRet.NativeGpsRet {
 	}
 
 	public void setTime(String time) {
-		this.time = transferStringDateT2Stamp("yyyy-MM-dd HH:mm:ss",time);
+		this.time = transferStringDateT2Stamp("yyyy-MM-dd HH:mm:ss", time);
 	}
 
 	public String getRadius() {
@@ -69,7 +69,8 @@ public class GPSResponseBean implements NativeRet.NativeGpsRet {
 	}
 
 	@SuppressLint("SimpleDateFormat")
-	private static String transferStringDateT2Stamp(String formatDate, String date) {
+	private static String transferStringDateT2Stamp(String formatDate,
+			String date) {
 		SimpleDateFormat sdf = new SimpleDateFormat(formatDate);
 		Date dt;
 		try {
@@ -80,7 +81,7 @@ public class GPSResponseBean implements NativeRet.NativeGpsRet {
 			e.printStackTrace();
 			return date;
 		}
-		
+
 	}
 
 }

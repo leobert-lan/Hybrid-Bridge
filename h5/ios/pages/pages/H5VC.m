@@ -51,12 +51,23 @@
         [vTest1 addSubview:self.webViewMain];
     }
     
+    if (self.webView2 == nil) {
+        
+        self.webView2 = [[WKWebView alloc]init];
+        self.webView2.frame=vTest2.bounds;
+        self.webView2.navigationDelegate = self;
+        self.webView2.UIDelegate = self;
+        [vTest2 addSubview:self.webView2];
+    }
     
-    
+    //添加监听
+    [WKWebViewJavascriptBridge enableLogging];
+    self.bridge2 = [WKWebViewJavascriptBridge bridgeForWebView:self.webView2];
+    [self listener2:self.bridge2];
 //    [self.bridgeMain callHandler:@"toH5" data:@{ @"auth":@"USER_ID_AND_TOKEN" }];
     
     [self loadExamplePage:self.webViewMain];
-
+    [self loadExamplePage:self.webView2];
 }
 
 - (void)reload {
@@ -103,18 +114,55 @@
 - (void)listener:(WKWebViewJavascriptBridge*)bridge{
     [super listener:bridge];
     
+    //demo监听
     [bridge registerHandler:@"NATIVE_FUNCTION_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
         DLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
         //回传给H5
         responseCallback(@"nv监听回传给H5 data");
+        
+        //同时传个值给第二个H5页面
+        NSMutableDictionary *dd=[NSMutableDictionary new];
+        dd[@"ret"]=@"200";
+        dd[@"msg"]=@"这是第一个H5的内容";
+        dd[@"data"]=data;
+        NSString *key=@"JS_FUNCTION_DEMO";
+        [self.bridge2 callHandler:key data:dd responseCallback:^(id response) {
+            DLog(@">>>%@: %@",key, response);
+        }];
     }];
     
-    [bridge registerHandler:@"GPSCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [bridge registerHandler:@"NATIVE_FUNCTION_OPENGPS" handler:^(id data, WVJBResponseCallback responseCallback) {
+        //调取GPS
+//        AsyncBegin
+//        //
+//        
+//        AsyncEnd
         DLog(@"H5 调 GPS: %@",data);
         //回传给H5
         responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
     }];
 }
 
+- (void)listener2:(WKWebViewJavascriptBridge*)bridge{
+    [super listener:bridge];
+    
+    //demo监听
+    [bridge registerHandler:@"NATIVE_FUNCTION_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
+        DLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
+        //回传给H5
+        responseCallback(@"nv监听回传给H5 data");
+    }];
+    
+    [bridge registerHandler:@"NATIVE_FUNCTION_OPENGPS" handler:^(id data, WVJBResponseCallback responseCallback) {
+        //调取GPS
+        //        AsyncBegin
+        //        //
+        //
+        //        AsyncEnd
+        DLog(@"H5 调 GPS: %@",data);
+        //回传给H5
+        responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
+    }];
+}
 
 @end

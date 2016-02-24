@@ -19,8 +19,9 @@ setupJSBridge(function(bridge) {
 						//将处理结果返回Native 注意定义好Bean
 						
 						//此处打log看一下数据是否收到，非必须
-						log("data from Native:",data)
-						alert("JS listener: JS_FUNCTION_DEMO")
+                           log("data from Native:",data);
+						alert("JS JS_FUNCTION_DEMO listener: "+JSON.stringify(data))
+//                           alert(JSON.stringify(data));
 						//此处实现API逻辑
 						//...
 						

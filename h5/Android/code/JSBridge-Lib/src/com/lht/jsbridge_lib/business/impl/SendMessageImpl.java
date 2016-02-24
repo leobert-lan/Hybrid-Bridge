@@ -12,7 +12,6 @@ import com.alibaba.fastjson.JSON;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
-import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
 import com.lht.jsbridge_lib.business.bean.DemoBean;
@@ -54,7 +53,7 @@ public class SendMessageImpl extends ABSApiImpl implements API.SendMessageHandle
 			mContext.startActivity(intent);
 
 			BaseResponseBean bean = new BaseResponseBean();
-			bean.setRet(NativeRet.NativeCopyToClipBorad.RET_SUCCESS);
+			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData("");
 			mFunction.onCallBack(JSON.toJSONString(bean));

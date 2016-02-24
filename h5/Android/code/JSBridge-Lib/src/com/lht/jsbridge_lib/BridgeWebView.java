@@ -24,7 +24,8 @@ import com.lht.jsbridge_lib.base.model.BridgeUtil;
 import com.lht.jsbridge_lib.base.model.Message;
 
 @SuppressLint("SetJavaScriptEnabled")
-public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,IJSFuncCollection{
+public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
+		IJSFuncCollection {
 
 	private final String TAG = "BridgeWebView-leobert";
 
@@ -93,17 +94,17 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 		return new BridgeWebViewClient(this);
 	}
 
-	/** 
-	 * @Title: handlerReturnData 
+	/**
+	 * @Title: handlerReturnData
 	 * @Description: 呼叫webview处理返回数据
 	 * @author: leobert.lan
-	 * @param url    
+	 * @param url
 	 */
 	void handlerReturnData(String url) {
 		String functionName = BridgeUtil.getFunctionFromReturnUrl(url);
 		CallBackFunction f = responseCallbacks.get(functionName);
 		String data = BridgeUtil.getDataFromReturnUrl(url);
-		Log.d(TAG, "check data:"+data);
+		Log.d(TAG, "check data:" + data);
 		if (f != null) {
 			f.onCallBack(data);
 			responseCallbacks.remove(functionName);
@@ -112,10 +113,10 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 			Log.wtf(TAG, "底层消息框架出错");
 		}
 	}
-	
 
 	/**
 	 * 供js间接调用的 send方法，发送数据
+	 * 
 	 * @see com.lht.jsbridge_lib.base.Interface.WebViewJavascriptBridge#send(java.lang.String)
 	 */
 	@Override
@@ -123,25 +124,27 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 		send(data, null);
 	}
 
-	/** 
+	/**
 	 * 供js间接调用的 send方法，包含response接口
-	 * @see com.lht.jsbridge_lib.base.Interface.WebViewJavascriptBridge#send(java.lang.String, com.lht.jsbridge_lib.base.Interface.CallBackFunction) 
-	 */  
+	 * 
+	 * @see com.lht.jsbridge_lib.base.Interface.WebViewJavascriptBridge#send(java.lang.String,
+	 *      com.lht.jsbridge_lib.base.Interface.CallBackFunction)
+	 */
 	@Override
 	public void send(String data, CallBackFunction responseCallback) {
 		doSend(null, data, responseCallback);
 	}
 
-	/** 
-	 * @Title: doSend 
+	/**
+	 * @Title: doSend
 	 * @Description: 向JS 发送数据
 	 * @author: leobert.lan
 	 * @param handlerName
-	 * 				句柄名称
+	 *            句柄名称
 	 * @param data
-	 * 				数据
-	 * @param responseCallback   
-	 * 				添加到 map {responseCallBacks}的java回调方法 
+	 *            数据
+	 * @param responseCallback
+	 *            添加到 map {responseCallBacks}的java回调方法
 	 */
 	private void doSend(String handlerName, String data,
 			CallBackFunction responseCallback) {
@@ -201,19 +204,20 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 		}
 	}
 
-	/** 
-	 * @Title: flushMessageQueue 
+	/**
+	 * @Title: flushMessageQueue
 	 * @Description: 目的在于获取js中的消息队列
-	 * @author: leobert.lan    
+	 * @author: leobert.lan
 	 */
 	void flushMessageQueue() {
 		if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
 
 			// 注入方法（如果DOM中不存在）：获取native消息队列内容 并调用
 			// 并向map {responseCallback} 中添加回调
-			
-			//this is the important code
-			loadUrl(BridgeUtil.JS_FETCH_QUEUE_FROM_JAVA,generateCallBackFunction());
+
+			// this is the important code
+			loadUrl(BridgeUtil.JS_FETCH_QUEUE_FROM_JAVA,
+					generateCallBackFunction());
 		} else {
 			// 不是主线程,无法操作任何事情
 			Log.wtf(TAG, "caller is not the main Thread,check!");
@@ -235,8 +239,7 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 	}
 
 	/**
-	 * register handler,so that javascript can call it
-	 * 注册handler，js即可调用
+	 * register handler,so that javascript can call it 注册handler，js即可调用
 	 * 
 	 * @param handlerName
 	 * @param handler
@@ -258,22 +261,22 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 			CallBackFunction callBack) {
 		doSend(handlerName, data, callBack);
 	}
-	
-	/** 
-	 * @Title: generateCallBackFunction 
+
+	/**
+	 * @Title: generateCallBackFunction
 	 * @Description: 生成接口对象 responseCallBack方法
 	 * @author: leobert.lan
-	 * @return    CallBackFunction 接口对象 ： handler 中的回调方法
+	 * @return CallBackFunction 接口对象 ： handler 中的回调方法
 	 */
 	private CallBackFunction generateCallBackFunction() {
-		return new  CallBackFunction() {
+		return new CallBackFunction() {
 
 			@Override
 			public void onCallBack(String data) {
-				
+
 				Log.d(TAG, "check the data form callbackFunction,"
-						+ "this will add to responseCallBack\r\n "
-						+ "data is:" + data);
+						+ "this will add to responseCallBack\r\n " + "data is:"
+						+ data);
 
 				// deserializeMessage
 				List<Message> list = null;
@@ -304,7 +307,7 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 						// 不是response
 
 						Log.d(TAG, "this is not response");
-						
+
 						CallBackFunction responseFunction = null;
 						// if had callbackId
 						final String callbackId = m.getCallbackId();
@@ -316,13 +319,11 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 							responseFunction = new CallBackFunction() {
 								@Override
 								public void onCallBack(String data) {
-									//实现数据回传到js
-									
+									// 实现数据回传到js
+
 									Message responseMsg = new Message();
-									responseMsg
-											.setResponseId(callbackId);
-									responseMsg
-											.setResponseData(data);
+									responseMsg.setResponseId(callbackId);
+									responseMsg.setResponseData(data);
 									queueMessage(responseMsg);
 								}
 							};
@@ -331,7 +332,8 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 								@Override
 								public void onCallBack(String data) {
 									// do nothing
-									Log.i(TAG, "this j2n caller do not have a response_id");
+									Log.i(TAG,
+											"this j2n caller do not have a response_id");
 								}
 							};
 						}
@@ -340,27 +342,27 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 						BridgeHandler handler;
 						if (!TextUtils.isEmpty(m.getHandlerName())) {
 							// js 指定了句柄名称 寻找对应的句柄
-							handler = messageHandlers.get(m
-									.getHandlerName());
+							handler = messageHandlers.get(m.getHandlerName());
 						} else {
 							// js 没有指定句柄名称,使用默认句柄
 							handler = defaultHandler;
 						}
 
 						if (handler != null) {
-							Log.i(TAG,"on response data");
-							handler.handler(m.getData(),
-									responseFunction);
+							Log.i(TAG, "on response data");
+							handler.handler(m.getData(), responseFunction);
 						} else {
-							Log.wtf(TAG, "404. function not found,check functionName:"+m.getHandlerName());
+							Log.wtf(TAG,
+									"404. function not found,check functionName:"
+											+ m.getHandlerName());
 						}
 					}
 				}
 			}
 		};
 	}
-	
-	//TEST
+
+	// TEST
 
 	@Override
 	public void callJsDemo(String data, CallBackFunction responseCallBack) {

@@ -11,7 +11,7 @@ import android.webkit.WebView;
 
 public class BridgeUtil {
 	private static final String TAG = "BridgeUtil";
-	
+
 	public final static String YY_OVERRIDE_SCHEMA = "yy://";
 	public final static String YY_RETURN_DATA = YY_OVERRIDE_SCHEMA + "return/";
 	// 格式为
@@ -22,17 +22,15 @@ public class BridgeUtil {
 	public final static String SPLIT_MARK = "/";
 
 	public final static String CALLBACK_ID_FORMAT = "JAVA_CB_%s";
-	
+
 	/**
-	 * JS_HANDLE_MESSAGE_FROM_JAVA:格式化格式，作用：
-	 * DOM中已经有一个注册过的方法
-	 * 将string格式的json 作为对象写入这个方法，本质是修改DOM
-	 * 然后Native再调用该方法，使得数据被加载
+	 * JS_HANDLE_MESSAGE_FROM_JAVA:格式化格式，作用： DOM中已经有一个注册过的方法 将string格式的json
+	 * 作为对象写入这个方法，本质是修改DOM 然后Native再调用该方法，使得数据被加载
 	 */
 	public final static String JS_HANDLE_MESSAGE_FROM_JAVA = "javascript:WebViewJavascriptBridge._handleMessageFromNative('%s');";
-	
+
 	public final static String JS_FETCH_QUEUE_FROM_JAVA = "javascript:WebViewJavascriptBridge._fetchQueue();";
-	
+
 	public final static String JAVASCRIPT_STR = "javascript:";
 
 	public static String parseFunctionName(String jsUrl) {
@@ -60,11 +58,11 @@ public class BridgeUtil {
 
 	public static String getFunctionFromReturnUrl(String url) {
 		String temp = url.replace(YY_RETURN_DATA, EMPTY_STR);
-		Log.d(TAG,"formated url to get functionname:\r\n"+temp);
+		Log.d(TAG, "formated url to get functionname:\r\n" + temp);
 		String[] functionAndData = temp.split(SPLIT_MARK);
 		if (functionAndData.length >= 1) {
-			Log.d(TAG,"check function:"+functionAndData[0]);
-			
+			Log.d(TAG, "check function:" + functionAndData[0]);
+
 			return functionAndData[0];
 		}
 		return null;
@@ -88,15 +86,15 @@ public class BridgeUtil {
 		view.loadUrl("javascript:" + jsContent);
 	}
 
-	/** 
-	 * @Title: assetFile2Str 
+	/**
+	 * @Title: assetFile2Str
 	 * @Description: 将assets文本资源转为string
 	 * @author: leobert.lan
 	 * @param c
-	 * 				上下文
+	 *            上下文
 	 * @param urlStr
-	 * 				String格式的（assets目录下）文件路径
-	 * @return    
+	 *            String格式的（assets目录下）文件路径
+	 * @return
 	 */
 	public static String assetFile2Str(Context c, String urlStr) {
 		InputStream in = null;

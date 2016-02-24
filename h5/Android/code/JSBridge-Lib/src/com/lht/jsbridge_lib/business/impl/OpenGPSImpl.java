@@ -12,6 +12,8 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
+import com.lht.jsbridge_lib.business.API.NativeRet;
+import com.lht.jsbridge_lib.business.API.NativeRet.NativeGpsRet;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.GPSResponseBean;
 
@@ -54,8 +56,8 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 
 			@Override
 			public void onJobExecuted(String data) {
-				Log("try callback"+data);
-				
+				Log("try callback" + data);
+
 				mFunction.onCallBack(data);
 			}
 
@@ -72,7 +74,7 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 		public GPSExecutor(LTRHandler h) {
 			super(h);
 		}
-		
+
 		@Override
 		public void run() {
 			Looper.prepare();
@@ -94,6 +96,7 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 
 		private LTRHandler handler;
 
+		@Override
 		public void setLTRHandler(LTRHandler h) {
 			handler = h;
 		}
@@ -113,32 +116,30 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 			baseResponseBean.setData(data);
 
 			if (location.getLocType() == BDLocation.TypeGpsLocation) {
-				baseResponseBean.setRet(GPSResponseBean.RET_SUCCESS);
+				baseResponseBean.setRet(NativeRet.RET_SUCCESS);
 				baseResponseBean.setMsg("gps定位成功");
 
 			} else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
-				baseResponseBean.setRet(GPSResponseBean.RET_SUCCESS);
+				baseResponseBean.setRet(NativeRet.RET_SUCCESS);
 				baseResponseBean.setMsg("网络定位成功");
 			} else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
-				baseResponseBean.setRet(GPSResponseBean.RET_SUCCESS);
+				baseResponseBean.setRet(NativeRet.RET_SUCCESS);
 				baseResponseBean.setMsg("离线定位成功");
 			} else if (location.getLocType() == BDLocation.TypeServerError) {
-				baseResponseBean.setRet(GPSResponseBean.RET_FAILURE);
-				baseResponseBean
-						.setMsg("服务端网络定位失败;");
+				baseResponseBean.setRet(NativeGpsRet.RET_FAILURE);
+				baseResponseBean.setMsg("服务端网络定位失败;");
 			} else if (location.getLocType() == BDLocation.TypeNetWorkException) {
-				baseResponseBean.setRet(GPSResponseBean.RET_FAILURE);
+				baseResponseBean.setRet(NativeGpsRet.RET_FAILURE);
 				baseResponseBean.setMsg("网络不同导致定位失败，请检查网络是否通畅");
 			} else if (location.getLocType() == BDLocation.TypeCriteriaException) {
-				baseResponseBean.setRet(GPSResponseBean.RET_FAILURE);
-				baseResponseBean
-						.setMsg("无法获取有效定位依据导致定位失败，一般是由于手机的原因");
+				baseResponseBean.setRet(NativeGpsRet.RET_FAILURE);
+				baseResponseBean.setMsg("无法获取有效定位依据导致定位失败，一般是由于手机的原因");
 			} else {
-				baseResponseBean.setRet(GPSResponseBean.RET_FAILURE);
+				baseResponseBean.setRet(NativeGpsRet.RET_FAILURE);
 				baseResponseBean.setMsg("unknown error");
 			}
 			String response = JSON.toJSONString(baseResponseBean);
-//			Log(response);
+			// Log(response);
 			Message msg = new Message();
 			msg.what = LTRHandler.MSG_JOBEXECUTED;
 			Bundle bundle = new Bundle();

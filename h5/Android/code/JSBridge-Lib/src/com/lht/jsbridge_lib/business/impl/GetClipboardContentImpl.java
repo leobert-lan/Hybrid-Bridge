@@ -3,8 +3,6 @@ package com.lht.jsbridge_lib.business.impl;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -12,12 +10,9 @@ import com.alibaba.fastjson.JSON;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
-import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
-import com.lht.jsbridge_lib.business.bean.DemoBean;
 import com.lht.jsbridge_lib.business.bean.GetClipboardBean;
-import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
 
 /**
  * @ClassName: DemoImpl
@@ -27,13 +22,14 @@ import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class GetClipboardImpl extends ABSApiImpl implements API.GetClipBoardHandler {
+public class GetClipboardContentImpl extends ABSApiImpl implements
+		API.GetClipBoardContentHandler {
 
 	private final Context mContext;
 
 	private CallBackFunction mFunction;
 
-	public GetClipboardImpl(Context mContext) {
+	public GetClipboardContentImpl(Context mContext) {
 		this.mContext = mContext;
 	}
 
@@ -44,13 +40,14 @@ public class GetClipboardImpl extends ABSApiImpl implements API.GetClipBoardHand
 		GetClipboardBean copyClipboardBean = JSON.parseObject(data, GetClipboardBean.class);
 		boolean bool = isBeanError(copyClipboardBean);
 
-		Log.i("zhang", JSON.toJSONString(copyClipboardBean));
 		if (!bool) {
 			String clipBoard = copyClipboardBean.getContent();
 			ClipboardManager myClipboardManager = (ClipboardManager) mContext
 					.getSystemService(Context.CLIPBOARD_SERVICE);
 			ClipData myClip;
 			myClip = ClipData.newPlainText("text", clipBoard);
+			myClipboardManager.setPrimaryClip(myClip);
+
 			myClipboardManager.setPrimaryClip(myClip);	
 			
 			/*//获取剪切板的数据
@@ -59,12 +56,12 @@ public class GetClipboardImpl extends ABSApiImpl implements API.GetClipBoardHand
 			String text = clipboard.getText().toString();
 			*/
 			BaseResponseBean bean = new BaseResponseBean();
-			bean.setRet(NativeRet.NativeCopyToClipBorad.RET_SUCCESS);
+			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData(copyClipboardBean.getContent());
 			mFunction.onCallBack(JSON.toJSONString(bean));
-		}else {
-			
+		} else {
+
 		}
 	}
 

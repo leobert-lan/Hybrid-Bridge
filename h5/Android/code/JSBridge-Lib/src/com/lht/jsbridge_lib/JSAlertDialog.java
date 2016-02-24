@@ -26,7 +26,7 @@ public class JSAlertDialog {
 	private final AlertDialog.Builder builder;
 
 	private final JsResult result;
-	
+
 	private boolean debug = false;
 
 	public JSAlertDialog(Context ctx, JsResult result) {
@@ -36,6 +36,7 @@ public class JSAlertDialog {
 		// 不需要绑定按键事件
 		// 屏蔽keycode等于84之类的按键
 		builder.setOnKeyListener(new OnKeyListener() {
+			@Override
 			public boolean onKey(DialogInterface dialog, int keyCode,
 					KeyEvent event) {
 				Log.v("onJsAlert", "keyCode==" + keyCode + "event=" + event);
@@ -48,14 +49,15 @@ public class JSAlertDialog {
 
 	public void fixContent(String data) {
 		if (data.contains("{") && data.contains("}")) {
-			JSAlertDataBean bean = JSON.parseObject(data, JSAlertDataBean.class);
-			//检验是否有title
+			JSAlertDataBean bean = JSON
+					.parseObject(data, JSAlertDataBean.class);
+			// 检验是否有title
 			if (!TextUtils.isEmpty(bean.getTitle()))
 				builder.setTitle(bean.getTitle());
-			//检验是否有确认键文字
-			if(!TextUtils.isEmpty(bean.getPositiveContent()))
+			// 检验是否有确认键文字
+			if (!TextUtils.isEmpty(bean.getPositiveContent()))
 				setPositive(bean.getPositiveContent());
-			else 
+			else
 				setPositive("确定");
 			builder.setMessage(bean.getMessage());
 			if (bean.isDebug())
@@ -66,9 +68,10 @@ public class JSAlertDialog {
 		}
 
 	}
-	
+
 	private void setPositive(String content) {
 		builder.setPositiveButton(content, new OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				result.confirm();
 			}

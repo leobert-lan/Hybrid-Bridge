@@ -7,7 +7,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -15,7 +14,6 @@ import com.alibaba.fastjson.JSON;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
-import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
 import com.lht.jsbridge_lib.business.bean.DemoBean;
@@ -59,7 +57,7 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 			mContext.startActivity(Intent.createChooser(myIntent, "请选择邮件"));
 
 			BaseResponseBean bean = new BaseResponseBean();
-			bean.setRet(NativeRet.NativeCopyToClipBorad.RET_SUCCESS);
+			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData("");
 			mFunction.onCallBack(JSON.toJSONString(bean));

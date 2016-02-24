@@ -17,6 +17,7 @@ import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
 import com.lht.jsbridge_lib.business.bean.DemoBean;
 import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
+import com.lht.jsbridge_lib.business.bean.SendEmailBean;
 
 /**
  * @ClassName: DemoImpl
@@ -26,7 +27,7 @@ import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class SendEmailImpl extends ABSApiImpl implements API.CopyHandler {
+public class SendEmailImpl extends ABSApiImpl implements API.SendEmail {
 
 	private final Context mContext;
 
@@ -40,32 +41,36 @@ public class SendEmailImpl extends ABSApiImpl implements API.CopyHandler {
 	public void handler(String data, CallBackFunction function) {
 		mFunction = function;
 
-		CopyToClipboardBean copyClipboardBean = JSON.parseObject(data, CopyToClipboardBean.class);
-		boolean bool = isBeanError(copyClipboardBean);
+		SendEmailBean sendEmailBean = JSON.parseObject(data,
+				SendEmailBean.class);
+		boolean bool = isBeanError(sendEmailBean);
 
 		if (!bool) {
-			String clipBoard = copyClipboardBean.getContent();
-			ClipboardManager myClipboardManager = (ClipboardManager) mContext
-					.getSystemService(Context.CLIPBOARD_SERVICE);
-			ClipData myClip;
-			myClip = ClipData.newPlainText("text", clipBoard);
-			myClipboardManager.setPrimaryClip(myClip);	
-			
+
+			String[] reciver = new String[] { "247998690@qq.com","32415861@qq.com" };  
+	        Log.i("zhang", JSON.toJSONString(reciver));
+	        Log.i("zhang", sendEmailBean.getAddressee());
+	        Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);  
+	        myIntent.setType("plain/text");  
+	        myIntent.putExtra(android.content.Intent.EXTRA_EMAIL, reciver);  
+	        myIntent.putExtra(android.content.Intent.EXTRA_TEXT, sendEmailBean.getMessage());  
+	        mContext.startActivity(Intent.createChooser(myIntent, "请选择邮件"));  
+
 			BaseResponseBean bean = new BaseResponseBean();
 			bean.setRet(NativeRet.NativeCopyToClipBorad.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData("");
 			mFunction.onCallBack(JSON.toJSONString(bean));
-		}else {
-			
+		} else {
+
 		}
 	}
 
 	@Override
 	protected boolean isBeanError(Object o) {
-		if (o instanceof CopyToClipboardBean) {
-			CopyToClipboardBean bean = (CopyToClipboardBean) o;
-			if (TextUtils.isEmpty(bean.getContent())) {
+		if (o instanceof SendEmailBean) {
+			SendEmailBean bean = (SendEmailBean) o;
+			if (TextUtils.isEmpty(bean.getAddressee())) {
 				Log.wtf(API_NAME,
 						"501,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;

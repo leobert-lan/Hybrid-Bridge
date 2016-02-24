@@ -122,6 +122,8 @@ button {
 		} else {
 			log.appendChild(el)
 		}
+		
+		Log(data);
 	}
 	
 	function clearLog() {
@@ -169,13 +171,25 @@ button {
 		callNativeCopyDemo(data,callback);
 	}
 	function testClipBoardDemo(){
-		
+		var data = {'content':'this is the content ,which is lastly added to clipboard'}
+		var callback = function(responseData) {
+			log('your copy to clipboard',responseData);
+		}
+		callNativeGetClipBoard(data, callback);
 	}
 	function testSendMessageDemo(){
-		
+		var data = {'contacts':'10086', 'messageContent':'this is the content that will send to contacts'}
+		var callback = function(responseData){
+			log('your send message',responseData);
+		}
+		callNativeSendMessage(data, callback);
 	}
 	function testSendEmailDemo(){
-		
+		var data = {'addressee':['247998690@qq.com','fuihsdifwez@1463.cmo'], 'message':'Email内容是......'}
+		var callback = function(responseData){
+			log('your send email',responseData);
+		}
+		callNativeSendEmail(data, callback);
 	}
 	
 </script>
@@ -197,5 +211,13 @@ button {
 
 <script type="application/javascript" charset="utf-8"
 	src="H5JSBridgeCopyToClipboard.js"></script>
+	
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeGetClipBoard.js"></script>
 
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeSendEmail.js"></script>
+
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeSendMessage.js"></script>
 </html>

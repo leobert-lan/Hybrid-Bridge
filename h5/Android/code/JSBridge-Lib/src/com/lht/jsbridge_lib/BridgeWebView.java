@@ -86,6 +86,7 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 		}
 
 		this.setWebViewClient(generateBridgeWebViewClient());
+		this.setWebChromeClient(new BridgeWebChromeClient());
 	}
 
 	protected BridgeWebViewClient generateBridgeWebViewClient() {
@@ -111,6 +112,7 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge ,I
 			Log.wtf(TAG, "底层消息框架出错");
 		}
 	}
+	
 
 	/**
 	 * 供js间接调用的 send方法，发送数据

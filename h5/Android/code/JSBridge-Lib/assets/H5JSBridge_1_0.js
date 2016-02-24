@@ -33,5 +33,9 @@ setupJSBridge(function(bridge) {
 //		console.log('JS responding with', data);
 //		responseCallback(data);
 	});
-	
 })
+
+function Log(message) {
+	var data = {'title':"DEBUG",'message':message,'positiveContent':'ok','debug':true};
+	alert(JSON.stringify(data));
+}

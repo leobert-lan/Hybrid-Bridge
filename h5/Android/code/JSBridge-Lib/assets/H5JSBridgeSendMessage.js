@@ -27,9 +27,9 @@
 
 
 //调原生GPS定位信息
-function callNativeCallDemo(data, responseCallback) {
+function callNativeSendMessage(data, responseCallback) {
 
 	setupJSBridge(function(bridge) {
-		bridge.callHandler('NATIVE_FUNCTION_CALLTEL', data, responseCallback)
+		bridge.callHandler('NATIVE_FUNCTION_SENDMESSAGE', data, responseCallback)
 	})
 };

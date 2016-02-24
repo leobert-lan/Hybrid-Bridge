@@ -15,6 +15,7 @@ import com.lht.jsbridge_lib.business.API.API;
  */
 public class TestLTRImpl extends ABSLTRApiImpl implements API.TestLTRHandler {
 	private CallBackFunction mFunction;
+
 	@Override
 	public void handler(String data, CallBackFunction function) {
 		mFunction = function;

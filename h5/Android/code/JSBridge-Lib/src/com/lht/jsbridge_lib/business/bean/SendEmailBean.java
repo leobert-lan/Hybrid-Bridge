@@ -12,7 +12,7 @@ public class SendEmailBean {
 	private String addressee;
 	
 	private String message;
-
+	
 	public String getAddressee() {
 		return addressee;
 	}

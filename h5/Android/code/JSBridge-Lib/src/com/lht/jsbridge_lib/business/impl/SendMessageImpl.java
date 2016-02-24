@@ -1,7 +1,5 @@
 package com.lht.jsbridge_lib.business.impl;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,11 +10,7 @@ import com.alibaba.fastjson.JSON;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
-import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
-import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
-import com.lht.jsbridge_lib.business.bean.DemoBean;
-import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
 import com.lht.jsbridge_lib.business.bean.SendMessageBean;
 
 /**
@@ -27,7 +21,7 @@ import com.lht.jsbridge_lib.business.bean.SendMessageBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class SendMessageImpl extends ABSApiImpl implements API.SendMessage {
+public class SendMessageImpl extends ABSApiImpl implements API.SendMessageHandler {
 
 	private final Context mContext;
 
@@ -54,7 +48,7 @@ public class SendMessageImpl extends ABSApiImpl implements API.SendMessage {
 			mContext.startActivity(intent);
 
 			BaseResponseBean bean = new BaseResponseBean();
-			bean.setRet(NativeRet.NativeCopyToClipBorad.RET_SUCCESS);
+			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData("");
 			mFunction.onCallBack(JSON.toJSONString(bean));
@@ -69,11 +63,15 @@ public class SendMessageImpl extends ABSApiImpl implements API.SendMessage {
 			SendMessageBean bean = (SendMessageBean) o;
 			if (TextUtils.isEmpty(bean.getContacts())) {
 				Log.wtf(API_NAME,
-						"501,data error,check bean:" + JSON.toJSONString(bean));
+						"41001,data error,check bean:" + JSON.toJSONString(bean));
+				return BEAN_IS_ERROR;
+			}
+			if (TextUtils.isEmpty(bean.getMessageContent())) {
+				Log.wtf(API_NAME,
+						"41002,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;
 			}
 			return BEAN_IS_CORRECT;
-
 		} else {
 			Log.wtf(API_NAME,
 					"check you code,bean not match because your error");

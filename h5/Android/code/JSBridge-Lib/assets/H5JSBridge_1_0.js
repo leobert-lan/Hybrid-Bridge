@@ -39,3 +39,8 @@ function Log(message) {
 	var data = {'title':"DEBUG",'message':message,'positiveContent':'ok','debug':true};
 	alert(JSON.stringify(data));
 }
+
+function Log2(hint,message) {
+	var data =[hint+'========', message];
+	Log(data);
+}

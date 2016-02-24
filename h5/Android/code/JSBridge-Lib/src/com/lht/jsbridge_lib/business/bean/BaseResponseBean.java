@@ -9,17 +9,17 @@ package com.lht.jsbridge_lib.business.bean;
  * @version 1.0
  */
 public class BaseResponseBean {
-	
+
 	/**
 	 * ret:返回码
 	 */
 	private int ret;
-	
+
 	/**
-	 * msg:扩展消息 
+	 * msg:扩展消息
 	 */
 	private String msg;
-	
+
 	/**
 	 * data:业务处理结果
 	 */

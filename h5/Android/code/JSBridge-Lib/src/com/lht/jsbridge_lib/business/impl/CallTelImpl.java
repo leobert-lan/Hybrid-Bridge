@@ -36,23 +36,24 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 		mFunction = function;
 
 		PhoneNumBean phoneNumBean = JSON.parseObject(data, PhoneNumBean.class);
-		
+
 		boolean bool = isBeanError(phoneNumBean);
-		
-		if (!bool) {			
+
+		if (!bool) {
 			String number = phoneNumBean.getTelphone();
 			Intent intent = new Intent();
 			intent.setAction(Intent.ACTION_DIAL);
 			intent.setData(Uri.parse("tel:" + number));
 			mContext.startActivity(intent);
+			
 			BaseResponseBean bean = new BaseResponseBean();
-			bean.setRet(NativeRet.NativeCallTelRet.RET_SUCCESS);
+			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData("");
-			
+
 			mFunction.onCallBack(JSON.toJSONString(bean));
-		}else{
-			
+		} else {
+
 		}
 	}
 
@@ -62,7 +63,12 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 			PhoneNumBean bean = (PhoneNumBean) o;
 			if (TextUtils.isEmpty(bean.getTelphone())) {
 				Log.wtf(API_NAME,
-						"501,data error,check bean:" + JSON.toJSONString(bean));
+						"30001:data error,check bean:" + JSON.toJSONString(bean));
+				return BEAN_IS_ERROR;
+			}
+			if (!bean.getTelphone().matches("[0-9]+")) {
+				Log.wtf(API_NAME,
+						"30002:data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;
 			}
 			return BEAN_IS_CORRECT;

@@ -87,25 +87,17 @@
 - (void)WebUIInit{
     
 }
-//- (void)callHandler:(id)sender {
-//    id data = @{ @"greetingFromObjC": @"Hi there, JS!" };
-//    [self.bridgeMain callHandler:@"testJavascriptHandler" data:data responseCallback:^(id response) {
-//        NSLog(@"testJavascriptHandler responded: %@", response);
-//    }];
-//}
+
 
 #pragma mark - 添加监听 
 - (void)listener:(WKWebViewJavascriptBridge*)bridge{
+    /*
     [bridge registerHandler:@"oneClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"H5 调 oneClick: %@",data);
         //回传给H5
-        
-    }];
-    
-    [bridge registerHandler:@"GPSCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"H5 调 GPS: %@",data);
-        //回传给H5
         responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
     }];
+    */
+   
 }
 @end

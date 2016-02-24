@@ -11,7 +11,6 @@ import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
-import com.lht.jsbridge_lib.business.bean.DemoBean;
 import com.lht.jsbridge_lib.business.bean.PhoneNumBean;
 
 /**
@@ -39,6 +38,7 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 		PhoneNumBean phoneNumBean = JSON.parseObject(data, PhoneNumBean.class);
 		
 		boolean bool = isBeanError(phoneNumBean);
+		
 		if (!bool) {			
 			String number = phoneNumBean.getTelphone();
 			Intent intent = new Intent();
@@ -47,7 +47,7 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 			mContext.startActivity(intent);
 			BaseResponseBean bean = new BaseResponseBean();
 			bean.setRet(NativeRet.NativeCallTelRet.RET_SUCCESS);
-			bean.setMsg("hehehe");
+			bean.setMsg("OK");
 			bean.setData("");
 			
 			mFunction.onCallBack(JSON.toJSONString(bean));
@@ -56,12 +56,21 @@ public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
 		}
 	}
 
-	//逻辑判断
-	
 	@Override
 	protected boolean isBeanError(Object o) {
-		
-		return BEAN_IS_CORRECT;
+		if (o instanceof PhoneNumBean) {
+			PhoneNumBean bean = (PhoneNumBean) o;
+			if (TextUtils.isEmpty(bean.getTelphone())) {
+				Log.wtf(API_NAME,
+						"501,data error,check bean:" + JSON.toJSONString(bean));
+				return BEAN_IS_ERROR;
+			}
+			return BEAN_IS_CORRECT;
+		} else {
+			Log.wtf(API_NAME,
+					"check you code,bean not match because your error");
+			return BEAN_IS_ERROR;
+		}
 	}
 
 }

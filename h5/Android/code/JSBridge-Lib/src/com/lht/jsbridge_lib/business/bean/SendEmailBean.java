@@ -9,15 +9,15 @@ package com.lht.jsbridge_lib.business.bean;
  */
 public class SendEmailBean {
 	
-	private String addressee;
+	private String[] addressee;
 	
 	private String message;
-
-	public String getAddressee() {
+	
+	public String[] getAddressee() {
 		return addressee;
 	}
 
-	public void setAddressee(String addressee) {
+	public void setAddressee(String[] addressee) {
 		this.addressee = addressee;
 	}
 

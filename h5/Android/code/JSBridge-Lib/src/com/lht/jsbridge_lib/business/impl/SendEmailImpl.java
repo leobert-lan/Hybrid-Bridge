@@ -49,10 +49,10 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmail {
 
 			String[] reciver = new String[] { "247998690@qq.com","32415861@qq.com" };  
 	        Log.i("zhang", JSON.toJSONString(reciver));
-	        Log.i("zhang", sendEmailBean.getAddressee());
+//	        Log.i("zhang", sendEmailBean.getAddressee());
 	        Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);  
 	        myIntent.setType("plain/text");  
-	        myIntent.putExtra(android.content.Intent.EXTRA_EMAIL, reciver);  
+	        myIntent.putExtra(android.content.Intent.EXTRA_EMAIL, sendEmailBean.getAddressee());  
 	        myIntent.putExtra(android.content.Intent.EXTRA_TEXT, sendEmailBean.getMessage());  
 	        mContext.startActivity(Intent.createChooser(myIntent, "请选择邮件"));  
 
@@ -70,7 +70,7 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmail {
 	protected boolean isBeanError(Object o) {
 		if (o instanceof SendEmailBean) {
 			SendEmailBean bean = (SendEmailBean) o;
-			if (TextUtils.isEmpty(bean.getAddressee())) {
+			if (TextUtils.isEmpty(bean.getAddressee().toString())) {
 				Log.wtf(API_NAME,
 						"501,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;

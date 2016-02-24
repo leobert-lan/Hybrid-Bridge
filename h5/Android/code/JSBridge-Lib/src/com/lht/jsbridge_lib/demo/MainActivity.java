@@ -17,7 +17,10 @@ import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.impl.CallTelImpl;
 import com.lht.jsbridge_lib.business.impl.CopyToClipboardImpl;
 import com.lht.jsbridge_lib.business.impl.DemoImpl;
+import com.lht.jsbridge_lib.business.impl.GetClipboardImpl;
 import com.lht.jsbridge_lib.business.impl.OpenGPSImpl;
+import com.lht.jsbridge_lib.business.impl.SendEmailImpl;
+import com.lht.jsbridge_lib.business.impl.SendMessageImpl;
 import com.lht.jsbridge_lib.business.impl.TestLTRImpl;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -94,6 +97,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		webView.registerHandler(CopyToClipboardImpl.API_NAME, new CopyToClipboardImpl(MainActivity.this));
 		
+		webView.registerHandler(GetClipboardImpl.API_NAME, new CopyToClipboardImpl(MainActivity.this));
+		
+		webView.registerHandler(SendEmailImpl.API_NAME, new SendEmailImpl(MainActivity.this));
+		
+		webView.registerHandler(SendMessageImpl.API_NAME, new SendMessageImpl(MainActivity.this));
 		testCallJs();
 	}
 

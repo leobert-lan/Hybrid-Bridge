@@ -40,4 +40,15 @@ public interface API {
 		public static String API_NAME = "NATIVE_FUNCTION_SENDTOCLIPBOARD";
 	}
 
+	interface GetClipBoard extends BridgeHandler {
+		public static String API_NAME = "NATIVE_FUNCTION_GETFROMCLIPBOARD";
+	}
+	
+	interface SendMessage extends BridgeHandler {
+		public static String API_NAME = "NATIVE_FUNCTION_SENDMESSAGE";
+	}
+	
+	interface SendEmail extends BridgeHandler {
+		public static String API_NAME = "NATIVE_FUNCTION_SENDEMAIL";
+	}
 }

@@ -26,4 +26,16 @@ public interface NativeRet {
 	interface NativeCopyToClipBorad extends NativeRet {
 		public int RET_FAILURE = 21000;
 	}
+	
+	interface NativeGetClipBoard extends NativeRet {
+		public int RET_FAILURE = 21000;
+	}
+	
+	interface NativeSendMessage extends NativeRet {
+		public int RET_FAILURE = 21000;
+	}
+	
+	interface NativeSendEmail extends NativeRet {
+		public int RET_FAILURE = 21000;
+	}
 }

@@ -8,9 +8,11 @@
         android:minSdkVersion="17"
         android:targetSdkVersion="21" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!-- 摄像头权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
-
+	<!-- 发送短信 -->
+    <uses-permission android:name="android.permission.SEND_SMS" /> 
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
     </uses-permission>

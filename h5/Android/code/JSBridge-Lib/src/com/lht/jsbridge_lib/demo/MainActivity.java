@@ -19,7 +19,6 @@ import com.lht.jsbridge_lib.business.API.API.CopyHandler;
 import com.lht.jsbridge_lib.business.API.API.Demo;
 import com.lht.jsbridge_lib.business.API.API.GPSHandler;
 import com.lht.jsbridge_lib.business.API.API.GetClipBoardContentHandler;
-import com.lht.jsbridge_lib.business.API.API.ScanCodeHandler;
 import com.lht.jsbridge_lib.business.API.API.TestLTRHandler;
 import com.lht.jsbridge_lib.business.impl.CallTelImpl;
 import com.lht.jsbridge_lib.business.impl.CopyToClipboardImpl;

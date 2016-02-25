@@ -36,7 +36,7 @@ import com.mining.app.zxing.camera.PlanarYUVLuminanceSource;
 
 final class DecodeHandler extends Handler {
 
-  private static final String TAG = DecodeHandler.class.getSimpleName();
+  private static final String TAG = "DecodeHandler";
 
   private final MipcaActivityCapture activity;
   private final MultiFormatReader multiFormatReader;
@@ -51,7 +51,6 @@ final class DecodeHandler extends Handler {
   public void handleMessage(Message message) {
     switch (message.what) {
       case R.id.decode:
-        //Log.d(TAG, "Got decode message");
         decode((byte[]) message.obj, message.arg1, message.arg2);
         break;
       case R.id.quit:
@@ -71,6 +70,9 @@ final class DecodeHandler extends Handler {
   private void decode(byte[] data, int width, int height) {
     long start = System.currentTimeMillis();
     Result rawResult = null;
+    
+    //debug
+    Log.d(TAG, "data size:"+data.length+"...w:"+width+"...h:"+height);
     
     //modify here
     byte[] rotatedData = new byte[data.length];

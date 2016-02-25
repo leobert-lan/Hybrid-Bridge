@@ -13,48 +13,69 @@ import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 public interface API {
 
 	interface Demo extends BridgeHandler {
+		/**
+		 * API_NAME:测试
+		 */
 		public static String API_NAME = "NATIVE_FUNCTION_DEMO";
 	}
 
+	@Deprecated
 	interface openFile extends BridgeHandler {
+		/**
+		 * API_NAME:TODO 测试打开文件 
+		 */
 		public static String API_NAME = "openFile";
 	}
 
 	interface GPSHandler extends BridgeHandler {
+		/**
+		 * API_NAME:定位，优先GPS 
+		 */
 		public static String API_NAME = "NATIVE_FUNCTION_OPENGPS";
 	}
 
 	interface TestLTRHandler extends BridgeHandler {
 		/**
-		 * API_NAME:耗时任务测试接口
+		 * API_NAME:TODO 耗时任务测试接口
 		 */
 		public static String API_NAME = "NATIVE_FUNCTION_LTDEMO";
 	}
 
 	interface CallTelHandler extends BridgeHandler {
 
+		/**
+		 * API_NAME:拨号
+		 */
 		public static String API_NAME = "NATIVE_FUNCTION_CALLTEL";
 	}
 
-	interface CopyHandler extends BridgeHandler {
+	interface SendToClipBoardHandler extends BridgeHandler {
+		/**
+		 * API_NAME:发送内容到剪切板
+		 */
 		public static String API_NAME = "NATIVE_FUNCTION_SENDTOCLIPBOARD";
 	}
 
-	interface GetClipBoardHandler extends BridgeHandler {
+	interface GetClipBoardContentHandler extends BridgeHandler {
+		/**
+		 * API_NAME:获取剪切板内容
+		 */
 		public static String API_NAME = "NATIVE_FUNCTION_GETFROMCLIPBOARD";
 	}
 	
 	interface SendMessageHandler extends BridgeHandler {
+		/**
+		 * API_NAME:发送短息
+		 */
 		public static String API_NAME = "NATIVE_FUNCTION_SENDMESSAGE";
 	}
 	
 	interface SendEmailHandler extends BridgeHandler {
+		/**
+		 * API_NAME:发送邮件
+		 */
 		public static String API_NAME = "NATIVE_FUNCTION_SENDEMAIL";
 	}
-	interface GetClipBoardContentHandler extends BridgeHandler {
-		public static String API_NAME = "NATIVE_FUNCTION_GETFROMCLIPBOARD";
-	}
-
 
 	interface ScanCodeHandler extends BridgeHandler {
 		/**

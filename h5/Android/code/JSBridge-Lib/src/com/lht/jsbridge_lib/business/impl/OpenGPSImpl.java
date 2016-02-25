@@ -19,7 +19,7 @@ import com.lht.jsbridge_lib.business.bean.GPSResponseBean;
 
 /**
  * @ClassName: OpneGPSImpl
- * @Description: TODO
+ * @Description：进行定位，优先使用GPS，其次WIFI、基站
  * @date 2016年2月19日 上午9:22:49
  * 
  * @author leobert.lan
@@ -115,6 +115,8 @@ public class OpenGPSImpl extends ABSLTRApiImpl implements API.GPSHandler {
 			BaseResponseBean baseResponseBean = new BaseResponseBean();
 			baseResponseBean.setData(data);
 
+			//TODO 优化错误返回码
+			
 			if (location.getLocType() == BDLocation.TypeGpsLocation) {
 				baseResponseBean.setRet(NativeRet.RET_SUCCESS);
 				baseResponseBean.setMsg("gps定位成功");

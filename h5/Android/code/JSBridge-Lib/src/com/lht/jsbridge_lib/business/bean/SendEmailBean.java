@@ -9,16 +9,16 @@ package com.lht.jsbridge_lib.business.bean;
  */
 public class SendEmailBean {
 	
-	private String addressee;
+	private String address;
 	
 	private String message;
 	
-	public String getAddressee() {
-		return addressee;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddressee(String addressee) {
-		this.addressee = addressee;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getMessage() {

@@ -12,13 +12,15 @@ import com.lht.jsbridge_lib.business.API.NativeRet;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.bean.SendEmailBean;
 
-/**
- * @ClassName: DemoImpl
- * @Description: TODO
- * @date 2016年2月19日 下午4:11:26
- * 
+
+/** 
+ * @ClassName: SendEmailImpl 
+ * @Description:发送Email
+ * @date 2016年2月25日 上午9:35:03
+ *  
  * @author leobert.lan
- * @version 1.0
+ * @version 1.0 
+ * @since JDK 1.6 
  */
 public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 
@@ -43,7 +45,7 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 			Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);
 			myIntent.setType("plain/text");
 			myIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
-					sendEmailBean.getAddressee());
+					sendEmailBean.getAddress());
 			myIntent.putExtra(android.content.Intent.EXTRA_TEXT,
 					sendEmailBean.getMessage());
 			mContext.startActivity(Intent.createChooser(myIntent, "请选择邮件"));
@@ -62,7 +64,7 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 	protected boolean isBeanError(Object o) {
 		if (o instanceof SendEmailBean) {
 			SendEmailBean bean = (SendEmailBean) o;
-			if (TextUtils.isEmpty(bean.getAddressee().toString())) {
+			if (TextUtils.isEmpty(bean.getAddress().toString())) {
 				Log.wtf(API_NAME,
 						"501,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;

@@ -12,8 +12,6 @@ public interface NativeRet {
 
 	int RET_SUCCESS = 10000;
 
-	// ...
-
 	interface NativeGpsRet extends NativeRet {
 
 		public int RET_FAILURE = 21000;
@@ -25,19 +23,45 @@ public interface NativeRet {
 	}
 
 	interface NativeCopyToClipBorad extends NativeRet {
-		public int RET_FAILURE = 21000;
+		/**
+		 * RET_FAILURE:复制到剪切板内容失败
+		 */
+		public int RET_COPYTOCLIPBORAD_FAILURE = 41000;
 	}
 
 	interface NativeGetClipBoard extends NativeRet {
-		public int RET_FAILURE = 21000;
+		/**
+		 * RET_FAILURE:获取剪切板内容失败
+		 */
+		public int RET_GETCLIPBORAD_FAILURE = 42000;
 	}
 
 	interface NativeSendMessage extends NativeRet {
-		public int RET_FAILURE = 21000;
+		/**
+		 * RET_CONTACTS_NULL:手机号为空
+		 */
+		public int RET_CONTACTS_NULL = 41001;
+		
+		/**
+		 * RET_CONTENT_NULL:短信内容为空
+		 */
+		public int RET_CONTENT_NULL = 41002;
 	}
 
 	interface NativeSendEmail extends NativeRet {
-		public int RET_FAILURE = 21000;
+		/**
+		 * RET_ADDRESSES_NULL:Email地址为空
+		 */
+		public int RET_ADDRESSES_NULL = 51001;
+		
+		/**
+		 * RET_MESSAGE_NULL:Email内容为空
+		 */
+		public int RET_MESSAGE_NULL = 51002;
+		/**
+		 * RET_FORMAT_FAILURE:Email格式错误
+		 */
+		public int RET_FORMAT_FAILURE = 51004;
 	}
 
 	interface NativeScanCodeRet extends NativeRet {

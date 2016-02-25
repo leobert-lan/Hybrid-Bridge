@@ -39,9 +39,7 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 		SendEmailBean sendEmailBean = JSON.parseObject(data,
 				SendEmailBean.class);
 		boolean bool = isBeanError(sendEmailBean);
-
 		if (!bool) {
-
 			Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);
 			myIntent.setType("plain/text");
 			myIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
@@ -77,7 +75,7 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 			if (!Pattern
 					.compile(
 							"^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$")
-					.matcher(bean.getAddressee()).matches()) {
+					.matcher(bean.getAddressee()[0]).matches()) {
 				Log.wtf(API_NAME,
 						"51004,data error,check bean:"
 								+ JSON.toJSONString(bean));

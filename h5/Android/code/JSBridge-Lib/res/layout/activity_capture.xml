@@ -25,9 +25,9 @@
 
         <SurfaceView
             android:id="@+id/preview_view"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
             android:layout_below="@+id/scansearch_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center" />
 
         <com.mining.app.zxing.view.ViewfinderView

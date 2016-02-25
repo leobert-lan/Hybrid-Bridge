@@ -53,7 +53,7 @@ public class MipcaActivityCapture extends Activity implements Callback {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_capture);
-		CameraManager.init(getApplication());
+		CameraManager.init(MipcaActivityCapture.this);
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(this);

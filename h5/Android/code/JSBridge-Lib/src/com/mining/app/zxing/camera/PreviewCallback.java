@@ -43,6 +43,7 @@ final class PreviewCallback implements Camera.PreviewCallback {
 
   @Override
 public void onPreviewFrame(byte[] data, Camera camera) {
+	  //TODO 分辨率，决定解码区？
     Point cameraResolution = configManager.getCameraResolution();
     if (!useOneShotPreviewCallback) {
       camera.setPreviewCallback(null);

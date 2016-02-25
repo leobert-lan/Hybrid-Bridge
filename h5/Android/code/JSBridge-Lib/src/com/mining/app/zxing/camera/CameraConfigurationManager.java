@@ -72,16 +72,17 @@ final class CameraConfigurationManager {
 		previewFormatString = parameters.get("preview-format");
 		WindowManager manager = (WindowManager) context
 				.getSystemService(Context.WINDOW_SERVICE);
+		// 获取设备屏幕信息 替换过时方法 -leobert
 		Display display = manager.getDefaultDisplay();
-		int width = display.getWidth();
-		int height = display.getHeight();
+		screenResolution = new Point();
 
-//		int edge = width < height ? width : height;
-		screenResolution = new Point(width, height);
+		display.getSize(screenResolution);
+		
 //		cameraResolution = getCameraResolution(parameters, screenResolution);
-		if (width < height) {
+
+		if (screenResolution.x < screenResolution.y) {
 			cameraResolution = getCameraResolution(parameters, new Point(
-					height, width));
+					screenResolution.y, screenResolution.x));
 		} else {
 			cameraResolution = getCameraResolution(parameters, screenResolution);
 		}
@@ -97,11 +98,11 @@ final class CameraConfigurationManager {
 	@SuppressWarnings("deprecation")
 	void setDesiredCameraParameters(Camera camera) {
 		Camera.Parameters parameters = camera.getParameters();
-		Log.d(TAG, "Setting preview size: " + cameraResolution);
+		Log.d("lmsg", "Setting preview size: " + cameraResolution);
 		parameters.setPreviewSize(cameraResolution.x, cameraResolution.y);
 		setFlash(parameters);
 		setZoom(parameters);
-		// setSharpness(parameters);
+		setSharpness(parameters);
 		camera.setDisplayOrientation(90);
 		camera.setParameters(parameters);
 	}
@@ -306,18 +307,22 @@ final class CameraConfigurationManager {
 		}
 	}
 
-	/*
-	 * private void setSharpness(Camera.Parameters parameters) {
-	 * 
-	 * int desiredSharpness = DESIRED_SHARPNESS;
-	 * 
-	 * String maxSharpnessString = parameters.get("sharpness-max"); if
-	 * (maxSharpnessString != null) { try { int maxSharpness =
-	 * Integer.parseInt(maxSharpnessString); if (desiredSharpness >
-	 * maxSharpness) { desiredSharpness = maxSharpness; } } catch
-	 * (NumberFormatException nfe) { Log.w(TAG, "Bad sharpness-max: " +
-	 * maxSharpnessString); } }
-	 * 
-	 * parameters.set("sharpness", desiredSharpness); }
-	 */
+	private void setSharpness(Camera.Parameters parameters) {
+
+		int desiredSharpness = DESIRED_SHARPNESS;
+
+		String maxSharpnessString = parameters.get("sharpness-max");
+		if (maxSharpnessString != null) {
+			try {
+				int maxSharpness = Integer.parseInt(maxSharpnessString);
+				if (desiredSharpness > maxSharpness) {
+					desiredSharpness = maxSharpness;
+				}
+			} catch (NumberFormatException nfe) {
+				Log.w(TAG, "Bad sharpness-max: " + maxSharpnessString);
+			}
+		}
+		parameters.set("sharpness", desiredSharpness);
+	}
+
 }

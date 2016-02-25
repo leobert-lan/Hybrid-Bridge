@@ -25,6 +25,22 @@ function setupJSBridge(callback) {
 
 setupJSBridge(function(bridge) {
 	bridge.init(function(message, responseCallback) {
-                
+		//该方法体实现内容无所谓，关键是需要init
+//		console.log('JS got a message', message);
+//		var data = {
+//			'Javascript Responds' : 'hehehe'
+//		};
+//		console.log('JS responding with', data);
+//		responseCallback(data);
 	});
 })
+
+function Log(message) {
+	var data = {'title':"DEBUG",'message':message,'positiveContent':'ok','debug':true};
+	alert(JSON.stringify(data));
+}
+
+function Log2(hint,message) {
+	var data =[hint+'========', message];
+	Log(data);
+}

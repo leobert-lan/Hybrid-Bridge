@@ -24,7 +24,7 @@ import com.lht.jsbridge_lib.business.bean.DemoResponseBean;
 public class DemoImpl extends ABSApiImpl implements API.Demo {
 	
 	/**
-	 * 在没有传递context必要时，使用默认构造韩式
+	 * 在没有传递context必要时，使用默认构造函数
 	 *
 	 */
 	public DemoImpl() {

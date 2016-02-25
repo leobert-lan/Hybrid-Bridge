@@ -1,8 +1,5 @@
 package com.lht.jsbridge_lib;
 
-import com.alibaba.fastjson.JSON;
-import com.lht.jsbridge_lib.base.model.JSAlertDataBean;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,6 +9,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.webkit.JsResult;
+
+import com.alibaba.fastjson.JSON;
+import com.lht.jsbridge_lib.base.model.JSAlertDataBean;
 
 /**
  * @ClassName: JSAlertDialog

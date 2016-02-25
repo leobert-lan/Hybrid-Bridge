@@ -4,5 +4,6 @@
     <string name="app_name">JSBridge-Lib</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_test">TestActivity</string>
+      <string name="scan_tips">对准扫描框即可自动扫描</string>
 
 </resources>

@@ -93,6 +93,11 @@ public interface NativeRet {
 		 * ret_timeout:扫描超时
 		 */
 		public int RET_TIMEOUT = 50002;
+		
+		/**
+		 * RET_CANCEL:用户取消
+		 */
+		public int RET_CANCEL = 50003;
 
 	}
 }

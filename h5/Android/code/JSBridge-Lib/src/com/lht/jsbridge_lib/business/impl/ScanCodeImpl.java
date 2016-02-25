@@ -110,6 +110,8 @@ public class ScanCodeImpl extends ABSLTRApiImpl implements API.ScanCodeHandler {
 				case MipcaActivityCapture.SCAN_TIMEOUT:
 					response(NativeScanCodeRet.RET_TIMEOUT, "scan time out", data);
 					break;
+				case MipcaActivityCapture.SCAN_CANCEL:
+					response(ScanCodeResponseBean.RET_CANCEL, "scan canceled by user", data);
 				default:
 					break;
 				}

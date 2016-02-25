@@ -74,7 +74,13 @@
         <!-- 扫码 -->
         <activity
             android:name="com.lht.jsbridge_lib.ApiUtil.Scan.MipcaActivityCapture"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        
+         <activity
+            android:name="com.zbar.lib.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
         </activity>
 
         <service

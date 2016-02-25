@@ -61,7 +61,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     if (row == null || row.length < width) {
       row = new byte[width];
     }
-    int offset = (y + top) * dataWidth + left;
+    int offset = (y + top) * dataHeight + left;
     System.arraycopy(yuvData, offset, row, 0, width);
     return row;
   }
@@ -79,7 +79,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
 
     int area = width * height;
     byte[] matrix = new byte[area];
-    int inputOffset = top * dataWidth + left;
+    int inputOffset = top * dataHeight + left;
 
     // If the width matches the full width of the underlying data, perform a single copy.
     if (width == dataWidth) {
@@ -92,7 +92,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     for (int y = 0; y < height; y++) {
       int outputOffset = y * width;
       System.arraycopy(yuv, inputOffset, matrix, outputOffset, width);
-      inputOffset += dataWidth;
+      inputOffset += dataHeight;
     }
     return matrix;
   }
@@ -115,7 +115,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     int height = getHeight();
     int[] pixels = new int[width * height];
     byte[] yuv = yuvData;
-    int inputOffset = top * dataWidth + left;
+    int inputOffset = top * dataHeight + left;
 
     for (int y = 0; y < height; y++) {
       int outputOffset = y * width;
@@ -123,7 +123,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         int grey = yuv[inputOffset + x] & 0xff;
         pixels[outputOffset + x] = 0xFF000000 | (grey * 0x00010101);
       }
-      inputOffset += dataWidth;
+      inputOffset += dataHeight;
     }
 
     Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);

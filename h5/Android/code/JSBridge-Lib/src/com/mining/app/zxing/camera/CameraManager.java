@@ -230,14 +230,17 @@ public final class CameraManager {
         height = MAX_FRAME_HEIGHT;
       }
       
-      int edge = height<width?height:width;
-      height = edge;
-      width = edge;
+//      int edge = height<width?height:width;
+//      height = edge;
+//      width = edge;
       
       int leftOffset = (screenResolution.x - width) / 2;
       int topOffset = (screenResolution.y - height) / 2;
+      
+      Log.e("lmsg", "check w,h"+new Point(width,height));
+      
       framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
-      Log.d(TAG, "Calculated framing rect: " + framingRect);
+      Log.e("lmsg", "Calculated framing rect: " + framingRect);
     }
     return framingRect;
   }
@@ -252,15 +255,14 @@ public final class CameraManager {
       Point cameraResolution = configManager.getCameraResolution();
       Point screenResolution = configManager.getScreenResolution();
       //modify here
-//      rect.left = rect.left * cameraResolution.x / screenResolution.x;
-//      rect.right = rect.right * cameraResolution.x / screenResolution.x;
-//      rect.top = rect.top * cameraResolution.y / screenResolution.y;
-//      rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
-      rect.left = rect.left * cameraResolution.y / screenResolution.x;      
-      rect.right = rect.right * cameraResolution.y / screenResolution.x;      
-      rect.top = rect.top * cameraResolution.x / screenResolution.y;      
-      rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;   
+//      rect.left = rect.left * cameraResolution.y / screenResolution.x;           
+//      rect.right = rect.right * cameraResolution.y / screenResolution.x;            
+//      rect.top = rect.top * cameraResolution.x / screenResolution.y;           
+//      rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
       framingRectInPreview = rect;
+      
+//      TODO
+      Log.d("lmsg", "check this render rect:"+rect);
     }
     return framingRectInPreview;
   }

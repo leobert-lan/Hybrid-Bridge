@@ -77,15 +77,18 @@ final class CameraConfigurationManager {
 		screenResolution = new Point();
 
 		display.getSize(screenResolution);
-		
-//		cameraResolution = getCameraResolution(parameters, screenResolution);
 
+		// 为竖屏添加
+		Point screenResolutionForCamera = new Point();
+		screenResolutionForCamera.x = screenResolution.x;
+		screenResolutionForCamera.y = screenResolution.y;
 		if (screenResolution.x < screenResolution.y) {
-			cameraResolution = getCameraResolution(parameters, new Point(
-					screenResolution.y, screenResolution.x));
-		} else {
-			cameraResolution = getCameraResolution(parameters, screenResolution);
-		}
+			screenResolutionForCamera.x = screenResolution.y;
+			screenResolutionForCamera.y = screenResolution.x;
+		} // 下句第二参数要根据竖屏修改
+		cameraResolution = getCameraResolution(parameters,
+				screenResolutionForCamera);
+
 	}
 
 	/**

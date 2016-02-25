@@ -77,9 +77,9 @@ final class DecodeHandler extends Handler {
 		long start = System.currentTimeMillis();
 		Result rawResult = null;
 
-		// debug
-		Log.d(TAG, "data size:" + data.length + "...w:" + width + "...h:"
-				+ height);
+//		// debug
+//		Log.d(TAG, "data size:" + data.length + "...w:" + width + "...h:"
+//				+ height);
 
 		// modify here 横向记录变成纵向记录
 		byte[] rotatedData = new byte[data.length];

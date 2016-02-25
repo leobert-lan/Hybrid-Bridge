@@ -131,7 +131,7 @@
         }];
     }];
     
-    [bridge registerHandler:@"NATIVE_FUNCTION_OPENGPS" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [bridge registerHandler:NATIVE_FUNCTION_OPENGPS handler:^(id data, WVJBResponseCallback responseCallback) {
         //调取GPS
 //        AsyncBegin
 //        //
@@ -147,13 +147,13 @@
     [super listener:bridge];
     
     //demo监听
-    [bridge registerHandler:@"NATIVE_FUNCTION_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [bridge registerHandler:NATIVE_FUNCTION_DEMO handler:^(id data, WVJBResponseCallback responseCallback) {
         DLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
         //回传给H5
         responseCallback(@"nv监听回传给H5 data");
     }];
     
-    [bridge registerHandler:@"NATIVE_FUNCTION_OPENGPS" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [bridge registerHandler:NATIVE_FUNCTION_OPENGPS handler:^(id data, WVJBResponseCallback responseCallback) {
         //调取GPS
         //        AsyncBegin
         //        //

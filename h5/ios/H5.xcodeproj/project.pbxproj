@@ -422,6 +422,7 @@
 		A3E948F71C7D5F5A00D254BA /* H5JSBridgeDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeDemo.js; sourceTree = "<group>"; };
 		A3E948F81C7D5F5A00D254BA /* H5JSBridgeGPS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeGPS.js; sourceTree = "<group>"; };
 		A3E948F91C7D5F5A00D254BA /* Testtemp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Testtemp.js; sourceTree = "<group>"; };
+		A3E949011C7DA63F00D254BA /* H5Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H5Constant.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1004,6 +1005,7 @@
 		A306E19E1C7C32B500C111CC /* BaseWeb */ = {
 			isa = PBXGroup;
 			children = (
+				A3E949011C7DA63F00D254BA /* H5Constant.h */,
 				A306E19F1C7C32B500C111CC /* BaseWKWebViewVC.h */,
 				A306E1A01C7C32B500C111CC /* BaseWKWebViewVC.m */,
 			);

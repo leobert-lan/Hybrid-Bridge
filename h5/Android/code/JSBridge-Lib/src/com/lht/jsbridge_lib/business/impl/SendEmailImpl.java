@@ -1,5 +1,7 @@
 package com.lht.jsbridge_lib.business.impl;
 
+import java.util.regex.Pattern;
+
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -39,9 +41,7 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 		SendEmailBean sendEmailBean = JSON.parseObject(data,
 				SendEmailBean.class);
 		boolean bool = isBeanError(sendEmailBean);
-
 		if (!bool) {
-
 			Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);
 			myIntent.setType("plain/text");
 			myIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
@@ -66,12 +66,23 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 			SendEmailBean bean = (SendEmailBean) o;
 			if (TextUtils.isEmpty(bean.getAddress().toString())) {
 				Log.wtf(API_NAME,
-						"501,data error,check bean:" + JSON.toJSONString(bean));
+						"51001,data error,check bean:" + JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;
 			}
-//			if (Pattern.compile("^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$").matches(bean.getAddressee())) {
-//				
-//			}
+			if (TextUtils.isEmpty(bean.getMessage())) {
+				Log.wtf(API_NAME,
+						"51002,data error,check bean:" + JSON.toJSONString(bean));
+				return BEAN_IS_ERROR;
+			}
+			if (!Pattern
+					.compile(
+							"^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$")
+					.matcher(bean.getAddress()).matches()) {
+				Log.wtf(API_NAME,
+						"51004,data error,check bean:"
+								+ JSON.toJSONString(bean));
+				return BEAN_IS_ERROR;
+			}
 			return BEAN_IS_CORRECT;
 
 		} else {
@@ -80,12 +91,5 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 			return BEAN_IS_ERROR;
 		}
 	}
-
-//	private void checkEmail() {
-//		String check = ;
-//		Pattern regex = Pattern.compile(check);
-//		Matcher matcher = regex.matcher("12241@qq.name");
-//		boolean isMatched = matcher.matches();
-//	}
 
 }

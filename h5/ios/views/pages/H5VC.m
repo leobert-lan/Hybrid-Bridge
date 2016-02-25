@@ -83,17 +83,16 @@
 
 - (IBAction)sendAction:(id)sender {
     //调H5方法
-//    id data = @{ @"ret":@"200",@"key1": @"严庆扬.数据内容" };
     NSMutableDictionary *dd=[NSMutableDictionary new];
     dd[@"ret"]=@"200";
     dd[@"msg"]=@"it works okey";
     dd[@"data"]=[NSDictionary dictionaryWithObjectsAndKeys:@"value",@"key1", nil];
-    NSString *key=@"JS_FUNCTION_DEMO";
-    [self.bridgeMain callHandler:key data:dd responseCallback:^(id response) {
-        DLog(@">>>%@: %@",key, response);
+
+    [DemoH5API demoCall:self.bridgeMain data:dd callback:^(id bridge, id data, NetError *err) {
+        DLog(@">>>%@: %@",bridge, data);
     }];
     
-//    [self send2Action:nil];
+
 }
 
 
@@ -115,8 +114,8 @@
     [super listener:bridge];
     
     //demo监听
-    [bridge registerHandler:@"NATIVE_FUNCTION_DEMO" handler:^(id data, WVJBResponseCallback responseCallback) {
-        DLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
+    [DemoH5API demoListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        DLog(@"H5 %@-调 NATIVE_FUNCTION_DEMO: %@",bridge,data);
         //回传给H5
         responseCallback(@"nv监听回传给H5 data");
         
@@ -125,43 +124,23 @@
         dd[@"ret"]=@"200";
         dd[@"msg"]=@"这是第一个H5的内容";
         dd[@"data"]=data;
-        NSString *key=@"JS_FUNCTION_DEMO";
-        [self.bridge2 callHandler:key data:dd responseCallback:^(id response) {
-            DLog(@">>>%@: %@",key, response);
+       
+        [DemoH5API demoCall:self.bridge2 data:dd callback:^(id bridge, id data, NetError *err) {
+            DLog(@">>>%@: %@",bridge, data);
         }];
+
     }];
-    
-    [bridge registerHandler:NATIVE_FUNCTION_OPENGPS handler:^(id data, WVJBResponseCallback responseCallback) {
-        //调取GPS
-//        AsyncBegin
-//        //
-//        
-//        AsyncEnd
-        DLog(@"H5 调 GPS: %@",data);
-        //回传给H5
-        responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
-    }];
+
+
 }
 
 - (void)listener2:(WKWebViewJavascriptBridge*)bridge{
     [super listener:bridge];
     
-    //demo监听
-    [bridge registerHandler:NATIVE_FUNCTION_DEMO handler:^(id data, WVJBResponseCallback responseCallback) {
-        DLog(@"H5 调 NATIVE_FUNCTION_DEMO: %@",data);
+    [DemoH5API demoListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        DLog(@"H5 %@-调 NATIVE_FUNCTION_DEMO: %@",bridge,data);
         //回传给H5
         responseCallback(@"nv监听回传给H5 data");
-    }];
-    
-    [bridge registerHandler:NATIVE_FUNCTION_OPENGPS handler:^(id data, WVJBResponseCallback responseCallback) {
-        //调取GPS
-        //        AsyncBegin
-        //        //
-        //
-        //        AsyncEnd
-        DLog(@"H5 调 GPS: %@",data);
-        //回传给H5
-        responseCallback(@"回传给H5坐标: 1.2324, 0.42325");
     }];
 }
 

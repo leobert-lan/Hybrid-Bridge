@@ -40,8 +40,6 @@ public class CopyToClipboardImpl extends ABSApiImpl implements API.SendToClipBoa
 		boolean bool = isBeanError(copyClipboardBean);
 
 		if (!bool) {
-			//TODO attention: local变量命名可以按照类型（如str 字符串）、较为抽象的含义（bean）、实际含义
-			//毕竟局部变量关系到的一段逻辑不会很长（优秀的代码），但是不要搞出令人误解的命名，想clipBoard，会造成误解
 			String clipBoard = copyClipboardBean.getContent();
 			ClipboardManager myClipboardManager = (ClipboardManager) mContext
 					.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -54,9 +52,7 @@ public class CopyToClipboardImpl extends ABSApiImpl implements API.SendToClipBoa
 			bean.setMsg("OK");
 			bean.setData("");
 			mFunction.onCallBack(JSON.toJSONString(bean));
-		} else {
-			//TODO 
-		}
+		} 
 	}
 
 	@Override

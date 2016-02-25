@@ -133,9 +133,6 @@
 		A306E19A1C7C32A900C111CC /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E1941C7C32A900C111CC /* WebViewJavascriptBridge_JS.m */; };
 		A306E19B1C7C32A900C111CC /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E1961C7C32A900C111CC /* WebViewJavascriptBridgeBase.m */; };
 		A306E19C1C7C32A900C111CC /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E1981C7C32A900C111CC /* WKWebViewJavascriptBridge.m */; };
-		A306E1A11C7C32B500C111CC /* BaseWKWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E1A01C7C32B500C111CC /* BaseWKWebViewVC.m */; };
-		A306E1A61C7C335300C111CC /* H5VC.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E1A41C7C335300C111CC /* H5VC.m */; };
-		A306E1A71C7C335400C111CC /* H5VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A306E1A51C7C335300C111CC /* H5VC.xib */; };
 		A33B10BC1C64327D003C6A65 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33B10BB1C64327D003C6A65 /* WebKit.framework */; };
 		A347FF8C1C61C2BD00F402A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A347FF8B1C61C2BD00F402A7 /* main.m */; };
 		A347FF8F1C61C2BD00F402A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A347FF8E1C61C2BD00F402A7 /* AppDelegate.m */; };
@@ -150,6 +147,12 @@
 		A3E948FE1C7D5F5A00D254BA /* H5JSBridgeDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F71C7D5F5A00D254BA /* H5JSBridgeDemo.js */; };
 		A3E948FF1C7D5F5A00D254BA /* H5JSBridgeGPS.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F81C7D5F5A00D254BA /* H5JSBridgeGPS.js */; };
 		A3E949001C7D5F5A00D254BA /* Testtemp.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F91C7D5F5A00D254BA /* Testtemp.js */; };
+		A3E949111C7E950900D254BA /* BaseWKWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E949061C7E950900D254BA /* BaseWKWebViewVC.m */; };
+		A3E949121C7E950900D254BA /* H5VC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E9490F1C7E950900D254BA /* H5VC.m */; };
+		A3E949131C7E950900D254BA /* H5VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3E949101C7E950900D254BA /* H5VC.xib */; };
+		A3E949181C7E95E300D254BA /* DemoH5API.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E949171C7E95E300D254BA /* DemoH5API.m */; };
+		A3E9491B1C7E9B1B00D254BA /* H5DataCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E9491A1C7E9B1B00D254BA /* H5DataCheck.m */; };
+		A3E9491E1C7EA0E700D254BA /* GPSH5API.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E9491D1C7EA0E700D254BA /* GPSH5API.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -395,15 +398,6 @@
 		A306E1961C7C32A900C111CC /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		A306E1971C7C32A900C111CC /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		A306E1981C7C32A900C111CC /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
-		A306E19F1C7C32B500C111CC /* BaseWKWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWKWebViewVC.h; sourceTree = "<group>"; };
-		A306E1A01C7C32B500C111CC /* BaseWKWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWKWebViewVC.m; sourceTree = "<group>"; };
-		A306E1A31C7C335300C111CC /* H5VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H5VC.h; sourceTree = "<group>"; };
-		A306E1A41C7C335300C111CC /* H5VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H5VC.m; sourceTree = "<group>"; };
-		A306E1A51C7C335300C111CC /* H5VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = H5VC.xib; sourceTree = "<group>"; };
-		A306E1B01C7C341400C111CC /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
-		A306E1B11C7C341400C111CC /* API_DEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_DEV.h; sourceTree = "<group>"; };
-		A306E1B21C7C341400C111CC /* RConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RConstant.h; sourceTree = "<group>"; };
-		A306E1B31C7C341400C111CC /* RCSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSS.h; sourceTree = "<group>"; };
 		A33B10BB1C64327D003C6A65 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A347FF871C61C2BD00F402A7 /* H5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = H5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A347FF8B1C61C2BD00F402A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -422,7 +416,22 @@
 		A3E948F71C7D5F5A00D254BA /* H5JSBridgeDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeDemo.js; sourceTree = "<group>"; };
 		A3E948F81C7D5F5A00D254BA /* H5JSBridgeGPS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeGPS.js; sourceTree = "<group>"; };
 		A3E948F91C7D5F5A00D254BA /* Testtemp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Testtemp.js; sourceTree = "<group>"; };
-		A3E949011C7DA63F00D254BA /* H5Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H5Constant.h; sourceTree = "<group>"; };
+		A3E949051C7E950900D254BA /* BaseWKWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWKWebViewVC.h; sourceTree = "<group>"; };
+		A3E949061C7E950900D254BA /* BaseWKWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWKWebViewVC.m; sourceTree = "<group>"; };
+		A3E949091C7E950900D254BA /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		A3E9490A1C7E950900D254BA /* API_DEV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_DEV.h; sourceTree = "<group>"; };
+		A3E9490B1C7E950900D254BA /* RConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RConstant.h; sourceTree = "<group>"; };
+		A3E9490C1C7E950900D254BA /* RCSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSS.h; sourceTree = "<group>"; };
+		A3E9490E1C7E950900D254BA /* H5VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H5VC.h; sourceTree = "<group>"; };
+		A3E9490F1C7E950900D254BA /* H5VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H5VC.m; sourceTree = "<group>"; };
+		A3E949101C7E950900D254BA /* H5VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = H5VC.xib; sourceTree = "<group>"; };
+		A3E949141C7E958200D254BA /* API_H5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_H5.h; sourceTree = "<group>"; };
+		A3E949161C7E95E300D254BA /* DemoH5API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoH5API.h; sourceTree = "<group>"; };
+		A3E949171C7E95E300D254BA /* DemoH5API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoH5API.m; sourceTree = "<group>"; };
+		A3E949191C7E9B1B00D254BA /* H5DataCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H5DataCheck.h; sourceTree = "<group>"; };
+		A3E9491A1C7E9B1B00D254BA /* H5DataCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H5DataCheck.m; sourceTree = "<group>"; };
+		A3E9491C1C7EA0E700D254BA /* GPSH5API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSH5API.h; sourceTree = "<group>"; };
+		A3E9491D1C7EA0E700D254BA /* GPSH5API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSH5API.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -991,55 +1000,13 @@
 			path = WebViewJavascriptBridge;
 			sourceTree = "<group>";
 		};
-		A306E19D1C7C32B500C111CC /* views */ = {
-			isa = PBXGroup;
-			children = (
-				A306E1AF1C7C341400C111CC /* config */,
-				A306E1A21C7C335300C111CC /* pages */,
-				A306E19E1C7C32B500C111CC /* BaseWeb */,
-			);
-			name = views;
-			path = pages;
-			sourceTree = "<group>";
-		};
-		A306E19E1C7C32B500C111CC /* BaseWeb */ = {
-			isa = PBXGroup;
-			children = (
-				A3E949011C7DA63F00D254BA /* H5Constant.h */,
-				A306E19F1C7C32B500C111CC /* BaseWKWebViewVC.h */,
-				A306E1A01C7C32B500C111CC /* BaseWKWebViewVC.m */,
-			);
-			path = BaseWeb;
-			sourceTree = "<group>";
-		};
-		A306E1A21C7C335300C111CC /* pages */ = {
-			isa = PBXGroup;
-			children = (
-				A306E1A31C7C335300C111CC /* H5VC.h */,
-				A306E1A41C7C335300C111CC /* H5VC.m */,
-				A306E1A51C7C335300C111CC /* H5VC.xib */,
-			);
-			path = pages;
-			sourceTree = "<group>";
-		};
-		A306E1AF1C7C341400C111CC /* config */ = {
-			isa = PBXGroup;
-			children = (
-				A306E1B01C7C341400C111CC /* API.h */,
-				A306E1B11C7C341400C111CC /* API_DEV.h */,
-				A306E1B21C7C341400C111CC /* RConstant.h */,
-				A306E1B31C7C341400C111CC /* RCSS.h */,
-			);
-			path = config;
-			sourceTree = "<group>";
-		};
 		A347FF7E1C61C2BD00F402A7 = {
 			isa = PBXGroup;
 			children = (
 				A33B10BB1C64327D003C6A65 /* WebKit.framework */,
 				A306E18D1C7C31FB00C111CC /* libsqlite3.tbd */,
 				A3E948F21C7D5F5A00D254BA /* h5 */,
-				A306E19D1C7C32B500C111CC /* views */,
+				A3E949021C7E950900D254BA /* views */,
 				A306E0061C7C237400C111CC /* module */,
 				A347FF891C61C2BD00F402A7 /* H5 */,
 				A347FF881C61C2BD00F402A7 /* Products */,
@@ -1091,6 +1058,69 @@
 			);
 			name = h5;
 			path = ../h5;
+			sourceTree = "<group>";
+		};
+		A3E949021C7E950900D254BA /* views */ = {
+			isa = PBXGroup;
+			children = (
+				A3E949151C7E959600D254BA /* API_H5 */,
+				A3E949031C7E950900D254BA /* base */,
+				A3E949041C7E950900D254BA /* BaseWeb */,
+				A3E949081C7E950900D254BA /* config */,
+				A3E9490D1C7E950900D254BA /* pages */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		A3E949031C7E950900D254BA /* base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		A3E949041C7E950900D254BA /* BaseWeb */ = {
+			isa = PBXGroup;
+			children = (
+				A3E949051C7E950900D254BA /* BaseWKWebViewVC.h */,
+				A3E949061C7E950900D254BA /* BaseWKWebViewVC.m */,
+				A3E949191C7E9B1B00D254BA /* H5DataCheck.h */,
+				A3E9491A1C7E9B1B00D254BA /* H5DataCheck.m */,
+			);
+			path = BaseWeb;
+			sourceTree = "<group>";
+		};
+		A3E949081C7E950900D254BA /* config */ = {
+			isa = PBXGroup;
+			children = (
+				A3E949141C7E958200D254BA /* API_H5.h */,
+				A3E949091C7E950900D254BA /* API.h */,
+				A3E9490A1C7E950900D254BA /* API_DEV.h */,
+				A3E9490B1C7E950900D254BA /* RConstant.h */,
+				A3E9490C1C7E950900D254BA /* RCSS.h */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		A3E9490D1C7E950900D254BA /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				A3E9490E1C7E950900D254BA /* H5VC.h */,
+				A3E9490F1C7E950900D254BA /* H5VC.m */,
+				A3E949101C7E950900D254BA /* H5VC.xib */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
+		A3E949151C7E959600D254BA /* API_H5 */ = {
+			isa = PBXGroup;
+			children = (
+				A3E949161C7E95E300D254BA /* DemoH5API.h */,
+				A3E949171C7E95E300D254BA /* DemoH5API.m */,
+				A3E9491C1C7EA0E700D254BA /* GPSH5API.h */,
+				A3E9491D1C7EA0E700D254BA /* GPSH5API.m */,
+			);
+			path = API_H5;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1162,7 +1192,7 @@
 				A306E1391C7C237400C111CC /* video_volume_bg@2x.png in Resources */,
 				A306E1341C7C237400C111CC /* progressThumb@2x.png in Resources */,
 				A306E1281C7C237400C111CC /* backward_disable@2x.png in Resources */,
-				A306E1A71C7C335400C111CC /* H5VC.xib in Resources */,
+				A3E949131C7E950900D254BA /* H5VC.xib in Resources */,
 				A306E12A1C7C237400C111CC /* fast_backward_disable@2x.png in Resources */,
 				A3E948FD1C7D5F5A00D254BA /* H5JSBridgeDatabase.js in Resources */,
 				A306E1361C7C237400C111CC /* video_num_bg@2x.png in Resources */,
@@ -1214,6 +1244,7 @@
 				A306E15E1C7C237400C111CC /* UIScrollView+MJExtension.m in Sources */,
 				A306E11B1C7C237400C111CC /* AFImageDownloader.m in Sources */,
 				A306E1831C7C237400C111CC /* QYImageView.m in Sources */,
+				A3E9491E1C7EA0E700D254BA /* GPSH5API.m in Sources */,
 				A306E1561C7C237400C111CC /* MJRefreshBackGifFooter.m in Sources */,
 				A306E1741C7C237400C111CC /* SYWaveformPlayerView.m in Sources */,
 				A306E1551C7C237400C111CC /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1239,14 +1270,15 @@
 				A306E1251C7C237400C111CC /* FMDatabasePool.m in Sources */,
 				A306E16E1C7C237400C111CC /* UIImage+MultiFormat.m in Sources */,
 				A306E1231C7C237400C111CC /* FMDatabase.m in Sources */,
+				A3E949111C7E950900D254BA /* BaseWKWebViewVC.m in Sources */,
 				A306E14F1C7C237400C111CC /* MJRefreshBackFooter.m in Sources */,
 				A306E1791C7C237400C111CC /* BaseCell.m in Sources */,
 				A306E11A1C7C237400C111CC /* AFAutoPurgingImageCache.m in Sources */,
 				A306E1171C7C237400C111CC /* AFURLRequestSerialization.m in Sources */,
 				A306E1761C7C237400C111CC /* QYUserDefault.m in Sources */,
 				A306E13D1C7C237400C111CC /* JSONModel.m in Sources */,
+				A3E949121C7E950900D254BA /* H5VC.m in Sources */,
 				A306E1261C7C237400C111CC /* FMDatabaseQueue.m in Sources */,
-				A306E1A61C7C335300C111CC /* H5VC.m in Sources */,
 				A306E1271C7C237400C111CC /* FMResultSet.m in Sources */,
 				A306E1661C7C237400C111CC /* SDWebImageCompat.m in Sources */,
 				A306E13E1C7C237400C111CC /* JSONModelArray.m in Sources */,
@@ -1262,7 +1294,6 @@
 				A306E1411C7C237400C111CC /* NSArray+JSONModel.m in Sources */,
 				A306E1151C7C237400C111CC /* AFNetworkReachabilityManager.m in Sources */,
 				A306E1991C7C32A900C111CC /* WebViewJavascriptBridge.m in Sources */,
-				A306E1A11C7C32B500C111CC /* BaseWKWebViewVC.m in Sources */,
 				A306E15F1C7C237400C111CC /* UIScrollView+MJRefresh.m in Sources */,
 				A306E1681C7C237400C111CC /* SDWebImageDownloader.m in Sources */,
 				A306E1431C7C237400C111CC /* JSONHTTPClient.m in Sources */,
@@ -1272,6 +1303,7 @@
 				A306E1671C7C237400C111CC /* SDWebImageDecoder.m in Sources */,
 				A306E1541C7C237400C111CC /* MJRefreshAutoNormalFooter.m in Sources */,
 				A306E1511C7C237400C111CC /* MJRefreshFooter.m in Sources */,
+				A3E949181C7E95E300D254BA /* DemoH5API.m in Sources */,
 				A306E1451C7C237400C111CC /* JSONKeyMapper.m in Sources */,
 				A306E1781C7C237400C111CC /* ZhugeConfig.m in Sources */,
 				A306E15D1C7C237400C111CC /* MJRefreshConst.m in Sources */,
@@ -1300,6 +1332,7 @@
 				A306E1651C7C237400C111CC /* SDImageCache.m in Sources */,
 				A306E1851C7C237400C111CC /* GlobalManager.m in Sources */,
 				A306E1871C7C237400C111CC /* BaseModel.m in Sources */,
+				A3E9491B1C7E9B1B00D254BA /* H5DataCheck.m in Sources */,
 				A306E17A1C7C237400C111CC /* BaseVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

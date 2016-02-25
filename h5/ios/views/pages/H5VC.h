@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "BaseWKWebViewVC.h"
+
+#import "DemoH5API.h"
+
 @interface H5VC : BaseWKWebViewVC
 {
     IBOutlet UIView *vTest1,*vTest2;

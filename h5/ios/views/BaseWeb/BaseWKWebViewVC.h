@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-#import "H5Constant.h"
+//#import "H5Constant.h"
 #import "WKWebViewJavascriptBridge.h"
 #import "BaseVC.h"
 

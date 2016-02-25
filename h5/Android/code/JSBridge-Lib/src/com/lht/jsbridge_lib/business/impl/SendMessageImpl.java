@@ -52,9 +52,7 @@ public class SendMessageImpl extends ABSApiImpl implements API.SendMessageHandle
 			bean.setMsg("OK");
 			bean.setData("");
 			mFunction.onCallBack(JSON.toJSONString(bean));
-		} else {
-
-		}
+		} 
 	}
 
 	@Override

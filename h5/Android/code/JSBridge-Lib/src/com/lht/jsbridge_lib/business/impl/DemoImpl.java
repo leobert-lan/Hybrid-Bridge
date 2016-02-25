@@ -23,18 +23,8 @@ import com.lht.jsbridge_lib.business.bean.DemoResponseBean;
  */
 public class DemoImpl extends ABSApiImpl implements API.Demo {
 	
-	/**
-	 * 在没有传递context必要时，使用默认构造函数
-	 *
-	 */
-	public DemoImpl() {
-		// TODO 
-	}
-	
-	private Context ctx;
-	
 	public DemoImpl(Context ctx) {
-		this.ctx = ctx; 
+		super(ctx);
 	}
 
 	@Override
@@ -46,7 +36,7 @@ public class DemoImpl extends ABSApiImpl implements API.Demo {
 			return;
 		// 业务逻辑
 		// ....
-		WindowManager manager = (WindowManager) ctx
+		WindowManager manager = (WindowManager) mContext
 				.getSystemService(Context.WINDOW_SERVICE);
 		Display display = manager.getDefaultDisplay();
 		Point screenResolution = new Point();

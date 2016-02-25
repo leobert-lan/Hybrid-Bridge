@@ -39,6 +39,11 @@ public class GetClipboardContentImpl extends ABSApiImpl implements
 
 		GetClipboardBean copyClipboardBean = JSON.parseObject(data, GetClipboardBean.class);
 		boolean bool = isBeanError(copyClipboardBean);
+		
+		//TODO attention：
+		//1.没有数据校验需求的就不要校验了
+		//2.尽量不要copy代码，就算copy也应该好好的修改一下，还没有来得及处理的代码 打上TODO标签，并合理注明，一则是备忘，二则是
+		//减少团队协调的障碍
 
 		if (!bool) {
 			String clipBoard = copyClipboardBean.getContent();

@@ -10,7 +10,25 @@ package com.lht.jsbridge_lib.business.API;
  */
 public interface NativeRet {
 
+	/**
+	 * RET_SUCCESS:调用成功
+	 */
 	int RET_SUCCESS = 10000;
+	
+	/**
+	 * RET_ERROR_FUNCTION_NOTFOUND:未注册的方法
+	 */
+	int RET_ERROR_FUNCTION_NOTFOUND = 11001;
+	
+	/**
+	 * RET_ERROR_ESSENTIALARGUEMENT_MISS:必须参数缺失
+	 */
+	int RET_ERROR_ESSENTIALARGUEMENT_MISS = 12001;
+	
+	/**
+	 * RET_ERROR_JSONSTRUCTURE:json结构错误
+	 */
+	int RET_ERROR_JSONSTRUCTURE = 12002;
 
 	interface NativeGpsRet extends NativeRet {
 

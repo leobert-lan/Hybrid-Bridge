@@ -21,7 +21,7 @@ import com.lht.jsbridge_lib.business.bean.CopyToClipboardBean;
  * @author leobert.lan
  * @version 1.0
  */
-public class CopyToClipboardImpl extends ABSApiImpl implements API.CopyHandler {
+public class CopyToClipboardImpl extends ABSApiImpl implements API.SendToClipBoardHandler {
 
 	private final Context mContext;
 
@@ -40,6 +40,8 @@ public class CopyToClipboardImpl extends ABSApiImpl implements API.CopyHandler {
 		boolean bool = isBeanError(copyClipboardBean);
 
 		if (!bool) {
+			//TODO attention: local变量命名可以按照类型（如str 字符串）、较为抽象的含义（bean）、实际含义
+			//毕竟局部变量关系到的一段逻辑不会很长（优秀的代码），但是不要搞出令人误解的命名，想clipBoard，会造成误解
 			String clipBoard = copyClipboardBean.getContent();
 			ClipboardManager myClipboardManager = (ClipboardManager) mContext
 					.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -53,7 +55,7 @@ public class CopyToClipboardImpl extends ABSApiImpl implements API.CopyHandler {
 			bean.setData("");
 			mFunction.onCallBack(JSON.toJSONString(bean));
 		} else {
-
+			//TODO 
 		}
 	}
 

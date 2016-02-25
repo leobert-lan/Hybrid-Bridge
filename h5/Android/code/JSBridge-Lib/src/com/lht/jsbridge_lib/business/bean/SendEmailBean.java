@@ -1,24 +1,26 @@
 package com.lht.jsbridge_lib.business.bean;
-/** 
- * @ClassName: DemoBean 
+
+/**
+ * @ClassName: DemoBean
  * @Description: API:Demo 业务起始参数
  * @date 2016年2月19日 下午4:27:31
- *  
+ * 
  * @author leobert.lan
  * @version 1.0
  */
 public class SendEmailBean {
 	
-	private String[] addressee;
-	
+	//TODO 该处数据结构的变化同步到文档
+	private String address;
+
 	private String message;
-	
-	public String[] getAddressee() {
-		return addressee;
+
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddressee(String[] addressee) {
-		this.addressee = addressee;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getMessage() {

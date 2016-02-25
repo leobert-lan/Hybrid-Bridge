@@ -128,7 +128,5 @@ public class ScanCodeImpl extends ABSLTRApiImpl implements API.ScanCodeHandler {
 			bean.setRet(ret);
 			executor.mHandler.onJobExecuted(JSON.toJSONString(bean));
 		}
-		
 	};
-
 }

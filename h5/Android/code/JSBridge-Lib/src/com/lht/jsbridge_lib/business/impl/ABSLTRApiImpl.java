@@ -1,12 +1,12 @@
 package com.lht.jsbridge_lib.business.impl;
 
-import com.lht.jsbridge_lib.BuildConfig;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import com.lht.jsbridge_lib.BuildConfig;
 
 /**
  * @ClassName: ABSLTRApiImpl

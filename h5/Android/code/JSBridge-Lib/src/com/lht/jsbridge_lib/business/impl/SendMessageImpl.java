@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
+import com.google.gson.annotations.JsonAdapter;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API;
 import com.lht.jsbridge_lib.business.API.NativeRet;
@@ -62,6 +63,7 @@ public class SendMessageImpl extends ABSApiImpl implements API.SendMessageHandle
 			if (TextUtils.isEmpty(bean.getContacts())) {
 				Log.wtf(API_NAME,
 						"41001,data error,check bean:" + JSON.toJSONString(bean));
+				mFunction.onCallBack("您的发送对象为空");
 				return BEAN_IS_ERROR;
 			}
 			if (TextUtils.isEmpty(bean.getMessageContent())) {

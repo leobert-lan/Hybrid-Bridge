@@ -42,9 +42,9 @@ public interface NativeRet {
 
 	interface NativeCopyToClipBorad extends NativeRet {
 		/**
-		 * RET_FAILURE:复制到剪切板内容失败
+		 * RET_FAILURE:复制到剪切板内容为空
 		 */
-		public int RET_COPYTOCLIPBORAD_FAILURE = 41000;
+		public int RET_ERROR_CONTENTNULL = -1;
 	}
 
 	interface NativeGetClipBoard extends NativeRet {
@@ -93,6 +93,11 @@ public interface NativeRet {
 		 * ret_timeout:扫描超时
 		 */
 		public int RET_TIMEOUT = 50002;
+		
+		/**
+		 * RET_CANCEL:用户取消
+		 */
+		public int RET_CANCEL = 50003;
 
 	}
 }

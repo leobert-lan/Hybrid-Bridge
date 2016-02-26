@@ -27,8 +27,10 @@
 
 
 //调原生GPS定位信息
-function callNativeOpenGPSAndResponseLocation(onNativeResponseCallback) {
+function callNativeCopyDemo(data, responseCallback) {
+
 	setupJSBridge(function(bridge) {
-		bridge.callHandler('NATIVE_FUNCTION_OPENGPS', null, onNativeResponseCallback)
+		bridge.callHandler('NATIVE_FUNCTION_SENDTOCLIPBOARD', data, responseCallback)
 	})
+
 };

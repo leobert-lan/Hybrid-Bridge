@@ -18,6 +18,10 @@ import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
 import com.lht.jsbridge_lib.business.API.API.Demo;
 import com.lht.jsbridge_lib.business.API.API.GPSHandler;
 import com.lht.jsbridge_lib.business.API.API.GetClipBoardContentHandler;
+import com.lht.jsbridge_lib.business.API.API.ScanCodeHandler;
+import com.lht.jsbridge_lib.business.API.API.SendEmailHandler;
+import com.lht.jsbridge_lib.business.API.API.SendMessageHandler;
+import com.lht.jsbridge_lib.business.API.API.SendToClipBoardHandler;
 import com.lht.jsbridge_lib.business.API.API.TestLTRHandler;
 import com.lht.jsbridge_lib.business.impl.CallTelImpl;
 import com.lht.jsbridge_lib.business.impl.CopyToClipboardImpl;
@@ -92,7 +96,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		});
 
-		webView.registerHandler(Demo.API_NAME, new DemoImpl());
+		//test screen temp
+		webView.registerHandler(Demo.API_NAME, new DemoImpl(MainActivity.this));
 
 		webView.registerHandler(GPSHandler.API_NAME, new OpenGPSImpl(
 				MainActivity.this));
@@ -102,7 +107,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		webView.registerHandler(CallTelHandler.API_NAME, new CallTelImpl(
 				MainActivity.this));
 
-		webView.registerHandler(CopyToClipboardImpl.API_NAME,
+		webView.registerHandler(SendToClipBoardHandler.API_NAME,
 				new CopyToClipboardImpl(MainActivity.this));
 
 		//TODO
@@ -110,14 +115,14 @@ public class MainActivity extends Activity implements OnClickListener {
 				new CopyToClipboardImpl(MainActivity.this));
 
 		//TODO
-		webView.registerHandler(SendEmailImpl.API_NAME, new SendEmailImpl(
+		webView.registerHandler(SendEmailHandler.API_NAME, new SendEmailImpl(
 				MainActivity.this));
 
 		//TODO
-		webView.registerHandler(SendMessageImpl.API_NAME, new SendMessageImpl(
+		webView.registerHandler(SendMessageHandler.API_NAME, new SendMessageImpl(
 				MainActivity.this));
 		
-		webView.registerHandler(ScanCodeImpl.API_NAME, new ScanCodeImpl(MainActivity.this));
+		webView.registerHandler(ScanCodeHandler.API_NAME, new ScanCodeImpl(MainActivity.this));
 		testCallJs();
 	}
 

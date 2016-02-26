@@ -1,7 +1,11 @@
 package com.lht.jsbridge_lib.business.impl;
 
+import android.content.Context;
+import android.graphics.Point;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 
 import com.alibaba.fastjson.JSON;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
@@ -18,6 +22,10 @@ import com.lht.jsbridge_lib.business.bean.DemoResponseBean;
  * @version 1.0
  */
 public class DemoImpl extends ABSApiImpl implements API.Demo {
+	
+	public DemoImpl(Context ctx) {
+		super(ctx);
+	}
 
 	@Override
 	public void handler(String data, CallBackFunction function) {
@@ -28,11 +36,19 @@ public class DemoImpl extends ABSApiImpl implements API.Demo {
 			return;
 		// 业务逻辑
 		// ....
+		WindowManager manager = (WindowManager) mContext
+				.getSystemService(Context.WINDOW_SERVICE);
+		Display display = manager.getDefaultDisplay();
+		Point screenResolution = new Point();
+
+		display.getRealSize(screenResolution);
+		
+//		display.getSize(screenResolution);
 
 		// 模拟一个返回数据
 		DemoResponseBean responseBean = new DemoResponseBean();
-		responseBean.setDemoKeyOne("value for key1");
-		responseBean.setDemoKeyTwo("value for key2");
+		responseBean.setDemoKeyOne("x:"+screenResolution.x);
+		responseBean.setDemoKeyTwo("y:"+screenResolution.y);
 		responseBean.setDemoKeyThree("value for key3");
 
 		// 返回序列化的数据

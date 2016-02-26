@@ -3,7 +3,9 @@ package com.lht.jsbridge_lib.business.bean;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import android.annotation.SuppressLint;
+
 import com.lht.jsbridge_lib.business.API.NativeRet;
 
 /**

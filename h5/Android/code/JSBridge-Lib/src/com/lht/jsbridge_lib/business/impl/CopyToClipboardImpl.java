@@ -49,10 +49,16 @@ public class CopyToClipboardImpl extends ABSApiImpl implements API.SendToClipBoa
 
 			BaseResponseBean bean = new BaseResponseBean();
 			bean.setRet(NativeRet.RET_SUCCESS);
-			bean.setMsg("OK");
+			bean.setMsg("content has been send to clipboard");
 			bean.setData("");
 			mFunction.onCallBack(JSON.toJSONString(bean));
-		} 
+		} else {
+			BaseResponseBean bean = new BaseResponseBean();
+			bean.setRet(NativeRet.NativeCopyToClipBorad.RET_ERROR_CONTENTNULL);
+			bean.setMsg("content is needed,this function is not for flush!");
+			bean.setData("");
+			mFunction.onCallBack(JSON.toJSONString(bean));
+		}
 	}
 
 	@Override

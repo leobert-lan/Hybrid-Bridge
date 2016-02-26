@@ -27,8 +27,9 @@
 
 
 //调原生GPS定位信息
-function callNativeOpenGPSAndResponseLocation(onNativeResponseCallback) {
+function callNativeSendEmail(data, responseCallback) {
+
 	setupJSBridge(function(bridge) {
-		bridge.callHandler('NATIVE_FUNCTION_OPENGPS', null, onNativeResponseCallback)
+		bridge.callHandler('NATIVE_FUNCTION_SENDEMAIL', data, responseCallback)
 	})
 };

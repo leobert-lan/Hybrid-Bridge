@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta name="viewport"
-	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"
+	charset="utf-8">
 <style type='text/css'>
 html {
 	font-family: Helvetica;
@@ -57,7 +58,23 @@ button {
 	<li>
 		<button type="button" class="blue" onclick="testLTRDemo()">测试耗时任务</button>
 	</li>
-	
+
+	<li>
+		<button type="button" class="blue" onclick="testCallDemo()">Call-Call-Call</button>
+	</li>
+
+	<li>
+		<button type="button" class="blue" onclick="testCopyDemo()">Copy-Copy-Copy</button>
+	</li>
+	<li>
+		<button type="button" class="blue" onclick="testClipBoardDemo()">Clip-Board-Clip</button>
+	</li>
+	<li>
+		<button type="button" class="blue" onclick="testSendMessageDemo()">SendMessage-SendMessage</button>
+	</li>
+	<li>
+		<button type="button" class="blue" onclick="testSendEmailDemo()">SendEmail-SendEmail</button>
+	</li>
 	<!-- TO Be Continued -->
 
 	<li>
@@ -65,9 +82,9 @@ button {
 	</li>
 
 	<li>
-		<button type="button" class="blue" onclick="testDemo()">Camera</button>
+		<button type="button" class="blue" onclick="testScan()">测试扫码</button>
 	</li>
-	
+
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">VirtualApp</button>
 	</li>
@@ -92,7 +109,7 @@ button {
 
 </body>
 
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8">
 	var uniqueId = 1
 	//打印Log到页面 
 	function log(message, data) {
@@ -106,39 +123,99 @@ button {
 		} else {
 			log.appendChild(el)
 		}
+
+		Log(data);
 	}
-	
+
 	function clearLog() {
 		document.getElementById('log').innerHTML = '';
 	}
 
 	function testGPS() {
 		callNativeOpenGPSAndResponseLocation(function(responseData) {
-			log("Js 调native后 回传:", responseData);
+			log("response form native", responseData);
 		});
 	}
-	
-	function testErrorName () {
+
+	function testErrorName() {
 		callErrorFunc();
 	}
-	
+
 	function testDemo() {
-		var data = {'jsKeyOne':'origen value1','jsKeyTwo':'origen value2'};
+		var data = {
+			'jsKeyOne' : 'origen value1',
+			'jsKeyTwo' : 'origen value2'
+		};
 		var callback = function(responseData) {
-			log('demo测试.Native返回结果：',responseData);
+			log('demo测试.Native返回结果：', responseData);
 		}
-		callNativeDemo(data,callback);
+		callNativeDemo(data, callback);
 	}
-	
+
 	function testLTRDemo() {
-		var data = {'jsKeyOne':'origen value1','jsKeyTwo':'origen value2'};
+		var data = {
+			'jsKeyOne' : 'origen value1',
+			'jsKeyTwo' : 'origen value2'
+		};
 		var callback = function(responseData) {
-			log('demo测试.Native返回结果：',responseData);
+			log('demo测试.Native返回结果：', responseData);
 		}
-		callLongTimeDemo(data,callback);
+		callLongTimeDemo(data, callback);
+	}
+
+	function testCallDemo() {
+		var data = {
+			'telphone' : '18332561383'
+		};
+		var callback = function(responseData) {
+			log('telphone number', responseData);
+		}
+		callNativeCallDemo(data, callback);
+	}
+	function testCopyDemo() {
+		var data = {
+			'content' : '18332561383'
+		};
+		var callback = function(responseData) {
+			log('your copy to clipboard', responseData);
+		}
+		callNativeCopyDemo(data, callback);
+	}
+	function testClipBoardDemo() {
+		var data = {
+			'content' : 'this is the content ,which is lastly added to clipboard'
+		}
+		var callback = function(responseData) {
+			log('your copy to clipboard', responseData);
+		}
+		callNativeGetClipBoard(data, callback);
+	}
+	function testSendMessageDemo() {
+		var data = {
+			'contacts' : '10086',
+			'messageContent' : 'this is the content that will send to contacts'
+		}
+		var callback = function(responseData) {
+			log('your send message', responseData);
+		}
+		callNativeSendMessage(data, callback);
+	}
+	function testSendEmailDemo(){
+		var data = {'addressee':['247998690@qq.com'], 'message':'Email内容是......'}
+		var callback = function(responseData){
+			log('your send email',responseData);
+		}
+		callNativeSendEmail(data, callback);
+	}
+
+	//测试扫码 - android added 
+	function testScan() {
+		var callback = function(responseData) {
+			Log2("response scan result:", responseData);
+		};
+		callNativeOpenCameraForScan(callback);
 	}
 </script>
-
 
 <!-- 加载API调用“库” -->
 <script type="application/javascript" charset="utf-8"
@@ -152,6 +229,27 @@ button {
 
 <script type="application/javascript" charset="utf-8" src="Testtemp.js"></script>
 
+<!-- 拨号 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeCall.js"></script>
 
+<!-- 发送的剪切板 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeCopyToClipboard.js"></script>
 
+<!-- 获取剪切板 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeGetClipBoard.js"></script>
+
+<!-- 扫码 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeScan.js"></script>
+
+<!-- 发邮件 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeSendEmail.js"></script>
+
+<!-- 发信息 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeSendMessage.js"></script>
 </html>

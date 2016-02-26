@@ -1,5 +1,7 @@
 package com.lht.jsbridge_lib.business.impl;
 
+import android.content.Context;
+
 import com.lht.jsbridge_lib.BuildConfig;
 import com.lht.jsbridge_lib.business.API.API;
 
@@ -14,6 +16,16 @@ import com.lht.jsbridge_lib.business.API.API;
  * @version 1.0
  */
 public abstract class ABSApiImpl implements API {
+
+	public ABSApiImpl() {
+
+	}
+
+	protected Context mContext;
+
+	public ABSApiImpl(final Context ctx) {
+		mContext = ctx;
+	}
 
 	protected final String TAG = "ABSApiImpl";
 

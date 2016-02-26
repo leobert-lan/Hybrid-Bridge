@@ -7,12 +7,19 @@
 //
 
 #import "H5VC.h"
-
-
-@interface H5VC ()
-
-
-
+#import <CoreLocation/CoreLocation.h>
+typedef void(^openGps)(CLLocation *location,NSString *name);
+@interface H5VC ()<CLLocationManagerDelegate>
+/**
+ *  1,定义定位管理者属性
+ */
+@property(nonatomic,strong)CLLocationManager *manager;
+/**
+ *  地理编码
+ */
+@property(nonatomic,strong)CLGeocoder *geocoder;
+@property(nonatomic,copy)openGps opengps;
+@property(nonatomic,strong)CLLocation *location;
 @end
 
 @implementation H5VC
@@ -58,6 +65,7 @@
         self.webView2.navigationDelegate = self;
         self.webView2.UIDelegate = self;
         [vTest2 addSubview:self.webView2];
+        
     }
     
     //添加监听
@@ -134,14 +142,91 @@
 
 }
 
+
+#pragma mark - 定位
+- (CLLocationManager *)manager
+{
+    if (!_manager) {
+        _manager = [[CLLocationManager alloc] init];
+        
+        // 设置 间隔之后重新定位
+        _manager.distanceFilter = 10;
+        // 定位的精确度
+        _manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    }
+    return _manager;
+}
+- (CLGeocoder *)geocoder
+{
+    if (!_geocoder) {
+        _geocoder = [[CLGeocoder alloc] init];
+    }
+    return _geocoder;
+}
 - (void)listener2:(WKWebViewJavascriptBridge*)bridge{
     [super listener:bridge];
     
-    [DemoH5API demoListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
-        DLog(@"H5 %@-调 NATIVE_FUNCTION_DEMO: %@",bridge,data);
-        //回传给H5
-        responseCallback(@"nv监听回传给H5 data");
+//    [QRCodeH5API openCameraListener:self.bridge2 handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+//        QRCodeVC *vc = [[QRCodeVC alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }];
+    
+    [GPSH5API OpenGpsListener:self.bridge2 handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        
+        // 2,设置代理
+        self.manager.delegate = self;
+        // 3,请求获取位置
+        // 一直请求
+        [self.manager requestAlwaysAuthorization];
+        // 4,启动定位
+        [self.manager startUpdatingLocation];
+        
+        self.opengps = ^(CLLocation *location,NSString *name){
+            NSString *gps = [NSString stringWithFormat:@"经度:%f,纬度:%f,街道:%@",location.coordinate.longitude,location.coordinate.latitude,name];
+            responseCallback(gps);
+        };
+        
     }];
+}
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    
+    self.location = locations.firstObject;
+    [self.geocoder reverseGeocodeLocation:self.                                                                                                                                                                                                                                                    location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *place = placemarks.firstObject;
+        if (self.opengps) {
+            self.opengps(self.location,place.thoroughfare);
+        }
+        NSLog(@"%@",place.thoroughfare);
+    }];
+    
+    
+    // 停止定位
+    [self.manager stopUpdatingLocation];
+}
+//处理定位失败
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    UIAlertController *alt = [UIAlertController alertControllerWithTitle:@"定位失败" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alt addAction:ok];
+    [self presentViewController:alt animated:YES completion:nil];
+    if(error.code == kCLErrorLocationUnknown)
+    {
+        
+        NSLog(@"Currently unable to retrieve location.");
+    }
+    else if(error.code == kCLErrorNetwork)
+    {
+        NSLog(@"Network used to retrieve location is unavailable.");
+    }
+    else if(error.code == kCLErrorDenied)
+    {
+        NSLog(@"Permission to retrieve location is denied.");
+        [self.manager stopUpdatingLocation];
+        self.manager = nil;
+    }
 }
 
 @end

@@ -9,5 +9,14 @@
 #import "GPSH5API.h"
 
 @implementation GPSH5API
-
+#pragma mark - 监听
++ (void)OpenGpsListener:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler
+{
+    __weak id weakSelf=bridge;
+    [bridge registerHandler:NATIVE_FUNCTION_OPENGPS handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (handler) {
+            handler(weakSelf, [H5DataCheck checkData:data], nil, responseCallback);
+        }
+    }];
+}
 @end

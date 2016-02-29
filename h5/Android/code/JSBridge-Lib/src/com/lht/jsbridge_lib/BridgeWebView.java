@@ -362,11 +362,13 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
 		};
 	}
 
-	// TEST
-
 	@Override
 	public void callJsDemo(String data, CallBackFunction responseCallBack) {
-		// TODO Auto-generated method stub
 		this.callHandler(JF_DEMO, data, responseCallBack);
+	}
+
+	@Override
+	public void callJsThirdLogin(String data, CallBackFunction responseCallBack) {
+		this.callHandler(JF_THIRDLOGIN, data, responseCallBack);
 	}
 }

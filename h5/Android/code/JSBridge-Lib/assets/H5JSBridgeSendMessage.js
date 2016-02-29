@@ -19,7 +19,6 @@ setupJSBridge(function(bridge) {
 			'testJavascriptHandler call back to native' : 'recu data!'
 		}
 		responseCallback(responseData)
-
 	})
 
 })

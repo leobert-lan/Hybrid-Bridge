@@ -15,6 +15,7 @@
 #import "GPSH5API.h"
 #import "QRCodeH5API.h"
 #import "QRCodeVC.h"
+#import "SYQRCodeViewController.h"
 @interface H5VC : BaseWKWebViewVC
 {
     IBOutlet UIView *vTest1,*vTest2;

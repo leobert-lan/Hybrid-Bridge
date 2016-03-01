@@ -76,7 +76,7 @@ static const float kReaderViewHeight = 200;
     //titleLab.layer.borderColor = [UIColor greenColor].CGColor;
     //titleLab.layer.borderWidth = 2.0;
     //titleLab.backgroundColor = [UIColor colorWithRed:62.0/255 green:199.0/255 blue:153.0/255 alpha:1.0];
-    titleLab.text = @"扫题";
+    titleLab.text = @"二维码";
     titleLab.shadowColor = [UIColor lightGrayColor];
     titleLab.shadowOffset = CGSizeMake(0, - 1);
     titleLab.font = [UIFont boldSystemFontOfSize:18.0];
@@ -260,36 +260,16 @@ static const float kReaderViewHeight = 200;
 //如果QRCode的内容越大，转换需要的时间就越长
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
-    NSString *url1;
-    NSString *url2;
-    NSString *url3;
     //扫描结果
     if (metadataObjects.count > 0)
     {
-        int count = 0;
-        //[self stopSYQRCodeReading];
+        [self stopSYQRCodeReading];
         
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
         
         if (obj.stringValue && ![obj.stringValue isEqualToString:@""] && obj.stringValue.length > 0)
         {
-            
-            for (int i = 0; i < 3; i++) {
-                count ++;
-                if (i == 0) {
-                    url1 = obj.stringValue;
-                }else if (i == 1){
-                    url2 = obj.stringValue;
-                }else if (i == 3){
-                    url3 = obj.stringValue;
-                }
-                NSLog(@"---------%@",obj.stringValue);
-            }
-            [self stopSYQRCodeReading];
-            if (count == 3) {
-                
-            
-            //NSLog(@"---------%@",obj.stringValue);
+            NSLog(@"---------%@",obj.stringValue);
             
             if ([obj.stringValue containsString:@"http"])
             {
@@ -310,7 +290,6 @@ static const float kReaderViewHeight = 200;
                 self.SYQRCodeFailBlock(self);
             }
         }
-         }
     }
     else
     {
@@ -318,7 +297,6 @@ static const float kReaderViewHeight = 200;
             self.SYQRCodeFailBlock(self);
         }
     }
-        
 }
 
 

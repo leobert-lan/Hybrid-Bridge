@@ -11,6 +11,13 @@
 		28913DA61C7EE5BE00E01AC3 /* QRCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28913DA41C7EE5BE00E01AC3 /* QRCodeVC.xib */; };
 		28913DA91C7EE8C900E01AC3 /* QRCodeH5API.m in Sources */ = {isa = PBXBuildFile; fileRef = 28913DA81C7EE8C900E01AC3 /* QRCodeH5API.m */; };
 		28913DB01C7EFB7600E01AC3 /* SYQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28913DAF1C7EFB7600E01AC3 /* SYQRCodeViewController.m */; };
+		28EA3C151C80040100B77618 /* H5JSBridgeCall.js in Resources */ = {isa = PBXBuildFile; fileRef = 28EA3C0E1C80040100B77618 /* H5JSBridgeCall.js */; };
+		28EA3C161C80040100B77618 /* H5JSBridgeCopyToClipboard.js in Resources */ = {isa = PBXBuildFile; fileRef = 28EA3C0F1C80040100B77618 /* H5JSBridgeCopyToClipboard.js */; };
+		28EA3C171C80040100B77618 /* H5JSBridgeGetClipBoard.js in Resources */ = {isa = PBXBuildFile; fileRef = 28EA3C101C80040100B77618 /* H5JSBridgeGetClipBoard.js */; };
+		28EA3C181C80040100B77618 /* H5JSBridgeScan.js in Resources */ = {isa = PBXBuildFile; fileRef = 28EA3C111C80040100B77618 /* H5JSBridgeScan.js */; };
+		28EA3C191C80040100B77618 /* H5JSBridgeSendEmail.js in Resources */ = {isa = PBXBuildFile; fileRef = 28EA3C121C80040100B77618 /* H5JSBridgeSendEmail.js */; };
+		28EA3C1A1C80040100B77618 /* H5JSBridgeSendMessage.js in Resources */ = {isa = PBXBuildFile; fileRef = 28EA3C131C80040100B77618 /* H5JSBridgeSendMessage.js */; };
+		28EA3C1B1C80040100B77618 /* WebViewJavascriptBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 28EA3C141C80040100B77618 /* WebViewJavascriptBridge.js */; };
 		A306E1141C7C237400C111CC /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E00B1C7C237400C111CC /* AFHTTPSessionManager.m */; };
 		A306E1151C7C237400C111CC /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E00E1C7C237400C111CC /* AFNetworkReachabilityManager.m */; };
 		A306E1161C7C237400C111CC /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A306E0101C7C237400C111CC /* AFSecurityPolicy.m */; };
@@ -167,6 +174,13 @@
 		28913DA81C7EE8C900E01AC3 /* QRCodeH5API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeH5API.m; sourceTree = "<group>"; };
 		28913DAE1C7EFB7600E01AC3 /* SYQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYQRCodeViewController.h; sourceTree = "<group>"; };
 		28913DAF1C7EFB7600E01AC3 /* SYQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYQRCodeViewController.m; sourceTree = "<group>"; };
+		28EA3C0E1C80040100B77618 /* H5JSBridgeCall.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeCall.js; sourceTree = "<group>"; };
+		28EA3C0F1C80040100B77618 /* H5JSBridgeCopyToClipboard.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeCopyToClipboard.js; sourceTree = "<group>"; };
+		28EA3C101C80040100B77618 /* H5JSBridgeGetClipBoard.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeGetClipBoard.js; sourceTree = "<group>"; };
+		28EA3C111C80040100B77618 /* H5JSBridgeScan.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeScan.js; sourceTree = "<group>"; };
+		28EA3C121C80040100B77618 /* H5JSBridgeSendEmail.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeSendEmail.js; sourceTree = "<group>"; };
+		28EA3C131C80040100B77618 /* H5JSBridgeSendMessage.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeSendMessage.js; sourceTree = "<group>"; };
+		28EA3C141C80040100B77618 /* WebViewJavascriptBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WebViewJavascriptBridge.js; sourceTree = "<group>"; };
 		A306E00A1C7C237400C111CC /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		A306E00B1C7C237400C111CC /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		A306E00C1C7C237400C111CC /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -1076,6 +1090,13 @@
 				A3E948F71C7D5F5A00D254BA /* H5JSBridgeDemo.js */,
 				A3E948F81C7D5F5A00D254BA /* H5JSBridgeGPS.js */,
 				A3E948F91C7D5F5A00D254BA /* Testtemp.js */,
+				28EA3C0E1C80040100B77618 /* H5JSBridgeCall.js */,
+				28EA3C0F1C80040100B77618 /* H5JSBridgeCopyToClipboard.js */,
+				28EA3C101C80040100B77618 /* H5JSBridgeGetClipBoard.js */,
+				28EA3C111C80040100B77618 /* H5JSBridgeScan.js */,
+				28EA3C121C80040100B77618 /* H5JSBridgeSendEmail.js */,
+				28EA3C131C80040100B77618 /* H5JSBridgeSendMessage.js */,
+				28EA3C141C80040100B77618 /* WebViewJavascriptBridge.js */,
 			);
 			name = h5;
 			path = ../h5;
@@ -1215,6 +1236,7 @@
 				A306E1371C7C237400C111CC /* video_num_front@2x.png in Resources */,
 				A3E948FF1C7D5F5A00D254BA /* H5JSBridgeGPS.js in Resources */,
 				A306E12E1C7C237400C111CC /* forward_disable@2x.png in Resources */,
+				28EA3C1B1C80040100B77618 /* WebViewJavascriptBridge.js in Resources */,
 				A306E1321C7C237400C111CC /* play_disable@2x.png in Resources */,
 				A306E1391C7C237400C111CC /* video_volume_bg@2x.png in Resources */,
 				A306E1341C7C237400C111CC /* progressThumb@2x.png in Resources */,
@@ -1223,11 +1245,14 @@
 				A306E12A1C7C237400C111CC /* fast_backward_disable@2x.png in Resources */,
 				A3E948FD1C7D5F5A00D254BA /* H5JSBridgeDatabase.js in Resources */,
 				A306E1361C7C237400C111CC /* video_num_bg@2x.png in Resources */,
+				28EA3C181C80040100B77618 /* H5JSBridgeScan.js in Resources */,
+				28EA3C161C80040100B77618 /* H5JSBridgeCopyToClipboard.js in Resources */,
 				A306E1381C7C237400C111CC /* video_tips@2x.png in Resources */,
 				A306E1311C7C237400C111CC /* pause_nor@2x.png in Resources */,
 				A347FF9A1C61C2BD00F402A7 /* LaunchScreen.storyboard in Resources */,
 				A3E948FB1C7D5F5A00D254BA /* H5JSBridge_1_0.js in Resources */,
 				A306E1331C7C237400C111CC /* play_nor@2x.png in Resources */,
+				28EA3C1A1C80040100B77618 /* H5JSBridgeSendMessage.js in Resources */,
 				A347FF971C61C2BD00F402A7 /* Assets.xcassets in Resources */,
 				A306E12F1C7C237400C111CC /* forward_nor@2x.png in Resources */,
 				A3E949001C7D5F5A00D254BA /* Testtemp.js in Resources */,
@@ -1240,6 +1265,9 @@
 				A306E12C1C7C237400C111CC /* fast_forward_disable@2x.png in Resources */,
 				A306E12B1C7C237400C111CC /* fast_backward_nor@2x.png in Resources */,
 				A347FF951C61C2BD00F402A7 /* Main.storyboard in Resources */,
+				28EA3C171C80040100B77618 /* H5JSBridgeGetClipBoard.js in Resources */,
+				28EA3C151C80040100B77618 /* H5JSBridgeCall.js in Resources */,
+				28EA3C191C80040100B77618 /* H5JSBridgeSendEmail.js in Resources */,
 				A306E15C1C7C237400C111CC /* MJRefresh.bundle in Resources */,
 				A306E12D1C7C237400C111CC /* fast_forward_nor@2x.png in Resources */,
 				A3E948FA1C7D5F5A00D254BA /* ExampleApp.html in Resources */,

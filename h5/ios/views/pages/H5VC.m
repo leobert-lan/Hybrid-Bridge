@@ -52,7 +52,7 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
 //        self.webViewMain = [[WKWebView alloc]initWithFrame:vTest1.bounds configuration:configuretion];
     
         self.webViewMain = [[WKWebView alloc]init];
-        self.webViewMain.frame=vTest1.bounds;
+        self.webViewMain.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 100);
         self.webViewMain.navigationDelegate = self;
         self.webViewMain.UIDelegate = self;
         [vTest1 addSubview:self.webViewMain];
@@ -138,6 +138,47 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
         }];
 
     }];
+    
+    [QRCodeH5API openCameraListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        //扫描二维码
+        SYQRCodeViewController *qrcodevc = [[SYQRCodeViewController alloc] init];
+        qrcodevc.SYQRCodeSuncessBlock = ^(SYQRCodeViewController *aqrvc,NSString *qrString){
+            //self.saomiaoLabel.text = qrString;
+            
+            [aqrvc dismissViewControllerAnimated:NO completion:nil];
+            responseCallback(qrString);
+        };
+        qrcodevc.SYQRCodeFailBlock = ^(SYQRCodeViewController *aqrvc){
+            //self.saomiaoLabel.text = @"fail~";
+            responseCallback(@"fail~");
+            [aqrvc dismissViewControllerAnimated:NO completion:nil];
+        };
+        qrcodevc.SYQRCodeCancleBlock = ^(SYQRCodeViewController *aqrvc){
+            [aqrvc dismissViewControllerAnimated:NO completion:nil];
+            //responseCallback(@"cancle~");
+            //self.saomiaoLabel.text = @"cancle~";
+        };
+        [self presentViewController:qrcodevc animated:YES completion:nil];
+    }];
+    
+    [GPSH5API OpenGpsListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        
+        // 2,设置代理
+        self.manager.delegate = self;
+        // 3,请求获取位置
+        // 一直请求
+        [self.manager requestAlwaysAuthorization];
+        // 4,启动定位
+        [self.manager startUpdatingLocation];
+        
+        self.opengps = ^(CLLocation *location,NSString *name){
+            NSString *gps = [NSString stringWithFormat:@"经度:%f,纬度:%f,街道:%@",location.coordinate.longitude,location.coordinate.latitude,name];
+            responseCallback(gps);
+        };
+        
+    }];
+    
+    
 
 
 }
@@ -166,10 +207,29 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
 - (void)listener2:(WKWebViewJavascriptBridge*)bridge{
     [super listener:bridge];
     
-//    [QRCodeH5API openCameraListener:self.bridge2 handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+    [QRCodeH5API openCameraListener:self.bridge2 handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
 //        QRCodeVC *vc = [[QRCodeVC alloc] init];
 //        [self.navigationController pushViewController:vc animated:YES];
-//    }];
+        
+        //扫描二维码
+        SYQRCodeViewController *qrcodevc = [[SYQRCodeViewController alloc] init];
+        qrcodevc.SYQRCodeSuncessBlock = ^(SYQRCodeViewController *aqrvc,NSString *qrString){
+            //self.saomiaoLabel.text = qrString;
+            responseCallback(qrString);
+            [aqrvc dismissViewControllerAnimated:NO completion:nil];
+        };
+        qrcodevc.SYQRCodeFailBlock = ^(SYQRCodeViewController *aqrvc){
+            //self.saomiaoLabel.text = @"fail~";
+            responseCallback(@"fail~");
+            [aqrvc dismissViewControllerAnimated:NO completion:nil];
+        };
+        qrcodevc.SYQRCodeCancleBlock = ^(SYQRCodeViewController *aqrvc){
+            [aqrvc dismissViewControllerAnimated:NO completion:nil];
+            responseCallback(@"cancle~");
+            //self.saomiaoLabel.text = @"cancle~";
+        };
+        [self presentViewController:qrcodevc animated:YES completion:nil];
+    }];
     
     [GPSH5API OpenGpsListener:self.bridge2 handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
         

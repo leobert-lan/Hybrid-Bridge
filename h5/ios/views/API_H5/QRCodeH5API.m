@@ -12,7 +12,7 @@
 + (void)openCameraListener:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler
 {
     __weak id weakSelf=bridge;
-    [bridge registerHandler:NATIVE_FUNCTION_OPENCAMERA handler:^(id data, WVJBResponseCallback responseCallback) {
+    [bridge registerHandler:NATIVE_FUNCTION_OPENCAMERA_SCAN handler:^(id data, WVJBResponseCallback responseCallback) {
         if (handler) {
             handler(weakSelf, [H5DataCheck checkData:data], nil, responseCallback);
         }

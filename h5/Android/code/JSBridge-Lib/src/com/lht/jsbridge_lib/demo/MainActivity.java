@@ -164,6 +164,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					Log.d(TAG, "receive from js:" + data);
 				}
 			});
+			
 		}
 
 	}

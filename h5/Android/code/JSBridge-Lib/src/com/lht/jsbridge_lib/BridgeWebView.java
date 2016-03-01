@@ -369,4 +369,5 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
 		// TODO Auto-generated method stub
 		this.callHandler(JF_DEMO, data, responseCallBack);
 	}
+	
 }

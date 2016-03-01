@@ -12,5 +12,7 @@ public interface IJSFuncCollection {
 	public final String JF_DEMO = "JS_FUNCTION_DEMO";
 
 	void callJsDemo(String data, CallBackFunction responseCallBack);
+	
+	
 
 }

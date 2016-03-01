@@ -44,6 +44,12 @@ button {
 	</div>
 
 	<li>
+		<button type="button" class="blue" onclick="testThirdPartyLogin()">testThirdPartyLogin</button>
+	</li>
+	<li>
+		<button type="button" class="blue" onclick="SinaLogin()">testThirdPartyLogin</button>
+	</li>
+	<li>
 		<button type="button" class="blue" onclick="testDemo()">演示demo</button>
 	</li>
 
@@ -88,11 +94,6 @@ button {
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">VirtualApp</button>
 	</li>
-
-	<li>
-		<button type="button" class="blue" onclick="testDemo()">login</button>
-	</li>
-
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">logout</button>
 	</li>
@@ -215,6 +216,19 @@ button {
 		};
 		callNativeOpenCameraForScan(callback);
 	}
+	
+	//测试调起第三方登录 -android added
+	function testThirdPartyLogin() {
+		var TYPE_QQ = 1;
+		var TYPE_SINABLOG = 2;
+		var TYPE_WECHAT = 3;
+		var data = {'type':TYPE_QQ};
+		var callback = function(responseData) {
+			log("response third-party login result:", responseData);
+		};
+		callNativeThirdPartyLogin(data,callback);
+	}
+	
 </script>
 
 <!-- 加载API调用“库” -->
@@ -252,4 +266,8 @@ button {
 <!-- 发信息 -->
 <script type="application/javascript" charset="utf-8"
 	src="H5JSBridgeSendMessage.js"></script>
+
+<!-- 第三方登录，该情景：某网页需要手动第三方登录、直接注入第三方登录校验信息 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeThirdPartyLogin.js"></script>
 </html>

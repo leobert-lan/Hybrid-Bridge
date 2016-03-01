@@ -46,7 +46,6 @@ public class SendMessageImpl extends ABSApiImpl implements API.SendMessageHandle
 					+ sendMessageBean.getContacts()));
 			intent.putExtra("sms_body", message);
 			mContext.startActivity(intent);
-			mContext.startActivity(intent);
 
 			BaseResponseBean bean = new BaseResponseBean();
 			bean.setRet(NativeRet.RET_SUCCESS);

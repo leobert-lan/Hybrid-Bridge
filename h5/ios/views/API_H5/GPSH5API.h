@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface GPSH5API : NSObject
-
++ (void)OpenGpsListener:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
 @end

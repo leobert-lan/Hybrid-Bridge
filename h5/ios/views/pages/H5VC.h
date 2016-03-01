@@ -11,7 +11,12 @@
 #import "BaseWKWebViewVC.h"
 
 #import "DemoH5API.h"
-
+#import "UMSocial.h"
+#import "GPSH5API.h"
+#import "QRCodeH5API.h"
+#import "QRCodeVC.h"
+#import "SYQRCodeViewController.h"
+#import "ThirdpartyLoginAPI.h"
 @interface H5VC : BaseWKWebViewVC
 {
     IBOutlet UIView *vTest1,*vTest2;

@@ -44,6 +44,12 @@ button {
 	</div>
 
 	<li>
+		<button type="button" class="blue" onclick="testThirdPartyLogin()">testThirdPartyLogin</button>
+	</li>
+	<li>
+		<button type="button" class="blue" onclick="SinaLogin()">testThirdPartyLogin</button>
+	</li>
+	<li>
 		<button type="button" class="blue" onclick="testDemo()">演示demo</button>
 	</li>
 
@@ -88,11 +94,6 @@ button {
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">VirtualApp</button>
 	</li>
-
-	<li>
-		<button type="button" class="blue" onclick="testThirdPartyLogin()">测试执行第三方登录</button>
-	</li>
-
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">logout</button>
 	</li>
@@ -192,7 +193,7 @@ button {
 	}
 	function testSendMessageDemo() {
 		var data = {
-			'contacts' : '',
+			'contacts' : '10086',
 			'messageContent' : 'this is the content that will send to contacts'
 		}
 		var callback = function(responseData) {
@@ -223,7 +224,7 @@ button {
 		var TYPE_WECHAT = 3;
 		var data = {'type':TYPE_QQ};
 		var callback = function(responseData) {
-			Log2("response third-party login result:", responseData);
+			log("response third-party login result:", responseData);
 		};
 		callNativeThirdPartyLogin(data,callback);
 	}

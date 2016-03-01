@@ -160,7 +160,7 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
         };
         [self presentViewController:qrcodevc animated:YES completion:nil];
     }];
-    
+    // GPS
     [GPSH5API OpenGpsListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
         
         // 2,设置代理
@@ -178,6 +178,22 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
         
     }];
     
+    // qqLogin
+    [ThirdpartyLoginAPI thirdPartyLoginListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
+        
+        snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+            
+            //          获取微博用户名、uid、token等
+            
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                
+                UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
+                
+                NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+                
+            }});
+    }];
     
 
 

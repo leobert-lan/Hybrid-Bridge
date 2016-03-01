@@ -183,7 +183,13 @@ public class MainActivity extends Activity implements OnClickListener {
 					bean.setRet(NativeRet.RET_SUCCESS);
 					bean.setMsg("OK");
 					bean.setData("");
-					Log.i(TAG, "check response info:"+info);
+					webView.callJsThirdLogin(JSON.toJSONString(bean), new CallBackFunction() {
+						
+						@Override
+						public void onCallBack(String data) {
+							Log.i(TAG, data);
+						}
+					});
 				}
 			});
 			

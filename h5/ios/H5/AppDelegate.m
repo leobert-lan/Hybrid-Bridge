@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "UMSocial.h"
+#import "UMSocialQQHandler.h"
 @interface AppDelegate ()
 
 @end
@@ -16,6 +17,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [UMSocialData setAppKey:@"569c5b3f67e58ea4060016ca"];
+    [UMSocialQQHandler setQQWithAppId:@"1105140835" appKey:@"8cGMwUBNJkdwl92W" url:@"http://www.umeng.com/social"];
     // Override point for customization after application launch.
     return YES;
 }
@@ -41,5 +44,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
+}
 @end

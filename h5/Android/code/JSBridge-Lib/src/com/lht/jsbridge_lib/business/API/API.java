@@ -83,4 +83,11 @@ public interface API {
 		 */
 		public static String API_NAME = "NATIVE_FUNCTION_OPENCAMERA_SCAN";
 	}
+	
+	interface ThirdPartyLoginHandler extends BridgeHandler {
+		/**
+		 * API_Name:调用第三方登录
+		 */
+		public static String API_Name = "NATIVE_FUNCTION_THIRDPARTYLOGIN";
+	}
 }

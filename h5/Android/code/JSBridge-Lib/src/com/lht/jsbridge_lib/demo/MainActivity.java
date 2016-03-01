@@ -156,30 +156,6 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	}
 
-	// public void pickFile() {
-	//
-	// Log.d(TAG, "pick file called");
-	//
-	// Intent chooserIntent = new Intent(Intent.ACTION_GET_CONTENT);
-	// chooserIntent.setType("image/*");
-	// startActivityForResult(chooserIntent, RESULT_CODE);
-	//
-	// }
-
-	// @Override
-	// protected void onActivityResult(int requestCode, int resultCode,
-	// Intent intent) {
-	// if (requestCode == RESULT_CODE) {
-	// if (null == mUploadMessage) {
-	// return;
-	// }
-	// Uri result = intent == null || resultCode != RESULT_OK ? null
-	// : intent.getData();
-	// mUploadMessage.onReceiveValue(result);
-	// mUploadMessage = null;
-	// }
-	// }
-
 	@Override
 	public void onClick(View v) {
 
@@ -198,7 +174,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.qqLogin:
-			
+			mQQlogin.setQQLogin();
 			mQQlogin.setCallback(new QQUserInfoCallBack() {
 				@Override
 				public void onSuccess(String info) {
@@ -207,10 +183,9 @@ public class MainActivity extends Activity implements OnClickListener {
 					bean.setRet(NativeRet.RET_SUCCESS);
 					bean.setMsg("OK");
 					bean.setData("");
-					Log.d(TAG, "check response info:"+info);
+					Log.i(TAG, "check response info:"+info);
 				}
 			});
-			mQQlogin.setQQLogin();
 			
 			break;
 		case R.id.sinaLogin:

@@ -5,7 +5,9 @@ import java.util.Set;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -77,6 +79,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 
 		mContext = this;
+		String abs = Environment.getExternalStorageDirectory().getAbsolutePath();
+		Log.d(TAG, abs);
 		mQQlogin = new QQLogin(mContext);
 		
 		webView = (BridgeWebView) findViewById(R.id.webView);

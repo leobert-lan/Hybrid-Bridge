@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "UMSocial.h"
 #import "UMSocialQQHandler.h"
+#import "UMSocialSinaSSOHandler.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UMSocialData setAppKey:@"569c5b3f67e58ea4060016ca"];
     [UMSocialQQHandler setQQWithAppId:@"1105140835" appKey:@"8cGMwUBNJkdwl92W" url:@"http://www.umeng.com/social"];
+    
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1715340265"
+                                              secret:@"98cd506d40785e2b900ae345f23a3573"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     // Override point for customization after application launch.
     return YES;
 }

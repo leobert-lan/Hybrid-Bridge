@@ -63,12 +63,11 @@ button {
 		<button type="button" class="blue" onclick="clearLog()">清空Log</button>
 		<div id='log'></div>
 	</div>
-
 	<li>
 		<button type="button" class="blue" onclick="testThirdPartyLogin()">testThirdPartyLogin</button>
 	</li>
 	<li>
-		<button type="button" class="blue" onclick="SinaLogin()">testThirdPartyLogin</button>
+		<button type="button" class="blue" onclick="testThirdPartyLogin()">testThirdPartyLogin</button>
 	</li>
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">演示demo</button>
@@ -262,9 +261,7 @@ button {
 		var TYPE_QQ = 1;
 		var TYPE_SINABLOG = 2;
 		var TYPE_WECHAT = 3;
-		var data = {
-			'type' : TYPE_QQ
-		};
+		var data = {'type':TYPE_SINABLOG};
 		var callback = function(responseData) {
 			log("response third-party login result:", responseData);
 		};

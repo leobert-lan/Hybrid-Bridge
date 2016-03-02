@@ -34,6 +34,9 @@
 		28738AE31C852A2D00A5A3F4 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738AE21C852A2D00A5A3F4 /* libstdc++.tbd */; };
 		28738AE51C852A3400A5A3F4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738AE41C852A3400A5A3F4 /* libz.tbd */; };
 		28738AE81C852B6D00A5A3F4 /* ThirdpartyLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 28738AE71C852B6D00A5A3F4 /* ThirdpartyLoginAPI.m */; };
+		28738AEA1C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js in Resources */ = {isa = PBXBuildFile; fileRef = 28738AE91C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js */; };
+		28738AED1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js in Resources */ = {isa = PBXBuildFile; fileRef = 28738AEB1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js */; };
+		28738AEE1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js in Resources */ = {isa = PBXBuildFile; fileRef = 28738AEC1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js */; };
 		28913DA51C7EE5BE00E01AC3 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28913DA31C7EE5BE00E01AC3 /* QRCodeVC.m */; };
 		28913DA61C7EE5BE00E01AC3 /* QRCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28913DA41C7EE5BE00E01AC3 /* QRCodeVC.xib */; };
 		28913DA91C7EE8C900E01AC3 /* QRCodeH5API.m in Sources */ = {isa = PBXBuildFile; fileRef = 28913DA81C7EE8C900E01AC3 /* QRCodeH5API.m */; };
@@ -250,6 +253,9 @@
 		28738AE41C852A3400A5A3F4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		28738AE61C852B6D00A5A3F4 /* ThirdpartyLoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdpartyLoginAPI.h; sourceTree = "<group>"; };
 		28738AE71C852B6D00A5A3F4 /* ThirdpartyLoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdpartyLoginAPI.m; sourceTree = "<group>"; };
+		28738AE91C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyLogin.js; sourceTree = "<group>"; };
+		28738AEB1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyLoginSina.js; sourceTree = "<group>"; };
+		28738AEC1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyLoginweixin.js; sourceTree = "<group>"; };
 		28913DA21C7EE5BE00E01AC3 /* QRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeVC.h; sourceTree = "<group>"; };
 		28913DA31C7EE5BE00E01AC3 /* QRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeVC.m; sourceTree = "<group>"; };
 		28913DA41C7EE5BE00E01AC3 /* QRCodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeVC.xib; sourceTree = "<group>"; };
@@ -1303,6 +1309,9 @@
 				28EA3C121C80040100B77618 /* H5JSBridgeSendEmail.js */,
 				28EA3C131C80040100B77618 /* H5JSBridgeSendMessage.js */,
 				28EA3C141C80040100B77618 /* WebViewJavascriptBridge.js */,
+				28738AE91C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js */,
+				28738AEB1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js */,
+				28738AEC1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js */,
 			);
 			name = h5;
 			path = ../h5;
@@ -1454,6 +1463,8 @@
 				A306E1341C7C237400C111CC /* progressThumb@2x.png in Resources */,
 				A306E1281C7C237400C111CC /* backward_disable@2x.png in Resources */,
 				A3E949131C7E950900D254BA /* H5VC.xib in Resources */,
+				28738AED1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js in Resources */,
+				28738AEE1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js in Resources */,
 				A306E12A1C7C237400C111CC /* fast_backward_disable@2x.png in Resources */,
 				28738AD51C8526CA00A5A3F4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A3E948FD1C7D5F5A00D254BA /* H5JSBridgeDatabase.js in Resources */,
@@ -1471,6 +1482,7 @@
 				A306E12F1C7C237400C111CC /* forward_nor@2x.png in Resources */,
 				A3E949001C7D5F5A00D254BA /* Testtemp.js in Resources */,
 				A306E1821C7C237400C111CC /* QYDatePicker.xib in Resources */,
+				28738AEA1C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js in Resources */,
 				A306E14C1C7C237400C111CC /* MBProgressHUD.bundle in Resources */,
 				A306E1351C7C237400C111CC /* video_brightness_bg@2x.png in Resources */,
 				28738AAC1C8526BA00A5A3F4 /* UMSCommentInputController.xib in Resources */,
@@ -1751,6 +1763,7 @@
 					"$(PROJECT_DIR)/module/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/module/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landhightech.H5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1777,6 +1790,7 @@
 					"$(PROJECT_DIR)/module/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/module/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landhightech.H5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

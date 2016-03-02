@@ -44,11 +44,14 @@ button {
 	</div>
 
 	<li>
-		<button type="button" class="blue" onclick="testThirdPartyLogin()">testThirdPartyLogin</button>
+		<button type="button" class="blue" onclick="testThirdPartyLogin()">testThirdPartyLoginQQ</button>
 	</li>
 	<li>
-		<button type="button" class="blue" onclick="SinaLogin()">testThirdPartyLogin</button>
+		<button type="button" class="blue" onclick="SinaLogin()">testThirdPartyLoginSina</button>
 	</li>
+    <li>
+        <button type="button" class="blue" onclick="weixinLogin()">testThirdPartyLoginWinxin</button>
+    </li>
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">演示demo</button>
 	</li>
@@ -228,6 +231,29 @@ button {
 		};
 		callNativeThirdPartyLogin(data,callback);
 	}
+
+//测试调起第三方登录 -android added
+function SinaLogin() {
+    var TYPE_QQ = 1;
+    var TYPE_SINABLOG = 2;
+    var TYPE_WECHAT = 3;
+    var data = {'type':TYPE_QQ};
+    var callback = function(responseData) {
+        log("response third-party login result:", responseData);
+    };
+    callNativeThirdPartyLoginSina(data,callback);
+}
+//测试调起第三方登录 -android added
+function weixinLogin() {
+    var TYPE_QQ = 1;
+    var TYPE_SINABLOG = 2;
+    var TYPE_WECHAT = 3;
+    var data = {'type':TYPE_QQ};
+    var callback = function(responseData) {
+        log("response third-party login result:", responseData);
+    };
+    callNativeThirdPartyLoginWinxin(data,callback);
+}
 	
 </script>
 
@@ -270,4 +296,10 @@ button {
 <!-- 第三方登录，该情景：某网页需要手动第三方登录、直接注入第三方登录校验信息 -->
 <script type="application/javascript" charset="utf-8"
 	src="H5JSBridgeThirdPartyLogin.js"></script>
+</html>
+<script type="application/javascript" charset="utf-8"
+    src="H5JSBridgeThirdPartyLoginSina.js"></script>
+</html>
+<script type="application/javascript" charset="utf-8"
+    src="H5JSBridgeThirdPartyLoginweixin.js"></script>
 </html>

@@ -10,4 +10,8 @@
 
 @interface ThirdpartyLoginAPI : NSObject
 + (void)thirdPartyLoginListener:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
+
++ (void)thirdPartyLoginListenerSina:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
+
++ (void)thirdPartyLoginListenerWeixin:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
 @end

@@ -185,7 +185,6 @@ public class MainActivity extends Activity implements OnClickListener {
 					});
 				}
 			});
-			
 			break;
 		case R.id.sinaLogin:
 			setSinaLogin();

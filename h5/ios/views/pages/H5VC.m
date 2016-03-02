@@ -189,14 +189,32 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
             if (response.responseCode == UMSResponseCodeSuccess) {
                 
                 UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
+                responseCallback(snsAccount.accessToken);
+                NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
                 
+            }});
+        
+    }];
+    
+    [ThirdpartyLoginAPI thirdPartyLoginListenerSina:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+        
+        snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+            
+            //          获取微博用户名、uid、token等
+            
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                
+                UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
+                responseCallback(snsAccount.accessToken);
                 NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
                 
             }});
     }];
     
-
-
+    [ThirdpartyLoginAPI thirdPartyLoginListenerWeixin:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        
+    }];
 }
 
 

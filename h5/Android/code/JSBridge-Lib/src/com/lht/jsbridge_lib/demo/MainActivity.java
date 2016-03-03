@@ -43,6 +43,7 @@ import com.lht.jsbridge_lib.business.impl.SendMessageImpl;
 import com.lht.jsbridge_lib.business.impl.TestLTRImpl;
 import com.lht.jsbridge_lib.business.impl.ThirdPartyLoginImpl;
 import com.lht.jsbridge_lib.demo.QQLogin.QQUserInfoCallBack;
+import com.lht.jsbridge_lib.demo.SinaLogin.SinaUserInfoCallBack;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
@@ -53,7 +54,7 @@ import com.umeng.socialize.sso.SinaSsoHandler;
 import com.umeng.socialize.sso.UMQQSsoHandler;
 import com.umeng.socialize.sso.UMSsoHandler;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends BaseActivity implements OnClickListener {
 
 	UMSocialService mController = UMServiceFactory
 			.getUMSocialService("com.umeng.login");
@@ -67,8 +68,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	Button sinaLogin;
 
 	Context mContext;
-	
+
 	private QQLogin mQQlogin;
+	private SinaLogin mSinaLogin;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		mContext = this;
 		mQQlogin = new QQLogin(mContext);
-		
+		mSinaLogin = new SinaLogin();
+
 		webView = (BridgeWebView) findViewById(R.id.webView);
 
 		button = (Button) findViewById(R.id.button);
@@ -141,11 +144,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		webView.registerHandler(ThirdPartyLoginHandler.API_Name,
 				new ThirdPartyLoginImpl(MainActivity.this));
 
-		testCallJs();
 	}
 
 	public void configPlatforms() {
-
 		// 设置新浪SSO handler
 		mController.getConfig().setSsoHandler(new SinaSsoHandler());
 	}
@@ -172,32 +173,26 @@ public class MainActivity extends Activity implements OnClickListener {
 			mQQlogin.setCallback(new QQUserInfoCallBack() {
 				@Override
 				public void onSuccess(String info) {
-					Toast.makeText(mContext, info.toString(), Toast.LENGTH_SHORT).show();
+					Toast.makeText(mContext, info.toString(),
+							Toast.LENGTH_SHORT).show();
 					BaseResponseBean bean = new BaseResponseBean();
 					bean.setRet(NativeRet.RET_SUCCESS);
 					bean.setMsg("OK");
 					bean.setData("");
-					webView.callJsThirdLogin(JSON.toJSONString(bean), new CallBackFunction() {
-						@Override
-						public void onCallBack(String data) {
-							Log.i(TAG, data);
-						}
-					});
+					webView.callJsThirdLogin(JSON.toJSONString(bean),
+							new CallBackFunction() {
+								@Override
+								public void onCallBack(String data) {
+									Log.i(TAG, data);
+								}
+							});
 				}
 			});
 			break;
 		case R.id.sinaLogin:
-			setSinaLogin();
-			BaseResponseBean bean = new BaseResponseBean();
-			bean.setRet(NativeRet.RET_SUCCESS);
-			bean.setMsg("OK");
-			bean.setData("");
-			webView.callJsThirdLogin(JSON.toJSONString(bean), new CallBackFunction() {
-				@Override
-				public void onCallBack(String data) {
-					Log.i(TAG, data);
-				}
-			});
+			startActivityForResult((new Intent(MainActivity.this,
+					SinaLogin.class)), 1);
+//			setSinaLogin();
 			break;
 		default:
 			break;
@@ -224,7 +219,6 @@ public class MainActivity extends Activity implements OnClickListener {
 												"获取平台数据开始...",
 												Toast.LENGTH_SHORT).show();
 									}
-
 									@Override
 									public void onComplete(int status,
 											Map<String, Object> info) {
@@ -241,8 +235,21 @@ public class MainActivity extends Activity implements OnClickListener {
 																.toString()
 														+ "\r\n");
 											}
-											Log.i("zhang", JSON.toJSONString(info));
-											Log.d("TestData", sb.toString());
+											BaseResponseBean bean = new BaseResponseBean();
+											bean.setRet(NativeRet.RET_SUCCESS);
+											bean.setMsg("OK");
+											bean.setData("");
+											webView.callJsThirdLogin(
+													JSON.toJSONString(bean),
+													new CallBackFunction() {
+														@Override
+														public void onCallBack(
+																String data) {
+															Log.i(TAG, data);
+														}
+													});
+											Log.i("zhang",
+													JSON.toJSONString(info));
 										} else {
 											Log.d("TestData", "发生错误：" + status);
 										}
@@ -273,29 +280,28 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(
-				requestCode);
-		if (ssoHandler != null) {
-			ssoHandler.authorizeCallBack(requestCode, resultCode, data);
-		}
-	}
-	private void testCallJs() {
-		// User user = new User();
-		// Location location = new Location();
-		// location.address = "SDU";
-		// user.location = location;
-		// user.name = "大头鬼";
-		// webView.callHandler("functionInJs", new Gson().toJson(user),
-		// new CallBackFunction() {
-		// @Override
-		// public void onCallBack(String data) {
-		//
+	protected void onActivityResult(int requestCode, int resultCode,
+			Intent responseData) {
+		super.onActivityResult(requestCode, resultCode, responseData);
+		// UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(
+		// requestCode);
+		// if (ssoHandler != null) {
+		// ssoHandler.authorizeCallBack(requestCode, resultCode, responseData);
+		// Log.i("zhang", "responseData"+responseData);
 		// }
-		// });
-		//
-		// webView.send("hello");
+		String result = responseData.getExtras().getString("response");
+		BaseResponseBean bean = new BaseResponseBean();
+		bean.setRet(NativeRet.RET_SUCCESS);
+		bean.setMsg("OK");
+		bean.setData("");
+		webView.callJsThirdLogin(JSON.toJSONString(bean),
+				new CallBackFunction() {
+					@Override
+					public void onCallBack(String data) {
+						Log.i("zhang", "data2" + data);
+					}
+				});
+		Log.i("zhang", "result" + result);
 	}
 
 	static class Location {

@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,6 @@ import com.lht.jsbridge_lib.DefaultHandler;
 import com.lht.jsbridge_lib.R;
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
-import com.lht.jsbridge_lib.business.API.NativeRet;
 import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
 import com.lht.jsbridge_lib.business.API.API.Demo;
 import com.lht.jsbridge_lib.business.API.API.GPSHandler;
@@ -32,6 +32,7 @@ import com.lht.jsbridge_lib.business.API.API.SendMessageHandler;
 import com.lht.jsbridge_lib.business.API.API.SendToClipBoardHandler;
 import com.lht.jsbridge_lib.business.API.API.TestLTRHandler;
 import com.lht.jsbridge_lib.business.API.API.ThirdPartyLoginHandler;
+import com.lht.jsbridge_lib.business.API.NativeRet;
 import com.lht.jsbridge_lib.business.bean.BaseResponseBean;
 import com.lht.jsbridge_lib.business.impl.CallTelImpl;
 import com.lht.jsbridge_lib.business.impl.CopyToClipboardImpl;
@@ -51,7 +52,6 @@ import com.umeng.socialize.controller.listener.SocializeListeners.UMAuthListener
 import com.umeng.socialize.controller.listener.SocializeListeners.UMDataListener;
 import com.umeng.socialize.exception.SocializeException;
 import com.umeng.socialize.sso.SinaSsoHandler;
-import com.umeng.socialize.sso.UMQQSsoHandler;
 import com.umeng.socialize.sso.UMSsoHandler;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
@@ -78,6 +78,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 
 		mContext = this;
+		String abs = Environment.getExternalStorageDirectory().getAbsolutePath();
+		Log.d(TAG, abs);
 		mQQlogin = new QQLogin(mContext);
 		mSinaLogin = new SinaLogin();
 

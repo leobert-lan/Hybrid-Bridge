@@ -24,7 +24,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>tencentopenapi</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>tencent1105140835</string>
@@ -36,6 +36,22 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wb1715340265</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx113baec3db961f14</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ41df1c63</string>
 			</array>
 		</dict>
 	</array>

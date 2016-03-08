@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "H5VC.h"
+#import "H5newVC.h"
 //#import "ViewController2.h"
 @interface ViewController ()
 
@@ -29,4 +30,9 @@
     H5VC *vc=[[H5VC alloc] initWithNibName:@"H5VC" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)H5newAction:(id)sender {
+    H5newVC *vc = [[H5newVC alloc] initWithNibName:@"H5newVC" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end

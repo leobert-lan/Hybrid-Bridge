@@ -17,8 +17,6 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    
-    
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 摄像头权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
@@ -62,8 +60,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-        
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -82,15 +78,40 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
-        
+
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="TpTmgufFXV82D7QE" />
-        
+            android:value="56d5527367e58e6245001558" />
+
         <!-- 4ArGzPZrNRz8lm51ej023PeX -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="4ArGzPZrNRz8lm51ej023PeX" />
+        <!-- Sina -->
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.UMDefault" />
+        <activity
+            android:name=".WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <service
+            android:name="com.sina.weibo.sdk.net.DownloadService"
+            android:exported="false" >
+        </service>
 
         <activity
             android:name=".demo.MainActivity"
@@ -101,6 +122,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity 
+            android:name=".demo.SinaLogin"></activity>
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test" >
@@ -111,8 +134,7 @@
             android:name="com.lht.jsbridge_lib.ApiUtil.Scan.MipcaActivityCapture"
             android:theme="@android:style/Theme.Light.NoTitleBar" >
         </activity>
-        
-         <activity
+        <activity
             android:name="com.zbar.lib.CaptureActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar" >

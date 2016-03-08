@@ -57,6 +57,8 @@ public class ThirdPartyLoginImpl extends ABSLTRApiImpl implements
 			QQLogin qqLogin = new QQLogin(mContext);
 			qqLogin.setCallback(qqUserInfo);
 			qqLogin.setQQLogin();
+		}else if(loginStatus.equals("2")) {
+			
 		}
 	}
 
@@ -75,20 +77,16 @@ public class ThirdPartyLoginImpl extends ABSLTRApiImpl implements
 	
 	@Override
 	protected LTRHandler getLTRHandler() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected LTRExecutor getLTRExecutor() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected boolean isBeanError(Object o) {
-		// TODO Auto-generated method stub
-		// ThirdPartyLoginBean
 		return false;
 	}
 

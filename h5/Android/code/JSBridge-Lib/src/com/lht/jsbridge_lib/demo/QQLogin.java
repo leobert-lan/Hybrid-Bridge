@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
@@ -98,7 +99,7 @@ public class QQLogin {
 														+ "\r\n");
 											}
 											qqUserInfo.onSuccess(sb.toString());
-											Log.d("TestData", sb.toString());
+											Log.i("zhang", JSON.toJSONString(info));
 										} else {
 											Log.d("TestData", "发生错误：" + status);
 										}

@@ -31,6 +31,13 @@
                                     <action selector="H5newAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3es-Ad-6DN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYF-ve-mnN">
+                                <rect key="frame" x="12" y="309" width="62" height="30"/>
+                                <state key="normal" title="H5Player"/>
+                                <connections>
+                                    <action selector="H5PlayerVCAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ilI-5y-H6O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

@@ -10,6 +10,9 @@
 		283B42961C86C44500754BCF /* H5JSBridgeThirdPartyShareQQ.js in Resources */ = {isa = PBXBuildFile; fileRef = 283B42931C86C44500754BCF /* H5JSBridgeThirdPartyShareQQ.js */; };
 		283B42971C86C44500754BCF /* H5JSBridgeThirdPartyShareSina.js in Resources */ = {isa = PBXBuildFile; fileRef = 283B42941C86C44500754BCF /* H5JSBridgeThirdPartyShareSina.js */; };
 		283B42981C86C44500754BCF /* H5JSBridgeThirdPartyShareWeixin.js in Resources */ = {isa = PBXBuildFile; fileRef = 283B42951C86C44500754BCF /* H5JSBridgeThirdPartyShareWeixin.js */; };
+		2842C0681C8FF31F003B68AE /* H5PlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842C0661C8FF31F003B68AE /* H5PlayerVC.m */; };
+		2842C0691C8FF31F003B68AE /* H5PlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2842C0671C8FF31F003B68AE /* H5PlayerVC.xib */; };
+		2842C06C1C9002BF003B68AE /* UINavigationController+Autorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842C06B1C9002BF003B68AE /* UINavigationController+Autorotate.m */; };
 		286A9EA91C8D20C700798A68 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 286A9EA61C8D20C700798A68 /* NJKWebViewProgress.m */; };
 		286A9EAA1C8D20C700798A68 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 286A9EA81C8D20C700798A68 /* NJKWebViewProgressView.m */; };
 		286A9EAE1C8D291600798A68 /* H5newVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 286A9EAC1C8D291600798A68 /* H5newVC.m */; };
@@ -207,6 +210,11 @@
 		283B42931C86C44500754BCF /* H5JSBridgeThirdPartyShareQQ.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyShareQQ.js; sourceTree = "<group>"; };
 		283B42941C86C44500754BCF /* H5JSBridgeThirdPartyShareSina.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyShareSina.js; sourceTree = "<group>"; };
 		283B42951C86C44500754BCF /* H5JSBridgeThirdPartyShareWeixin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyShareWeixin.js; sourceTree = "<group>"; };
+		2842C0651C8FF31F003B68AE /* H5PlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H5PlayerVC.h; sourceTree = "<group>"; };
+		2842C0661C8FF31F003B68AE /* H5PlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H5PlayerVC.m; sourceTree = "<group>"; };
+		2842C0671C8FF31F003B68AE /* H5PlayerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = H5PlayerVC.xib; sourceTree = "<group>"; };
+		2842C06A1C9002BF003B68AE /* UINavigationController+Autorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Autorotate.h"; sourceTree = "<group>"; };
+		2842C06B1C9002BF003B68AE /* UINavigationController+Autorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Autorotate.m"; sourceTree = "<group>"; };
 		286A9EA51C8D20C700798A68 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
 		286A9EA61C8D20C700798A68 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		286A9EA71C8D20C700798A68 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
@@ -1382,6 +1390,8 @@
 				A3E949061C7E950900D254BA /* BaseWKWebViewVC.m */,
 				A3E949191C7E9B1B00D254BA /* H5DataCheck.h */,
 				A3E9491A1C7E9B1B00D254BA /* H5DataCheck.m */,
+				2842C06A1C9002BF003B68AE /* UINavigationController+Autorotate.h */,
+				2842C06B1C9002BF003B68AE /* UINavigationController+Autorotate.m */,
 			);
 			path = BaseWeb;
 			sourceTree = "<group>";
@@ -1411,6 +1421,9 @@
 				286A9EAB1C8D291600798A68 /* H5newVC.h */,
 				286A9EAC1C8D291600798A68 /* H5newVC.m */,
 				286A9EAD1C8D291600798A68 /* H5newVC.xib */,
+				2842C0651C8FF31F003B68AE /* H5PlayerVC.h */,
+				2842C0661C8FF31F003B68AE /* H5PlayerVC.m */,
+				2842C0671C8FF31F003B68AE /* H5PlayerVC.xib */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -1509,6 +1522,7 @@
 				A306E1281C7C237400C111CC /* backward_disable@2x.png in Resources */,
 				A3E949131C7E950900D254BA /* H5VC.xib in Resources */,
 				28738AED1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js in Resources */,
+				2842C0691C8FF31F003B68AE /* H5PlayerVC.xib in Resources */,
 				28738AEE1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js in Resources */,
 				A306E12A1C7C237400C111CC /* fast_backward_disable@2x.png in Resources */,
 				28738AD51C8526CA00A5A3F4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
@@ -1649,6 +1663,7 @@
 				A306E1781C7C237400C111CC /* ZhugeConfig.m in Sources */,
 				A306E15D1C7C237400C111CC /* MJRefreshConst.m in Sources */,
 				A306E1441C7C237400C111CC /* JSONModel+networking.m in Sources */,
+				2842C06C1C9002BF003B68AE /* UINavigationController+Autorotate.m in Sources */,
 				A306E1181C7C237400C111CC /* AFURLResponseSerialization.m in Sources */,
 				A306E19C1C7C32A900C111CC /* WKWebViewJavascriptBridge.m in Sources */,
 				286A9EA91C8D20C700798A68 /* NJKWebViewProgress.m in Sources */,
@@ -1663,6 +1678,7 @@
 				A306E1521C7C237400C111CC /* MJRefreshHeader.m in Sources */,
 				A347FF8C1C61C2BD00F402A7 /* main.m in Sources */,
 				A306E1891C7C237400C111CC /* NetError.m in Sources */,
+				2842C0681C8FF31F003B68AE /* H5PlayerVC.m in Sources */,
 				A306E1531C7C237400C111CC /* MJRefreshAutoGifFooter.m in Sources */,
 				A306E1601C7C237400C111CC /* UIView+MJExtension.m in Sources */,
 				A306E1461C7C237400C111CC /* JSONValueTransformer.m in Sources */,

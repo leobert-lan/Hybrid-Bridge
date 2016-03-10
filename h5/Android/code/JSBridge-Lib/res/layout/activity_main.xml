@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/full_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -11,16 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="java call web" />
-    <Button 
-        android:id="@+id/qqLogin"
+
+    <Button
+        android:id="@+id/testMedia"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="QQLogin"/>
-    <Button 
+        android:text="testMedia" />
+
+    <Button
         android:id="@+id/sinaLogin"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="SinaLogin"/>
+        android:text="SinaLogin" />
 
     <!-- webview 演示web调用Java -->
 
@@ -29,5 +32,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
     </com.lht.jsbridge_lib.BridgeWebView>
+
+    <FrameLayout
+        android:id="@+id/video_fullView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" >
+    </FrameLayout>
 
 </LinearLayout>

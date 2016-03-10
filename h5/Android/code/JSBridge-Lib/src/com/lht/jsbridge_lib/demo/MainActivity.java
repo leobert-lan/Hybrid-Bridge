@@ -6,13 +6,16 @@ import java.util.Set;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -20,6 +23,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.lht.jsbridge_lib.BridgeWebView;
 import com.lht.jsbridge_lib.DefaultHandler;
 import com.lht.jsbridge_lib.R;
+import com.lht.jsbridge_lib.base.IMediaTransImpl;
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.business.API.API.CallTelHandler;
@@ -43,7 +47,6 @@ import com.lht.jsbridge_lib.business.impl.SendEmailImpl;
 import com.lht.jsbridge_lib.business.impl.SendMessageImpl;
 import com.lht.jsbridge_lib.business.impl.TestLTRImpl;
 import com.lht.jsbridge_lib.business.impl.ThirdPartyLoginImpl;
-import com.lht.jsbridge_lib.demo.QQLogin.QQUserInfoCallBack;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
@@ -63,39 +66,51 @@ public class MainActivity extends Activity implements OnClickListener {
 	BridgeWebView webView;
 
 	Button button;
-	Button qqLogin;
+	Button btnMeida;
 	Button sinaLogin;
 
 	Context mContext;
-	
+
 	private QQLogin mQQlogin;
+
+	private ViewGroup fullContainer;
+
+	private FrameLayout videoView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		
+		Log.d(TAG, "onCreate");
+		
 		mContext = this;
-		String abs = Environment.getExternalStorageDirectory().getAbsolutePath();
+		String abs = Environment.getExternalStorageDirectory()
+				.getAbsolutePath();
 		Log.d(TAG, abs);
 		mQQlogin = new QQLogin(mContext);
-		
+
 		webView = (BridgeWebView) findViewById(R.id.webView);
 
+		fullContainer = (ViewGroup) findViewById(R.id.full_container);
+		videoView = (FrameLayout) findViewById(R.id.video_fullView);
+
 		button = (Button) findViewById(R.id.button);
-		qqLogin = (Button) findViewById(R.id.qqLogin);
+		btnMeida = (Button) findViewById(R.id.testMedia);
 		sinaLogin = (Button) findViewById(R.id.sinaLogin);
 
 		button.setOnClickListener(this);
-		qqLogin.setOnClickListener(this);
+		btnMeida.setOnClickListener(this);
 		sinaLogin.setOnClickListener(this);
 		configPlatforms();
 
 		webView.setDefaultHandler(new DefaultHandler());
 
-		String webTestUrl = "http://172.16.7.140/JsBridgeTest/demo.html";
+		// Test TODO
+		webView.setIMediaTrans(new IMediaTransImpl(this, videoView,
+				fullContainer));
 
-		String localTestUri = "file:///android_asset/demo.html";
+		// ===================================
 
 		String localTestUri2 = "file:///android_asset/ExampleApp.html";
 
@@ -144,6 +159,26 @@ public class MainActivity extends Activity implements OnClickListener {
 				new ThirdPartyLoginImpl(MainActivity.this));
 
 		testCallJs();
+
+	}
+	
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		webView.onPause();
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		webView.onResume();
+	}
+
+
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
 	}
 
 	public void configPlatforms() {
@@ -169,24 +204,29 @@ public class MainActivity extends Activity implements OnClickListener {
 						});
 			}
 			break;
-		case R.id.qqLogin:
-			mQQlogin.setQQLogin();
-			mQQlogin.setCallback(new QQUserInfoCallBack() {
-				@Override
-				public void onSuccess(String info) {
-					Toast.makeText(mContext, info.toString(), Toast.LENGTH_SHORT).show();
-					BaseResponseBean bean = new BaseResponseBean();
-					bean.setRet(NativeRet.RET_SUCCESS);
-					bean.setMsg("OK");
-					bean.setData("");
-					webView.callJsThirdLogin(JSON.toJSONString(bean), new CallBackFunction() {
-						@Override
-						public void onCallBack(String data) {
-							Log.i(TAG, data);
-						}
-					});
-				}
-			});
+		case R.id.testMedia:
+
+			webView.loadUrl("http://172.16.7.140/MediaTest/test/test.html");
+
+			// mQQlogin.setQQLogin();
+			// mQQlogin.setCallback(new QQUserInfoCallBack() {
+			// @Override
+			// public void onSuccess(String info) {
+			// Toast.makeText(mContext, info.toString(),
+			// Toast.LENGTH_SHORT).show();
+			// BaseResponseBean bean = new BaseResponseBean();
+			// bean.setRet(NativeRet.RET_SUCCESS);
+			// bean.setMsg("OK");
+			// bean.setData("");
+			// webView.callJsThirdLogin(JSON.toJSONString(bean), new
+			// CallBackFunction() {
+			// @Override
+			// public void onCallBack(String data) {
+			// Log.i(TAG, data);
+			// }
+			// });
+			// }
+			// });
 			break;
 		case R.id.sinaLogin:
 			setSinaLogin();
@@ -194,12 +234,13 @@ public class MainActivity extends Activity implements OnClickListener {
 			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData("");
-			webView.callJsThirdLogin(JSON.toJSONString(bean), new CallBackFunction() {
-				@Override
-				public void onCallBack(String data) {
-					Log.i(TAG, data);
-				}
-			});
+			webView.callJsThirdLogin(JSON.toJSONString(bean),
+					new CallBackFunction() {
+						@Override
+						public void onCallBack(String data) {
+							Log.i(TAG, data);
+						}
+					});
 			break;
 		default:
 			break;
@@ -243,7 +284,8 @@ public class MainActivity extends Activity implements OnClickListener {
 																.toString()
 														+ "\r\n");
 											}
-											Log.i("zhang", JSON.toJSONString(info));
+											Log.i("zhang",
+													JSON.toJSONString(info));
 											Log.d("TestData", sb.toString());
 										} else {
 											Log.d("TestData", "发生错误：" + status);
@@ -283,6 +325,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			ssoHandler.authorizeCallBack(requestCode, resultCode, data);
 		}
 	}
+
 	private void testCallJs() {
 		// User user = new User();
 		// Location location = new Location();

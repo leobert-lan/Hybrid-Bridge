@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.lht.jsbridge_lib.base.Interface.IMediaTrans;
 import com.lht.jsbridge_lib.base.model.BridgeUtil;
 import com.lht.jsbridge_lib.base.model.Message;
 
@@ -71,6 +72,8 @@ public class BridgeWebViewClient extends WebViewClient {
 		if (BridgeWebView.toLoadJs != null) {
 			BridgeUtil.webViewLoadLocalJs(view, BridgeWebView.toLoadJs);
 		}
+		
+//		view.loadUrl("javascript:"+IMediaTrans.AUTOLAYOUT_JS);
 
 		//
 		if (webView.getStartupMessage() != null) {

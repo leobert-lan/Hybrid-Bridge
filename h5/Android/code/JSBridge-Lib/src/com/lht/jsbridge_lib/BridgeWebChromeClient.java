@@ -1,8 +1,13 @@
 package com.lht.jsbridge_lib;
 
+import android.util.Log;
+import android.view.View;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebSettings.LayoutAlgorithm;
+
+import com.lht.jsbridge_lib.base.Interface.IMediaTrans;
 
 /**
  * @ClassName: BridgeWebChoreClient
@@ -13,6 +18,14 @@ import android.webkit.WebView;
  * @version 1.0
  */
 public class BridgeWebChromeClient extends WebChromeClient {
+
+	private IMediaTrans iMediaTrans;
+	
+	private static final String tag  = "BridgeWebChromeClient";
+
+	public void setIMediaTrans(IMediaTrans iMediaTrans) {
+		this.iMediaTrans = iMediaTrans;
+	}
 
 	/**
 	 * 覆盖默认的window.alert展示界面
@@ -43,6 +56,29 @@ public class BridgeWebChromeClient extends WebChromeClient {
 		dialog.show();
 
 		return true;
+	}
+
+
+	@Override
+	public void onShowCustomView(View view, CustomViewCallback callback) {
+		// TODO Auto-generated method stub
+		super.onShowCustomView(view, callback);
+		if (iMediaTrans != null) {
+			iMediaTrans.onShowCustomView(view, callback);
+		} else {
+			Log.e(tag,"iMediaTrans is null,set at first");
+		}
+	}
+	
+	@Override
+	public void onHideCustomView() {
+		// TODO Auto-generated method stub
+		super.onHideCustomView();
+		if (iMediaTrans != null) {
+			iMediaTrans.onHideCustomView();
+		} else {
+			Log.e(tag,"iMediaTrans is null,set at first");
+		}
 	}
 
 }

@@ -14,11 +14,13 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.base.Interface.IJSFuncCollection;
+import com.lht.jsbridge_lib.base.Interface.IMediaTrans;
 import com.lht.jsbridge_lib.base.Interface.WebViewJavascriptBridge;
 import com.lht.jsbridge_lib.base.model.BridgeUtil;
 import com.lht.jsbridge_lib.base.model.Message;
@@ -48,6 +50,8 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
 	}
 
 	private long uniqueId = 0;
+	
+	BridgeWebChromeClient bridgeWebChromeClient;
 
 	public BridgeWebView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -80,6 +84,16 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
 		this.setVerticalScrollBarEnabled(false);
 		this.setHorizontalScrollBarEnabled(false);
 		this.getSettings().setJavaScriptEnabled(true);
+		
+		//added by leobert
+		this.getSettings().setDomStorageEnabled(true);
+		this.getSettings().setUseWideViewPort(true);
+		
+		//自适应屏幕
+		this.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+		this.getSettings().setUseWideViewPort(true);
+		this.getSettings().setLoadWithOverviewMode(true);
+		
 
 		// 如果满足调试条件 （system version >= 19 ,named KITKAT）开启调试
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -87,11 +101,17 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
 		}
 
 		this.setWebViewClient(generateBridgeWebViewClient());
-		this.setWebChromeClient(new BridgeWebChromeClient());
+		
+		bridgeWebChromeClient = new BridgeWebChromeClient();
+		this.setWebChromeClient(bridgeWebChromeClient);
 	}
 
 	protected BridgeWebViewClient generateBridgeWebViewClient() {
 		return new BridgeWebViewClient(this);
+	}
+	
+	public void setIMediaTrans(IMediaTrans iMediaTrans) {
+		this.bridgeWebChromeClient.setIMediaTrans(iMediaTrans);
 	}
 
 	/**

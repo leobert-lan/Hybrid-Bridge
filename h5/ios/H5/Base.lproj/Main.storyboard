@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="s0B-nJ-sma">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="s0B-nJ-sma">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -22,6 +22,20 @@
                                 <state key="normal" title="H5"/>
                                 <connections>
                                     <action selector="H5Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Te-cQ-v7C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5E-Ok-wrs">
+                                <rect key="frame" x="19" y="214" width="49" height="30"/>
+                                <state key="normal" title="H5new"/>
+                                <connections>
+                                    <action selector="H5newAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3es-Ad-6DN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYF-ve-mnN">
+                                <rect key="frame" x="12" y="309" width="62" height="30"/>
+                                <state key="normal" title="H5Player"/>
+                                <connections>
+                                    <action selector="H5PlayerVCAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ilI-5y-H6O"/>
                                 </connections>
                             </button>
                         </subviews>

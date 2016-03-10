@@ -10,6 +10,7 @@
 #import "UMSocial.h"
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaSSOHandler.h"
+#import "UMSocialWechatHandler.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UMSocialData setAppKey:@"569c5b3f67e58ea4060016ca"];
+    //设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:@"wx113baec3db961f14" appSecret:@"1c11233a29b1074e3d7847960cf018b1" url:@"http://www.umeng.com/social"];
     [UMSocialQQHandler setQQWithAppId:@"1105140835" appKey:@"8cGMwUBNJkdwl92W" url:@"http://www.umeng.com/social"];
     
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1715340265"
@@ -57,4 +60,5 @@
     }
     return result;
 }
+
 @end

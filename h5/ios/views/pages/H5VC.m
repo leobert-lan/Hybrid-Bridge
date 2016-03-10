@@ -8,8 +8,14 @@
 
 #import "H5VC.h"
 #import <CoreLocation/CoreLocation.h>
+#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"
 typedef void(^openGps)(CLLocation *location,NSString *name);
-@interface H5VC ()<CLLocationManagerDelegate>
+@interface H5VC ()<CLLocationManagerDelegate,UMSocialUIDelegate>
+{
+    NJKWebViewProgressView *_webViewProgressView;
+    NJKWebViewProgress *_webViewProgress;
+}
 /**
  *  1,定义定位管理者属性
  */
@@ -102,6 +108,7 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
     
 
 }
+
 
 
 - (void)loadExamplePage:(WKWebView*)webView {
@@ -213,8 +220,54 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
     }];
     
     [ThirdpartyLoginAPI thirdPartyLoginListenerWeixin:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+
         
+        UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+        
+        snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+            
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                
+                UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
+                
+                NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+                
+            }
+            
+        });
     }];
+    
+    [ThirdpartyLoginAPI thirdPartyShareListenerSina:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        if (![[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"sinaweibo://"]]) {
+            DLog(@"aaaa");
+        }
+        [[UMSocialControllerService defaultControllerService] setShareText:@"分享内嵌文字" shareImage:[UIImage imageNamed:@"icon"] socialUIDelegate:self];
+        //设置分享内容和回调对象
+        [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina].snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
+    }];
+    
+    [ThirdpartyLoginAPI thirdPartyShareListenerWeixin:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatTimeline] content:@"分享内嵌文字" image:@"toux" location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                NSLog(@"分享成功！");
+            }
+        }];
+    }];
+    
+    [ThirdpartyLoginAPI thirdPartyShareListenerQQ:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+//        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQQ] content:@"www.baidu.com" image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+//            if (response.responseCode == UMSResponseCodeSuccess) {
+//                NSLog(@"分享成功！");
+//            }
+//        }];
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQzone] content:@"分享文字" image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                NSLog(@"分享成功！");
+            }
+            [UMSocialData defaultData].extConfig.qzoneData.url = @"http://baidu.com";
+        }];
+    }];
+    
 }
 
 

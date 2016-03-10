@@ -52,6 +52,15 @@ button {
     <li>
         <button type="button" class="blue" onclick="weixinLogin()">testThirdPartyLoginWinxin</button>
     </li>
+    <li>
+        <button type="button" class="blue" onclick="SinaShare()">testThirdPartyShareSina</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="QQShare()">testThirdPartyShareQQ</button>
+    </li>
+    <li>
+        <button type="button" class="blue" onclick="WeixinShare()">testThirdPartyShareWeixin</button>
+    </li>
 	<li>
 		<button type="button" class="blue" onclick="testDemo()">演示demo</button>
 	</li>
@@ -254,7 +263,37 @@ function weixinLogin() {
     };
     callNativeThirdPartyLoginWinxin(data,callback);
 }
-	
+
+function SinaShare() {
+    var TYPE_QQ = 1;
+    var TYPE_SINABLOG = 2;
+    var TYPE_WECHAT = 3;
+    var data = {'type':TYPE_QQ};
+    var callback = function(responseData) {
+        log("response third-party login result:", responseData);
+    };
+    callNativeThirdPartyShareSina(data,callback);
+}
+function QQShare() {
+    var TYPE_QQ = 1;
+    var TYPE_SINABLOG = 2;
+    var TYPE_WECHAT = 3;
+    var data = {'type':TYPE_QQ};
+    var callback = function(responseData) {
+        log("response third-party login result:", responseData);
+    };
+    callNativeThirdPartyShareQQ(data,callback);
+}
+function WeixinShare() {
+    var TYPE_QQ = 1;
+    var TYPE_SINABLOG = 2;
+    var TYPE_WECHAT = 3;
+    var data = {'type':TYPE_QQ};
+    var callback = function(responseData) {
+        log("response third-party login result:", responseData);
+    };
+    callNativeThirdPartyShareWeixin(data,callback);
+}
 </script>
 
 <!-- 加载API调用“库” -->
@@ -302,4 +341,13 @@ function weixinLogin() {
 </html>
 <script type="application/javascript" charset="utf-8"
     src="H5JSBridgeThirdPartyLoginweixin.js"></script>
+</html>
+<script type="application/javascript" charset="utf-8"
+    src="H5JSBridgeThirdPartyShareWeixin.js"></script>
+</html>
+<script type="application/javascript" charset="utf-8"
+    src="H5JSBridgeThirdPartyShareQQ.js"></script>
+</html>
+<script type="application/javascript" charset="utf-8"
+    src="H5JSBridgeThirdPartyShareSina.js"></script>
 </html>

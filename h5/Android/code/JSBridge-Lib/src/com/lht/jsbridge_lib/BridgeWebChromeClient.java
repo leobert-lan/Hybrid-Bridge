@@ -1,8 +1,10 @@
 package com.lht.jsbridge_lib;
 
+import android.view.View;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.widget.ProgressBar;
 
 /**
  * @ClassName: BridgeWebChoreClient
@@ -17,6 +19,12 @@ public class BridgeWebChromeClient extends WebChromeClient {
 	/**
 	 * 覆盖默认的window.alert展示界面
 	 */
+	final BridgeWebView mWebView;
+
+	public BridgeWebChromeClient(BridgeWebView webView) {
+		mWebView = webView;
+	}
+
 	@Override
 	public boolean onJsAlert(WebView view, String url, String message,
 			final JsResult result) {
@@ -24,6 +32,23 @@ public class BridgeWebChromeClient extends WebChromeClient {
 		dialog.fixContent(message);
 		dialog.show();
 		return true;
+	}
+
+	@Override
+	public void onProgressChanged(WebView view, int newProgress) {
+		super.onProgressChanged(view, newProgress);
+
+		ProgressBar pBar = mWebView.getProgressBar();
+		if (null != pBar) {
+			if (newProgress == 100) {
+				pBar.setVisibility(View.INVISIBLE);
+			} else {
+				if (View.INVISIBLE == pBar.getVisibility()) {
+					pBar.setVisibility(View.VISIBLE);
+				}
+				pBar.setProgress(newProgress);
+			}
+		}
 	}
 
 	@Override

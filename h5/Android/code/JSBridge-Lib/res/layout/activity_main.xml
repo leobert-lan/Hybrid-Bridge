@@ -6,6 +6,11 @@
 
     <!-- button 演示Java调用web -->
 
+	<Button 
+	    android:id="@+id/skip"
+	    android:layout_width="match_parent"
+	    android:layout_height="48dp"
+	    android:text="跳转到HTML5页面"/>
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
@@ -21,6 +26,11 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="SinaLogin"/>
+    <Button 
+        android:id="@+id/wechatLogin"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="WeChatLogin"/>
 
     <!-- webview 演示web调用Java -->
 

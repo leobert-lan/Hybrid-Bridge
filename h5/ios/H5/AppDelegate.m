@@ -11,6 +11,7 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaSSOHandler.h"
 #import "UMSocialWechatHandler.h"
+#import "LanguageManager.h"
 @interface AppDelegate ()
 
 @end
@@ -21,16 +22,30 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UMSocialData setAppKey:@"569c5b3f67e58ea4060016ca"];
     //设置微信AppId、appSecret，分享url
-    [UMSocialWechatHandler setWXAppId:@"wx113baec3db961f14" appSecret:@"1c11233a29b1074e3d7847960cf018b1" url:@"http://www.umeng.com/social"];
-    [UMSocialQQHandler setQQWithAppId:@"1105140835" appKey:@"8cGMwUBNJkdwl92W" url:@"http://www.umeng.com/social"];
+    [UMSocialWechatHandler setWXAppId:@"wx5c56bb2e1c024b49" appSecret:@"a18afaec1ef0f9b05dd6abee96056a45" url:@"www.vsochina.com"];
+    [UMSocialQQHandler setQQWithAppId:@"1105135204" appKey:@"4chGRPEZQxtrZZ54" url:@"www.vsochina.com"];
     
-    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1715340265"
-                                              secret:@"98cd506d40785e2b900ae345f23a3573"
-                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"535673299"
+                                              secret:@"57187e986afd826a8ee27b58d6c85c08"
+                                         RedirectURL:@"https://api.weibo.com/oauth2/default.html"];
     // Override point for customization after application launch.
+    
+    NSString *languageStr = [LanguageManager currentLanguageCode];
+    if ([[self getCurrentLanguage] isEqualToString:[NSString stringWithFormat:@"%@-US",languageStr]]) {
+        [LanguageManager sharedInstance].language = [self getCurrentLanguage];
+    }else{
+        [LanguageManager sharedInstance].language = languageStr;
+    }
+    NSInteger index = [[LanguageManager languageCodes] indexOfObject:[LanguageManager sharedInstance].language];
+    [LanguageManager saveLanguageByIndex:index];
     return YES;
 }
-
+- (NSString *)getCurrentLanguage
+{
+    NSArray *languages = [NSLocale preferredLanguages];
+    NSString *currentLanguage = [languages objectAtIndex:0];
+    return currentLanguage;
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

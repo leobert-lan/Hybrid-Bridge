@@ -10,18 +10,26 @@
 #import "H5VC.h"
 #import "H5newVC.h"
 #import "H5PlayerVC.h"
+#import "LanguageVC.h"
 //#import "ViewController2.h"
 @interface ViewController ()
-
+{
+    IBOutlet UIButton *btnH5;
+}
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -38,6 +46,14 @@
 }
 - (IBAction)H5PlayerVCAction:(id)sender {
     H5PlayerVC *vc = [[H5PlayerVC alloc] initWithNibName:@"H5PlayerVC" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)LanguageVCAction:(id)sender {
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LanguageVC" bundle:nil];
+    LanguageVC *vc = [sb instantiateViewControllerWithIdentifier:@"LanguageVC"];
+    
+    //LanguageVC *vc = [[LanguageVC alloc] initWithNibName:@"LanguageVC" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.webkit.WebView;
+import android.widget.ProgressBar;
 
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
@@ -87,7 +88,7 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
 		}
 
 		this.setWebViewClient(generateBridgeWebViewClient());
-		this.setWebChromeClient(new BridgeWebChromeClient());
+		this.setWebChromeClient(new BridgeWebChromeClient(this));
 	}
 
 	protected BridgeWebViewClient generateBridgeWebViewClient() {
@@ -360,6 +361,17 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
 				}
 			}
 		};
+	}
+	
+	private ProgressBar mProgressbar = null;
+	
+	
+	public void setProgressBar(ProgressBar pb) {
+		this.mProgressbar = pb;
+	}
+	
+	public ProgressBar getProgressBar() {
+		return this.mProgressbar;
 	}
 
 	@Override

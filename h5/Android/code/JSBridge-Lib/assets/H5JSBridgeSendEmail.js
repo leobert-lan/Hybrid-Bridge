@@ -25,7 +25,6 @@
 //
 //})
 
-
 //调原生GPS定位信息
 function callNativeSendEmail(data, responseCallback) {
 

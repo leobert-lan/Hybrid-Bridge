@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lht.jsbridge_lib.BridgeWebView;
 import com.lht.jsbridge_lib.DefaultHandler;
+import com.lht.jsbridge_lib.HtmlActivity;
 import com.lht.jsbridge_lib.R;
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
@@ -53,6 +54,7 @@ import com.umeng.socialize.controller.listener.SocializeListeners.UMDataListener
 import com.umeng.socialize.exception.SocializeException;
 import com.umeng.socialize.sso.SinaSsoHandler;
 import com.umeng.socialize.sso.UMSsoHandler;
+import com.umeng.socialize.weixin.controller.UMWXHandler;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
 
@@ -64,8 +66,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	BridgeWebView webView;
 
 	Button button;
+	Button htmlSkip;
 	Button qqLogin;
 	Button sinaLogin;
+	Button wechatLogin;
 
 	Context mContext;
 
@@ -78,7 +82,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 
 		mContext = this;
-		String abs = Environment.getExternalStorageDirectory().getAbsolutePath();
+		String abs = Environment.getExternalStorageDirectory()
+				.getAbsolutePath();
 		Log.d(TAG, abs);
 		mQQlogin = new QQLogin(mContext);
 		mSinaLogin = new SinaLogin();
@@ -86,10 +91,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		webView = (BridgeWebView) findViewById(R.id.webView);
 
 		button = (Button) findViewById(R.id.button);
+		htmlSkip = (Button) findViewById(R.id.skip);
 		qqLogin = (Button) findViewById(R.id.qqLogin);
 		sinaLogin = (Button) findViewById(R.id.sinaLogin);
+		wechatLogin = (Button) findViewById(R.id.wechatLogin);
 
 		button.setOnClickListener(this);
+		htmlSkip.setOnClickListener(this);
 		qqLogin.setOnClickListener(this);
 		sinaLogin.setOnClickListener(this);
 		configPlatforms();
@@ -151,6 +159,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	public void configPlatforms() {
 		// 设置新浪SSO handler
 		mController.getConfig().setSsoHandler(new SinaSsoHandler());
+
+		UMWXHandler wxHandler = new UMWXHandler(this, "wxe223472cf59a94ac",
+				"c9ac00e41198d8f7be6b4977da280f65");
+		wxHandler.addToSocialSDK();
 	}
 
 	@Override
@@ -194,11 +206,76 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		case R.id.sinaLogin:
 			startActivityForResult((new Intent(MainActivity.this,
 					SinaLogin.class)), 1);
-//			setSinaLogin();
+			// setSinaLogin();
+			break;
+		case R.id.wechatLogin:
+			setWeChatLogin();
+			break;
+		case R.id.skip:
+			startActivity(new Intent(this, HtmlActivity.class));
 			break;
 		default:
 			break;
 		}
+	}
+
+	private void setWeChatLogin() {
+		mController.doOauthVerify(mContext, SHARE_MEDIA.WEIXIN,
+				new UMAuthListener() {
+					@Override
+					public void onStart(SHARE_MEDIA platform) {
+						Toast.makeText(mContext, "授权开始", Toast.LENGTH_SHORT)
+								.show();
+					}
+
+					@Override
+					public void onError(SocializeException e,
+							SHARE_MEDIA platform) {
+						Toast.makeText(mContext, "授权错误", Toast.LENGTH_SHORT)
+								.show();
+					}
+
+					@Override
+					public void onComplete(Bundle value, SHARE_MEDIA platform) {
+						Toast.makeText(mContext, "授权完成", Toast.LENGTH_SHORT)
+								.show();
+						// 获取相关授权信息
+						mController.getPlatformInfo(MainActivity.this,
+								SHARE_MEDIA.WEIXIN, new UMDataListener() {
+									@Override
+									public void onStart() {
+										Toast.makeText(MainActivity.this,
+												"获取平台数据开始...",
+												Toast.LENGTH_SHORT).show();
+									}
+
+									@Override
+									public void onComplete(int status,
+											Map<String, Object> info) {
+										if (status == 200 && info != null) {
+											StringBuilder sb = new StringBuilder();
+											Set<String> keys = info.keySet();
+											for (String key : keys) {
+												sb.append(key
+														+ "="
+														+ info.get(key)
+																.toString()
+														+ "\r\n");
+											}
+											Log.d("TestData", sb.toString());
+										} else {
+											Log.d("TestData", "发生错误：" + status);
+										}
+									}
+								});
+					}
+
+					@Override
+					public void onCancel(SHARE_MEDIA platform) {
+						Toast.makeText(mContext, "授权取消", Toast.LENGTH_SHORT)
+								.show();
+					}
+				});
 	}
 
 	private void setSinaLogin() {
@@ -221,6 +298,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 												"获取平台数据开始...",
 												Toast.LENGTH_SHORT).show();
 									}
+
 									@Override
 									public void onComplete(int status,
 											Map<String, Object> info) {
@@ -291,7 +369,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		// ssoHandler.authorizeCallBack(requestCode, resultCode, responseData);
 		// Log.i("zhang", "responseData"+responseData);
 		// }
-		String result = responseData.getExtras().getString("response");
+//		String result = responseData.getExtras().getString("response");
 		BaseResponseBean bean = new BaseResponseBean();
 		bean.setRet(NativeRet.RET_SUCCESS);
 		bean.setMsg("OK");
@@ -303,7 +381,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						Log.i("zhang", "data2" + data);
 					}
 				});
-		Log.i("zhang", "result" + result);
 	}
 
 	static class Location {

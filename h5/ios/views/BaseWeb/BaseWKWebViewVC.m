@@ -25,6 +25,7 @@
     
     [WKWebViewJavascriptBridge enableLogging];
     self.bridgeMain = [WKWebViewJavascriptBridge bridgeForWebView:self.webViewMain];
+    [self.bridgeMain setWebViewDelegate:self];
     
     //添加监听
     [self listener:self.bridgeMain];
@@ -37,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 
 }
 

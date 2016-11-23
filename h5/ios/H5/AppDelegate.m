@@ -29,15 +29,16 @@
                                               secret:@"57187e986afd826a8ee27b58d6c85c08"
                                          RedirectURL:@"https://api.weibo.com/oauth2/default.html"];
     // Override point for customization after application launch.
+    [LanguageManager LanguageAppDelegate];
+//    NSString *languageStr = [LanguageManager currentLanguageCode];
+//    if ([[self getCurrentLanguage] isEqualToString:[NSString stringWithFormat:@"%@-US",languageStr]]) {
+//        [LanguageManager sharedInstance].language = [self getCurrentLanguage];
+//    }else{
+//        [LanguageManager sharedInstance].language = languageStr;
+//    }
+//    NSInteger index = [[LanguageManager languageCodes] indexOfObject:[LanguageManager sharedInstance].language];
+//    [LanguageManager saveLanguageByIndex:index];
     
-    NSString *languageStr = [LanguageManager currentLanguageCode];
-    if ([[self getCurrentLanguage] isEqualToString:[NSString stringWithFormat:@"%@-US",languageStr]]) {
-        [LanguageManager sharedInstance].language = [self getCurrentLanguage];
-    }else{
-        [LanguageManager sharedInstance].language = languageStr;
-    }
-    NSInteger index = [[LanguageManager languageCodes] indexOfObject:[LanguageManager sharedInstance].language];
-    [LanguageManager saveLanguageByIndex:index];
     return YES;
 }
 - (NSString *)getCurrentLanguage

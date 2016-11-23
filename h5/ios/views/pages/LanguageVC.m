@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     data = [LanguageManager languageStrings];
-    
+    [LanguageManager setupCurrentLanguage];
     self.bottomLeftLabel.text = NSLocalizedStringFromTable(@"Happy New Year", @"LanguageFile",nil);
     // Do any additional setup after loading the view from its nib.
 }
@@ -49,6 +49,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     [LanguageManager saveLanguageByIndex:indexPath.row];
     [self.tableView reloadData];
     [self reloadRootViewController];
@@ -56,10 +57,12 @@
 
 - (void)reloadRootViewController
 {
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSString *storyboardName = @"LanguageVC";
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-    delegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LanguageVC"];
+    self.bottomLeftLabel.text = NSLocalizedStringFromTable(@"Happy New Year", @"LanguageFile",nil);
+
+//    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    NSString *storyboardName = @"LanguageVC";
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+//    delegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LanguageVC"];
 }
 
 

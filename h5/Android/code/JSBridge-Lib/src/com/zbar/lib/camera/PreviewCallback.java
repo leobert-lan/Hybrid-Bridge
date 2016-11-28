@@ -6,14 +6,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-/**
- * 作者: 陈涛(1076559197@qq.com)
- * 
- * 时间: 2014年5月9日 下午12:23:14
- *
- * 版本: V_1.0.0
- *
- * 描述: 相机预览回调
+
+/** 
+ * @ClassName: PreviewCallback 
+ * @Description: TODO
+ * @date 2016年3月11日 上午10:52:03
+ *  
+ * @author leobert.lan
+ * @version 1.0 
+ * @since JDK 1.6 
  */
 final class PreviewCallback implements Camera.PreviewCallback {
 

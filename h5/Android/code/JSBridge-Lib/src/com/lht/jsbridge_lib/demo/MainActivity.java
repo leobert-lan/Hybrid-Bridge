@@ -81,9 +81,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		Log.d(TAG, "onCreate");
-		
+
 		mContext = this;
 		String abs = Environment.getExternalStorageDirectory()
 				.getAbsolutePath();
@@ -102,6 +102,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		button.setOnClickListener(this);
 		btnMeida.setOnClickListener(this);
 		sinaLogin.setOnClickListener(this);
+		findViewById(R.id.testVirClose).setOnClickListener(this);
+		findViewById(R.id.testModeSwitch).setOnClickListener(this);
 		configPlatforms();
 
 		webView.setDefaultHandler(new DefaultHandler());
@@ -161,21 +163,20 @@ public class MainActivity extends Activity implements OnClickListener {
 		testCallJs();
 
 	}
-	
+
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
 		webView.onPause();
 	}
-	
+
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 		webView.onResume();
 	}
-
 
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -241,6 +242,16 @@ public class MainActivity extends Activity implements OnClickListener {
 							Log.i(TAG, data);
 						}
 					});
+			break;
+
+		case R.id.testVirClose:
+			webView.callJsCloseVirtualAppSession();
+			break;
+		case R.id.testModeSwitch:
+			Object obj = v.getTag();
+			boolean b = obj == null ? true : false;
+			webView.callJsSetVirturlAppTouchDragMode(b);
+			v.setTag(!b);
 			break;
 		default:
 			break;

@@ -6,14 +6,14 @@ import java.lang.reflect.Method;
 import android.os.IBinder;
 import android.util.Log;
 
-/**
- * 作者: 陈涛(1076559197@qq.com)
- * 
- * 时间: 2014年5月9日 下午12:22:42
- *
- * 版本: V_1.0.0
- *
- * 描述: 闪光灯管理
+/** 
+ * @ClassName: FlashlightManager 
+ * @Description: 闪光灯管理
+ * @date 2016年3月11日 上午10:51:41
+ *  
+ * @author leobert.lan
+ * @version 1.0 
+ * @since JDK 1.6 
  */
 final class FlashlightManager {
 

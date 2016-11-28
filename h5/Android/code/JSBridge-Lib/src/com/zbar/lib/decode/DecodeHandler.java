@@ -14,14 +14,15 @@ import com.zbar.lib.CaptureActivity;
 import com.zbar.lib.ZbarManager;
 import com.zbar.lib.bitmap.PlanarYUVLuminanceSource;
 
-/**
- * 作者: 陈涛(1076559197@qq.com)
- * 
- * 时间: 2014年5月9日 下午12:24:13
- * 
- * 版本: V_1.0.0
- * 
- * 描述: 接受消息后解码
+
+/** 
+ * @ClassName: DecodeHandler 
+ * @Description: TODO
+ * @date 2016年3月11日 上午10:52:29
+ *  
+ * @author leobert.lan
+ * @version 1.0 
+ * @since JDK 1.6 
  */
 final class DecodeHandler extends Handler {
 

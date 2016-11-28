@@ -1,13 +1,13 @@
 package com.zbar.lib;
 
-/**
- * 作者: 陈涛(1076559197@qq.com)
- * 
- * 时间: 2014年5月9日 下午12:25:46
- *
- * 版本: V_1.0.0
- *
- * 描述: zbar调用类
+/** 
+ * @ClassName: ZbarManager 
+ * @Description: TODO
+ * @date 2016年3月11日 上午10:53:37
+ *  
+ * @author leobert.lan
+ * @version 1.0 
+ * @since JDK 1.6 
  */
 public class ZbarManager {
 

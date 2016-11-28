@@ -14,9 +14,12 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.lht.jsbridge_lib.base.Interface.BridgeHandler;
 import com.lht.jsbridge_lib.base.Interface.CallBackFunction;
 import com.lht.jsbridge_lib.base.Interface.IJSFuncCollection;
@@ -391,4 +394,19 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge,
 	public void callJsThirdLogin(String data, CallBackFunction responseCallBack) {
 		this.callHandler(JF_THIRDLOGIN, data, responseCallBack);
 	}
+
+	@Override
+	public void callJsCloseVirtualAppSession() {
+		this.callHandler(JF_VIRTUAL_CLOSE, null, null);
+	}
+
+	@Override
+	public void callJsSetVirturlAppTouchDragMode(boolean isEnable) {
+		int mode = isEnable?1:0;
+		JSONObject jObj = new JSONObject();
+		jObj.put("mode", mode);
+		this.callHandler(JF_VIRTUAL_TOUCHDRAG_SETMODE, JSON.toJSONString(jObj), null);
+	}
+	
+	
 }

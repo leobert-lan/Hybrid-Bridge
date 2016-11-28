@@ -17,13 +17,27 @@
         android:id="@+id/testMedia"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="testMedia" />
+        android:text="testMedia"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/sinaLogin"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="SinaLogin" />
+        android:text="SinaLogin"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/testVirClose"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="virclose" />
+
+    <Button
+        android:id="@+id/testModeSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="modeswitch" />
 
     <!-- webview 演示web调用Java -->
 

@@ -7,14 +7,14 @@ import com.lht.jsbridge_lib.R;
 import com.zbar.lib.CaptureActivity;
 import com.zbar.lib.camera.CameraManager;
 
-/**
- * 作者: 陈涛(1076559197@qq.com)
- * 
- * 时间: 2014年5月9日 下午12:23:32
- *
- * 版本: V_1.0.0
- *
- * 描述: 扫描消息转发
+/** 
+ * @ClassName: CaptureActivityHandler 
+ * @Description: TODO
+ * @date 2016年3月11日 上午10:52:15
+ *  
+ * @author leobert.lan
+ * @version 1.0 
+ * @since JDK 1.6 
  */
 public final class CaptureActivityHandler extends Handler {
 

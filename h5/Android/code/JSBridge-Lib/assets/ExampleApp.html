@@ -38,15 +38,16 @@ button {
 <script type="text/javascript">
 	$(document).ready(function() {
 		var imgs = [ $("img").attr("src") ];
-		
+
 		//添加属性 
-		
+
 		S("img").each(function() {
-			$(this).attr("md5",MD5($(this).attr()));
+			$(this).attr("md5", MD5($(this).attr()));
 		});
-		
-		
-		var data = {'imgs':imgs};
+
+		var data = {
+			'imgs' : imgs
+		};
 		var callback = function(responseData) {
 			Log(responseData);
 		}
@@ -261,7 +262,9 @@ button {
 		var TYPE_QQ = 1;
 		var TYPE_SINABLOG = 2;
 		var TYPE_WECHAT = 3;
-		var data = {'type':TYPE_SINABLOG};
+		var data = {
+			'type' : TYPE_SINABLOG
+		};
 		var callback = function(responseData) {
 			log("response third-party login result:", responseData);
 		};
@@ -308,4 +311,8 @@ button {
 <!-- 第三方登录，该情景：某网页需要手动第三方登录、直接注入第三方登录校验信息 -->
 <script type="application/javascript" charset="utf-8"
 	src="H5JSBridgeThirdPartyLogin.js"></script>
+
+<!-- VirtualApp控制 -->
+<script type="application/javascript" charset="utf-8"
+	src="H5JSBridgeVirtualAppController.js"></script>
 </html>

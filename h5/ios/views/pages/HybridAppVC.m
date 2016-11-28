@@ -66,15 +66,12 @@
 
 
 - (void)loadH5:(WKWebView*)webView {
-//    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
-//    NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-//    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
-//    [webView loadHTMLString:appHtml baseURL:baseURL];
-    
     //https://qingyang.sinaapp.com/h5/ExampleApp.html
-        NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/bridge"];
+//
+    NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/req"];
+//        NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/bridge"];
     
-        NSURLRequest *request=[NSURLRequest requestWithURL:url];
-        [webView loadRequest:request];
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
 }
 @end

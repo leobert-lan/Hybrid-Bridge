@@ -26,4 +26,7 @@ typedef void (^H5Callback)(id bridge, id data, NetError *err);
 #define NATIVE_FUNCTION_THIRDPARTYShareQQ @"NATIVE_FUNCTION_THIRDPARTYShareQQ"
 #define NATIVE_FUNCTION_THIRDPARTYShareSina @"NATIVE_FUNCTION_THIRDPARTYShareSina"
 #define NATIVE_FUNCTION_THIRDPARTYShareWeixin @"NATIVE_FUNCTION_THIRDPARTYShareWeixin"
+
+
+
 #endif /* H5Constant_h */

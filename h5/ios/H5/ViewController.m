@@ -11,7 +11,7 @@
 #import "H5newVC.h"
 #import "H5PlayerVC.h"
 #import "LanguageVC.h"
-
+#import "HybridAppVC.h"
 //#import "ViewController2.h"
 @interface ViewController ()
 {
@@ -47,6 +47,11 @@
 }
 - (IBAction)H5PlayerVCAction:(id)sender {
     H5PlayerVC *vc = [[H5PlayerVC alloc] initWithNibName:@"H5PlayerVC" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)HybridVCAction:(id)sender {
+    HybridAppVC *vc = [[HybridAppVC alloc] initWithNibName:@"HybridAppVC" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)LanguageVCAction:(id)sender {

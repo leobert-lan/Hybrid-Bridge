@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283B42961C86C44500754BCF /* H5JSBridgeThirdPartyShareQQ.js in Resources */ = {isa = PBXBuildFile; fileRef = 283B42931C86C44500754BCF /* H5JSBridgeThirdPartyShareQQ.js */; };
+		283B42971C86C44500754BCF /* H5JSBridgeThirdPartyShareSina.js in Resources */ = {isa = PBXBuildFile; fileRef = 283B42941C86C44500754BCF /* H5JSBridgeThirdPartyShareSina.js */; };
+		283B42981C86C44500754BCF /* H5JSBridgeThirdPartyShareWeixin.js in Resources */ = {isa = PBXBuildFile; fileRef = 283B42951C86C44500754BCF /* H5JSBridgeThirdPartyShareWeixin.js */; };
+		2842C0681C8FF31F003B68AE /* H5PlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842C0661C8FF31F003B68AE /* H5PlayerVC.m */; };
+		2842C0691C8FF31F003B68AE /* H5PlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2842C0671C8FF31F003B68AE /* H5PlayerVC.xib */; };
+		2842C06C1C9002BF003B68AE /* UINavigationController+Autorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2842C06B1C9002BF003B68AE /* UINavigationController+Autorotate.m */; };
+		284E87E91CBF26E5000FE33C /* LanguageFile.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284E87EB1CBF26E5000FE33C /* LanguageFile.strings */; };
+		284E87F71CBF2B5D000FE33C /* LanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 284E87F51CBF2B5D000FE33C /* LanguageVC.m */; };
+		286A9EA91C8D20C700798A68 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 286A9EA61C8D20C700798A68 /* NJKWebViewProgress.m */; };
+		286A9EAA1C8D20C700798A68 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 286A9EA81C8D20C700798A68 /* NJKWebViewProgressView.m */; };
+		286A9EAE1C8D291600798A68 /* H5newVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 286A9EAC1C8D291600798A68 /* H5newVC.m */; };
+		286A9EAF1C8D291600798A68 /* H5newVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 286A9EAD1C8D291600798A68 /* H5newVC.xib */; };
 		28738AA91C8526BA00A5A3F4 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28738A8F1C8526BA00A5A3F4 /* UMSocialLocalizable.strings */; };
 		28738AAA1C8526BA00A5A3F4 /* libUMSocial_Sdk_5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738A9D1C8526BA00A5A3F4 /* libUMSocial_Sdk_5.0.a */; };
 		28738AAB1C8526BA00A5A3F4 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28738A9F1C8526BA00A5A3F4 /* UMSCommentDetailController.xib */; };
@@ -37,6 +49,9 @@
 		28738AEA1C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js in Resources */ = {isa = PBXBuildFile; fileRef = 28738AE91C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js */; };
 		28738AED1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js in Resources */ = {isa = PBXBuildFile; fileRef = 28738AEB1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js */; };
 		28738AEE1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js in Resources */ = {isa = PBXBuildFile; fileRef = 28738AEC1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js */; };
+		288D71871CC7101B0017CF5B /* LanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 288D71841CC7101B0017CF5B /* LanguageManager.m */; };
+		288D71881CC7101B0017CF5B /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 288D71861CC7101B0017CF5B /* NSBundle+Language.m */; };
+		288D71941CC723010017CF5B /* LanguageVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 288D71931CC723010017CF5B /* LanguageVC.storyboard */; };
 		28913DA51C7EE5BE00E01AC3 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28913DA31C7EE5BE00E01AC3 /* QRCodeVC.m */; };
 		28913DA61C7EE5BE00E01AC3 /* QRCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28913DA41C7EE5BE00E01AC3 /* QRCodeVC.xib */; };
 		28913DA91C7EE8C900E01AC3 /* QRCodeH5API.m in Sources */ = {isa = PBXBuildFile; fileRef = 28913DA81C7EE8C900E01AC3 /* QRCodeH5API.m */; };
@@ -197,6 +212,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		283B42931C86C44500754BCF /* H5JSBridgeThirdPartyShareQQ.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyShareQQ.js; sourceTree = "<group>"; };
+		283B42941C86C44500754BCF /* H5JSBridgeThirdPartyShareSina.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyShareSina.js; sourceTree = "<group>"; };
+		283B42951C86C44500754BCF /* H5JSBridgeThirdPartyShareWeixin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyShareWeixin.js; sourceTree = "<group>"; };
+		2842C0651C8FF31F003B68AE /* H5PlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H5PlayerVC.h; sourceTree = "<group>"; };
+		2842C0661C8FF31F003B68AE /* H5PlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H5PlayerVC.m; sourceTree = "<group>"; };
+		2842C0671C8FF31F003B68AE /* H5PlayerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = H5PlayerVC.xib; sourceTree = "<group>"; };
+		2842C06A1C9002BF003B68AE /* UINavigationController+Autorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Autorotate.h"; sourceTree = "<group>"; };
+		2842C06B1C9002BF003B68AE /* UINavigationController+Autorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Autorotate.m"; sourceTree = "<group>"; };
+		284E87F41CBF2B5D000FE33C /* LanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageVC.h; sourceTree = "<group>"; };
+		284E87F51CBF2B5D000FE33C /* LanguageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageVC.m; sourceTree = "<group>"; };
+		284E88061CBF7467000FE33C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/LanguageFile.strings; sourceTree = "<group>"; };
+		286A9EA51C8D20C700798A68 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		286A9EA61C8D20C700798A68 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		286A9EA71C8D20C700798A68 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		286A9EA81C8D20C700798A68 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		286A9EAB1C8D291600798A68 /* H5newVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H5newVC.h; sourceTree = "<group>"; };
+		286A9EAC1C8D291600798A68 /* H5newVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H5newVC.m; sourceTree = "<group>"; };
+		286A9EAD1C8D291600798A68 /* H5newVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = H5newVC.xib; sourceTree = "<group>"; };
 		28738A901C8526BA00A5A3F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		28738A921C8526BA00A5A3F4 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		28738A931C8526BA00A5A3F4 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -256,6 +289,17 @@
 		28738AE91C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyLogin.js; sourceTree = "<group>"; };
 		28738AEB1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyLoginSina.js; sourceTree = "<group>"; };
 		28738AEC1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeThirdPartyLoginweixin.js; sourceTree = "<group>"; };
+		288D71821CC7101B0017CF5B /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		288D71831CC7101B0017CF5B /* LanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageManager.h; sourceTree = "<group>"; };
+		288D71841CC7101B0017CF5B /* LanguageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageManager.m; sourceTree = "<group>"; };
+		288D71851CC7101B0017CF5B /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		288D71861CC7101B0017CF5B /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
+		288D718B1CC71D610017CF5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LanguageFile.strings; sourceTree = "<group>"; };
+		288D718C1CC71D680017CF5B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LanguageFile.strings"; sourceTree = "<group>"; };
+		288D718D1CC71D6A0017CF5B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LanguageFile.strings; sourceTree = "<group>"; };
+		288D718E1CC71D6C0017CF5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LanguageFile.strings; sourceTree = "<group>"; };
+		288D718F1CC71D6E0017CF5B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LanguageFile.strings; sourceTree = "<group>"; };
+		288D71931CC723010017CF5B /* LanguageVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LanguageVC.storyboard; sourceTree = "<group>"; };
 		28913DA21C7EE5BE00E01AC3 /* QRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeVC.h; sourceTree = "<group>"; };
 		28913DA31C7EE5BE00E01AC3 /* QRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeVC.m; sourceTree = "<group>"; };
 		28913DA41C7EE5BE00E01AC3 /* QRCodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeVC.xib; sourceTree = "<group>"; };
@@ -576,6 +620,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		284E87F01CBF28A1000FE33C /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				288D71811CC7101B0017CF5B /* Sources */,
+				284E87F41CBF2B5D000FE33C /* LanguageVC.h */,
+				284E87F51CBF2B5D000FE33C /* LanguageVC.m */,
+				288D71931CC723010017CF5B /* LanguageVC.storyboard */,
+			);
+			name = Language;
+			sourceTree = "<group>";
+		};
+		286A9EA41C8D20C700798A68 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				286A9EA51C8D20C700798A68 /* NJKWebViewProgress.h */,
+				286A9EA61C8D20C700798A68 /* NJKWebViewProgress.m */,
+				286A9EA71C8D20C700798A68 /* NJKWebViewProgressView.h */,
+				286A9EA81C8D20C700798A68 /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
 		28738A8E1C8526BA00A5A3F4 /* UMSocial_Sdk_5.0 */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,6 +742,18 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		288D71811CC7101B0017CF5B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				288D71821CC7101B0017CF5B /* Defines.h */,
+				288D71831CC7101B0017CF5B /* LanguageManager.h */,
+				288D71841CC7101B0017CF5B /* LanguageManager.m */,
+				288D71851CC7101B0017CF5B /* NSBundle+Language.h */,
+				288D71861CC7101B0017CF5B /* NSBundle+Language.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		28913DAD1C7EFB7600E01AC3 /* SYQRCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +786,7 @@
 		A306E0071C7C237400C111CC /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				286A9EA41C8D20C700798A68 /* NJKWebViewProgress */,
 				A306E0081C7C237400C111CC /* AFNetworking */,
 				A306E02C1C7C237400C111CC /* fmdb */,
 				A306E0381C7C237400C111CC /* JRVideoPlayerViewController */,
@@ -1288,6 +1367,7 @@
 			isa = PBXGroup;
 			children = (
 				A347FF8B1C61C2BD00F402A7 /* main.m */,
+				284E87EB1CBF26E5000FE33C /* LanguageFile.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1312,6 +1392,9 @@
 				28738AE91C8584C500A5A3F4 /* H5JSBridgeThirdPartyLogin.js */,
 				28738AEB1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js */,
 				28738AEC1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js */,
+				283B42931C86C44500754BCF /* H5JSBridgeThirdPartyShareQQ.js */,
+				283B42941C86C44500754BCF /* H5JSBridgeThirdPartyShareSina.js */,
+				283B42951C86C44500754BCF /* H5JSBridgeThirdPartyShareWeixin.js */,
 			);
 			name = h5;
 			path = ../h5;
@@ -1343,6 +1426,8 @@
 				A3E949061C7E950900D254BA /* BaseWKWebViewVC.m */,
 				A3E949191C7E9B1B00D254BA /* H5DataCheck.h */,
 				A3E9491A1C7E9B1B00D254BA /* H5DataCheck.m */,
+				2842C06A1C9002BF003B68AE /* UINavigationController+Autorotate.h */,
+				2842C06B1C9002BF003B68AE /* UINavigationController+Autorotate.m */,
 			);
 			path = BaseWeb;
 			sourceTree = "<group>";
@@ -1362,12 +1447,19 @@
 		A3E9490D1C7E950900D254BA /* pages */ = {
 			isa = PBXGroup;
 			children = (
+				284E87F01CBF28A1000FE33C /* Language */,
 				A3E9490E1C7E950900D254BA /* H5VC.h */,
 				A3E9490F1C7E950900D254BA /* H5VC.m */,
 				A3E949101C7E950900D254BA /* H5VC.xib */,
 				28913DA21C7EE5BE00E01AC3 /* QRCodeVC.h */,
 				28913DA31C7EE5BE00E01AC3 /* QRCodeVC.m */,
 				28913DA41C7EE5BE00E01AC3 /* QRCodeVC.xib */,
+				286A9EAB1C8D291600798A68 /* H5newVC.h */,
+				286A9EAC1C8D291600798A68 /* H5newVC.m */,
+				286A9EAD1C8D291600798A68 /* H5newVC.xib */,
+				2842C0651C8FF31F003B68AE /* H5PlayerVC.h */,
+				2842C0661C8FF31F003B68AE /* H5PlayerVC.m */,
+				2842C0671C8FF31F003B68AE /* H5PlayerVC.xib */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -1430,6 +1522,9 @@
 				en,
 				Base,
 				"zh-Hans",
+				fr,
+				ar,
+				de,
 			);
 			mainGroup = A347FF7E1C61C2BD00F402A7;
 			productRefGroup = A347FF881C61C2BD00F402A7 /* Products */;
@@ -1452,9 +1547,11 @@
 				A306E1721C7C237400C111CC /* playbutton.png in Resources */,
 				A306E1301C7C237400C111CC /* pause_disable@2x.png in Resources */,
 				28738AD21C8526CA00A5A3F4 /* WeiboSDK.bundle in Resources */,
+				283B42961C86C44500754BCF /* H5JSBridgeThirdPartyShareQQ.js in Resources */,
 				28913DA61C7EE5BE00E01AC3 /* QRCodeVC.xib in Resources */,
 				A306E1371C7C237400C111CC /* video_num_front@2x.png in Resources */,
 				A3E948FF1C7D5F5A00D254BA /* H5JSBridgeGPS.js in Resources */,
+				283B42971C86C44500754BCF /* H5JSBridgeThirdPartyShareSina.js in Resources */,
 				A306E12E1C7C237400C111CC /* forward_disable@2x.png in Resources */,
 				28738AAE1C8526BA00A5A3F4 /* UMShareEditViewController.xib in Resources */,
 				28EA3C1B1C80040100B77618 /* WebViewJavascriptBridge.js in Resources */,
@@ -1464,10 +1561,12 @@
 				A306E1281C7C237400C111CC /* backward_disable@2x.png in Resources */,
 				A3E949131C7E950900D254BA /* H5VC.xib in Resources */,
 				28738AED1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginSina.js in Resources */,
+				2842C0691C8FF31F003B68AE /* H5PlayerVC.xib in Resources */,
 				28738AEE1C858E9F00A5A3F4 /* H5JSBridgeThirdPartyLoginweixin.js in Resources */,
 				A306E12A1C7C237400C111CC /* fast_backward_disable@2x.png in Resources */,
 				28738AD51C8526CA00A5A3F4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A3E948FD1C7D5F5A00D254BA /* H5JSBridgeDatabase.js in Resources */,
+				288D71941CC723010017CF5B /* LanguageVC.storyboard in Resources */,
 				A306E1361C7C237400C111CC /* video_num_bg@2x.png in Resources */,
 				28EA3C181C80040100B77618 /* H5JSBridgeScan.js in Resources */,
 				28EA3C161C80040100B77618 /* H5JSBridgeCopyToClipboard.js in Resources */,
@@ -1491,6 +1590,7 @@
 				A306E1711C7C237400C111CC /* pausebutton.png in Resources */,
 				A3E948FE1C7D5F5A00D254BA /* H5JSBridgeDemo.js in Resources */,
 				A306E13C1C7C237400C111CC /* JRPlayerViewController.xib in Resources */,
+				284E87E91CBF26E5000FE33C /* LanguageFile.strings in Resources */,
 				A306E12C1C7C237400C111CC /* fast_forward_disable@2x.png in Resources */,
 				28738AAB1C8526BA00A5A3F4 /* UMSCommentDetailController.xib in Resources */,
 				A306E12B1C7C237400C111CC /* fast_backward_nor@2x.png in Resources */,
@@ -1498,12 +1598,14 @@
 				28EA3C171C80040100B77618 /* H5JSBridgeGetClipBoard.js in Resources */,
 				28EA3C151C80040100B77618 /* H5JSBridgeCall.js in Resources */,
 				28738AB01C8526BA00A5A3F4 /* UMSLoginViewController.xib in Resources */,
+				286A9EAF1C8D291600798A68 /* H5newVC.xib in Resources */,
 				28738AAD1C8526BA00A5A3F4 /* UMSCommentInputControlleriPad.xib in Resources */,
 				28738AB21C8526BA00A5A3F4 /* UMSShareListController.xib in Resources */,
 				28EA3C191C80040100B77618 /* H5JSBridgeSendEmail.js in Resources */,
 				A306E15C1C7C237400C111CC /* MJRefresh.bundle in Resources */,
 				A306E12D1C7C237400C111CC /* fast_forward_nor@2x.png in Resources */,
 				A3E948FA1C7D5F5A00D254BA /* ExampleApp.html in Resources */,
+				283B42981C86C44500754BCF /* H5JSBridgeThirdPartyShareWeixin.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1533,6 +1635,7 @@
 				A306E11B1C7C237400C111CC /* AFImageDownloader.m in Sources */,
 				A306E1831C7C237400C111CC /* QYImageView.m in Sources */,
 				A3E9491E1C7EA0E700D254BA /* GPSH5API.m in Sources */,
+				286A9EAE1C8D291600798A68 /* H5newVC.m in Sources */,
 				A306E1561C7C237400C111CC /* MJRefreshBackGifFooter.m in Sources */,
 				A306E1741C7C237400C111CC /* SYWaveformPlayerView.m in Sources */,
 				A306E1551C7C237400C111CC /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1560,6 +1663,7 @@
 				A306E1231C7C237400C111CC /* FMDatabase.m in Sources */,
 				A3E949111C7E950900D254BA /* BaseWKWebViewVC.m in Sources */,
 				A306E14F1C7C237400C111CC /* MJRefreshBackFooter.m in Sources */,
+				284E87F71CBF2B5D000FE33C /* LanguageVC.m in Sources */,
 				A306E1791C7C237400C111CC /* BaseCell.m in Sources */,
 				A306E11A1C7C237400C111CC /* AFAutoPurgingImageCache.m in Sources */,
 				A306E1171C7C237400C111CC /* AFURLRequestSerialization.m in Sources */,
@@ -1568,6 +1672,7 @@
 				A306E13D1C7C237400C111CC /* JSONModel.m in Sources */,
 				A3E949121C7E950900D254BA /* H5VC.m in Sources */,
 				A306E1261C7C237400C111CC /* FMDatabaseQueue.m in Sources */,
+				288D71881CC7101B0017CF5B /* NSBundle+Language.m in Sources */,
 				A306E1271C7C237400C111CC /* FMResultSet.m in Sources */,
 				A306E1661C7C237400C111CC /* SDWebImageCompat.m in Sources */,
 				A306E13E1C7C237400C111CC /* JSONModelArray.m in Sources */,
@@ -1581,11 +1686,13 @@
 				A306E14B1C7C237400C111CC /* NSObject+LKModel.m in Sources */,
 				A306E1701C7C237400C111CC /* UIImageView+WebCache.m in Sources */,
 				A306E17D1C7C237400C111CC /* UIImageView+SDWebImageEX.m in Sources */,
+				286A9EAA1C8D20C700798A68 /* NJKWebViewProgressView.m in Sources */,
 				A306E13A1C7C237400C111CC /* JRPlayerView.m in Sources */,
 				A306E1411C7C237400C111CC /* NSArray+JSONModel.m in Sources */,
 				A306E1151C7C237400C111CC /* AFNetworkReachabilityManager.m in Sources */,
 				A306E1991C7C32A900C111CC /* WebViewJavascriptBridge.m in Sources */,
 				A306E15F1C7C237400C111CC /* UIScrollView+MJRefresh.m in Sources */,
+				288D71871CC7101B0017CF5B /* LanguageManager.m in Sources */,
 				A306E1681C7C237400C111CC /* SDWebImageDownloader.m in Sources */,
 				A306E1431C7C237400C111CC /* JSONHTTPClient.m in Sources */,
 				A306E1241C7C237400C111CC /* FMDatabaseAdditions.m in Sources */,
@@ -1600,8 +1707,10 @@
 				A306E1781C7C237400C111CC /* ZhugeConfig.m in Sources */,
 				A306E15D1C7C237400C111CC /* MJRefreshConst.m in Sources */,
 				A306E1441C7C237400C111CC /* JSONModel+networking.m in Sources */,
+				2842C06C1C9002BF003B68AE /* UINavigationController+Autorotate.m in Sources */,
 				A306E1181C7C237400C111CC /* AFURLResponseSerialization.m in Sources */,
 				A306E19C1C7C32A900C111CC /* WKWebViewJavascriptBridge.m in Sources */,
+				286A9EA91C8D20C700798A68 /* NJKWebViewProgress.m in Sources */,
 				A306E1591C7C237400C111CC /* MJRefreshGifHeader.m in Sources */,
 				A306E1861C7C237400C111CC /* BaseModel+DB.m in Sources */,
 				A306E16F1C7C237400C111CC /* UIImage+WebP.m in Sources */,
@@ -1613,6 +1722,7 @@
 				A306E1521C7C237400C111CC /* MJRefreshHeader.m in Sources */,
 				A347FF8C1C61C2BD00F402A7 /* main.m in Sources */,
 				A306E1891C7C237400C111CC /* NetError.m in Sources */,
+				2842C0681C8FF31F003B68AE /* H5PlayerVC.m in Sources */,
 				A306E1531C7C237400C111CC /* MJRefreshAutoGifFooter.m in Sources */,
 				A306E1601C7C237400C111CC /* UIView+MJExtension.m in Sources */,
 				A306E1461C7C237400C111CC /* JSONValueTransformer.m in Sources */,
@@ -1632,6 +1742,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		284E87EB1CBF26E5000FE33C /* LanguageFile.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				284E88061CBF7467000FE33C /* Base */,
+				288D718B1CC71D610017CF5B /* en */,
+				288D718C1CC71D680017CF5B /* zh-Hans */,
+				288D718D1CC71D6A0017CF5B /* fr */,
+				288D718E1CC71D6C0017CF5B /* ar */,
+				288D718F1CC71D6E0017CF5B /* de */,
+			);
+			name = LanguageFile.strings;
+			sourceTree = "<group>";
+		};
 		28738A8F1C8526BA00A5A3F4 /* UMSocialLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

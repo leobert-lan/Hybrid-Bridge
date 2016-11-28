@@ -38,6 +38,7 @@
     #import "API_DEV.h"
     #import "API_H5.h"
     #import "H5DataCheck.h"
+#import "Defines.h"
 //    #import "QGlobalManager.h"
 //    #import "HttpConnect.h"
 ////    #import "LoadAPI.h"

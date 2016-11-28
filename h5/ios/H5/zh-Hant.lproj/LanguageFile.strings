@@ -1,0 +1,11 @@
+/* 
+  LanguageFile.strings
+  H5
+
+  Created by zhchen on 16/4/14.
+  Copyright © 2016年 Qingyang. All rights reserved.
+*/
+"invite" ="你好 atany,快来加入我们吧！";
+"buttonInfo" ="切换语言";
+"H5" = "中文";
+"sfdglksg" = "史蒂夫基本款";

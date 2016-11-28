@@ -14,4 +14,7 @@
 + (void)thirdPartyLoginListenerSina:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
 
 + (void)thirdPartyLoginListenerWeixin:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
++ (void)thirdPartyShareListenerWeixin:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
++ (void)thirdPartyShareListenerQQ:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
++ (void)thirdPartyShareListenerSina:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler;
 @end

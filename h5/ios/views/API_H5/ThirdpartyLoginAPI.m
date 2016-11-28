@@ -36,4 +36,33 @@
         }
     }];
 }
+
++ (void)thirdPartyShareListenerQQ:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler
+{
+    __weak id weakSelf=bridge;
+    [bridge registerHandler:NATIVE_FUNCTION_THIRDPARTYShareQQ handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (handler) {
+            handler(weakSelf, [H5DataCheck checkData:data], nil, responseCallback);
+        }
+    }];
+}
+
++ (void)thirdPartyShareListenerSina:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler
+{
+    __weak id weakSelf=bridge;
+    [bridge registerHandler:NATIVE_FUNCTION_THIRDPARTYShareSina handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (handler) {
+            handler(weakSelf, [H5DataCheck checkData:data], nil, responseCallback);
+        }
+    }];
+}
++ (void)thirdPartyShareListenerWeixin:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler
+{
+    __weak id weakSelf=bridge;
+    [bridge registerHandler:NATIVE_FUNCTION_THIRDPARTYShareWeixin handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (handler) {
+            handler(weakSelf, [H5DataCheck checkData:data], nil, responseCallback);
+        }
+    }];
+}
 @end

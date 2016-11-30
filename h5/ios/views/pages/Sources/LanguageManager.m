@@ -9,8 +9,8 @@
 #import "LanguageManager.h"
 #import "NSBundle+Language.h"
 
-static NSString * const LanguageCodes[] = { @"en", @"de", @"fr", @"ar",@"zh-Hans" };
-static NSString * const LanguageStrings[] = { @"English", @"German", @"French", @"Arabic",@"Chinese" };
+static NSString * const LanguageCodes[] = { @"iphone",@"en", @"de", @"fr", @"ar",@"zh-Hans" };
+static NSString * const LanguageStrings[] = { @"设备语言",@"English", @"German", @"French", @"Arabic",@"Chinese" };
 static NSString * const LanguageSaveKey = @"currentLanguageKey";
 
 @implementation LanguageManager
@@ -23,13 +23,36 @@ static NSString * const LanguageSaveKey = @"currentLanguageKey";
     });
     return manager;
 }
++ (void)LanguageAppDelegate
+{
+    NSString *languageStr = [LanguageManager currentLanguageCode];
+        if ([[[LanguageManager sharedInstance] getCurrentLanguage] isEqualToString:[NSString stringWithFormat:@"%@-US",languageStr]]) {
+            [LanguageManager sharedInstance].language = [[LanguageManager sharedInstance] getCurrentLanguage];
+        }else{
+            [LanguageManager sharedInstance].language = languageStr;
+        }
+        NSInteger index = [[LanguageManager languageCodes] indexOfObject:[LanguageManager sharedInstance].language];
+        [LanguageManager saveLanguageByIndex:index];
+}
+- (NSString *)getCurrentLanguage
+{
+    NSArray *languages = [NSLocale preferredLanguages];
+    NSString *currentLanguage = [languages objectAtIndex:0];
+    return currentLanguage;
+}
 + (void)setupCurrentLanguage
 {
     NSString *currentLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:LanguageSaveKey];
     if (!currentLanguage) {
-        NSArray *languages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+        NSArray *languages = [LanguageManager languageCodes];
         if (languages.count > 0) {
-            currentLanguage = languages[0];
+            NSInteger index = [[LanguageManager languageCodes] indexOfObject:[[[LanguageManager sharedInstance] getCurrentLanguage] stringByReplacingOccurrencesOfString:@"-US" withString:@""]];
+            BOOL result = [[LanguageManager languageCodes] containsObject:[[[LanguageManager sharedInstance] getCurrentLanguage] stringByReplacingOccurrencesOfString:@"-US" withString:@""]];
+                    if (YES == result) {
+                    } else {
+                        index = 0;
+                    }
+            currentLanguage = languages[index];
             [[NSUserDefaults standardUserDefaults] setObject:currentLanguage forKey:LanguageSaveKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
@@ -41,6 +64,7 @@ static NSString * const LanguageSaveKey = @"currentLanguageKey";
     [NSBundle setLanguage:currentLanguage];
 #endif
 }
+
 + (NSArray *)languageCodes
 {
     NSMutableArray *array = [NSMutableArray array];

@@ -10,6 +10,7 @@
 
 typedef NS_ENUM(NSInteger, ELanguage)
 {
+    ELanguageapparatus,
     ELanguageEnglish,
     ELanguageGerman,
     ELanguageFrench,
@@ -22,6 +23,7 @@ typedef NS_ENUM(NSInteger, ELanguage)
 @interface LanguageManager : NSObject
 @property(nonatomic,copy)NSString *language;
 + (instancetype)sharedInstance;
++ (void)LanguageAppDelegate;
 + (void)setupCurrentLanguage;
 + (NSArray *)languageCodes;
 + (NSArray *)languageStrings;

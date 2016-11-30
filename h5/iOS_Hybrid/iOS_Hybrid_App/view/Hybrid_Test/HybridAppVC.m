@@ -20,25 +20,18 @@
 }
 
 #pragma mark - 全局界面UI
+- (void)UIGlobal{
+    [super UIGlobal];
+    
+    self.view.backgroundColor=RGBHex(kColorAuxiliary101);
+}
 
 - (void)WebUIInit{
     [super WebUIInit];
     
     if (self.webViewMain == nil) {
-        
-        
-        //        self.webViewMain = [[NSClassFromString(@"WKWebView") alloc] initWithFrame:vTest1.bounds];
-        //        WKWebViewConfiguration *configuretion=[[WKWebViewConfiguration alloc]init];
-        //        // Webview的偏好设置
-        //        configuretion.preferences = [WKPreferences new];
-        //        configuretion.preferences.minimumFontSize = 10;
-        //        configuretion.preferences.javaScriptEnabled = true;
-        //        // 默认是不能通过JS自动打开窗口的，必须通过用户交互才能打开
-        //        configuretion.preferences.javaScriptCanOpenWindowsAutomatically = YES;
-        //        self.webViewMain = [[WKWebView alloc]initWithFrame:vTest1.bounds configuration:configuretion];
-        
         self.webViewMain = [[WKWebView alloc]init];
-        self.webViewMain.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 100);
+        self.webViewMain.frame= CGRectMake(5, 5, APP_W-10, self.view.height - 10);
         self.webViewMain.navigationDelegate = self;
         self.webViewMain.UIDelegate = self;
         [self.view addSubview:self.webViewMain];

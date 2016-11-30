@@ -50,7 +50,6 @@ public class JSAlertDialog {
 	}
 
 	public void fixContent(String data) {
-        Log.v(TAG,"js call alert,\r\n"+data);
 		if (data.contains("{") && data.contains("}")) {
 			JSAlertDataBean bean = JSON
 					.parseObject(data, JSAlertDataBean.class);

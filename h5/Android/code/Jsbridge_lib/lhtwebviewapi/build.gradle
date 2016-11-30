@@ -15,6 +15,7 @@ android {
         exclude 'META-INF/license.txt'
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/MANIFEST.MF'
     }
     defaultConfig {
         minSdkVersion 15
@@ -45,4 +46,5 @@ dependencies {
     provided(name: 'qrcodelib-release-1.1.0', ext: 'aar')
     testCompile 'junit:junit:4.12'
     compile files('libs/bridge_core_1.0.0.jar')
+//    compile project(':lhtwebviewlib')
 }

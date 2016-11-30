@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Jsbridge_lib.iml" filepath="$PROJECT_DIR$/Jsbridge_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/codescanlib/codescanlib.iml" filepath="$PROJECT_DIR$/codescanlib/codescanlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhtwebviewapi/lhtwebviewapi.iml" filepath="$PROJECT_DIR$/lhtwebviewapi/lhtwebviewapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhtwebviewlib/lhtwebviewlib.iml" filepath="$PROJECT_DIR$/lhtwebviewlib/lhtwebviewlib.iml" />
     </modules>
   </component>
 </project>

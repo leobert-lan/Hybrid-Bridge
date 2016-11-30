@@ -6,52 +6,29 @@
     android:orientation="vertical" >
 
     <!-- button 演示Java调用web -->
+    <EditText
+        android:id="@+id/et_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="java call web" />
+        android:text="goto" />
 
     <Button
-        android:id="@+id/testMedia"
+        android:id="@+id/btn_def"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="testMedia"
-        android:visibility="gone" />
+        android:text="load default"/>
 
-    <Button
-        android:id="@+id/sinaLogin"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="SinaLogin"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/testVirClose"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="virclose" />
-
-    <Button
-        android:id="@+id/testModeSwitch"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="modeswitch" />
 
     <!-- webview 演示web调用Java -->
 
-    <com.lht.jsbridge_lib.BridgeWebView
+    <com.lht.lhtwebviewlib.BridgeWebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </com.lht.jsbridge_lib.BridgeWebView>
-
-    <FrameLayout
-        android:id="@+id/video_fullView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:visibility="gone" >
-    </FrameLayout>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

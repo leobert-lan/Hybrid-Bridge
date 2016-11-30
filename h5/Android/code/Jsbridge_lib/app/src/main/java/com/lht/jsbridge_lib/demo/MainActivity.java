@@ -16,22 +16,22 @@ import com.lht.lhtwebviewlib.BridgeWebView;
 import com.lht.lhtwebviewlib.DefaultHandler;
 import com.lht.lhtwebviewlib.base.Interface.BridgeHandler;
 import com.lht.lhtwebviewlib.base.Interface.CallBackFunction;
-import com.lnt.lhtwebviewapi.business.API.API;
-import com.lnt.lhtwebviewapi.business.API.API.CallTelHandler;
-import com.lnt.lhtwebviewapi.business.API.API.Demo;
-import com.lnt.lhtwebviewapi.business.API.API.GetClipBoardContentHandler;
-import com.lnt.lhtwebviewapi.business.API.API.SendEmailHandler;
-import com.lnt.lhtwebviewapi.business.API.API.SendMessageHandler;
-import com.lnt.lhtwebviewapi.business.API.API.SendToClipBoardHandler;
-import com.lnt.lhtwebviewapi.business.API.API.TestLTRHandler;
-import com.lnt.lhtwebviewapi.business.impl.CallTelImpl;
-import com.lnt.lhtwebviewapi.business.impl.CopyToClipboardImpl;
-import com.lnt.lhtwebviewapi.business.impl.DemoImpl;
-import com.lnt.lhtwebviewapi.business.impl.SendEmailImpl;
-import com.lnt.lhtwebviewapi.business.impl.SendMessageImpl;
-import com.lnt.lhtwebviewapi.business.impl.TestLTRImpl;
+import com.lht.lhtwebviewapi.business.API.API;
+import com.lht.lhtwebviewapi.business.API.API.CallTelHandler;
+import com.lht.lhtwebviewapi.business.API.API.Demo;
+import com.lht.lhtwebviewapi.business.API.API.GetClipBoardContentHandler;
+import com.lht.lhtwebviewapi.business.API.API.SendEmailHandler;
+import com.lht.lhtwebviewapi.business.API.API.SendMessageHandler;
+import com.lht.lhtwebviewapi.business.API.API.SendToClipBoardHandler;
+import com.lht.lhtwebviewapi.business.API.API.TestLTRHandler;
+import com.lht.lhtwebviewapi.business.impl.CallTelImpl;
+import com.lht.lhtwebviewapi.business.impl.CopyToClipboardImpl;
+import com.lht.lhtwebviewapi.business.impl.DemoImpl;
+import com.lht.lhtwebviewapi.business.impl.SendEmailImpl;
+import com.lht.lhtwebviewapi.business.impl.SendMessageImpl;
+import com.lht.lhtwebviewapi.business.impl.TestLTRImpl;
 
-import com.lnt.lhtwebviewapi.business.impl.ScanCodeImpl;
+import com.lht.lhtwebviewapi.business.impl.ScanCodeImpl;
 
 public class MainActivity extends Activity implements OnClickListener {
 

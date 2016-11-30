@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
 
 
     packagingOptions {
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
 
@@ -43,12 +43,12 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.0'
+//    pro 'com.android.support:appcompat-v7:23.0.0'
     testCompile 'junit:junit:4.12'
 }
 
 task makeJar(type: Copy) {
-    delete 'build/libs/mysdk.jar'
+    delete 'build/libs/bridge_core_1.0.0.jar'
     from('build/intermediates/bundles/release/')
     into('build/libs/')
     include('classes.jar')
@@ -58,3 +58,7 @@ task makeJar(type: Copy) {
 makeJar.dependsOn(build)
 //在终端执行生成JAR包
 // gradlew makeJar
+
+//cd ./lhtwebviewlib/src/main/java
+//jar cvf bridge_core_1.1.0.jar *
+

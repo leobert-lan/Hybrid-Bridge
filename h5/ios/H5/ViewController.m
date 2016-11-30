@@ -11,6 +11,7 @@
 #import "H5newVC.h"
 #import "H5PlayerVC.h"
 #import "LanguageVC.h"
+
 //#import "ViewController2.h"
 @interface ViewController ()
 {
@@ -23,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view, typically from a nib.
+//    DLog(@"sharedInstance:%@ %@ | %@ %@",[GlobalManager sharedInstance],[H5VC sharedInstance],[GlobalManager sharedInstance],[H5VC sharedInstance]);
 }
 - (void)viewWillAppear:(BOOL)animated
 {

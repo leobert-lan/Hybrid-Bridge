@@ -13,8 +13,7 @@
 //API_Name是实际注册的名称，Native会按照该值进行调用，而本js的名称与调用无关（注意API的维护）
 setupJSBridge(function(bridge) {
 	//本API提供直接注入第三方登录信息，例如在网页初始化时
-	bridge
-			.registerHandler(
+	bridge.registerHandler(
 					"JS_FUNCTION_INJECTTHIRDPARTYLOGININFO",
 					function(data, responseCallback) {
 						//data 是native 发送的数据，此处实现该JsAPI业务，得到responseData 通过回调

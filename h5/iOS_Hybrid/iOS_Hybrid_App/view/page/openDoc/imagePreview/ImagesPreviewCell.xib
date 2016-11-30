@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImagesPreviewCell" id="z6f-UZ-SdU" customClass="ImagesPreviewCell">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="463"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="402" height="463"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hnq-UE-SjE" customClass="ScrollTouch">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="463"/>
+                        <connections>
+                            <outlet property="delegate" destination="z6f-UZ-SdU" id="39l-d9-Gm4"/>
+                        </connections>
+                    </scrollView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83S-wY-08x">
+                        <rect key="frame" x="100.5" y="141.70083682008226" width="200" height="180"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="加载失败,点击重新加载"/>
+                        <connections>
+                            <action selector="reloadAction:" destination="z6f-UZ-SdU" eventType="touchUpInside" id="rQa-Yk-ryP"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Hnq-UE-SjE" firstAttribute="top" secondItem="z6f-UZ-SdU" secondAttribute="top" id="4Fn-yx-5bB"/>
+                <constraint firstItem="Hnq-UE-SjE" firstAttribute="leading" secondItem="z6f-UZ-SdU" secondAttribute="leading" id="Neq-ag-fZR"/>
+                <constraint firstAttribute="trailing" secondItem="Hnq-UE-SjE" secondAttribute="trailing" id="zIp-6U-oXn"/>
+                <constraint firstAttribute="bottom" secondItem="Hnq-UE-SjE" secondAttribute="bottom" id="zp4-Ai-sJV"/>
+            </constraints>
+            <size key="customSize" width="402" height="463"/>
+            <connections>
+                <outlet property="btnReload" destination="83S-wY-08x" id="oeg-Vb-o6k"/>
+                <outlet property="scroll" destination="Hnq-UE-SjE" id="YI9-WH-t8f"/>
+            </connections>
+            <point key="canvasLocation" x="-200" y="273.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

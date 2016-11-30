@@ -44,32 +44,14 @@
         [self.view addSubview:self.webViewMain];
     }
     
-//    if (self.webView2 == nil) {
-//        
-//        self.webView2 = [[WKWebView alloc]init];
-//        self.webView2.frame=vTest2.bounds;
-//        self.webView2.navigationDelegate = self;
-//        self.webView2.UIDelegate = self;
-//        [vTest2 addSubview:self.webView2];
-//        
-//    }
-    
-    //添加监听
-//    [WKWebViewJavascriptBridge enableLogging];
-//    self.bridge2 = [WKWebViewJavascriptBridge bridgeForWebView:self.webView2];
-//    [self listener2:self.bridge2];
-    //    [self.bridgeMain callHandler:@"toH5" data:@{ @"auth":@"USER_ID_AND_TOKEN" }];
-    
     [self loadH5:self.webViewMain];
-//    [self loadExamplePage:self.webView2];
+
 }
 
 
 - (void)loadH5:(WKWebView*)webView {
-    //https://qingyang.sinaapp.com/h5/ExampleApp.html
-//
-    NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/req"];
-//        NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/bridge"];
+    NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/bridge/test/"];
+
     
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [webView loadRequest:request];

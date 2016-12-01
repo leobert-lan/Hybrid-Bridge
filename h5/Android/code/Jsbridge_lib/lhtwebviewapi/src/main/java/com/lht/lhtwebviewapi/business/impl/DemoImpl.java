@@ -65,9 +65,6 @@ public class DemoImpl extends ABSApiImpl implements API.Demo {
 			if (TextUtils.isEmpty(bean.getJsKeyOne())) {
 				Log.wtf(API_NAME,
 						"501,data error,check bean:" + JSON.toJSONString(bean));
-				// I am so merciful,never crash it
-				// throw new IllegalArgumentException(
-				// "501,data error,check bean:"+JSON.toJSONString(bean));
 				return BEAN_IS_ERROR;
 			}
 			return BEAN_IS_CORRECT;
@@ -75,9 +72,6 @@ public class DemoImpl extends ABSApiImpl implements API.Demo {
 		} else {
 			Log.wtf(API_NAME,
 					"check you code,bean not match because your error");
-			// I am so merciful,never crash it
-			// throw new IllegalArgumentException(
-			// "check you code,bean not match because your error");
 			return BEAN_IS_ERROR;
 		}
 	}

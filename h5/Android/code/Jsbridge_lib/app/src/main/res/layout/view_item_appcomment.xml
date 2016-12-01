@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/temp_ac_color3"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingBottom="25dp"
+    android:paddingTop="25dp">
+
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/via_tv_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="6dp"
+            android:gravity="center|bottom"
+            android:maxWidth="40dp"
+            android:minWidth="30dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </FrameLayout>
+
+
+    <com.lht.cloudjob.customview.RoundImageView
+        android:id="@+id/via_image_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/v1010_drawable_avatar_default"/>
+
+    <TextView
+        android:id="@+id/via_tv_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/via_tv_time"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/via_cb_praise"
+        android:layout_toRightOf="@+id/via_image_avatar"
+        android:textColor="@color/temp_ac_color6"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/via_tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/via_image_avatar"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/via_cb_praise"
+        android:layout_toRightOf="@+id/via_image_avatar"
+        android:textColor="@color/temp_ac_color8"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/via_tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/temp_ac_color6"/>
+
+    <CheckBox
+        android:id="@+id/via_cb_praise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="12dp"
+        android:layout_toLeftOf="@+id/via_tv_count"
+        android:button="@drawable/cbselector_zan"
+        android:text="@string/v1019_default_spa_cb_zan"
+        android:textColor="@color/temp_ac_color6"/>
+
+    <TextView
+        android:id="@+id/via_tv_comment"
+        style="@style/style_textview.left.fill"
+        android:layout_alignLeft="@+id/via_image_avatar"
+        android:layout_below="@+id/via_image_avatar"
+        android:layout_marginTop="13dp"
+        android:padding="0dp"
+        android:textColor="@color/temp_ac_color7"
+        android:textSize="14sp"/>
+
+    <CheckBox
+        android:id="@+id/via_cb_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/via_tv_comment"
+        android:layout_below="@+id/via_tv_comment"
+        android:layout_marginTop="5dp"
+        android:button="@null"
+        android:drawablePadding="3dp"
+        android:drawableRight="@drawable/cbselector_toggle_comment"
+        android:text="@string/v1019_default_spa_cb_toggle_1"
+        android:textColor="@color/temp_ac_color1"
+        android:textSize="16dp"/>
+</RelativeLayout>
+

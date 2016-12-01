@@ -3,7 +3,6 @@ package com.lht.lhtwebviewlib.business.impl;
 import android.content.Context;
 
 import com.lht.lhtwebviewlib.BridgeWebView;
-import com.lht.lhtwebviewlib.business.API.API;
 
 /**
  * @ClassName: ABSApiImpl
@@ -15,7 +14,8 @@ import com.lht.lhtwebviewlib.business.API.API;
  * @author leobert.lan
  * @version 1.0
  */
-public abstract class ABSApiImpl implements API {
+public abstract class ABSApiImpl {
+//		implements API {
 
 	public ABSApiImpl() {
 

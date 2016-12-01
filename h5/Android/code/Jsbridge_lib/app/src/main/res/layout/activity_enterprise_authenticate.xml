@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    tools:context="com.lht.cloudjob.activity.asyncprotected.EnterpriseAuthenticateActivity">
+
+    <include
+        layout="@layout/view_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <include
+        layout="@layout/view_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/absbar_height" />
+
+    <include
+        android:id="@+id/perauth_tabs"
+        layout="@layout/view_tab_perauth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/absbar_height" />
+
+    <include
+        android:id="@+id/line1"
+        layout="@layout/line_gray_1dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/perauth_tabs" />
+
+    <FrameLayout
+        android:id="@+id/eau_fl_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/absbar_height"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/eau_sv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/perauth_tabs"
+        android:layout_marginTop="1dp"
+        android:background="@color/primary_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/eau_region"
+                style="@style/style_edittext"
+                android:drawableRight="@drawable/v1010_drawable_icon_enter"
+                android:hint="@string/v1010_default_pau_hint_region" />
+
+            <include
+                android:id="@+id/line1"
+                layout="@layout/line_gray_1px" />
+
+            <EditText
+                android:id="@+id/eau_et_inc"
+                style="@style/style_edittext"
+                android:hint="@string/v1010_default_eau_hint_inc" />
+
+            <include
+                android:id="@+id/line2"
+                layout="@layout/line_gray_1px" />
+
+            <EditText
+                android:id="@+id/eau_et_name"
+                style="@style/style_edittext"
+                android:hint="@string/v1010_default_eau_hint_name" />
+
+            <include
+                android:id="@+id/line3"
+                layout="@layout/line_gray_1px" />
+
+            <EditText
+                android:id="@+id/eau_et_code"
+                style="@style/style_edittext"
+                android:hint="@string/v1010_default_eau_hint_code" />
+
+            <include
+                android:id="@+id/line4"
+                layout="@layout/line_gray_1px" />
+
+            <EditText
+                android:id="@+id/eau_et_field"
+                style="@style/style_edittext"
+                android:hint="@string/v1010_default_eau_hint_field" />
+
+            <include
+                android:id="@+id/line5"
+                layout="@layout/line_gray_1px" />
+
+            <TextView
+                android:id="@+id/eau_tv_region"
+                style="@style/style_edittext"
+                android:drawableRight="@drawable/v1010_drawable_icon_enter"
+                android:hint="@string/v1010_default_eau_hint_region" />
+
+            <include
+                android:id="@+id/line6"
+                layout="@layout/line_gray_1px" />
+
+            <EditText
+                android:id="@+id/eau_et_destination"
+                style="@style/style_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:gravity="left"
+                android:hint="@string/v1010_default_eau_hint_destination"
+                android:padding="@dimen/text_padding_default" />
+
+            <include
+                android:id="@+id/line7"
+                layout="@layout/line_gray_1px" />
+
+            <TextView
+                android:id="@+id/eau_tv_validity"
+                style="@style/style_edittext"
+                android:drawableRight="@drawable/v1010_drawable_icon_enter"
+                android:hint="@string/v1010_default_eau_hint_validity" />
+
+            <include
+                android:id="@+id/line8"
+                layout="@layout/line_gray_1px" />
+
+            <LinearLayout
+                android:id="@+id/eau_ll_validity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/style_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="3"
+                    android:singleLine="true"
+                    android:text="@string/v1010_default_eau_text_validity" />
+
+                <TextView
+                    android:id="@+id/eau_tv_starttime"
+                    style="@style/style_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:singleLine="true"
+                    android:textColor="@color/h3_text_gray_hint" />
+
+                <TextView
+                    style="@style/style_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/v1010_default_eau_text_to" />
+
+                <TextView
+                    android:id="@+id/eau_tv_endtime"
+                    style="@style/style_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:singleLine="true"
+                    android:textColor="@color/h3_text_gray_hint" />
+            </LinearLayout>
+
+            <include
+                android:id="@+id/line9"
+                layout="@layout/line_gray_1px" />
+
+            <TextView
+                style="@style/style_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/transparent"
+                android:text="@string/v1010_default_eau_text_upload"
+                android:textSize="@dimen/fontsize_title_small" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_conner_5dp_white_border1dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="270dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/v1010_drawable_business_logo_default" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:src="@drawable/v1010_drawable_icon_upload" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eau_ll_license_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_conner_5dp_white_border1dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/eau_iv_license_pic"
+                    android:layout_width="270dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/v1010_drawable_license_default" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:src="@drawable/v1010_drawable_icon_upload" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/eau_btn_submit"
+                style="@style/style_button.blue"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/v1010_default_eau_btn_submit" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/bar_title_simple" />
+</RelativeLayout>

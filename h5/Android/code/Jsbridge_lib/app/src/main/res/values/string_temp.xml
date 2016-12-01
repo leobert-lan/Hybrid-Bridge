@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 活动 -->
+    <string name="v1019_actiivties_comment_title">填写评论</string>
+    <string name="v1019_actiivties_text_praise">点评，集赞得红包</string>
+    <string name="v1019_actiivties_text_activities_rules">活动规则</string>
+    <string name="v1019_actiivties_text_activities_remind_content">语言风趣、中肯、高价值的评论有助于更快通过审核哦~</string>
+    <string name="v1019_actiivties_text_activities_commit_comment">提交</string>
+    <string name="v1019_actiivties_text_activities_hint_comment_content">请在此输入您的评论（最多140字）</string>
+    <string name="v1019_actiivties_text_activities_toast_over_length">您输入的字数已经超过了最大限制</string>
+    <string name="v1019_actiivties_text_activities_toast_content_isempty">请输入您要评论的内容</string>
+    <string name="v1019_actiivties_text_activities_toast_comment_success">评论成功</string>
+    <string name="v1019_actiivties_text_activities_toast_comment_failure">评论失败</string>
+    <string name="v1019_actiivties_text_remind">小贴士：</string>
+    <string name="v1019_actiivties_text_activities_rule_one">活动期间，每个ID号仅限参与一次评论，评论后由客服人员审核，审核通过后即可参与点赞排行。</string>
+    <string name="v1019_actiivties_text_activities_rule_two">活动期间，每个ID号对于上榜的每条评论最多点赞一次。</string>
+    <string name="v1019_actiivties_text_activities_rule_three">此活动与平台举行的其他活动不发生冲突，获奖用户ID将在需求大厅公告栏公布，奖励将发放至用户的创意云账户中，用户可自行提现。</string>
+    <string name="v1019_actiivties_text_activities_rule_four">本公司承诺活动真实有效，最终解释权归苏州创意云网络科技公司所有。</string>
+
+    <string name="v1019_actiivties_cancelzan_cannot">该条评论已点赞过了，换一条吧</string>
+
+    <string name="v1019_activities_btn_access">立即参与</string>
+
+    <string name="v1019_default_spa_cb_zan">赞</string>
+    <string name="v1019_default_spa_cb_toggle_1">全文</string>
+    <string name="v1019_default_spa_cb_toggle_2">收起</string>
+
+    <string name="v1019_activities_trank_title">APP上线啦，评论集赞赢红包</string>
+    <string name="v1019_activities_no_comment">什么都没有哦~ 快来评论吧</string>
+    <string name="v1019_activities_ac_time">活动时间：2016.11.22-2016.12.12</string>
+
+    <string name="v1019_dialog_ac_rule">活动期间，每个用户仅限评论1次，请认真填写哦！</string>
+
+
+</resources>

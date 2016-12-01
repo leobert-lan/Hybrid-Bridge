@@ -10,10 +10,19 @@ package com.lht.lhtwebviewlib.business.bean;
  */
 public class BaseResponseBean {
 
+    public static final int STATUS_SUCCESS = 1;
+
+    public static final int STATUS_FAILURE = 0;
+
 	/**
 	 * ret:返回码
 	 */
 	private int ret;
+
+	/**
+	 *
+	 */
+	private int status;
 
 	/**
 	 * msg:扩展消息
@@ -33,7 +42,15 @@ public class BaseResponseBean {
 		this.ret = ret;
 	}
 
-	public String getMsg() {
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getMsg() {
 		return msg;
 	}
 

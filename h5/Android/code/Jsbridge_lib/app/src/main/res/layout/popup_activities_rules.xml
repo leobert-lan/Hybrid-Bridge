@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp"
+    android:background="@drawable/bg_round_rectangle_shape">
+
+    <ImageView
+        android:id="@+id/iv_activities_rule_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:src="@drawable/v1019_drawable_rule_close" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/temp_ac_color3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:src="@drawable/v1019_drawable_rule_header" />
+
+            <TextView
+                android:id="@+id/tv_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/temp_ac_color5"
+                android:textSize="@dimen/fontsize_content_small"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/iv_rule_item_rank1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/v1019_drawable_rule_1" />
+
+                <TextView
+                    android:id="@+id/tv_rule_item_content1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_toRightOf="@+id/iv_rule_item_rank1"
+                    android:text="@string/v1019_actiivties_text_activities_rule_one"
+                    android:textColor="@color/temp_ac_color6"
+                    android:textSize="@dimen/fontsize_content_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/tv_rule_item_content1"
+                    android:layout_below="@+id/tv_rule_item_content1"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:background="#f5cdae" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_rule_item_rank2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/v1019_drawable_rule_2" />
+
+                <TextView
+                    android:id="@+id/tv_rule_item_content2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_toRightOf="@+id/iv_rule_item_rank2"
+                    android:text="@string/v1019_actiivties_text_activities_rule_two"
+                    android:textColor="@color/temp_ac_color6"
+                    android:textSize="@dimen/fontsize_content_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/tv_rule_item_content2"
+                    android:layout_below="@+id/tv_rule_item_content2"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:background="#f5cdae" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_rule_item_rank3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/v1019_drawable_rule_3" />
+
+                 <TextView
+                    android:id="@+id/tv_rule_item_content3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_toRightOf="@+id/iv_rule_item_rank3"
+                    android:text="@string/v1019_actiivties_text_activities_rule_three"
+                    android:textColor="@color/temp_ac_color6"
+                    android:textSize="@dimen/fontsize_content_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/tv_rule_item_content3"
+                    android:layout_below="@+id/tv_rule_item_content3"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:background="#f5cdae" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_rule_item_rank4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/v1019_drawable_rule_4" />
+
+                <TextView
+                    android:id="@+id/tv_rule_item_content4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_toRightOf="@+id/iv_rule_item_rank4"
+                    android:text="@string/v1019_actiivties_text_activities_rule_four"
+                    android:textColor="@color/temp_ac_color6"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:textSize="@dimen/fontsize_content_small" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

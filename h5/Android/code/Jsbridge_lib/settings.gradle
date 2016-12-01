@@ -1,1 +1,1 @@
-include ':app', ':lhtwebviewlib', ':lhtwebviewapi'
+include ':app', ':lhtwebviewlib', ':lhtwebviewapi',':ptrlib', ':customwidgetlib', ':materialintro',':WeiboSdk'

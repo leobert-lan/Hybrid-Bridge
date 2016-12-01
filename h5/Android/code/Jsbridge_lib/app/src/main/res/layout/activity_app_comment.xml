@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_activities_comment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/temp_ac_color3"
+    tools:context="com.lht.cloudjob.activity.asyncprotected.AppCommentActivity">
+
+    <include
+        layout="@layout/view_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <EditText
+        android:id="@+id/et_app_commentcontent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/content_topmargin"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="@string/v1019_actiivties_text_activities_hint_comment_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/temp_ac_color8"
+        android:textColorHint="@color/temp_ac_color8"
+        android:textSize="@dimen/fontsize_content_normal" />
+
+    <TextView
+        android:id="@+id/tv_comment_currentcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/et_app_commentcontent"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:textColor="@color/temp_ac_color8"
+        android:text="0/140" />
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tv_comment_currentcount"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@color/temp_ac_color8" />
+
+    <TextView
+        android:id="@+id/tv_app_remind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_app_commentcontent"
+        android:layout_below="@+id/divider_line"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/v1019_actiivties_text_remind"
+        android:textColor="@color/temp_ac_color7" />
+
+    <TextView
+        android:id="@+id/tv_app_remindcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_app_commentcontent"
+        android:layout_below="@+id/tv_app_remind"
+        android:padding="2dp"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:textColor="@color/temp_ac_color7" />
+
+    <Button
+        android:id="@+id/btn_app_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_app_remindcontent"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/absbar_height"
+        android:background="@drawable/bg_ac_comment_selector"
+        android:text="@string/v1019_actiivties_text_activities_commit_comment"
+        android:textColor="@color/temp_ac_color4"
+        android:textSize="@dimen/fontsize_content_normal" />
+
+    <include layout="@layout/bar_title_simple" />
+</RelativeLayout>

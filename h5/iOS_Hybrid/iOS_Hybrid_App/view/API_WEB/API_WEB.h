@@ -14,11 +14,13 @@ typedef void (^H5Callback)(id bridge, id data, NetError *err);
 
 //-------正式方法------//
 #pragma mark - 调用Native事件
-#define APP_N_PUBLIC_SIGN_LOGIN @"APP_N_PUBLIC_SIGN_LOGIN"
+#define APP_N_PUBLIC_AUTH @"APP_W_PUBLIC_AUTH" //认证用户
+#define APP_N_PUBLIC_SIGN_LOGIN @"APP_N_PUBLIC_SIGN_LOGIN" //登录
 
 
 
 
 #pragma mark - 调用web事件
+
 
 #endif /* API_WEB_h */

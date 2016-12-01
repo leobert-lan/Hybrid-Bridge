@@ -333,6 +333,7 @@
 		A37CA5051DEEC51E0096DF4F /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A37CA5011DEEC51E0096DF4F /* WKWebViewJavascriptBridge.m */; };
 		A37CA50C1DEEC8260096DF4F /* HybridAppVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A37CA50A1DEEC8260096DF4F /* HybridAppVC.m */; };
 		A37CA50D1DEEC8260096DF4F /* HybridAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37CA50B1DEEC8260096DF4F /* HybridAppVC.xib */; };
+		A37CA5101DEFFBA50096DF4F /* WebAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A37CA50F1DEFFBA50096DF4F /* WebAuthAPI.m */; };
 		A3968A311D8E298E00191317 /* SubscripNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3968A2F1D8E298E00191317 /* SubscripNewVC.m */; };
 		A3968A321D8E298E00191317 /* SubscripNewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3968A301D8E298E00191317 /* SubscripNewVC.xib */; };
 		A397AAFF1D9111FD00D4D1B2 /* jpush-ios-2.1.9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A397AAFD1D9111FD00D4D1B2 /* jpush-ios-2.1.9.a */; };
@@ -967,6 +968,8 @@
 		A37CA5091DEEC8260096DF4F /* HybridAppVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridAppVC.h; sourceTree = "<group>"; };
 		A37CA50A1DEEC8260096DF4F /* HybridAppVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybridAppVC.m; sourceTree = "<group>"; };
 		A37CA50B1DEEC8260096DF4F /* HybridAppVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HybridAppVC.xib; sourceTree = "<group>"; };
+		A37CA50E1DEFFBA50096DF4F /* WebAuthAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebAuthAPI.h; sourceTree = "<group>"; };
+		A37CA50F1DEFFBA50096DF4F /* WebAuthAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebAuthAPI.m; sourceTree = "<group>"; };
 		A3968A2D1D891E9600191317 /* cyy_task.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cyy_task.entitlements; sourceTree = "<group>"; };
 		A3968A2E1D8E298E00191317 /* SubscripNewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscripNewVC.h; sourceTree = "<group>"; };
 		A3968A2F1D8E298E00191317 /* SubscripNewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscripNewVC.m; sourceTree = "<group>"; };
@@ -2326,6 +2329,8 @@
 			isa = PBXGroup;
 			children = (
 				A37CA5071DEEC7880096DF4F /* API_WEB.h */,
+				A37CA50E1DEFFBA50096DF4F /* WebAuthAPI.h */,
+				A37CA50F1DEFFBA50096DF4F /* WebAuthAPI.m */,
 			);
 			path = API_WEB;
 			sourceTree = "<group>";
@@ -2678,6 +2683,7 @@
 				A36CCFE91CD9808C0056AB6A /* MJRefreshBackNormalFooter.m in Sources */,
 				287B4DAC1D582D8500CF4A6E /* InformCell.m in Sources */,
 				A338D71A1D49B1CA00BFB4D6 /* SearchHistoryCell.m in Sources */,
+				A37CA5101DEFFBA50096DF4F /* WebAuthAPI.m in Sources */,
 				285AD2881D49A60D00B08EEA /* PerfectVC.m in Sources */,
 				2861C12C1D66DA1000C3DAC1 /* SubmissionVC.m in Sources */,
 				A36CD0341CD9808C0056AB6A /* TimerUtils.m in Sources */,

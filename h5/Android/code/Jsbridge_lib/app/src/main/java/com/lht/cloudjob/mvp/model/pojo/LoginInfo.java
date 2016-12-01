@@ -1,6 +1,7 @@
 package com.lht.cloudjob.mvp.model.pojo;
 
 import com.lht.cloudjob.mvp.model.bean.BasicInfoResBean;
+import com.lht.cloudjob.mvp.model.bean.LoginResBean;
 import com.lht.cloudjob.util.string.StringUtil;
 
 /**
@@ -24,6 +25,10 @@ public class LoginInfo {
 
     //用户基本但不敏感的信息
     private BasicInfoResBean basicUserInfo;
+
+    //登录返回data，保留备用
+    private LoginResBean loginResBean;
+
 
     public LoginInfo() {
     }
@@ -96,6 +101,14 @@ public class LoginInfo {
         this.basicUserInfo = basicUserInfo;
     }
 
+    public LoginResBean getLoginResBean() {
+        return loginResBean;
+    }
+
+    public void setLoginResBean(LoginResBean loginResBean) {
+        this.loginResBean = loginResBean;
+    }
+
     public boolean isLogin() {
         //非严格判断
         return !StringUtil.isEmpty(username);
@@ -114,5 +127,6 @@ public class LoginInfo {
         this.setNickname(info.getNickname());
         this.setAvatar(info.getAvatar());
         this.setBasicUserInfo(info.getBasicUserInfo());
+        this.setLoginResBean(info.getLoginResBean());
     }
 }

@@ -128,6 +128,7 @@ public class LoginActivityPresenter implements ITPLoginViewPresenter, IApiReques
             info.setUsername(data.getUsername());
             info.setNickname(data.getNickname());
             info.setAvatar(data.getAvatar());
+            info.setLoginResBean(data);
 
             IVerifyHolder.mLoginInfo.copy(info);
 

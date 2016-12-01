@@ -345,8 +345,8 @@ public class FgIndex extends AvatarBarFragment implements IBannerUpdate, IIndexF
             case R.id.index_hottask:
                 //统计 进入最火 - 计数
                 parent.reportCountEvent(IUmengEventKey.KEY_VIEW_TASK_HOT);
-
-                startActivity(new Intent(getActivity(), HotTaskActivity.class));
+                startActivity(new Intent(getActivity(), BridgeTestActivity.class));
+//                startActivity(new Intent(getActivity(), HotTaskActivity.class));
                 break;
             case R.id.index_richtask:
                 //统计 进入最壕 - 计数

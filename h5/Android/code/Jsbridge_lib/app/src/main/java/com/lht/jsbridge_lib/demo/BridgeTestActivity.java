@@ -17,6 +17,8 @@ import com.lht.cloudjob.BuildConfig;
 import com.lht.cloudjob.R;
 import com.lht.cloudjob.activity.BaseActivity;
 import com.lht.cloudjob.activity.UMengActivity;
+import com.lht.cloudjob.native4js.Native4JsExpandAPI;
+import com.lht.cloudjob.native4js.impl.VsoAuthInfoImpl;
 import com.lht.customwidgetlib.nestedscroll.AttachUtil;
 import com.lht.customwidgetlib.nestedscroll.NestedScrollLayout;
 import com.lht.lhtwebviewapi.business.API.API;
@@ -116,6 +118,8 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
         // test screen temp
         webView.registerHandler(Demo.API_NAME, new DemoImpl(BridgeTestActivity.this));
+
+        webView.registerHandler(Native4JsExpandAPI.VsoAuthInfoHandler.API_NAME,new VsoAuthInfoImpl());
 
 //		webView.registerHandler(GPSHandler.API_NAME, new OpenGPSImpl(
 //				MainActivity.this));

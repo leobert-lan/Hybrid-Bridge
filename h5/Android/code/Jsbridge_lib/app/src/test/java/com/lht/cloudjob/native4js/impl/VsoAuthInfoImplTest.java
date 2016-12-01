@@ -34,17 +34,19 @@ public class VsoAuthInfoImplTest {
         testSuccess = new CallBackFunction() {
             @Override
             public void onCallBack(String s) {
-                BaseResponseBean responseBean = JSON.parseObject(s,BaseResponseBean.class);
-                assertEquals(1,responseBean.getStatus());
-                assertData(responseBean.getData());
+                System.out.println(s);
+                BaseResponseBean responseBean = JSON.parseObject(s, BaseResponseBean.class);
+                assertEquals(1, responseBean.getStatus());
+                NF_VsoAuthInfoResBean bean = JSON.parseObject(JSON.toJSONString(responseBean.getData()), NF_VsoAuthInfoResBean.class);
+                assertData(bean);
             }
         };
 
         testFailure = new CallBackFunction() {
             @Override
             public void onCallBack(String s) {
-                BaseResponseBean responseBean = JSON.parseObject(s,BaseResponseBean.class);
-                assertEquals(0,responseBean.getStatus());
+                BaseResponseBean responseBean = JSON.parseObject(s, BaseResponseBean.class);
+                assertEquals(0, responseBean.getStatus());
             }
         };
     }
@@ -55,10 +57,10 @@ public class VsoAuthInfoImplTest {
         info.setAccessToken("test_token");
         info.setUsername("test_username");
         IVerifyHolder.mLoginInfo.copy(info);
-        vsoAuthInfoImpl.handler(null,testSuccess);
+        vsoAuthInfoImpl.handler(null, testSuccess);
 
         IVerifyHolder.mLoginInfo.copy(new LoginInfo());
-        vsoAuthInfoImpl.handler(null,testFailure);
+        vsoAuthInfoImpl.handler(null, testFailure);
 
     }
 
@@ -73,27 +75,26 @@ public class VsoAuthInfoImplTest {
         bean.setAuth_username(IVerifyHolder.mLoginInfo.getUsername());
         bean.setAuth_token(IVerifyHolder.mLoginInfo.getAccessToken());
 
-        BaseResponseBean responseBean = vsoAuthInfoImpl.newSuccessResBean(bean);
+        BaseResponseBean<NF_VsoAuthInfoResBean> responseBean = vsoAuthInfoImpl.newSuccessResBean(bean);
 
-        assertEquals(1,responseBean.getStatus());
+        assertEquals(1, responseBean.getStatus());
         assertData(responseBean.getData());
 
     }
 
-    private void assertData(String s) {
-        NF_VsoAuthInfoResBean data = JSON.parseObject(s,NF_VsoAuthInfoResBean.class);
-        assertEquals("test_token",data.getAuth_token());
-        assertEquals("test_username",data.getAuth_username());
+    private void assertData(NF_VsoAuthInfoResBean data) {
+        assertEquals("test_token", data.getAuth_token());
+        assertEquals("test_username", data.getAuth_username());
     }
 
     @Test
     public void responseFailure() throws Exception {
         IVerifyHolder.mLoginInfo.copy(new LoginInfo());
 
-        BaseResponseBean responseBean = vsoAuthInfoImpl.newFailureResBean(0,"unLogin");
+        BaseResponseBean responseBean = vsoAuthInfoImpl.newFailureResBean(0, "unLogin");
 
-        assertEquals(0,responseBean.getStatus());
-        assertEquals(true, StringUtil.isEmpty(responseBean.getData()));
+        assertEquals(0, responseBean.getStatus());
+        assertEquals(true, null == responseBean.getData());
     }
 
 }

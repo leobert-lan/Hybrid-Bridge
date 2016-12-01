@@ -25,7 +25,7 @@ public class VsoAuthInfoImpl extends ABSApiImpl implements Native4JsExpandAPI.Vs
             NF_VsoAuthInfoResBean bean = new NF_VsoAuthInfoResBean();
             bean.setAuth_token(loginInfo.getAccessToken());
             bean.setAuth_username(loginInfo.getUsername());
-            BaseResponseBean responseBean = newSuccessResBean(bean);
+            BaseResponseBean<NF_VsoAuthInfoResBean> responseBean = newSuccessResBean(bean);
             callBackFunction.onCallBack(JSON.toJSONString(responseBean));
         } else {
             BaseResponseBean responseBean = newFailureResBean(0, "unLogin");
@@ -37,17 +37,17 @@ public class VsoAuthInfoImpl extends ABSApiImpl implements Native4JsExpandAPI.Vs
 
     /*for test*/
 //    public
-    private BaseResponseBean newSuccessResBean(NF_VsoAuthInfoResBean data) {
-        BaseResponseBean bean = new BaseResponseBean();
-        bean.setData(JSON.toJSONString(data));
+    private BaseResponseBean<NF_VsoAuthInfoResBean> newSuccessResBean(NF_VsoAuthInfoResBean data) {
+        BaseResponseBean<NF_VsoAuthInfoResBean> bean = new BaseResponseBean<>();
+        bean.setData(data);
         bean.setStatus(BaseResponseBean.STATUS_SUCCESS);
         return bean;
     }
 
     /*for test*/
 //    public
-    private BaseResponseBean newFailureResBean(int ret, String msg) {
-        BaseResponseBean bean = new BaseResponseBean();
+    private BaseResponseBean<NF_VsoAuthInfoResBean> newFailureResBean(int ret, String msg) {
+        BaseResponseBean<NF_VsoAuthInfoResBean> bean = new BaseResponseBean<>();
         bean.setStatus(BaseResponseBean.STATUS_FAILURE);
         bean.setRet(ret);
         bean.setMsg(msg);

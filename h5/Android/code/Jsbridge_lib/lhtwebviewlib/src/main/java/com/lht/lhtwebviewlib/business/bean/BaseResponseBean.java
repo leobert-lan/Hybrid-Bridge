@@ -8,7 +8,7 @@ package com.lht.lhtwebviewlib.business.bean;
  * @author leobert.lan
  * @version 1.0
  */
-public class BaseResponseBean {
+public class BaseResponseBean<T> {
 
     public static final int STATUS_SUCCESS = 1;
 
@@ -32,7 +32,7 @@ public class BaseResponseBean {
 	/**
 	 * data:业务处理结果
 	 */
-	private String data;
+	private T data;
 
 	public int getRet() {
 		return ret;
@@ -58,12 +58,11 @@ public class BaseResponseBean {
 		this.msg = msg;
 	}
 
-	public String getData() {
-		return data;
-	}
+    public T getData() {
+        return data;
+    }
 
-	public void setData(String data) {
-		this.data = data;
-	}
-
+    public void setData(T data) {
+        this.data = data;
+    }
 }

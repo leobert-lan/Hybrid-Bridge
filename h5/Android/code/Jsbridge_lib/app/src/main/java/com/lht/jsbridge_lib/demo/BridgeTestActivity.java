@@ -121,12 +121,11 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
         LhtWebViewNFLoader.with(webView)
                 .equip(VsoAuthInfoImpl.newInstance())//Auth信息
                 .equip(VsoLoginImpl.newInstance(BridgeTestActivity.this))//Vso登录
+                .equip(MakePhoneCallImpl.newInstance(BridgeTestActivity.this))//makePhoneCall
                 .load();
 
         webView.registerHandler(TestLTRHandler.API_NAME, new TestLTRImpl());
 
-        webView.registerHandler(CallTelHandler.API_NAME, new MakePhoneCallImpl(
-                BridgeTestActivity.this));
 
         webView.registerHandler(SendToClipBoardHandler.API_NAME,
                 new CopyToClipboardImpl(BridgeTestActivity.this));

@@ -6,6 +6,7 @@ import com.lht.cloudjob.mvp.model.pojo.LoginInfo;
 import com.lht.cloudjob.native4js.Native4JsExpandAPI;
 import com.lht.cloudjob.native4js.expandresbean.NF_VsoAuthInfoResBean;
 import com.lht.lhtwebviewlib.base.Interface.CallBackFunction;
+import com.lht.lhtwebviewlib.base.model.BridgeNativeFunction;
 import com.lht.lhtwebviewlib.business.bean.BaseResponseBean;
 import com.lht.lhtwebviewlib.business.impl.ABSApiImpl;
 
@@ -58,5 +59,9 @@ public class VsoAuthInfoImpl extends ABSApiImpl implements Native4JsExpandAPI.Vs
     @Override
     protected boolean isBeanError(Object o) {
         return BEAN_IS_CORRECT;
+    }
+
+    public static BridgeNativeFunction newInstance() {
+        return new BridgeNativeFunction(API_NAME,new VsoAuthInfoImpl());
     }
 }

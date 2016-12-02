@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_static_promote"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/temp_ac_color3"
+    tools:context="com.lht.cloudjob.activity.asyncprotected.StaticPromoteActivity">
+
+    <include
+        layout="@layout/view_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <com.lht.ptrlib.library.PullToRefreshListView
+        android:id="@+id/promote_ptr_list"
+        android:layout_marginTop="50dp"
+        style="@style/ptr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/promote_btn_access"
+        android:background="@color/temp_ac_color3"
+        android:divider="@color/temp_ac_divider"
+        app:ptrAnimationStyle="flip"
+        app:ptrHeaderSubTextColor="@color/h3_text_gray_hint"
+        app:ptrHeaderTextColor="@color/h8_text_gray_666"
+        app:ptrListViewExtrasEnabled="true"
+        app:ptrRefreshableViewBackground="@color/temp_ac_color3" />
+
+    <Button
+        android:id="@+id/promote_btn_access"
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_ac_selector2"
+        android:text="@string/v1019_activities_btn_access"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/temp_ac_color4" />
+
+    <include layout="@layout/bar_title_simple" />
+
+    <com.lht.cloudjob.customview.MyAppCommentItemView
+        android:id="@+id/promote_suspended_appcomment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+
+</RelativeLayout>

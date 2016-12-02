@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/full_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- button 演示Java调用web -->
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="java call web" />
+
+    <Button
+        android:id="@+id/testMedia"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="testMedia"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/sinaLogin"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="SinaLogin"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/testVirClose"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="virclose" />
+
+    <Button
+        android:id="@+id/testModeSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="modeswitch" />
+
+    <!-- webview 演示web调用Java -->
+
+    <com.lht.jsbridge_lib.BridgeWebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.lht.jsbridge_lib.BridgeWebView>
+
+    <FrameLayout
+        android:id="@+id/video_fullView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" >
+    </FrameLayout>
+
+</LinearLayout>

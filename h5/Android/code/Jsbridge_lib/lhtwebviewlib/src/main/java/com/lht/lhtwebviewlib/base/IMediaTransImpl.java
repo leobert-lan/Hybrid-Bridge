@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @ClassName: IMediaTransImpl
  * @Description: TODO
  * @date 2016年3月9日 下午4:02:20
- * 
+ *
  * @author leobert.lan
  * @version 1.0
  */
@@ -128,7 +128,7 @@ public class IMediaTransImpl implements IMediaTrans {
 		getActivity().getWindow().setAttributes(params);
 		getActivity().getWindow().addFlags(
 				WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-		
+
 		getActivity().getActionBar().hide();
 	}
 

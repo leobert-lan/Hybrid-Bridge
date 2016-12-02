@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    android:id="@+id/rl_pau_all"
+    tools:context="com.lht.cloudjob.activity.asyncprotected.PersonalAuthenticateActivity">
+
+    <include
+        layout="@layout/view_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <include
+        layout="@layout/view_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/absbar_height" />
+
+    <include
+        android:id="@+id/perauth_tabs"
+        layout="@layout/view_tab_perauth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/absbar_height" />
+
+    <include
+        android:id="@+id/line1"
+        layout="@layout/line_gray_1dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/perauth_tabs" />
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/absbar_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ScrollView
+        android:id="@+id/pau_sv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/perauth_tabs"
+        android:layout_marginTop="1dp"
+        android:background="@color/primary_background">
+
+        <LinearLayout
+            android:id="@+id/pau_ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/pau_region"
+                style="@style/style_edittext"
+                android:drawableRight="@drawable/v1010_drawable_icon_enter"
+                android:hint="@string/v1010_default_pau_hint_region" />
+
+            <include
+                android:id="@+id/line1"
+                layout="@layout/line_gray_1px" />
+
+            <EditText
+                android:id="@+id/pau_et_name"
+                style="@style/style_edittext"
+                android:hint="@string/v1010_default_pau_hint_name" />
+
+            <include
+                android:id="@+id/line2"
+                layout="@layout/line_gray_1px" />
+
+            <EditText
+                android:id="@+id/pau_et_identifycode"
+                style="@style/style_edittext"
+                android:hint="@string/v1010_default_pau_hint_identifycard" />
+
+            <include
+                android:id="@+id/line3"
+                layout="@layout/line_gray_1px" />
+
+            <LinearLayout
+                android:id="@+id/pau_ll_validity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/style_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="3"
+                    android:singleLine="true"
+                    android:text="@string/v1010_default_pau_text_validity" />
+
+                <TextView
+                    android:id="@+id/pau_tv_begin"
+                    style="@style/style_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:singleLine="true"
+                    android:textColor="@color/h3_text_gray_hint" />
+
+                <TextView
+                    style="@style/style_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/v1010_default_pau_text_to" />
+
+                <TextView
+                    android:id="@+id/pau_tv_end"
+                    style="@style/style_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:singleLine="true"
+                    android:textColor="@color/h3_text_gray_hint" />
+            </LinearLayout>
+
+            <include
+                android:id="@+id/line4"
+                layout="@layout/line_gray_1px" />
+
+            <TextView
+                style="@style/style_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/transparent"
+                android:text="@string/v1010_default_pau_text_upload"
+                android:textSize="@dimen/fontsize_title_small" />
+
+            <LinearLayout
+                android:id="@+id/pau_ll_idcard_front"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_conner_5dp_white_border1dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/pau_iv_idcard_front"
+                    android:layout_width="270dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/v1010_drawable_identifycard_front_default" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:src="@drawable/v1010_drawable_icon_upload" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pau_ll_idcard_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_conner_5dp_white_border1dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/pau_iv_idcard_back"
+                    android:layout_width="270dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/v1010_drawable_identifycard_back_default" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:src="@drawable/v1010_drawable_icon_upload" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pau_ll_hand_idcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_conner_5dp_white_border1dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/pau_iv_hand_idcard"
+                    android:layout_width="270dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/v1010_drawable_identifycard_inhand_default" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:src="@drawable/v1010_drawable_icon_upload" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/pau_btn_submit"
+                style="@style/style_button.blue"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/v1010_default_pau_btn_submit" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/bar_title_simple" />
+
+</RelativeLayout>

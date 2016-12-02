@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!---->
+    <!--<color name="temp_ac_comment_bg">#f6ecc1</color>-->
+    <!--<color name="temp_ac_comment_hint">#b69671</color>-->
+    <!--<color name="temp_ac_comment_commit">#f34755</color>-->
+   <!-- <color name="temp_ac_comment_remind">#83461d</color>-->
+    <!--<color name="temp_ac_comment_line_color">#dac0a2</color>-->
+
+    <!-- <color name="temp_ac_t1">#1a110b</color>-->
+    <!--  <color name="temp_ac_t2">#b69671</color>-->
+    <!--<color name="temp_ac_t3">#83461d</color>-->
+    <color name="temp_ac_t4">#0084a5</color>
+    <color name="temp_ac_divider">#dac0a2</color>
+    <color name="temp_ac_comment_commit_press">#df3c49</color>
+
+    <!--<color name="temp_ac_my_commment_bg">#f34855</color>-->
+   <!-- <color name="temp_ac_wait_text">#fbcc05</color>-->
+
+
+    <color name="temp_ac_color1">#6207ab</color>
+    <color name="temp_ac_color2">#310659</color>
+    <color name="temp_ac_color3">#ffefb0</color>
+    <color name="temp_ac_color4">#fbca04</color>
+    <color name="temp_ac_color5">#fb482a</color>
+    <color name="temp_ac_color6">#1a110b</color>
+    <color name="temp_ac_color7">#83461d</color>
+    <color name="temp_ac_color8">#bb9d76</color>
+
+
+</resources>

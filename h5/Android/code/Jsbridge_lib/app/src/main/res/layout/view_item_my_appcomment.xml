@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/temp_ac_color4"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <com.lht.cloudjob.customview.RoundImageView
+        android:id="@+id/via_my_image_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/v1010_drawable_avatar_default" />
+
+    <TextView
+        android:id="@+id/via_tv_my_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/via_tv_time"
+        android:layout_alignTop="@+id/via_my_image_avatar"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/via_my_image_avatar"
+        android:textColor="@color/temp_ac_color6"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/via_tv_my_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/via_my_image_avatar"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/via_my_image_avatar"
+        android:textColor="@color/temp_ac_color7"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/via_tv_my_comment"
+        style="@style/style_textview.left.fill"
+        android:layout_alignLeft="@+id/via_my_image_avatar"
+        android:layout_below="@+id/via_my_image_avatar"
+        android:layout_marginTop="8dp"
+        android:padding="0dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/temp_ac_color7"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/via_my_image_avatar"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp">
+
+        <ImageView
+            android:id="@+id/iv_my_comment_wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/v1019_drawable_appcomment_oncheck" />
+
+        <TextView
+            android:id="@+id/tv_my_comment_wait_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_my_comment_wait"
+            android:textColor="@color/temp_ac_color5"
+            android:textSize="@dimen/fontsize_content_normal" />
+    </RelativeLayout>
+
+    <!--<CheckBox-->
+        <!--android:id="@+id/via_cb_open"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignLeft="@+id/via_tv_my_comment"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignStart="@+id/via_tv_my_comment"-->
+        <!--android:button="@null"-->
+        <!--android:drawablePadding="3dp"-->
+        <!--android:drawableRight="@drawable/cbselector_toggle_comment"-->
+        <!--android:text="@string/v1019_default_spa_cb_toggle_1"-->
+        <!--android:textColor="@color/temp_ac_t4"-->
+        <!--android:textSize="16dp" />-->
+</RelativeLayout>
+

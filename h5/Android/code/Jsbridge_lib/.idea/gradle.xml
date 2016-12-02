@@ -9,9 +9,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/WeiboSDK" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/customwidgetlib" />
             <option value="$PROJECT_DIR$/lhtwebviewapi" />
             <option value="$PROJECT_DIR$/lhtwebviewlib" />
+            <option value="$PROJECT_DIR$/materialintro" />
+            <option value="$PROJECT_DIR$/ptrlib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

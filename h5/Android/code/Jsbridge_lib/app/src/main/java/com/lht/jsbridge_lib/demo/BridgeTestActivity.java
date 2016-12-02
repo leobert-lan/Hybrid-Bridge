@@ -19,6 +19,7 @@ import com.lht.cloudjob.activity.BaseActivity;
 import com.lht.cloudjob.activity.UMengActivity;
 import com.lht.cloudjob.native4js.Native4JsExpandAPI;
 import com.lht.cloudjob.native4js.impl.VsoAuthInfoImpl;
+import com.lht.cloudjob.native4js.impl.VsoLoginImpl;
 import com.lht.customwidgetlib.nestedscroll.AttachUtil;
 import com.lht.customwidgetlib.nestedscroll.NestedScrollLayout;
 import com.lht.lhtwebviewapi.business.API.API;
@@ -38,6 +39,7 @@ import com.lht.lhtwebviewapi.business.impl.SendMessageImpl;
 import com.lht.lhtwebviewapi.business.impl.TestLTRImpl;
 import com.lht.lhtwebviewlib.BridgeWebView;
 import com.lht.lhtwebviewlib.DefaultHandler;
+import com.lht.lhtwebviewlib.base.LhtWebViewNFLoader;
 
 public class BridgeTestActivity extends BaseActivity implements OnClickListener {
 
@@ -113,16 +115,13 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
     private void regist() {
 
-        //		webView.registerHandler(ThirdPartyLoginHandler.API_Name,
-//				new ThirdPartyLoginImpl(MainActivity.this));
-
         // test screen temp
         webView.registerHandler(Demo.API_NAME, new DemoImpl(BridgeTestActivity.this));
 
-        webView.registerHandler(Native4JsExpandAPI.VsoAuthInfoHandler.API_NAME,new VsoAuthInfoImpl());
-
-//		webView.registerHandler(GPSHandler.API_NAME, new OpenGPSImpl(
-//				MainActivity.this));
+        LhtWebViewNFLoader.with(webView)
+                .equip(VsoAuthInfoImpl.newInstance())//Auth信息
+                .equip(VsoLoginImpl.newInstance(BridgeTestActivity.this))//Vso登录
+                .load();
 
         webView.registerHandler(TestLTRHandler.API_NAME, new TestLTRImpl());
 
@@ -178,7 +177,6 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
     @Override
     protected void onResume() {
-        // TODO Auto-generated method stub
         super.onResume();
         webView.onResume();
     }
@@ -186,7 +184,6 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.button:
                 webView.loadUrl(etUrl.getText().toString());
@@ -198,10 +195,5 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
                 break;
         }
     }
-
-
-    private void testCallJs() {
-    }
-
 
 }

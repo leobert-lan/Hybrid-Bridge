@@ -29,7 +29,7 @@ import com.lht.lhtwebviewapi.business.API.API.SendEmailHandler;
 import com.lht.lhtwebviewapi.business.API.API.SendMessageHandler;
 import com.lht.lhtwebviewapi.business.API.API.SendToClipBoardHandler;
 import com.lht.lhtwebviewapi.business.API.API.TestLTRHandler;
-import com.lht.lhtwebviewapi.business.impl.CallTelImpl;
+import com.lht.lhtwebviewapi.business.impl.MakePhoneCallImpl;
 import com.lht.lhtwebviewapi.business.impl.CopyToClipboardImpl;
 import com.lht.lhtwebviewapi.business.impl.DemoImpl;
 import com.lht.lhtwebviewapi.business.impl.ScanCodeImpl;
@@ -126,7 +126,7 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
         webView.registerHandler(TestLTRHandler.API_NAME, new TestLTRImpl());
 
-        webView.registerHandler(CallTelHandler.API_NAME, new CallTelImpl(
+        webView.registerHandler(CallTelHandler.API_NAME, new MakePhoneCallImpl(
                 BridgeTestActivity.this));
 
         webView.registerHandler(SendToClipBoardHandler.API_NAME,

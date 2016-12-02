@@ -22,13 +22,13 @@ import com.lht.lhtwebviewlib.business.impl.ABSApiImpl;
  * @author leobert.lan
  * @version 1.0
  */
-public class CallTelImpl extends ABSApiImpl implements API.CallTelHandler {
+public class MakePhoneCallImpl extends ABSApiImpl implements API.CallTelHandler {
 
 	private final Context mContext;
 
 	private CallBackFunction mFunction;
 
-	public CallTelImpl(Context mContext) {
+	public MakePhoneCallImpl(Context mContext) {
 		this.mContext = mContext;
 	}
 

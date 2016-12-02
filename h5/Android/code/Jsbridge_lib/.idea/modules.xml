@@ -4,11 +4,15 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Jsbridge_lib.iml" filepath="$PROJECT_DIR$/Jsbridge_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeiboSDK/WeiboSdk.iml" filepath="$PROJECT_DIR$/WeiboSDK/WeiboSdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WeiboSDK/WeiboSdk.iml" filepath="$PROJECT_DIR$/WeiboSDK/WeiboSdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customwidgetlib/customwidgetlib.iml" filepath="$PROJECT_DIR$/customwidgetlib/customwidgetlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/customwidgetlib/customwidgetlib.iml" filepath="$PROJECT_DIR$/customwidgetlib/customwidgetlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/lhtwebviewapi/lhtwebviewapi.iml" filepath="$PROJECT_DIR$/lhtwebviewapi/lhtwebviewapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/lhtwebviewlib/lhtwebviewlib.iml" filepath="$PROJECT_DIR$/lhtwebviewlib/lhtwebviewlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/materialintro/materialintro.iml" filepath="$PROJECT_DIR$/materialintro/materialintro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/materialintro/materialintro.iml" filepath="$PROJECT_DIR$/materialintro/materialintro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ptrlib/ptrlib.iml" filepath="$PROJECT_DIR$/ptrlib/ptrlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/ptrlib/ptrlib.iml" filepath="$PROJECT_DIR$/ptrlib/ptrlib.iml" />
     </modules>
   </component>

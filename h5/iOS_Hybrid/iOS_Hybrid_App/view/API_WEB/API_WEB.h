@@ -14,7 +14,7 @@ typedef void (^H5Callback)(id bridge, id data, NetError *err);
 
 //-------正式方法------//
 #pragma mark - 调用Native事件
-#define APP_N_PUBLIC_AUTH @"APP_W_PUBLIC_AUTH" //认证用户
+#define APP_N_PUBLIC_SIGN_AUTHINFO @"APP_N_PUBLIC_SIGN_AUTHINFO" //认证用户
 #define APP_N_PUBLIC_SIGN_LOGIN @"APP_N_PUBLIC_SIGN_LOGIN" //登录
 
 

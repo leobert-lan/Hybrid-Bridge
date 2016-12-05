@@ -154,6 +154,8 @@
                 
                 [self didLoad];
                 
+                //delegate回调
+                [self loginSuccess];
                 
             } failure:^(NetError* err) {
                 [MobClick event:UMUserLogin attributes:@{@"failureUInfo":StrFromInt(err.errStatusCode)}];
@@ -180,6 +182,7 @@
                 UIAlertAction *company = [UIAlertAction actionWithTitle:@"注册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     RegisterVC *vc=(RegisterVC *)[QGLOBAL viewControllerName:@"RegisterVC" storyboardName:@"Register"];
                     vc.delegatePopVC=self.delegatePopVC;
+                    vc.delegate=self.delegate;
                     [self.navigationController pushViewController:vc animated:YES];
                 }];
                 
@@ -322,6 +325,7 @@
     vc.via = via;
     vc.authModel = authModel;
     vc.delegatePopVC=self.delegatePopVC;
+    vc.delegate=self.delegate;
     [self.navigationController pushViewController:vc animated:YES];
 
 }
@@ -360,8 +364,8 @@
                 
                 [self didLoad];
                 
-                
-                
+                //delegate回调
+                [self loginSuccess];
                 
             } failure:^(NetError * err) {
                 [self showText:Msg_ThirdLoginErr];
@@ -439,5 +443,12 @@
         
     }
     
+}
+
+#pragma mark - 回调auth
+- (void)loginSuccess{
+    if ([self.delegate respondsToSelector:@selector(loginVCDelegate:auth:)]) {
+        [self.delegate loginVCDelegate:self auth:QGLOBAL.auth];
+    }
 }
 @end

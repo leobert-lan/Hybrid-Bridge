@@ -9,6 +9,8 @@
 #import "ThirdLoginVC.h"
 #import "SignAPI.h"
 #import "PerfectVC.h"
+#import "loginVC.h"
+
 @interface ThirdLoginVC ()<UITextFieldDelegate>
 {
     IBOutlet UILabel *lblID;
@@ -107,17 +109,9 @@
             [QGLOBAL.sideMenu setUserInfo:QGLOBAL.auth];
             [self didLoad];
             
-//            [SignAPI getUserInfoUsername:self.authModel.username success:^(UserModel *model) {
-//                QGLOBAL.usermodel = model;
-//
-//                
-//            } failure:^(NetError* err) {
-//                [self didLoad];
-//                [self showText:err.errMessage];
-//            }];
-//            
-//            
-//            [self didLoad];
+            //delegate回调
+            [self loginSuccess];
+            
         } failure:^(NetError *err) {
             [MobClick event:UMUserRegist3rd attributes:@{@"failure":StrFromInt(1)}];
             [self didLoad];
@@ -142,19 +136,10 @@
     [self presentViewController:alt animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - 回调auth
+- (void)loginSuccess{
+    if ([self.delegate respondsToSelector:@selector(loginVCDelegate:auth:)]) {
+        [self.delegate loginVCDelegate:self auth:QGLOBAL.auth];
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

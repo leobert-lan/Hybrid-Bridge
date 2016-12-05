@@ -19,6 +19,15 @@
     }];
 }
 
++ (void)LoginListener:(WKWebViewJavascriptBridge *)bridge handler:(H5Listener)handler{
+    __weak id weakSelf=bridge;
+    [bridge registerHandler:APP_N_PUBLIC_SIGN_LOGIN handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (handler) {
+            handler(weakSelf, nil, nil, responseCallback);
+        }
+    }];
+}
+
 #pragma mark - 调取web
 + (void)AuthInfoCall:(WKWebViewJavascriptBridge *)bridge data:(id)data callback:(H5Callback)callback {
     __weak id weakSelf=bridge;

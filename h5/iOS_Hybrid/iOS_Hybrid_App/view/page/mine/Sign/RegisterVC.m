@@ -12,6 +12,8 @@
 #import "loginVC.h"
 #import "PerfectVC.h"
 #import "RegisterWebVC.h"
+#import "loginVC.h"
+
 @interface RegisterVC ()<MZTimerLabelDelegate,UITextFieldDelegate>
 {
     IBOutlet UITextField *txtphoneNum,*txtVerCode,*txtPwd;
@@ -176,6 +178,10 @@
                                 btnVerCode.userInteractionEnabled = YES;
                             });
                         }
+                        
+                        //delegate回调
+                        [self loginSuccess];
+                        
                     } failure:^(NetError* err) {
                         [self didLoad];
                         [self showText:@"注册成功,请到登录页面登录"];
@@ -339,19 +345,13 @@
     [alt addAction:can];
     [self presentViewController:alt animated:YES completion:nil];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 回调auth
+- (void)loginSuccess{
+    if ([self.delegate respondsToSelector:@selector(loginVCDelegate:auth:)]) {
+        [self.delegate loginVCDelegate:self auth:QGLOBAL.auth];
+    }
 }
-*/
 
 @end

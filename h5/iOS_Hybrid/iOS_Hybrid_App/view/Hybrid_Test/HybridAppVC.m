@@ -9,7 +9,9 @@
 #import "HybridAppVC.h"
 
 @interface HybridAppVC ()
-
+{
+    WVJBResponseCallback webLoginCallback;
+}
 @end
 
 @implementation HybridAppVC
@@ -54,13 +56,13 @@
 - (void)listener:(WKWebViewJavascriptBridge*)bridge{
     [super listener:bridge];
     
-    //demo监听
+    //auth监听
     [WebAuthAPI AuthInfoListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
         DLog(@"H5 %@-调 AuthListener: %@",bridge,data);
         //回传给H5
         NSMutableDictionary *dd=[NSMutableDictionary new];
         dd[@"ret"]=@"0";
-        dd[@"msg"]=@"success";
+        dd[@"msg"]=@"";
         dd[@"status"]=@"1";
         
         NSMutableDictionary *dd2=[[NSMutableDictionary alloc]init];
@@ -83,6 +85,31 @@
 //        [DemoH5API demoCall:self.bridge2 data:dd callback:^(id bridge, id data, NetError *err) {
 //            DLog(@">>>%@: %@",bridge, data);
 //        }];
+        
+    }];
+    
+    //login监听
+    [WebAuthAPI LoginListener:bridge handler:^(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback) {
+        DLog(@"H5 %@-调 LoginListener: %@",bridge,webLoginCallback);
+        webLoginCallback=responseCallback;
+        DLog(@"H5 %@-调 LoginListener: %@",bridge,webLoginCallback);
+        
+        if (![QGLOBAL hadAuthToken]){
+            loginVC *vc=[QGLOBAL viewControllerName:@"loginVC" storyboardName:@"login"];
+            vc.delegate=self;
+            vc.backButtonEnabled=YES;
+            UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc];
+            
+            [self presentViewController:nav animated:YES completion:^{
+                //
+            }];
+           
+            
+            return;
+        }
+        else {
+            [self webLoginCallBack];
+        }
         
     }];
     /*
@@ -208,5 +235,34 @@
         }];
     }];
     */
+}
+
+#pragma mark - loginVCDelegate
+- (void)loginVCDelegate:(id)delegate auth:(AuthModel*)auth{
+    [self webLoginCallBack];
+}
+
+- (void)webLoginCallBack{
+    if (webLoginCallback!=nil && ![QGLOBAL hadAuthToken]) {
+        //回传给H5
+        NSMutableDictionary *dd=[NSMutableDictionary new];
+        dd[@"ret"]=@"0";
+        dd[@"msg"]=@"";
+        dd[@"status"]=@"1";
+        
+//        NSMutableDictionary *dd2=[[NSMutableDictionary alloc]init];
+//        if (!StrIsEmpty(QGLOBAL.auth.vso_token) && !StrIsEmpty(QGLOBAL.auth.username)){
+//            dd2[@"auth_token"]=StrFromObj(QGLOBAL.auth.vso_token);
+//            dd2[@"auth_username"]=StrFromObj(QGLOBAL.auth.username);
+//        }
+//        else {
+//            dd[@"status"]=@"0";
+//        }
+        
+        
+        dd[@"data"]=[QGLOBAL.auth toDictionary];
+        webLoginCallback([QGLOBAL toJSONStr:dd]);
+    }
+    webLoginCallback=nil;
 }
 @end

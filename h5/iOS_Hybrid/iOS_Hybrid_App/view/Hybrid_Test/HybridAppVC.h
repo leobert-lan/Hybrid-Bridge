@@ -8,6 +8,7 @@
 
 #import "BaseWKWebViewVC.h"
 #import "WebAuthAPI.h"
+#import "loginVC.h"
 @interface HybridAppVC : BaseWKWebViewVC
 
 @end

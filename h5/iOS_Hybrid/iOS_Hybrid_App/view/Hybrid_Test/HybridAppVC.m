@@ -243,7 +243,7 @@
 }
 
 - (void)webLoginCallBack{
-    if (webLoginCallback!=nil && ![QGLOBAL hadAuthToken]) {
+    if (webLoginCallback!=nil && [QGLOBAL hadAuthToken]) {
         //回传给H5
         NSMutableDictionary *dd=[NSMutableDictionary new];
         dd[@"ret"]=@"0";

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hfO-s0-3ZZ" customClass="QYDatePicker">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aRM-AZ-uRJ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.77466457970000002" green="0.69341048750000001" blue="0.89043490670000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="closeAction:" destination="hfO-s0-3ZZ" eventType="touchUpInside" id="Den-aU-JEL"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" id="nlG-Mo-dx7" userLabel="vtime">
+                    <rect key="frame" x="0.0" y="162" width="320" height="245"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U64-ri-Wjk">
+                            <rect key="frame" x="10" y="194" width="300" height="36"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="确定">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="okAction:" destination="hfO-s0-3ZZ" eventType="touchUpInside" id="KIs-Ps-joH"/>
+                            </connections>
+                        </button>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="zAa-db-GOI">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <date key="date" timeIntervalSinceReferenceDate="450690849.69820303">
+                                <!--2015-04-14 07:54:09 +0000-->
+                            </date>
+                            <locale key="locale" localeIdentifier="zh_CN"/>
+                        </datePicker>
+                    </subviews>
+                    <color key="backgroundColor" red="0.63700755470000003" green="0.79257460999999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="btnOK" destination="U64-ri-Wjk" id="Nnm-LE-u0g"/>
+                <outlet property="btnShadow" destination="aRM-AZ-uRJ" id="Y3i-Cq-cUe"/>
+                <outlet property="picker" destination="zAa-db-GOI" id="WLO-Lu-bfZ"/>
+                <outlet property="vTime" destination="nlG-Mo-dx7" id="fkc-6f-fgF"/>
+            </connections>
+            <point key="canvasLocation" x="341" y="334"/>
+        </view>
+    </objects>
+</document>

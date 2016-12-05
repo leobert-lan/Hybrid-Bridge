@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SubScriptionCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubScriptionCell" id="HG0-2h-jcT" customClass="SubScriptionCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HG0-2h-jcT" id="Bnm-tG-nAj">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxO-F7-SVM">
+                        <rect key="frame" x="19" y="11" width="256" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="eeg-bb-OpQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jinr" translatesAutoresizingMaskIntoConstraints="NO" id="UY6-F9-Lcc">
+                        <rect key="frame" x="283" y="11" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="3Hq-x7-mua"/>
+                            <constraint firstAttribute="height" constant="22" id="LC0-d1-fa5"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-rU-nQq">
+                        <rect key="frame" x="283" y="11" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="Rn1-Ee-5cw"/>
+                            <constraint firstAttribute="height" constant="22" id="t9R-wJ-eF4"/>
+                        </constraints>
+                        <state key="normal" image="Check"/>
+                        <state key="selected" image="Check2"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mxO-F7-SVM" firstAttribute="centerY" secondItem="Bnm-tG-nAj" secondAttribute="centerY" id="0ss-ey-hLD"/>
+                    <constraint firstItem="mxO-F7-SVM" firstAttribute="leading" secondItem="Bnm-tG-nAj" secondAttribute="leading" constant="19" id="21F-WI-9tu"/>
+                    <constraint firstItem="UY6-F9-Lcc" firstAttribute="leading" secondItem="mxO-F7-SVM" secondAttribute="trailing" constant="8" id="7ik-dU-ke6"/>
+                    <constraint firstAttribute="trailing" secondItem="bYo-rU-nQq" secondAttribute="trailing" constant="15" id="PJl-eu-qvl"/>
+                    <constraint firstItem="UY6-F9-Lcc" firstAttribute="centerY" secondItem="Bnm-tG-nAj" secondAttribute="centerY" id="TTm-64-hLB"/>
+                    <constraint firstItem="bYo-rU-nQq" firstAttribute="centerY" secondItem="Bnm-tG-nAj" secondAttribute="centerY" id="e9l-tf-1TE"/>
+                    <constraint firstAttribute="trailing" secondItem="UY6-F9-Lcc" secondAttribute="trailing" constant="15" id="lTD-Lc-PdQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnSel" destination="bYo-rU-nQq" id="rtG-SJ-aJc"/>
+                <outlet property="imgIcon" destination="UY6-F9-Lcc" id="CfP-mr-gSv"/>
+                <outlet property="lblTTL" destination="mxO-F7-SVM" id="MtK-VM-hLm"/>
+            </connections>
+            <point key="canvasLocation" x="165" y="158"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Check" width="22" height="22"/>
+        <image name="Check2" width="22" height="22"/>
+        <image name="jinr" width="22" height="22"/>
+    </resources>
+</document>

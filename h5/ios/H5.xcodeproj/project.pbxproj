@@ -198,6 +198,8 @@
 		A347FF951C61C2BD00F402A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A347FF931C61C2BD00F402A7 /* Main.storyboard */; };
 		A347FF971C61C2BD00F402A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A347FF961C61C2BD00F402A7 /* Assets.xcassets */; };
 		A347FF9A1C61C2BD00F402A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A347FF981C61C2BD00F402A7 /* LaunchScreen.storyboard */; };
+		A37CA4F61DEEB5360096DF4F /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A37CA4F41DEEB5360096DF4F /* LoginVC.m */; };
+		A37CA4F71DEEB5360096DF4F /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37CA4F51DEEB5360096DF4F /* LoginVC.xib */; };
 		A3E948FA1C7D5F5A00D254BA /* ExampleApp.html in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F31C7D5F5A00D254BA /* ExampleApp.html */; };
 		A3E948FB1C7D5F5A00D254BA /* H5JSBridge_1_0.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F41C7D5F5A00D254BA /* H5JSBridge_1_0.js */; };
 		A3E948FC1C7D5F5A00D254BA /* H5JSBridgeCamera.js in Resources */ = {isa = PBXBuildFile; fileRef = A3E948F51C7D5F5A00D254BA /* H5JSBridgeCamera.js */; };
@@ -572,6 +574,9 @@
 		A347FF961C61C2BD00F402A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A347FF991C61C2BD00F402A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A347FF9B1C61C2BD00F402A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A37CA4F31DEEB5360096DF4F /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		A37CA4F41DEEB5360096DF4F /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		A37CA4F51DEEB5360096DF4F /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		A3E948F31C7D5F5A00D254BA /* ExampleApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ExampleApp.html; sourceTree = "<group>"; };
 		A3E948F41C7D5F5A00D254BA /* H5JSBridge_1_0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridge_1_0.js; sourceTree = "<group>"; };
 		A3E948F51C7D5F5A00D254BA /* H5JSBridgeCamera.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = H5JSBridgeCamera.js; sourceTree = "<group>"; };
@@ -1377,6 +1382,50 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A37CA4F11DED7F090096DF4F /* other */ = {
+			isa = PBXGroup;
+			children = (
+				A3E9490E1C7E950900D254BA /* H5VC.h */,
+				A3E9490F1C7E950900D254BA /* H5VC.m */,
+				A3E949101C7E950900D254BA /* H5VC.xib */,
+				28913DA21C7EE5BE00E01AC3 /* QRCodeVC.h */,
+				28913DA31C7EE5BE00E01AC3 /* QRCodeVC.m */,
+				28913DA41C7EE5BE00E01AC3 /* QRCodeVC.xib */,
+				286A9EAB1C8D291600798A68 /* H5newVC.h */,
+				286A9EAC1C8D291600798A68 /* H5newVC.m */,
+				286A9EAD1C8D291600798A68 /* H5newVC.xib */,
+				2842C0651C8FF31F003B68AE /* H5PlayerVC.h */,
+				2842C0661C8FF31F003B68AE /* H5PlayerVC.m */,
+				2842C0671C8FF31F003B68AE /* H5PlayerVC.xib */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
+		A37CA4F21DEEB4CB0096DF4F /* sign */ = {
+			isa = PBXGroup;
+			children = (
+				A37CA4F31DEEB5360096DF4F /* LoginVC.h */,
+				A37CA4F41DEEB5360096DF4F /* LoginVC.m */,
+				A37CA4F51DEEB5360096DF4F /* LoginVC.xib */,
+			);
+			path = sign;
+			sourceTree = "<group>";
+		};
+		A37CA4F81DEEB6E20096DF4F /* test */ = {
+			isa = PBXGroup;
+			children = (
+				A3E949161C7E95E300D254BA /* DemoH5API.h */,
+				A3E949171C7E95E300D254BA /* DemoH5API.m */,
+				A3E9491C1C7EA0E700D254BA /* GPSH5API.h */,
+				A3E9491D1C7EA0E700D254BA /* GPSH5API.m */,
+				28913DA71C7EE8C900E01AC3 /* QRCodeH5API.h */,
+				28913DA81C7EE8C900E01AC3 /* QRCodeH5API.m */,
+				28738AE61C852B6D00A5A3F4 /* ThirdpartyLoginAPI.h */,
+				28738AE71C852B6D00A5A3F4 /* ThirdpartyLoginAPI.m */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
 		A3E948F21C7D5F5A00D254BA /* h5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1452,19 +1501,9 @@
 		A3E9490D1C7E950900D254BA /* pages */ = {
 			isa = PBXGroup;
 			children = (
+				A37CA4F21DEEB4CB0096DF4F /* sign */,
 				284E87F01CBF28A1000FE33C /* Language */,
-				A3E9490E1C7E950900D254BA /* H5VC.h */,
-				A3E9490F1C7E950900D254BA /* H5VC.m */,
-				A3E949101C7E950900D254BA /* H5VC.xib */,
-				28913DA21C7EE5BE00E01AC3 /* QRCodeVC.h */,
-				28913DA31C7EE5BE00E01AC3 /* QRCodeVC.m */,
-				28913DA41C7EE5BE00E01AC3 /* QRCodeVC.xib */,
-				286A9EAB1C8D291600798A68 /* H5newVC.h */,
-				286A9EAC1C8D291600798A68 /* H5newVC.m */,
-				286A9EAD1C8D291600798A68 /* H5newVC.xib */,
-				2842C0651C8FF31F003B68AE /* H5PlayerVC.h */,
-				2842C0661C8FF31F003B68AE /* H5PlayerVC.m */,
-				2842C0671C8FF31F003B68AE /* H5PlayerVC.xib */,
+				A37CA4F11DED7F090096DF4F /* other */,
 				2CF7FE1A1DE82957006113A4 /* HybridAppVC.h */,
 				2CF7FE1B1DE82957006113A4 /* HybridAppVC.m */,
 				2CF7FE1C1DE82957006113A4 /* HybridAppVC.xib */,
@@ -1475,14 +1514,7 @@
 		A3E949151C7E959600D254BA /* API_H5 */ = {
 			isa = PBXGroup;
 			children = (
-				A3E949161C7E95E300D254BA /* DemoH5API.h */,
-				A3E949171C7E95E300D254BA /* DemoH5API.m */,
-				A3E9491C1C7EA0E700D254BA /* GPSH5API.h */,
-				A3E9491D1C7EA0E700D254BA /* GPSH5API.m */,
-				28913DA71C7EE8C900E01AC3 /* QRCodeH5API.h */,
-				28913DA81C7EE8C900E01AC3 /* QRCodeH5API.m */,
-				28738AE61C852B6D00A5A3F4 /* ThirdpartyLoginAPI.h */,
-				28738AE71C852B6D00A5A3F4 /* ThirdpartyLoginAPI.m */,
+				A37CA4F81DEEB6E20096DF4F /* test */,
 			);
 			path = API_H5;
 			sourceTree = "<group>";
@@ -1551,6 +1583,7 @@
 			files = (
 				A3E948FC1C7D5F5A00D254BA /* H5JSBridgeCamera.js in Resources */,
 				28738AB31C8526BA00A5A3F4 /* UMSocialSDKResourcesNew.bundle in Resources */,
+				A37CA4F71DEEB5360096DF4F /* LoginVC.xib in Resources */,
 				A306E1291C7C237400C111CC /* backward_nor@2x.png in Resources */,
 				A306E1721C7C237400C111CC /* playbutton.png in Resources */,
 				A306E1301C7C237400C111CC /* pause_disable@2x.png in Resources */,
@@ -1739,6 +1772,7 @@
 				A306E1631C7C237400C111CC /* MKAnnotationView+WebCache.m in Sources */,
 				A306E19B1C7C32A900C111CC /* WebViewJavascriptBridgeBase.m in Sources */,
 				A306E1771C7C237400C111CC /* Zhuge.m in Sources */,
+				A37CA4F61DEEB5360096DF4F /* LoginVC.m in Sources */,
 				A306E14E1C7C237400C111CC /* MJRefreshAutoFooter.m in Sources */,
 				A306E1421C7C237400C111CC /* JSONAPI.m in Sources */,
 				A306E1651C7C237400C111CC /* SDImageCache.m in Sources */,

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityCommentVC">
+            <connections>
+                <outlet property="btnOK" destination="IF4-oj-sMF" id="l90-so-QzH"/>
+                <outlet property="lblHint" destination="EcC-NH-s5C" id="DbN-Ls-YC3"/>
+                <outlet property="lblHintT" destination="46c-5r-8DO" id="egY-s9-hpr"/>
+                <outlet property="lblNum" destination="bkf-Jn-QVL" id="cCR-zG-Yti"/>
+                <outlet property="txtComment" destination="vn9-uB-j5m" id="xv3-uG-tNA"/>
+                <outlet property="vLine" destination="cSu-Ku-ZpS" id="ZPd-OY-F0I"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vn9-uB-j5m">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="bRu-1Y-6jp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="gPr-BK-Wsv"/>
+                    </connections>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkf-Jn-QVL">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="hsy-GN-JNA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSu-Ku-ZpS">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="izI-6U-SME"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小贴士：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcC-NH-s5C">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="gdI-Cz-NaU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="语言风趣、中肯、高价值的评论有助于更快通过审核哦～" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46c-5r-8DO">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="2pa-kK-F7W"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IF4-oj-sMF">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="a8L-3K-h1z"/>
+                    </constraints>
+                    <state key="normal" title="提交"/>
+                    <connections>
+                        <action selector="btnOKAction:" destination="-1" eventType="touchUpInside" id="p5c-av-rKQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IF4-oj-sMF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="366-ho-UT0"/>
+                <constraint firstItem="cSu-Ku-ZpS" firstAttribute="leading" secondItem="vn9-uB-j5m" secondAttribute="leading" id="71G-qs-b8m"/>
+                <constraint firstItem="46c-5r-8DO" firstAttribute="top" secondItem="EcC-NH-s5C" secondAttribute="bottom" id="Avc-wd-oiK"/>
+                <constraint firstAttribute="trailing" secondItem="IF4-oj-sMF" secondAttribute="trailing" constant="15" id="DnT-zY-v88"/>
+                <constraint firstItem="bkf-Jn-QVL" firstAttribute="trailing" secondItem="vn9-uB-j5m" secondAttribute="trailing" id="H0o-vJ-BgX"/>
+                <constraint firstItem="cSu-Ku-ZpS" firstAttribute="top" secondItem="bkf-Jn-QVL" secondAttribute="bottom" id="I9Y-2U-qvA"/>
+                <constraint firstItem="vn9-uB-j5m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Sgn-DT-6aR"/>
+                <constraint firstItem="bkf-Jn-QVL" firstAttribute="top" secondItem="vn9-uB-j5m" secondAttribute="bottom" id="UbM-Ew-tBH"/>
+                <constraint firstItem="bkf-Jn-QVL" firstAttribute="leading" secondItem="vn9-uB-j5m" secondAttribute="leading" id="XrP-gp-Uoj"/>
+                <constraint firstItem="IF4-oj-sMF" firstAttribute="top" secondItem="46c-5r-8DO" secondAttribute="bottom" constant="30" id="c3d-JC-VvI"/>
+                <constraint firstItem="vn9-uB-j5m" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="ccu-d5-bHr"/>
+                <constraint firstItem="EcC-NH-s5C" firstAttribute="top" secondItem="cSu-Ku-ZpS" secondAttribute="bottom" constant="15" id="d9y-Dn-3Dn"/>
+                <constraint firstItem="EcC-NH-s5C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ds1-lw-s8c"/>
+                <constraint firstItem="cSu-Ku-ZpS" firstAttribute="trailing" secondItem="vn9-uB-j5m" secondAttribute="trailing" id="iQ0-EG-Abm"/>
+                <constraint firstAttribute="trailing" secondItem="EcC-NH-s5C" secondAttribute="trailing" constant="15" id="jk1-ue-fKz"/>
+                <constraint firstAttribute="trailing" secondItem="vn9-uB-j5m" secondAttribute="trailing" constant="15" id="xuK-jU-PIX"/>
+                <constraint firstItem="46c-5r-8DO" firstAttribute="trailing" secondItem="EcC-NH-s5C" secondAttribute="trailing" id="y0u-aC-ewO"/>
+                <constraint firstItem="46c-5r-8DO" firstAttribute="leading" secondItem="EcC-NH-s5C" secondAttribute="leading" id="ymi-dO-VMA"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

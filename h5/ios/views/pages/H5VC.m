@@ -140,9 +140,9 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
         dd[@"msg"]=@"这是第一个H5的内容";
         dd[@"data"]=data;
        
-        [DemoH5API demoCall:self.bridge2 data:dd callback:^(id bridge, id data, NetError *err) {
-            DLog(@">>>%@: %@",bridge, data);
-        }];
+//        [DemoH5API demoCall:self.bridge2 data:dd callback:^(id bridge, id data, NetError *err) {
+//            DLog(@">>>%@: %@",bridge, data);
+//        }];
 
     }];
     

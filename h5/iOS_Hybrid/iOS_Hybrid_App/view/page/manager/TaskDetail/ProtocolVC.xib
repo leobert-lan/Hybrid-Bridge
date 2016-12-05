@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProtocolVC">
+            <connections>
+                <outlet property="btnAgree" destination="oU1-Jk-twH" id="sRr-Ce-P4E"/>
+                <outlet property="btnNo" destination="2xX-Mj-JmZ" id="mpS-JB-jwT"/>
+                <outlet property="btnOkB" destination="jMt-7a-svH" id="apd-f0-Phv"/>
+                <outlet property="vBid" destination="SIL-u6-Voa" id="Bcj-33-cCf"/>
+                <outlet property="vBottom" destination="D3m-Yx-qco" id="vfo-5d-wLB"/>
+                <outlet property="vWeb" destination="ebp-6a-t87" id="2VB-Ya-3Wv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebp-6a-t87">
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU1-Jk-twH">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="T7J-gV-w90"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="我已仔细阅读以上协议内容" image="Check">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnProtocolAction:" destination="-1" eventType="touchUpInside" id="mbB-jg-NpZ"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3m-Yx-qco">
+                    <color key="backgroundColor" red="1" green="0.12076412409999999" blue="0.077106622489999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="wUA-v8-WJT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ebp-6a-t87" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C3Y-Jt-YB4"/>
+                <constraint firstItem="ebp-6a-t87" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Ex1-sf-f75"/>
+                <constraint firstAttribute="trailing" secondItem="ebp-6a-t87" secondAttribute="trailing" id="G51-iU-56Q"/>
+                <constraint firstAttribute="trailing" secondItem="oU1-Jk-twH" secondAttribute="trailing" constant="15" id="Hj9-rO-7Fi"/>
+                <constraint firstItem="oU1-Jk-twH" firstAttribute="top" secondItem="ebp-6a-t87" secondAttribute="bottom" constant="15" id="OPh-4d-qFo"/>
+                <constraint firstAttribute="bottom" secondItem="D3m-Yx-qco" secondAttribute="bottom" id="a8x-LT-gEF"/>
+                <constraint firstAttribute="trailing" secondItem="oU1-Jk-twH" secondAttribute="trailing" constant="15" id="bSd-5I-UA7"/>
+                <constraint firstAttribute="trailing" secondItem="D3m-Yx-qco" secondAttribute="trailing" id="cLM-yt-695"/>
+                <constraint firstItem="D3m-Yx-qco" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n3f-TW-8RA"/>
+                <constraint firstAttribute="bottom" secondItem="ebp-6a-t87" secondAttribute="bottom" constant="120" id="osM-Yl-c5o"/>
+                <constraint firstItem="oU1-Jk-twH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="zof-br-39A"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="bSd-5I-UA7"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="310" y="306"/>
+        </view>
+        <view contentMode="scaleToFill" id="SIL-u6-Voa">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMt-7a-svH">
+                    <state key="normal" title="同意签署协议" image="sign"/>
+                    <connections>
+                        <action selector="btnOkAction:" destination="-1" eventType="touchUpInside" id="M16-aC-cKL"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNN-6H-Qbc">
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="7ET-gI-Z0H"/>
+                        <constraint firstAttribute="width" constant="0.5" id="ndd-cc-Yuc"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="7ET-gI-Z0H"/>
+                        </mask>
+                    </variation>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xX-Mj-JmZ">
+                    <state key="normal" title="不同意" image="contact"/>
+                    <connections>
+                        <action selector="btnNoAction:" destination="-1" eventType="touchUpInside" id="pMX-0z-wcF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="2xX-Mj-JmZ" secondAttribute="bottom" id="Eq8-L5-TRM"/>
+                <constraint firstItem="2xX-Mj-JmZ" firstAttribute="leading" secondItem="SIL-u6-Voa" secondAttribute="leading" id="FhJ-Cj-AjZ"/>
+                <constraint firstItem="2xX-Mj-JmZ" firstAttribute="top" secondItem="SIL-u6-Voa" secondAttribute="top" id="HLz-Py-64q"/>
+                <constraint firstAttribute="trailing" secondItem="jMt-7a-svH" secondAttribute="trailing" id="KBz-TA-b10"/>
+                <constraint firstItem="DNN-6H-Qbc" firstAttribute="top" secondItem="2xX-Mj-JmZ" secondAttribute="top" id="MgM-Zt-e0r"/>
+                <constraint firstItem="DNN-6H-Qbc" firstAttribute="height" secondItem="2xX-Mj-JmZ" secondAttribute="height" id="S5l-w3-QMs"/>
+                <constraint firstAttribute="bottom" secondItem="jMt-7a-svH" secondAttribute="bottom" id="fPr-cU-OvX"/>
+                <constraint firstItem="DNN-6H-Qbc" firstAttribute="leading" secondItem="2xX-Mj-JmZ" secondAttribute="trailing" id="hFL-PU-lHA"/>
+                <constraint firstItem="jMt-7a-svH" firstAttribute="top" secondItem="SIL-u6-Voa" secondAttribute="top" id="iew-cb-Ekn"/>
+                <constraint firstItem="jMt-7a-svH" firstAttribute="width" secondItem="2xX-Mj-JmZ" secondAttribute="width" id="zTy-UA-EuR"/>
+                <constraint firstItem="jMt-7a-svH" firstAttribute="leading" secondItem="DNN-6H-Qbc" secondAttribute="trailing" id="zsA-eL-0fl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="260" y="790"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Check" width="22" height="22"/>
+        <image name="contact" width="18" height="17"/>
+        <image name="sign" width="17" height="17"/>
+    </resources>
+</document>

@@ -64,15 +64,19 @@
         dd[@"status"]=@"1";
         
         NSMutableDictionary *dd2=[[NSMutableDictionary alloc]init];
-        if (!StrIsEmpty(QGLOBAL.auth.vso_token))
+        if (!StrIsEmpty(QGLOBAL.auth.vso_token) && !StrIsEmpty(QGLOBAL.auth.username)){
             dd2[@"auth_token"]=StrFromObj(QGLOBAL.auth.vso_token);
-        if (!StrIsEmpty(QGLOBAL.auth.username))
             dd2[@"auth_username"]=StrFromObj(QGLOBAL.auth.username);
+        }
+        else {
+            dd[@"status"]=@"0";
+        }
+            
         
         dd[@"data"]=dd2;
         responseCallback([QGLOBAL toJSONStr:dd]);
 //        responseCallback(dd);
-//        
+//
 //        //同时传个值给第二个H5页面
         
 //

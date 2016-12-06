@@ -3,6 +3,7 @@ package com.lht.cloudjob.service;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -30,7 +31,7 @@ public class DownloadFileService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         String downloadInfo = intent.getStringExtra(DOWNLOAD_INFO);
-        NF_DownloadReqBean bean = (NF_DownloadReqBean) JSON.parse(downloadInfo);
+        NF_DownloadReqBean bean = JSON.parseObject(downloadInfo, NF_DownloadReqBean.class);
         DownloadEntity entity = DownloadEntity.copyFromDownloadBean(bean);
         DownloadModel model = new DownloadModel(entity, BaseActivity.getPublicDownloadDir(),
                 new DownloadFileCallback(bean, entity));
@@ -52,7 +53,7 @@ public class DownloadFileService extends IntentService {
 
         @Override
         public void onNoInternet() {
-//            Toast.makeText(getApplicationContext(), R.string.v1010_toast_net_exception, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.v1010_toast_net_exception, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
                     0, getApplicationContext().getString(R.string.v1010_toast_net_exception));
             postEvent(event);
@@ -60,7 +61,8 @@ public class DownloadFileService extends IntentService {
 
         @Override
         public void onMobileNet() {
-//            Toast.makeText(getApplicationContext(), R.string.v1020_versionupdate_dialog_onmobile_remind, Toast.LENGTH_SHORT).show();
+            Log.e("lmsg", "移动网络状态");
+            Toast.makeText(getApplicationContext(), R.string.v1020_dialog_preview_onmobile_toolarge, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_DEFAULT,
                     0, getApplicationContext().getString(R.string.v1020_versionupdate_dialog_onmobile_remind));
             postEvent(event);
@@ -68,7 +70,8 @@ public class DownloadFileService extends IntentService {
 
         @Override
         public void onFileNotFoundOnServer() {
-//            Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnotfound, Toast.LENGTH_SHORT).show();
+            Log.e("lmsg", "文件不存在");
+            Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnotfound, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
                     0, getApplicationContext().getString(R.string.v1020_toast_download_onnotfound));
             postEvent(event);
@@ -76,19 +79,22 @@ public class DownloadFileService extends IntentService {
 
         @Override
         public void onDownloadStart(DownloadEntity entity) {
+            Log.e("lmsg", "开始下载");
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ONSTART, 0, "开始下载");
             postEvent(event);
         }
 
         @Override
         public void onDownloadCancel() {
-            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_SUCCESS, 0, "取消下载");
+            Log.e("lmsg", "取消下载");
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_CANCEL, 0, "取消下载");
             postEvent(event);
         }
 
         @Override
         public void onDownloadSuccess(DownloadEntity entity, File file) {
-            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_CANCEL,
+            Log.e("lmsg", "下载成功");
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_SUCCESS,
                     entity.getFileSize(), "下载成功");
             event.setFile(file);
             postEvent(event);
@@ -96,6 +102,7 @@ public class DownloadFileService extends IntentService {
 
         @Override
         public void onDownloading(DownloadEntity entity, long current, long total) {
+            Log.e("lmsg", "正在下载");
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_DOWNLOADING,
                     current, "正在下载");
 
@@ -104,7 +111,8 @@ public class DownloadFileService extends IntentService {
 
         @Override
         public void onNoEnoughSpace() {
-//            Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnoenoughspace, Toast.LENGTH_SHORT).show();
+            Log.e("lmsg", "下载失败");
+            Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnoenoughspace, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
                     0, getApplicationContext().getString(R.string.v1020_toast_download_onnoenoughspace));
             postEvent(event);
@@ -112,7 +120,8 @@ public class DownloadFileService extends IntentService {
 
         @Override
         public void downloadFailure() {
-//            Toast.makeText(getApplicationContext(), R.string.v1020_versionupdate_text_download_fuilure, Toast.LENGTH_SHORT).show();
+            Log.e("lmsg", "下载失败");
+            Toast.makeText(getApplicationContext(), R.string.v1020_versionupdate_text_download_fuilure, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
                     0, getApplicationContext().getString(R.string.v1020_versionupdate_text_download_fuilure));
             postEvent(event);

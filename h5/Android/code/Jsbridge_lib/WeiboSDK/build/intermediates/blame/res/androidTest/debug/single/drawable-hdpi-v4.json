@@ -12,12 +12,12 @@
         "source": "E:\\WorkSpace\\App_Public\\h5\\Android\\code\\Jsbridge_lib\\WeiboSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_logo.png"
     },
     {
-        "merged": "E:\\WorkSpace\\App_Public\\h5\\Android\\code\\Jsbridge_lib\\WeiboSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png",
-        "source": "E:\\WorkSpace\\App_Public\\h5\\Android\\code\\Jsbridge_lib\\WeiboSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png"
-    },
-    {
         "merged": "E:\\WorkSpace\\App_Public\\h5\\Android\\code\\Jsbridge_lib\\WeiboSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_login_with_account_text_focused.png",
         "source": "E:\\WorkSpace\\App_Public\\h5\\Android\\code\\Jsbridge_lib\\WeiboSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_login_with_account_text_focused.png"
+    },
+    {
+        "merged": "E:\\WorkSpace\\App_Public\\h5\\Android\\code\\Jsbridge_lib\\WeiboSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png",
+        "source": "E:\\WorkSpace\\App_Public\\h5\\Android\\code\\Jsbridge_lib\\WeiboSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png"
     },
     {
         "merged": "E:\\WorkSpace\\App_Public\\h5\\Android\\code\\Jsbridge_lib\\WeiboSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_com_sina_weibo_sdk_button_blue_normal.9.png",

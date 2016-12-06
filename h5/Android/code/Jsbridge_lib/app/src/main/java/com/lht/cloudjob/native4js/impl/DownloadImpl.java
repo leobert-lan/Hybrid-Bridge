@@ -11,7 +11,9 @@ import com.lht.cloudjob.native4js.Native4JsExpandAPI;
 import com.lht.cloudjob.native4js.expandresbean.NF_DownloadReqBean;
 import com.lht.cloudjob.native4js.expandresbean.NF_DownloadResBean;
 import com.lht.cloudjob.service.DownloadFileService;
+import com.lht.lhtwebviewapi.business.impl.MakePhoneCallImpl;
 import com.lht.lhtwebviewlib.base.Interface.CallBackFunction;
+import com.lht.lhtwebviewlib.base.model.BridgeNativeFunction;
 import com.lht.lhtwebviewlib.business.bean.BaseResponseBean;
 import com.lht.lhtwebviewlib.business.impl.ABSApiImpl;
 
@@ -108,9 +110,6 @@ public class DownloadImpl extends ABSApiImpl implements Native4JsExpandAPI.Downl
         bean.setUrl_download(entity.getFileUrl());
         bean.setFile_path(event.getFile().getAbsolutePath());
         BaseResponseBean<NF_DownloadResBean> nf_downloadResBeanBaseResponseBean = newSuccessResBean(bean);
-        if (nf_downloadResBeanBaseResponseBean == null) {
-            return;
-        }
         mFunction.onCallBack(JSON.toJSONString(nf_downloadResBeanBaseResponseBean));
     }
 
@@ -158,6 +157,9 @@ public class DownloadImpl extends ABSApiImpl implements Native4JsExpandAPI.Downl
             Log.wtf(API_NAME, "check you code,bean not match because your error");
             return BEAN_IS_ERROR;
         }
+    }
+    public static BridgeNativeFunction newInstance(Context context) {
+        return new BridgeNativeFunction(API_NAME, new DownloadImpl(context));
     }
 
     @Override

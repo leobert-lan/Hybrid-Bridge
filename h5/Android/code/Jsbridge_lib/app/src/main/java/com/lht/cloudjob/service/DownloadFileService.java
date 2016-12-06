@@ -1,8 +1,10 @@
 package com.lht.cloudjob.service;
 
-import android.app.IntentService;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -20,22 +22,31 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 
-public class DownloadFileService extends IntentService {
+public class DownloadFileService extends Service {
 
     public static String DOWNLOAD_INFO = "download_info";
 
-    public DownloadFileService() {
-        super(DownloadFileService.class.getName());
-    }
-
     @Override
-    protected void onHandleIntent(Intent intent) {
+    public int onStartCommand(Intent intent, int flags, int startId) {
         String downloadInfo = intent.getStringExtra(DOWNLOAD_INFO);
+
+        Log.d("lmsg", "download info:\r" + downloadInfo);
+
         NF_DownloadReqBean bean = JSON.parseObject(downloadInfo, NF_DownloadReqBean.class);
         DownloadEntity entity = DownloadEntity.copyFromDownloadBean(bean);
         DownloadModel model = new DownloadModel(entity, BaseActivity.getPublicDownloadDir(),
                 new DownloadFileCallback(bean, entity));
+
         model.doRequest(this);
+
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 
     static class DownloadFileCallback implements IFileDownloadCallbacks {

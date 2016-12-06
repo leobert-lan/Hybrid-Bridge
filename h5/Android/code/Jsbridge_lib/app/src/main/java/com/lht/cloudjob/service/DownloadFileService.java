@@ -27,7 +27,6 @@ public class DownloadFileService extends IntentService {
         super(DownloadFileService.class.getName());
     }
 
-
     @Override
     protected void onHandleIntent(Intent intent) {
         String downloadInfo = intent.getStringExtra(DOWNLOAD_INFO);
@@ -37,12 +36,6 @@ public class DownloadFileService extends IntentService {
                 new DownloadFileCallback(bean, entity));
         model.doRequest(this);
     }
-
-//    @Override
-//    public int onStartCommand(Intent intent, int flags, int startId) {
-//
-//        return super.onStartCommand(intent, flags, startId);
-//    }
 
     static class DownloadFileCallback implements IFileDownloadCallbacks {
         private final NF_DownloadReqBean nfDownloadReqBean;
@@ -59,57 +52,84 @@ public class DownloadFileService extends IntentService {
 
         @Override
         public void onNoInternet() {
-            Toast.makeText(getApplicationContext(), R.string.v1010_toast_net_exception, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), R.string.v1010_toast_net_exception, Toast.LENGTH_SHORT).show();
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
+                    0, getApplicationContext().getString(R.string.v1010_toast_net_exception));
+            postEvent(event);
         }
 
         @Override
         public void onMobileNet() {
-            Toast.makeText(getApplicationContext(), R.string.v1020_versionupdate_dialog_onmobile_remind, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), R.string.v1020_versionupdate_dialog_onmobile_remind, Toast.LENGTH_SHORT).show();
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_DEFAULT,
+                    0, getApplicationContext().getString(R.string.v1020_versionupdate_dialog_onmobile_remind));
+            postEvent(event);
         }
 
         @Override
         public void onFileNotFoundOnServer() {
-            Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnotfound, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnotfound, Toast.LENGTH_SHORT).show();
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
+                    0, getApplicationContext().getString(R.string.v1020_toast_download_onnotfound));
+            postEvent(event);
         }
 
         @Override
         public void onDownloadStart(DownloadEntity entity) {
-            DownloadImpl.VsoBridgeDownloadEvent event = new DownloadImpl.VsoBridgeDownloadEvent();
-            event.setStatus(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ONSTART);
-            event.setDownloadEntity(entity);
-            event.setCurrentSize(0);
-            event.setTotalSize(downloadEntity.getFileSize());
-            event.setUniqueTag(nfDownloadReqBean.getUrl_download());
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ONSTART, 0, "开始下载");
             postEvent(event);
         }
 
         @Override
         public void onDownloadCancel() {
-
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_SUCCESS, 0, "取消下载");
+            postEvent(event);
         }
 
         @Override
         public void onDownloadSuccess(DownloadEntity entity, File file) {
-
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_CANCEL,
+                    entity.getFileSize(), "下载成功");
+            event.setFile(file);
+            postEvent(event);
         }
 
         @Override
         public void onDownloading(DownloadEntity entity, long current, long total) {
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_DOWNLOADING,
+                    current, "正在下载");
 
+            postEvent(event);
         }
 
         @Override
         public void onNoEnoughSpace() {
-            Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnoenoughspace, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnoenoughspace, Toast.LENGTH_SHORT).show();
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
+                    0, getApplicationContext().getString(R.string.v1020_toast_download_onnoenoughspace));
+            postEvent(event);
         }
 
         @Override
         public void downloadFailure() {
-            Toast.makeText(getApplicationContext(), R.string.v1020_versionupdate_text_download_fuilure, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), R.string.v1020_versionupdate_text_download_fuilure, Toast.LENGTH_SHORT).show();
+            DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
+                    0, getApplicationContext().getString(R.string.v1020_versionupdate_text_download_fuilure));
+            postEvent(event);
         }
 
         private void postEvent(DownloadImpl.VsoBridgeDownloadEvent event) {
             EventBus.getDefault().post(event);
+        }
+
+        private DownloadImpl.VsoBridgeDownloadEvent setDownloadInfo(int status, long currentSize, String msg) {
+            DownloadImpl.VsoBridgeDownloadEvent event = new DownloadImpl.VsoBridgeDownloadEvent();
+            event.setStatus(status);
+            event.setDownloadEntity(downloadEntity);
+            event.setCurrentSize(currentSize);
+            event.setTotalSize(downloadEntity.getFileSize());
+            event.setUniqueTag(nfDownloadReqBean.getUrl_download());
+            return event;
         }
     }
 }

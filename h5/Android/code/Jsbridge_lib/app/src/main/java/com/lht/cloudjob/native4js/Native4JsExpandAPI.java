@@ -25,4 +25,11 @@ public interface Native4JsExpandAPI {
          */
         String API_NAME = "APP_N_PUBLIC_SIGN_LOGIN";
     }
+
+    interface DownloadHandler extends BridgeHandler {
+        /**
+         * API_NAME:下载
+         */
+        String API_NAME = "APP_N_TOOLS_LOAD_FILE";
+    }
 }

@@ -131,6 +131,7 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
                 .equip(VsoAuthInfoImpl.newInstance())//Auth信息
                 .equip(VsoLoginImpl.newInstance(BridgeTestActivity.this))//Vso登录
                 .equip(MakePhoneCallImpl.newInstance(BridgeTestActivity.this))//makePhoneCall
+                .equip(DownloadImpl.newInstance(BridgeTestActivity.this))//download
                 .load();
 
         webView.registerHandler(TestLTRHandler.API_NAME, new TestLTRImpl());
@@ -150,9 +151,6 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
         webView.registerHandler(API.ScanCodeHandler.API_NAME, new ScanCodeImpl(
                 BridgeTestActivity.this));
-
-        webView.registerHandler(API.DownloadHandler.API_NAME,
-                new DownloadImpl(BridgeTestActivity.this));
     }
 
     @Override

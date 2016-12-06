@@ -7,11 +7,13 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.lht.cloudjob.mvp.model.pojo.DownloadEntity;
+import com.lht.cloudjob.native4js.Native4JsExpandAPI;
 import com.lht.cloudjob.native4js.expandresbean.NF_DownloadReqBean;
 import com.lht.cloudjob.native4js.expandresbean.NF_DownloadResBean;
 import com.lht.cloudjob.service.DownloadFileService;
-import com.lht.lhtwebviewapi.business.API.API;
+import com.lht.lhtwebviewapi.business.impl.MakePhoneCallImpl;
 import com.lht.lhtwebviewlib.base.Interface.CallBackFunction;
+import com.lht.lhtwebviewlib.base.model.BridgeNativeFunction;
 import com.lht.lhtwebviewlib.business.bean.BaseResponseBean;
 import com.lht.lhtwebviewlib.business.impl.ABSApiImpl;
 
@@ -25,7 +27,7 @@ import java.io.File;
  * 桥接下载
  */
 
-public class DownloadImpl extends ABSApiImpl implements API.DownloadHandler {
+public class DownloadImpl extends ABSApiImpl implements Native4JsExpandAPI.DownloadHandler {
 
     private final Context mContext;
     private CallBackFunction mFunction;
@@ -50,7 +52,7 @@ public class DownloadImpl extends ABSApiImpl implements API.DownloadHandler {
             mContext.startService(intentService);
 
         } else {
-            BaseResponseBean<NF_DownloadResBean> bean = newFailureResBean(0,MSG_ERROR);
+            BaseResponseBean<NF_DownloadResBean> bean = newFailureResBean(0, MSG_ERROR);
             bean.setData(newDownloadResBean(downloadBean));
             mFunction.onCallBack(JSON.toJSONString(bean));
         }
@@ -83,7 +85,58 @@ public class DownloadImpl extends ABSApiImpl implements API.DownloadHandler {
 //        bean.setMsg("OK");
 //        bean.setData("");
 //        mFunction.onCallBack(JSON.toJSONString(bean));
-//        event.getStatus() ==
+
+        int status = event.getStatus();
+        switch (status) {
+            case VsoBridgeDownloadEvent.STATUS_SUCCESS:
+                onDownloadSuccess(event);
+                break;
+            case VsoBridgeDownloadEvent.STATUS_ERROR:
+                onDownloadError(event);
+                break;
+            case VsoBridgeDownloadEvent.STATUS_CANCEL:
+                onDownloadError(event);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void onDownloadSuccess(VsoBridgeDownloadEvent event) {
+        NF_DownloadResBean bean = new NF_DownloadResBean();
+        DownloadEntity entity = event.getDownloadEntity();
+        bean.setFile_name(entity.getFileName());
+        bean.setFile_size(entity.getFileSize());
+        bean.setUrl_download(entity.getFileUrl());
+        bean.setFile_path(event.getFile().getAbsolutePath());
+        BaseResponseBean<NF_DownloadResBean> nf_downloadResBeanBaseResponseBean = newSuccessResBean(bean);
+        mFunction.onCallBack(JSON.toJSONString(nf_downloadResBeanBaseResponseBean));
+    }
+
+    private void onDownloadError(VsoBridgeDownloadEvent event) {
+        String msg = event.getMsg();
+        BaseResponseBean<NF_DownloadResBean> bean = newFailureResBean(0, msg);
+        mFunction.onCallBack(JSON.toJSONString(bean));
+    }
+
+    /*for test*/
+//    public
+    private BaseResponseBean<NF_DownloadResBean> newSuccessResBean(NF_DownloadResBean data) {
+        BaseResponseBean<NF_DownloadResBean> bean = new BaseResponseBean<>();
+        bean.setData(data);
+        bean.setStatus(BaseResponseBean.STATUS_SUCCESS);
+        bean.setMsg("");
+        return bean;
+    }
+
+    /*for test*/
+//    public
+    private BaseResponseBean<NF_DownloadResBean> newFailureResBean(int ret, String msg) {
+        BaseResponseBean<NF_DownloadResBean> bean = new BaseResponseBean<>();
+        bean.setStatus(BaseResponseBean.STATUS_FAILURE);
+        bean.setRet(ret);
+        bean.setMsg(msg);
+        return bean;
     }
 
     @Override
@@ -105,25 +158,8 @@ public class DownloadImpl extends ABSApiImpl implements API.DownloadHandler {
             return BEAN_IS_ERROR;
         }
     }
-
-    /*for test*/
-//    public
-    private BaseResponseBean<NF_DownloadResBean> newSuccessResBean(NF_DownloadResBean data) {
-        BaseResponseBean<NF_DownloadResBean> bean = new BaseResponseBean<>();
-        bean.setData(data);
-        bean.setStatus(BaseResponseBean.STATUS_SUCCESS);
-        bean.setMsg("");
-        return bean;
-    }
-
-    /*for test*/
-//    public
-    private BaseResponseBean<NF_DownloadResBean> newFailureResBean(int ret, String msg) {
-        BaseResponseBean<NF_DownloadResBean> bean = new BaseResponseBean<>();
-        bean.setStatus(BaseResponseBean.STATUS_FAILURE);
-        bean.setRet(ret);
-        bean.setMsg(msg);
-        return bean;
+    public static BridgeNativeFunction newInstance(Context context) {
+        return new BridgeNativeFunction(API_NAME, new DownloadImpl(context));
     }
 
     @Override

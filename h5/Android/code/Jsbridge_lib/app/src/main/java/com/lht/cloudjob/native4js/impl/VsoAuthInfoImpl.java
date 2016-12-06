@@ -19,6 +19,11 @@ import com.lht.lhtwebviewlib.business.impl.ABSApiImpl;
  */
 
 public class VsoAuthInfoImpl extends ABSApiImpl implements Native4JsExpandAPI.VsoAuthInfoHandler {
+
+//    private static final String MSG_SUCCESS = "Success";
+//
+//    private static final String MSG_FAILURE = "Failure";
+
     @Override
     public void handler(String s, CallBackFunction callBackFunction) {
         LoginInfo loginInfo = IVerifyHolder.mLoginInfo;
@@ -29,7 +34,7 @@ public class VsoAuthInfoImpl extends ABSApiImpl implements Native4JsExpandAPI.Vs
             BaseResponseBean<NF_VsoAuthInfoResBean> responseBean = newSuccessResBean(bean);
             callBackFunction.onCallBack(JSON.toJSONString(responseBean));
         } else {
-            BaseResponseBean responseBean = newFailureResBean(0, "unLogin");
+            BaseResponseBean responseBean = newFailureResBean(0, BaseResponseBean.MSG_DEFAULT);
             callBackFunction.onCallBack(JSON.toJSONString(responseBean));
         }
 
@@ -42,6 +47,7 @@ public class VsoAuthInfoImpl extends ABSApiImpl implements Native4JsExpandAPI.Vs
         BaseResponseBean<NF_VsoAuthInfoResBean> bean = new BaseResponseBean<>();
         bean.setData(data);
         bean.setStatus(BaseResponseBean.STATUS_SUCCESS);
+        bean.setMsg(BaseResponseBean.MSG_DEFAULT);
         return bean;
     }
 
@@ -52,6 +58,7 @@ public class VsoAuthInfoImpl extends ABSApiImpl implements Native4JsExpandAPI.Vs
         bean.setStatus(BaseResponseBean.STATUS_FAILURE);
         bean.setRet(ret);
         bean.setMsg(msg);
+        bean.setData(new NF_VsoAuthInfoResBean()); // give an empty object rather than null
         return bean;
     }
 

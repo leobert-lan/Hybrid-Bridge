@@ -57,6 +57,18 @@ public class VsoLoginImpl extends ABSApiImpl implements Native4JsExpandAPI.VsoLo
         mFunction.onCallBack(JSON.toJSONString(resBean));
     }
 
+
+    @Subscribe
+    public void onEventMainThread(AppEvent.RegisterBackgroundLoginSuccessEvent event) {
+        mLoginInfo.copy(event.getLoginInfo());
+        BaseResponseBean<LoginResBean> resBean= newSuccessResBean(mLoginInfo.getLoginResBean());
+        if (mFunction == null) {
+            DLog.e(Native4JsExpandAPI.class,API_NAME+"----callback is null");
+            return;
+        }
+        mFunction.onCallBack(JSON.toJSONString(resBean));
+    }
+
     /**
      * desc: 未进行登录的事件订阅
      *

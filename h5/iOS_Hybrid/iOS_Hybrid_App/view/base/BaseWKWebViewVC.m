@@ -45,7 +45,13 @@
 }
 
 
-
+- (void)loadHybridWeb:(WKWebView*)webView {
+//    NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/bridge/test/"];
+//    
+//    
+//    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+//    [webView loadRequest:request];
+}
 
 #pragma mark - WKNavigationDelegate
 

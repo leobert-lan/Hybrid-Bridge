@@ -18,6 +18,87 @@
 
 @implementation SearchListVC
 
+#pragma mark - web 全局界面UI
+
+- (void)WebUIInit{
+    [super WebUIInit];
+    
+    if (self.webViewMain == nil) {
+        
+        
+    }
+    
+    if (self.webView2 == nil) {
+        
+        self.webView2 = [[WKWebView alloc]init];
+        self.webView2.frame=self.view.bounds;
+        self.webView2.navigationDelegate = self;
+        self.webView2.UIDelegate = self;
+        [self.view addSubview:self.webView2];
+        [self.view sendSubviewToBack:self.webView2];
+    }
+    
+    //添加监听
+    [WKWebViewJavascriptBridge enableLogging];
+    self.bridge2 = [WKWebViewJavascriptBridge bridgeForWebView:self.webView2];
+//    [self listener2:self.bridge2];
+    //    [self.bridgeMain callHandler:@"toH5" data:@{ @"auth":@"USER_ID_AND_TOKEN" }];
+    
+    [self loadHybridWeb:self.webView2];
+    
+    self.tableMain.hidden=YES;
+}
+
+- (void)loadHybridWeb:(WKWebView*)webView {
+    NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/bridge/test/"];
+    
+    
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
+}
+
+- (void)searchInWeb{
+    //保留上次搜索内容
+    if (_keyword) {
+        oldKeyword=[_keyword copy];
+    }
+    else {
+        oldKeyword=nil;
+    }
+    
+    page = 0;
+    [WebTaskAPI TaskSearchCall:_bridge2 keyword:_keyword indus_id:tpSubscrip2Sel.oid model:tpFilterType.oid.intValue hosted_fee:tpFilterTrust.oid.intValue order:tpOrder.oid.intValue page:page pageSize:kPageSize callback:^(id bridge, id data, NetError *err) {
+        DLog(@"TaskSearchCall:%@",data);
+    }];
+    /*
+    [TaskAPI SearchTaskList:_keyword indus_id:tpSubscrip2Sel.oid model:tpFilterType.oid.intValue hosted_fee:tpFilterTrust.oid.intValue order:tpOrder.oid.intValue page:page pageSize:kPageSize success:^(NSMutableArray *arr) {
+        arrData=[arr mutableCopy];
+        dsTask.arrData=arrData;
+        [self.tableMain reloadData];
+        
+        [self didLoad];
+        [self.tableMain.header endRefreshing];
+        
+        //        vMenu.hidden=NO;
+        [self removeInfoView];
+        
+    } failure:^(NetError *err) {
+        [self didLoad];
+        [self.tableMain.header endRefreshing];
+        
+        if (err.errStatusCode==13862) {
+            DLog(@">>> 无数据 ");
+            //显示找不到页面
+            
+            [self noDataSearched];
+            return ;
+        }
+        
+        [self showText:err.errMessage];
+    }];
+    */
+}
+#pragma mark -
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -490,6 +571,9 @@
     }
     
     [self refreshData];
+    
+    //test
+    [self searchInWeb];
 }
 #pragma mark - TableView代理方法 数据初始化
 

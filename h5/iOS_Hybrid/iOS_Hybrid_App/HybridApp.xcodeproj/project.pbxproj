@@ -334,6 +334,7 @@
 		A37CA50C1DEEC8260096DF4F /* HybridAppVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A37CA50A1DEEC8260096DF4F /* HybridAppVC.m */; };
 		A37CA50D1DEEC8260096DF4F /* HybridAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37CA50B1DEEC8260096DF4F /* HybridAppVC.xib */; };
 		A37CA5101DEFFBA50096DF4F /* WebAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A37CA50F1DEFFBA50096DF4F /* WebAuthAPI.m */; };
+		A37CA5131DF65A6B0096DF4F /* WebTaskAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A37CA5121DF65A6B0096DF4F /* WebTaskAPI.m */; };
 		A3968A311D8E298E00191317 /* SubscripNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3968A2F1D8E298E00191317 /* SubscripNewVC.m */; };
 		A3968A321D8E298E00191317 /* SubscripNewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3968A301D8E298E00191317 /* SubscripNewVC.xib */; };
 		A397AAFF1D9111FD00D4D1B2 /* jpush-ios-2.1.9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A397AAFD1D9111FD00D4D1B2 /* jpush-ios-2.1.9.a */; };
@@ -617,9 +618,9 @@
 		A338D7061D3F4ABF00BFB4D6 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		A338D7081D40C24600BFB4D6 /* SearchHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryVC.h; sourceTree = "<group>"; };
 		A338D7091D40C24600BFB4D6 /* SearchHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryVC.m; sourceTree = "<group>"; };
-		A338D70D1D40C28000BFB4D6 /* SearchListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchListVC.h; sourceTree = "<group>"; };
-		A338D70E1D40C28000BFB4D6 /* SearchListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchListVC.m; sourceTree = "<group>"; };
-		A338D70F1D40C28000BFB4D6 /* SearchListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchListVC.xib; sourceTree = "<group>"; };
+		A338D70D1D40C28000BFB4D6 /* SearchListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchListVC.h; path = ../page/search/SearchListVC.h; sourceTree = "<group>"; };
+		A338D70E1D40C28000BFB4D6 /* SearchListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchListVC.m; path = ../page/search/SearchListVC.m; sourceTree = "<group>"; };
+		A338D70F1D40C28000BFB4D6 /* SearchListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchListVC.xib; path = ../page/search/SearchListVC.xib; sourceTree = "<group>"; };
 		A338D7131D45D8DE00BFB4D6 /* UIImage+EX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+EX.h"; sourceTree = "<group>"; };
 		A338D7141D45D8DE00BFB4D6 /* UIImage+EX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+EX.m"; sourceTree = "<group>"; };
 		A338D7161D49A7FD00BFB4D6 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -970,6 +971,8 @@
 		A37CA50B1DEEC8260096DF4F /* HybridAppVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HybridAppVC.xib; sourceTree = "<group>"; };
 		A37CA50E1DEFFBA50096DF4F /* WebAuthAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebAuthAPI.h; sourceTree = "<group>"; };
 		A37CA50F1DEFFBA50096DF4F /* WebAuthAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebAuthAPI.m; sourceTree = "<group>"; };
+		A37CA5111DF65A6B0096DF4F /* WebTaskAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebTaskAPI.h; sourceTree = "<group>"; };
+		A37CA5121DF65A6B0096DF4F /* WebTaskAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebTaskAPI.m; sourceTree = "<group>"; };
 		A3968A2D1D891E9600191317 /* cyy_task.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cyy_task.entitlements; sourceTree = "<group>"; };
 		A3968A2E1D8E298E00191317 /* SubscripNewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscripNewVC.h; sourceTree = "<group>"; };
 		A3968A2F1D8E298E00191317 /* SubscripNewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscripNewVC.m; sourceTree = "<group>"; };
@@ -1554,9 +1557,6 @@
 				A338D71B1D49B1DA00BFB4D6 /* SearchHistoryCleanCell.h */,
 				A338D71C1D49B1DA00BFB4D6 /* SearchHistoryCleanCell.m */,
 				A338D7161D49A7FD00BFB4D6 /* Search.storyboard */,
-				A338D70D1D40C28000BFB4D6 /* SearchListVC.h */,
-				A338D70E1D40C28000BFB4D6 /* SearchListVC.m */,
-				A338D70F1D40C28000BFB4D6 /* SearchListVC.xib */,
 				A3E948061D5DBAD5005B6A33 /* SearchTableDataSource.h */,
 				A3E948071D5DBAD5005B6A33 /* SearchTableDataSource.m */,
 				A3E9480C1D5DC422005B6A33 /* SearchTypeCell.h */,
@@ -2331,6 +2331,8 @@
 				A37CA5071DEEC7880096DF4F /* API_WEB.h */,
 				A37CA50E1DEFFBA50096DF4F /* WebAuthAPI.h */,
 				A37CA50F1DEFFBA50096DF4F /* WebAuthAPI.m */,
+				A37CA5111DF65A6B0096DF4F /* WebTaskAPI.h */,
+				A37CA5121DF65A6B0096DF4F /* WebTaskAPI.m */,
 			);
 			path = API_WEB;
 			sourceTree = "<group>";
@@ -2341,6 +2343,9 @@
 				A37CA5091DEEC8260096DF4F /* HybridAppVC.h */,
 				A37CA50A1DEEC8260096DF4F /* HybridAppVC.m */,
 				A37CA50B1DEEC8260096DF4F /* HybridAppVC.xib */,
+				A338D70D1D40C28000BFB4D6 /* SearchListVC.h */,
+				A338D70E1D40C28000BFB4D6 /* SearchListVC.m */,
+				A338D70F1D40C28000BFB4D6 /* SearchListVC.xib */,
 			);
 			path = Hybrid_Test;
 			sourceTree = "<group>";
@@ -2650,6 +2655,7 @@
 				A36CD0061CD9808C0056AB6A /* SYWaveformPlayerView.m in Sources */,
 				A34DA7961D2CEA54004E5A57 /* QYSlideslipB.m in Sources */,
 				2861983E1D5193BF007935FD /* changePwdVC.m in Sources */,
+				A37CA5131DF65A6B0096DF4F /* WebTaskAPI.m in Sources */,
 				A338D71D1D49B1DA00BFB4D6 /* SearchHistoryCleanCell.m in Sources */,
 				A36CCFB31CD9808C0056AB6A /* FMDatabasePool.m in Sources */,
 				A338D7301D49EF4900BFB4D6 /* TADotView.m in Sources */,

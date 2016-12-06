@@ -21,6 +21,6 @@ typedef void (^H5Callback)(id bridge, id data, NetError *err);
 
 
 #pragma mark - 调用web事件
-
+#define APP_W_REQ_SEARCH_LIST @"APP_W_REQ_SEARCH_LIST" //搜索
 
 #endif /* API_WEB_h */

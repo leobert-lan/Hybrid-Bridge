@@ -29,12 +29,4 @@
 }
 
 #pragma mark - 调取web
-+ (void)AuthInfoCall:(WKWebViewJavascriptBridge *)bridge data:(id)data callback:(H5Callback)callback {
-    __weak id weakSelf=bridge;
-//    [bridge callHandler:JS_FUNCTION_DEMO data:data responseCallback:^(id response) {
-//        if (callback) {
-//            callback(weakSelf,[H5DataCheck checkData:response],nil);
-//        }
-//    }];
-}
 @end

@@ -39,12 +39,12 @@
         [self.view addSubview:self.webViewMain];
     }
     
-    [self loadH5:self.webViewMain];
+    [self loadHybridWeb:self.webViewMain];
 
 }
 
 
-- (void)loadH5:(WKWebView*)webView {
+- (void)loadHybridWeb:(WKWebView*)webView {
     NSURL *url=[NSURL URLWithString:@"http://m.vsochina.com:8080/bridge/test/"];
 
     

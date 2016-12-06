@@ -22,7 +22,8 @@
 #pragma mark - web UI
 //初始化H5页面
 - (void)WebUIInit;
-
+//载入页面
+- (void)loadHybridWeb:(WKWebView*)webView;
 #pragma mark - web init
 - (void)webInit;
 #pragma mark - 添加监听

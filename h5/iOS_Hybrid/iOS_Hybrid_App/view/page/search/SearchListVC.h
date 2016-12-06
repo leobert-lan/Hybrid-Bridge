@@ -11,13 +11,17 @@
 #import "SearchTableDataSource.h"
 #import "SearchColleDataSource.h"
 #import "TaskDetailsVC.h"
+
+//test
+#import "BaseWKWebViewVC.h"
+#import "WebTaskAPI.h"
 typedef NS_ENUM(NSInteger, TaskSearchConditionStyle){
     TaskSearchConditionType = 1,
     TaskSearchConditionFilter,
     TaskSearchConditionOrder
 };
 
-@interface SearchListVC : BaseViewController
+@interface SearchListVC : BaseWKWebViewVC
 {
     IBOutlet UIButton *btnType,*btnFilter,*btnOrder;
     IBOutlet UIButton *btnShadow,*btnReset,*btnOK;
@@ -48,4 +52,8 @@ typedef NS_ENUM(NSInteger, TaskSearchConditionStyle){
 
 @property (assign) BOOL popRootEnabled;
 @property (nonatomic,strong) NSString* keyword;
+
+//测试
+@property (nonatomic, strong) WKWebView* webView2;
+@property (nonatomic,strong) WKWebViewJavascriptBridge* bridge2;
 @end

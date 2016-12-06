@@ -9,7 +9,7 @@ import com.lht.cloudjob.mvp.model.TpLoginModel;
  * <p><b>Classname</b> TpLoginResBean
  * <p><b>Description</b>: TODO
  * Created by leobert on 2016/7/15.
- *
+ * <p>
  * to see Model at{@link TpLoginModel}
  * to see API at{@link IRestfulApi.TpLoginApi}
  */
@@ -122,5 +122,24 @@ public class TpLoginResBean {
 
     public boolean isResetNeed() {
         return isnewpwd == 2;
+    }
+
+    public static LoginResBean copy2LoginResBean(TpLoginResBean tpLoginResBean) {
+        LoginResBean bean = new LoginResBean();
+        if (tpLoginResBean == null) {
+            return bean;
+        }
+        bean.setAvatar(tpLoginResBean.getAvatar());
+        bean.setEmail(tpLoginResBean.getEmail());
+        bean.setId(Integer.parseInt(tpLoginResBean.getId()));
+        bean.setIsnewpwd(tpLoginResBean.getIsnewpwd());
+        bean.setLogined(1);
+        bean.setMobile(tpLoginResBean.getMobile());
+        bean.setNickname(tpLoginResBean.getNickname());
+        bean.setStatus(-2);//未知类型，不占用已有值
+        bean.setUid(Integer.parseInt(tpLoginResBean.getUid()));
+        bean.setUsername(tpLoginResBean.getUsername());
+        bean.setVso_token(tpLoginResBean.getVso_token());
+        return bean;
     }
 }

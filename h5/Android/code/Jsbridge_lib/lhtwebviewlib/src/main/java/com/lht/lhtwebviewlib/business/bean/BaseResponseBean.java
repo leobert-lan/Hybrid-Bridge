@@ -14,6 +14,8 @@ public class BaseResponseBean<T> {
 
     public static final int STATUS_FAILURE = 0;
 
+	public static final String  MSG_DEFAULT = "";
+
 	/**
 	 * ret:返回码
 	 */
@@ -27,7 +29,7 @@ public class BaseResponseBean<T> {
 	/**
 	 * msg:扩展消息
 	 */
-	private String msg;
+	private String msg = MSG_DEFAULT;
 
 	/**
 	 * data:业务处理结果

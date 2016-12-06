@@ -31,9 +31,10 @@ public class MakePhoneCallImpl extends ABSApiImpl implements API.CallTelHandler 
 
     private CallBackFunction mFunction;
 
-    private static final String CALL_SUCCESS = "call_ok";
-    private static final String CALL_FAILURE = "call_failure";
-    private static final int CALL_FAILURE_RET = 0;
+    private static final String MSG_SUCCESS = "call_ok";
+    private static final String MSG_FAILURE = "call_failure";
+    private static final String MSG_FAILURE_INTERNAL = "cannot operate this call,context is null";
+    private static final int RET_FAILURE = 0;
 
     public MakePhoneCallImpl(Context mContext) {
         contextRef = new WeakReference<>(mContext);
@@ -44,8 +45,7 @@ public class MakePhoneCallImpl extends ABSApiImpl implements API.CallTelHandler 
         mFunction = function;
         Context context = contextRef.get();
         if (context == null) {
-            // TODO: 2016/12/2  log and callback
-            BaseResponseBean<String> bean = newFailureResBean(CALL_FAILURE_RET, CALL_FAILURE);
+            BaseResponseBean<String> bean = newFailureResBean(RET_FAILURE, MSG_FAILURE_INTERNAL);
             mFunction.onCallBack(JSON.toJSONString(bean));
             return;
         }
@@ -53,18 +53,21 @@ public class MakePhoneCallImpl extends ABSApiImpl implements API.CallTelHandler 
 
         if (!isBeanError(phoneNumBean)) {
             String number = phoneNumBean.getTelphone();
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:" + number));
-            context.startActivity(intent);
+            makePhoneCall(context,number);
 
             BaseResponseBean<String> bean = newSuccessResBean();
             mFunction.onCallBack(JSON.toJSONString(bean));
         } else {
-            //TODO 完善逻辑
-            BaseResponseBean<String> bean = newFailureResBean(CALL_FAILURE_RET, CALL_FAILURE);
+            BaseResponseBean<String> bean = newFailureResBean(RET_FAILURE, MSG_FAILURE);
             mFunction.onCallBack(JSON.toJSONString(bean));
         }
+    }
+
+    private void makePhoneCall(Context context,String phone) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phone));
+        context.startActivity(intent);
     }
 
     @Override
@@ -94,7 +97,7 @@ public class MakePhoneCallImpl extends ABSApiImpl implements API.CallTelHandler 
     private BaseResponseBean<String> newSuccessResBean() {
         BaseResponseBean<String> bean = new BaseResponseBean<>();
         bean.setStatus(BaseResponseBean.STATUS_SUCCESS);
-        bean.setMsg(CALL_SUCCESS);
+        bean.setMsg(MSG_SUCCESS);
         bean.setData(null);
         return bean;
     }

@@ -181,6 +181,8 @@ public class LoginActivityPresenter implements ITPLoginViewPresenter, IApiReques
             info.setNickname(bean.getNickname());
             info.setAvatar(bean.getAvatar());
 
+            info.setLoginResBean(TpLoginResBean.copy2LoginResBean(bean));
+
             if (bean.isResetNeed()) {
                 info.setType(LoginType.Unlogin);
                 IVerifyHolder.mLoginInfo.copy(info);

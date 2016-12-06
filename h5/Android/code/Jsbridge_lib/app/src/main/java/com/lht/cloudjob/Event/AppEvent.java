@@ -5,6 +5,8 @@ import com.lht.cloudjob.mvp.model.bean.BasicInfoResBean;
 import com.lht.cloudjob.mvp.model.pojo.LoginInfo;
 import com.lht.cloudjob.util.string.StringUtil;
 
+import java.io.File;
+
 /**
  * <p><b>Package</b> com.lht.cloudjob.Event
  * <p><b>Project</b> Chuangyiyun
@@ -42,7 +44,7 @@ public class AppEvent {
         }
     }
 
-    public static class RegisterBackgroundLoginSuccessEvent{
+    public static class RegisterBackgroundLoginSuccessEvent {
         private LoginInfo loginInfo;
 
         public RegisterBackgroundLoginSuccessEvent(LoginInfo loginInfo) {
@@ -192,5 +194,17 @@ public class AppEvent {
     }
 
     public static class SearchCloseEvent {
+    }
+
+    /**
+     * JS for native 下载成功
+     */
+    public static class DownloadSuccessEvent {
+        private File file;
+
+        public File getFile() {
+
+            return file;
+        }
     }
 }

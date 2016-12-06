@@ -30,6 +30,7 @@ import com.lht.lhtwebviewapi.business.API.API.SendToClipBoardHandler;
 import com.lht.lhtwebviewapi.business.API.API.TestLTRHandler;
 import com.lht.lhtwebviewapi.business.impl.CopyToClipboardImpl;
 import com.lht.lhtwebviewapi.business.impl.DemoImpl;
+import com.lht.cloudjob.native4js.impl.DownloadImpl;
 import com.lht.lhtwebviewapi.business.impl.MakePhoneCallImpl;
 import com.lht.lhtwebviewapi.business.impl.ScanCodeImpl;
 import com.lht.lhtwebviewapi.business.impl.SendEmailImpl;
@@ -139,6 +140,9 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
         webView.registerHandler(API.ScanCodeHandler.API_NAME, new ScanCodeImpl(
                 BridgeTestActivity.this));
+
+        webView.registerHandler(API.DownloadHandler.API_NAME,
+                new DownloadImpl(BridgeTestActivity.this));
     }
 
     @Override

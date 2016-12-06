@@ -1,6 +1,7 @@
 package com.lht.cloudjob.mvp.model.pojo;
 
 import com.lht.cloudjob.mvp.model.bean.VersionResBean;
+import com.lht.cloudjob.native4js.expandresbean.DownloadBean;
 
 /**
  * <p><b>Package</b> com.lht.cloudjob.mvp.model.pojo
@@ -66,6 +67,13 @@ public class DownloadEntity {
         entity.setFileName(versionInfoData.getFileName());
 //        entity.setFileSize(versionResBean.getFileSize());
         entity.setFileUrl(versionInfoData.getUrl());
+        return entity;
+    }
+
+    public static DownloadEntity copyFromDownloadBean(DownloadBean bean) {
+        DownloadEntity entity = new DownloadEntity();
+        entity.setFileUrl(bean.getFileUrl());
+        entity.setFileName(bean.getFileName());
         return entity;
     }
 }

@@ -12,7 +12,8 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_LOGS" />
-    <!--<uses-permission android:name="android.permission.CALL_PHONE" />-->
+    <!-- <uses-permission android:name="android.permission.CALL_PHONE" /> -->
+
 
     <!-- 网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -25,14 +26,15 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
-    <!--&lt;!&ndash; 发送短信 &ndash;&gt;-->
-    <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
-    <!--&lt;!&ndash; 阅读消息 &ndash;&gt;-->
-    <!--<uses-permission android:name="android.permission.READ_SMS" />-->
-    <!--&lt;!&ndash; 写入消息 &ndash;&gt;-->
-    <!--<uses-permission android:name="android.permission.WRITE_SMS" />-->
-    <!--&lt;!&ndash; 接收消息 &ndash;&gt;-->
-    <!--<uses-permission android:name="android.permission.RECEIVE_SMS" />-->
+    <!-- &lt;!&ndash; 发送短信 &ndash;&gt; -->
+    <!-- <uses-permission android:name="android.permission.SEND_SMS" /> -->
+    <!-- &lt;!&ndash; 阅读消息 &ndash;&gt; -->
+    <!-- <uses-permission android:name="android.permission.READ_SMS" /> -->
+    <!-- &lt;!&ndash; 写入消息 &ndash;&gt; -->
+    <!-- <uses-permission android:name="android.permission.WRITE_SMS" /> -->
+    <!-- &lt;!&ndash; 接收消息 &ndash;&gt; -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_SMS" /> -->
+
 
     <!-- 友盟 读取手机状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -72,23 +74,27 @@
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="5787403ae0f55a5be90020e1" />
-        <!-- <meta-data
+        <!--
+             <meta-data
              android:name="UMENG_CHANNEL"
-             android:value="test" />-->
+             android:value="test" />
+        -->
 
-        <!--测试android studio 多渠道打包-->
+
+        <!-- 测试android studio 多渠道打包 -->
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
 
-        <!--VSO_SOFTWARE_CENTER-->
+        <!-- VSO_SOFTWARE_CENTER -->
+
 
         <!-- TODO test start -->
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".TestActivity" />
         <activity android:name=".test.TestExampleListActivity" />
         <activity android:name=".test.TestPtrListActivity" />
         <activity android:name=".test.testbanner.TestBannerActivity" />
-        <activity android:name="com.lht.jsbridge_lib.demo.BridgeTestActivity"/>
+        <activity android:name="com.lht.jsbridge_lib.demo.BridgeTestActivity" />
         <activity
             android:name=".test.TestI18NActivity"
             android:launchMode="singleInstance" />
@@ -112,6 +118,7 @@
             android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -450,6 +457,10 @@
 
         <service android:name=".service.VersionUpdateService" />
         <service android:name=".service.NotificationCancelService" />
+        <service
+            android:name=".service.DownloadFileService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

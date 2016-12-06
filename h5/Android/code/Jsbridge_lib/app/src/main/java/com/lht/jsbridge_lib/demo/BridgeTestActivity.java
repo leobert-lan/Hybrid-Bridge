@@ -1,6 +1,7 @@
 package com.lht.jsbridge_lib.demo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -17,6 +18,7 @@ import com.lht.cloudjob.BuildConfig;
 import com.lht.cloudjob.R;
 import com.lht.cloudjob.activity.BaseActivity;
 import com.lht.cloudjob.activity.UMengActivity;
+import com.lht.cloudjob.native4js.impl.DownloadImpl;
 import com.lht.cloudjob.native4js.impl.VsoAuthInfoImpl;
 import com.lht.cloudjob.native4js.impl.VsoLoginImpl;
 import com.lht.customwidgetlib.nestedscroll.AttachUtil;
@@ -30,7 +32,6 @@ import com.lht.lhtwebviewapi.business.API.API.SendToClipBoardHandler;
 import com.lht.lhtwebviewapi.business.API.API.TestLTRHandler;
 import com.lht.lhtwebviewapi.business.impl.CopyToClipboardImpl;
 import com.lht.lhtwebviewapi.business.impl.DemoImpl;
-import com.lht.cloudjob.native4js.impl.DownloadImpl;
 import com.lht.lhtwebviewapi.business.impl.MakePhoneCallImpl;
 import com.lht.lhtwebviewapi.business.impl.ScanCodeImpl;
 import com.lht.lhtwebviewapi.business.impl.SendEmailImpl;
@@ -38,6 +39,8 @@ import com.lht.lhtwebviewapi.business.impl.SendMessageImpl;
 import com.lht.lhtwebviewapi.business.impl.TestLTRImpl;
 import com.lht.lhtwebviewlib.BridgeWebView;
 import com.lht.lhtwebviewlib.DefaultHandler;
+import com.lht.lhtwebviewlib.FileChooseBridgeWebChromeClient;
+import com.lht.lhtwebviewlib.base.Interface.IFileChooseSupport;
 import com.lht.lhtwebviewlib.base.LhtWebViewNFLoader;
 
 public class BridgeTestActivity extends BaseActivity implements OnClickListener {
@@ -56,6 +59,8 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
     private NestedScrollLayout nestedScrollLayout;
 
+    private IFileChooseSupport.DefaultFileChooseSupportImpl defaultFileChooseSupport;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +75,7 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 //        String abs = Environment.getExternalStorageDirectory()
 //                .getAbsolutePath();
 //        Log.d(TAG, abs);
+        defaultFileChooseSupport = new IFileChooseSupport.DefaultFileChooseSupportImpl(this);
 
         BridgeWebView.setDebugMode(BuildConfig.DEBUG);
         etUrl = (EditText) findViewById(R.id.et_url);
@@ -83,6 +89,7 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
         btnLoadDefault.setOnClickListener(this);
 
         webView.setDefaultHandler(new DefaultHandler());
+        webView.setWebChromeClient(new FileChooseBridgeWebChromeClient(defaultFileChooseSupport));
 
 
         // Test TODO
@@ -182,6 +189,11 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
         webView.onResume();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        defaultFileChooseSupport.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     public void onClick(View v) {

@@ -63,7 +63,6 @@ public class DownloadImpl extends ABSApiImpl implements Native4JsExpandAPI.Downl
         if (reqBean == null) {
             return resBean;
         }
-
         resBean.setFile_ext(reqBean.getFile_ext());
         resBean.setFile_name(reqBean.getFile_name());
         resBean.setFile_path(null);

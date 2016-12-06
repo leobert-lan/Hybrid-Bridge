@@ -14,6 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 
+import com.alibaba.fastjson.JSON;
 import com.lht.cloudjob.BuildConfig;
 import com.lht.cloudjob.R;
 import com.lht.cloudjob.activity.BaseActivity;
@@ -21,6 +22,7 @@ import com.lht.cloudjob.activity.UMengActivity;
 import com.lht.cloudjob.native4js.impl.DownloadImpl;
 import com.lht.cloudjob.native4js.impl.VsoAuthInfoImpl;
 import com.lht.cloudjob.native4js.impl.VsoLoginImpl;
+import com.lht.cloudjob.util.debug.DLog;
 import com.lht.customwidgetlib.nestedscroll.AttachUtil;
 import com.lht.customwidgetlib.nestedscroll.NestedScrollLayout;
 import com.lht.lhtwebviewapi.business.API.API;
@@ -40,6 +42,7 @@ import com.lht.lhtwebviewapi.business.impl.TestLTRImpl;
 import com.lht.lhtwebviewlib.BridgeWebView;
 import com.lht.lhtwebviewlib.DefaultHandler;
 import com.lht.lhtwebviewlib.FileChooseBridgeWebChromeClient;
+import com.lht.lhtwebviewlib.base.Interface.CallBackFunction;
 import com.lht.lhtwebviewlib.base.Interface.IFileChooseSupport;
 import com.lht.lhtwebviewlib.base.LhtWebViewNFLoader;
 
@@ -114,9 +117,9 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
                 return false;
             }
         });
+        initEvent();
 
-        regist();
-        webView.loadUrl(DEF_TEST);
+
     }
 
     private void regist() {
@@ -180,7 +183,28 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
 
     @Override
     protected void initEvent() {
+        regist();
+        webView.loadUrl(DEF_TEST);
+        findViewById(R.id.test_search).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                testSearch();
+            }
+        });
+    }
 
+    private void testSearch() {
+        WebSearchReqBean bean = new WebSearchReqBean();
+        bean.setDirection("ASC");
+        bean.setKeyword("3d");
+        bean.setPno(0);
+        bean.setOrder("sub_end_time");
+        webView.callHandler(WebSearchReqBean.API_NAME, JSON.toJSONString(bean), new CallBackFunction() {
+            @Override
+            public void onCallBack(String s) {
+                DLog.d(BridgeTestActivity.class,"call web search,response\r"+s);
+            }
+        });
     }
 
     @Override

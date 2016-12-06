@@ -52,6 +52,11 @@
                     android:layout_height="wrap_content"
                     android:text="default test page"/>
             </LinearLayout>
+            <Button
+                android:id="@+id/test_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test_search"/>
         </LinearLayout>
 
         <!-- webview 演示web调用Java -->

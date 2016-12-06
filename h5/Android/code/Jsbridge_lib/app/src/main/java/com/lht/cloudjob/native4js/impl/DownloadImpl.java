@@ -7,10 +7,10 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.lht.cloudjob.mvp.model.pojo.DownloadEntity;
+import com.lht.cloudjob.native4js.Native4JsExpandAPI;
 import com.lht.cloudjob.native4js.expandresbean.NF_DownloadReqBean;
 import com.lht.cloudjob.native4js.expandresbean.NF_DownloadResBean;
 import com.lht.cloudjob.service.DownloadFileService;
-import com.lht.lhtwebviewapi.business.API.API;
 import com.lht.lhtwebviewlib.base.Interface.CallBackFunction;
 import com.lht.lhtwebviewlib.business.bean.BaseResponseBean;
 import com.lht.lhtwebviewlib.business.impl.ABSApiImpl;
@@ -25,7 +25,7 @@ import java.io.File;
  * 桥接下载
  */
 
-public class DownloadImpl extends ABSApiImpl implements API.DownloadHandler {
+public class DownloadImpl extends ABSApiImpl implements Native4JsExpandAPI.DownloadHandler {
 
     private final Context mContext;
     private CallBackFunction mFunction;
@@ -50,7 +50,7 @@ public class DownloadImpl extends ABSApiImpl implements API.DownloadHandler {
             mContext.startService(intentService);
 
         } else {
-            BaseResponseBean<NF_DownloadResBean> bean = newFailureResBean(0,MSG_ERROR);
+            BaseResponseBean<NF_DownloadResBean> bean = newFailureResBean(0, MSG_ERROR);
             bean.setData(newDownloadResBean(downloadBean));
             mFunction.onCallBack(JSON.toJSONString(bean));
         }
@@ -83,27 +83,41 @@ public class DownloadImpl extends ABSApiImpl implements API.DownloadHandler {
 //        bean.setMsg("OK");
 //        bean.setData("");
 //        mFunction.onCallBack(JSON.toJSONString(bean));
-//        event.getStatus() ==
+
+        int status = event.getStatus();
+        switch (status) {
+            case VsoBridgeDownloadEvent.STATUS_SUCCESS:
+                onDownloadSuccess(event);
+                break;
+            case VsoBridgeDownloadEvent.STATUS_ERROR:
+                onDownloadError(event);
+                break;
+            case VsoBridgeDownloadEvent.STATUS_CANCEL:
+                onDownloadError(event);
+                break;
+            default:
+                break;
+        }
     }
 
-    @Override
-    protected boolean isBeanError(Object o) {
-        if (o instanceof NF_DownloadReqBean) {
-            NF_DownloadReqBean bean = (NF_DownloadReqBean) o;
-            if (TextUtils.isEmpty(bean.getFile_name())) {
-                MSG_ERROR = "您要下载的文件名为空";
-                return BEAN_IS_ERROR;
-            }
-            if (TextUtils.isEmpty(bean.getUrl_download())) {
-                MSG_ERROR = "您要下载的文件地址为空";
-                return BEAN_IS_ERROR;
-            }
-
-            return BEAN_IS_CORRECT;
-        } else {
-            Log.wtf(API_NAME, "check you code,bean not match because your error");
-            return BEAN_IS_ERROR;
+    private void onDownloadSuccess(VsoBridgeDownloadEvent event) {
+        NF_DownloadResBean bean = new NF_DownloadResBean();
+        DownloadEntity entity = event.getDownloadEntity();
+        bean.setFile_name(entity.getFileName());
+        bean.setFile_size(entity.getFileSize());
+        bean.setUrl_download(entity.getFileUrl());
+        bean.setFile_path(event.getFile().getAbsolutePath());
+        BaseResponseBean<NF_DownloadResBean> nf_downloadResBeanBaseResponseBean = newSuccessResBean(bean);
+        if (nf_downloadResBeanBaseResponseBean == null) {
+            return;
         }
+        mFunction.onCallBack(JSON.toJSONString(nf_downloadResBeanBaseResponseBean));
+    }
+
+    private void onDownloadError(VsoBridgeDownloadEvent event) {
+        String msg = event.getMsg();
+        BaseResponseBean<NF_DownloadResBean> bean = newFailureResBean(0, msg);
+        mFunction.onCallBack(JSON.toJSONString(bean));
     }
 
     /*for test*/
@@ -124,6 +138,26 @@ public class DownloadImpl extends ABSApiImpl implements API.DownloadHandler {
         bean.setRet(ret);
         bean.setMsg(msg);
         return bean;
+    }
+
+    @Override
+    protected boolean isBeanError(Object o) {
+        if (o instanceof NF_DownloadReqBean) {
+            NF_DownloadReqBean bean = (NF_DownloadReqBean) o;
+            if (TextUtils.isEmpty(bean.getFile_name())) {
+                MSG_ERROR = "您要下载的文件名为空";
+                return BEAN_IS_ERROR;
+            }
+            if (TextUtils.isEmpty(bean.getUrl_download())) {
+                MSG_ERROR = "您要下载的文件地址为空";
+                return BEAN_IS_ERROR;
+            }
+
+            return BEAN_IS_CORRECT;
+        } else {
+            Log.wtf(API_NAME, "check you code,bean not match because your error");
+            return BEAN_IS_ERROR;
+        }
     }
 
     @Override

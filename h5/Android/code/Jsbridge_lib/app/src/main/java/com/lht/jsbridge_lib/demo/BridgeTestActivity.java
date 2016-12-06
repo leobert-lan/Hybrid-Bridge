@@ -17,6 +17,7 @@ import com.lht.cloudjob.BuildConfig;
 import com.lht.cloudjob.R;
 import com.lht.cloudjob.activity.BaseActivity;
 import com.lht.cloudjob.activity.UMengActivity;
+import com.lht.cloudjob.native4js.Native4JsExpandAPI;
 import com.lht.cloudjob.native4js.impl.VsoAuthInfoImpl;
 import com.lht.cloudjob.native4js.impl.VsoLoginImpl;
 import com.lht.customwidgetlib.nestedscroll.AttachUtil;
@@ -141,7 +142,7 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
         webView.registerHandler(API.ScanCodeHandler.API_NAME, new ScanCodeImpl(
                 BridgeTestActivity.this));
 
-        webView.registerHandler(API.DownloadHandler.API_NAME,
+        webView.registerHandler(Native4JsExpandAPI.DownloadHandler.API_NAME,
                 new DownloadImpl(BridgeTestActivity.this));
     }
 

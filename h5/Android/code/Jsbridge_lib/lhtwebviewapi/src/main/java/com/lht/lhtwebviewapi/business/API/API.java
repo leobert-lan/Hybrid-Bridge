@@ -83,18 +83,4 @@ public interface API {
          */
         String API_NAME = "NATIVE_FUNCTION_OPENCAMERA_SCAN";
     }
-
-    interface DownloadHandler extends BridgeHandler {
-        /**
-         * API_NAME:下载
-         */
-        String API_NAME = "NATIVE_FUNCTION_DOWNLOAD";
-    }
-
-//	interface ThirdPartyLoginHandler extends BridgeHandler {
-//		/**
-//		 * API_Name:调用第三方登录
-//		 */
-//		String API_Name = "NATIVE_FUNCTION_THIRDPARTYLOGIN";
-//	}
 }

@@ -278,13 +278,13 @@ public class BridgeTestActivity extends AsyncProtectedActivity implements OnClic
                 break;
             case DownloadImpl.VsoBridgeDownloadEvent.STATUS_SUCCESS:
                 //隐藏进度条
-                Log.e("lmsg", "隐藏进度条");
+                Log.e("lmsg", "下载成功，隐藏进度条");
                 hideDownloadProgress();
 
                 break;
             case DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR:
             case DownloadImpl.VsoBridgeDownloadEvent.STATUS_CANCEL:
-                Log.e("lmsg", "隐藏进度条");
+                Log.e("lmsg", "下载失败，隐藏进度条");
                 hideDownloadProgress();
                 break;
             default:
@@ -302,8 +302,8 @@ public class BridgeTestActivity extends AsyncProtectedActivity implements OnClic
         long current = event.getCurrentSize();
         long total = event.getTotalSize();
 
-        Log.e("lmsg", "当前大小：" + current);
-        Log.e("lmsg", "总大小：" + total);
+//        Log.e("lmsg", "当前大小：" + current);
+//        Log.e("lmsg", "总大小：" + total);
         progress.setProgress(current, total);
     }
 

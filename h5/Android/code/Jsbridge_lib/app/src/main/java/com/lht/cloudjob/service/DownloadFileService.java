@@ -72,7 +72,6 @@ public class DownloadFileService extends Service {
 
         @Override
         public void onMobileNet() {
-            Log.e("lmsg", "移动网络状态");
             Toast.makeText(getApplicationContext(), R.string.v1020_dialog_preview_onmobile_toolarge, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_DEFAULT,
                     0, getApplicationContext().getString(R.string.v1020_versionupdate_dialog_onmobile_remind));
@@ -81,7 +80,6 @@ public class DownloadFileService extends Service {
 
         @Override
         public void onFileNotFoundOnServer() {
-            Log.e("lmsg", "文件不存在");
             Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnotfound, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
                     0, getApplicationContext().getString(R.string.v1020_toast_download_onnotfound));
@@ -91,6 +89,7 @@ public class DownloadFileService extends Service {
         @Override
         public void onDownloadStart(DownloadEntity entity) {
             Log.e("lmsg", "开始下载");
+            Toast.makeText(getApplicationContext(), "开始下载", Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ONSTART, 0, "开始下载");
             postEvent(event);
         }
@@ -113,7 +112,6 @@ public class DownloadFileService extends Service {
 
         @Override
         public void onDownloading(DownloadEntity entity, long current, long total) {
-            Log.e("lmsg", "正在下载");
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_DOWNLOADING,
                     current, "正在下载");
 
@@ -122,7 +120,6 @@ public class DownloadFileService extends Service {
 
         @Override
         public void onNoEnoughSpace() {
-            Log.e("lmsg", "下载失败");
             Toast.makeText(getApplicationContext(), R.string.v1020_toast_download_onnoenoughspace, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
                     0, getApplicationContext().getString(R.string.v1020_toast_download_onnoenoughspace));
@@ -131,7 +128,6 @@ public class DownloadFileService extends Service {
 
         @Override
         public void downloadFailure() {
-            Log.e("lmsg", "下载失败");
             Toast.makeText(getApplicationContext(), R.string.v1020_versionupdate_text_download_fuilure, Toast.LENGTH_SHORT).show();
             DownloadImpl.VsoBridgeDownloadEvent event = setDownloadInfo(DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR,
                     0, getApplicationContext().getString(R.string.v1020_versionupdate_text_download_fuilure));

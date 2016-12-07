@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 
 import com.alibaba.fastjson.JSON;
@@ -19,6 +20,9 @@ import com.lht.cloudjob.BuildConfig;
 import com.lht.cloudjob.R;
 import com.lht.cloudjob.activity.BaseActivity;
 import com.lht.cloudjob.activity.UMengActivity;
+import com.lht.cloudjob.activity.asyncprotected.AsyncProtectedActivity;
+import com.lht.cloudjob.customview.CustomProgressView;
+import com.lht.cloudjob.interfaces.net.IApiRequestPresenter;
 import com.lht.cloudjob.native4js.impl.DownloadImpl;
 import com.lht.cloudjob.native4js.impl.VsoAuthInfoImpl;
 import com.lht.cloudjob.native4js.impl.VsoLoginImpl;
@@ -46,7 +50,10 @@ import com.lht.lhtwebviewlib.base.Interface.CallBackFunction;
 import com.lht.lhtwebviewlib.base.Interface.IFileChooseSupport;
 import com.lht.lhtwebviewlib.base.LhtWebViewNFLoader;
 
-public class BridgeTestActivity extends BaseActivity implements OnClickListener {
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+public class BridgeTestActivity extends AsyncProtectedActivity implements OnClickListener {
 
     private final String TAG = "BridgeTestActivity";
 
@@ -63,6 +70,7 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
     private NestedScrollLayout nestedScrollLayout;
 
     private IFileChooseSupport.DefaultFileChooseSupportImpl defaultFileChooseSupport;
+    private ProgressBar progressBar;
 
 
     @Override
@@ -70,6 +78,7 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_bridge);
+        EventBus.getDefault().register(this);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -81,6 +90,8 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
         defaultFileChooseSupport = new IFileChooseSupport.DefaultFileChooseSupportImpl(this);
 
         BridgeWebView.setDebugMode(BuildConfig.DEBUG);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
         etUrl = (EditText) findViewById(R.id.et_url);
         webView = (BridgeWebView) findViewById(R.id.webView);
 
@@ -200,7 +211,7 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
         webView.callHandler(WebSearchReqBean.API_NAME, JSON.toJSONString(bean), new CallBackFunction() {
             @Override
             public void onCallBack(String s) {
-                DLog.d(BridgeTestActivity.class,"call web search,response\r"+s);
+                DLog.d(BridgeTestActivity.class, "call web search,response\r" + s);
             }
         });
     }
@@ -229,6 +240,79 @@ public class BridgeTestActivity extends BaseActivity implements OnClickListener 
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    protected IApiRequestPresenter getApiRequestPresenter() {
+        return null;
+    }
+
+    @Override
+    public ProgressBar getProgressBar() {
+        return progressBar;
+    }
+
+    CustomProgressView progress;
+
+    @Subscribe
+    public void onEventMainThread(DownloadImpl.VsoBridgeDownloadEvent event) {
+        int status = event.getStatus();
+
+        switch (status) {
+            case DownloadImpl.VsoBridgeDownloadEvent.STATUS_ONSTART:
+                //显示进度条
+                progress = new CustomProgressView(getActivity());
+                progress.show();
+                progress.setProgress(0, 100);
+
+                break;
+            case DownloadImpl.VsoBridgeDownloadEvent.STATUS_DOWNLOADING:
+                //更新进度
+                updateProgress(event);
+                break;
+            case DownloadImpl.VsoBridgeDownloadEvent.STATUS_SUCCESS:
+                //隐藏进度条
+                Log.e("lmsg", "下载成功，隐藏进度条");
+                hideDownloadProgress();
+
+                break;
+            case DownloadImpl.VsoBridgeDownloadEvent.STATUS_ERROR:
+            case DownloadImpl.VsoBridgeDownloadEvent.STATUS_CANCEL:
+                Log.e("lmsg", "下载失败，隐藏进度条");
+                hideDownloadProgress();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void updateProgress(DownloadImpl.VsoBridgeDownloadEvent event) {
+        if (progress == null) {
+            return;
+        }
+        if (!progress.isShowing()) {
+            progress.show();
+        }
+        long current = event.getCurrentSize();
+        long total = event.getTotalSize();
+
+//        Log.e("lmsg", "当前大小：" + current);
+//        Log.e("lmsg", "总大小：" + total);
+        progress.setProgress(current, total);
+    }
+
+    private void hideDownloadProgress() {
+        if (progress == null) {
+            return;
+        }
+        progress.dismiss();
+        progress = null;
     }
 
 }

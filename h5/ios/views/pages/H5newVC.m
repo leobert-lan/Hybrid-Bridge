@@ -19,6 +19,8 @@
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(leftAction:)];
     self.navigationItem.leftBarButtonItem = left;
 //     Do any additional setup after loading the view from its nib.
+    
+    
 }
 //- (void)leftAction:(UIBarButtonItem *)sender
 //{

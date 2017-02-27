@@ -112,16 +112,16 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
 
 
 - (void)loadExamplePage:(WKWebView*)webView {
-    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
-    NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
-    [webView loadHTMLString:appHtml baseURL:baseURL];
+//    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
+//    NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+//    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
+//    [webView loadHTMLString:appHtml baseURL:baseURL];
     
     //https://qingyang.sinaapp.com/h5/ExampleApp.html
-//    NSURL *url=[NSURL URLWithString:@"https://qingyang.sinaapp.com/h5/ExampleApp.html"];
-//    
-//    NSURLRequest *request=[NSURLRequest requestWithURL:url];
-//    [webView loadRequest:request];
+    NSURL *url=[NSURL URLWithString:@"https://m.vsochina.com/maker/module/test.html"];
+    
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
 }
 
 #pragma mark - 添加监听

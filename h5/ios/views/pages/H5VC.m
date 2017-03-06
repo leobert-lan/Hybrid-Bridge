@@ -36,7 +36,7 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
     
     
     
-    
+    [self webFrame];
 }
 
 #pragma mark - 全局界面UI
@@ -83,7 +83,13 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
     [self loadExamplePage:self.webViewMain];
     [self loadExamplePage:self.webView2];
 }
-
+#pragma mark - 设置页面frame
+- (void)webFrame{
+    self.webViewMain.frame = self.view.bounds;
+//    self.webViewMain.y=kNavibarH;
+//    self.webViewMain.height-=kNavibarH;
+    //    DLog(@"webFrame %f-%f:%@",APP_H,SCREEN_H,NSStringFromCGRect(self.view.bounds));
+}
 - (void)reload {
     UIFont* font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
     

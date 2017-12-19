@@ -2,3 +2,16 @@
 .DS_Store
 *.xcuserstate
 xcuserdata
+h5/Android/code/Jsbridge_lib/materialintro/build/
+h5/Android/code/Jsbridge_lib/customwidgetlib/build/
+h5/Android/code/Jsbridge_lib/lhtwebviewlib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values-pt/values-pt.xml
+h5/Android/code/Jsbridge_lib/lhtwebviewlib/build/
+h5/Android/code/Jsbridge_lib/ptrlib/build/
+h5/Android/code/Jsbridge_lib/app/build/
+h5/Android/code/Jsbridge_lib/lhtwebviewapi/build/
+h5/Android/code/Jsbridge_lib/WeiboSDK/build/
+h5/Android/code/Jsbridge_lib/.idea/
+h5/Android/code/Jsbridge_lib/.gradle/
+*.iml
+h5/Android/code/Jsbridge_lib/build/
+h5/Android/code/Jsbridge_lib/local.properties

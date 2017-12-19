@@ -57,7 +57,7 @@ public class BridgeTestActivity extends AsyncProtectedActivity implements OnClic
 
     private final String TAG = "BridgeTestActivity";
 
-    private static final String DEF_TEST = "http://m.vsochina.com:8080/bridge/test/";
+    private static final String DEF_TEST = "http://m.vsochina.com/bridge/test/index.html";
 
     BridgeWebView webView;
 
@@ -194,7 +194,6 @@ public class BridgeTestActivity extends AsyncProtectedActivity implements OnClic
     protected void initEvent() {
         regist();
         webView.loadUrl(DEF_TEST);
-        findViewById(R.id.test_search).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 testSearch();

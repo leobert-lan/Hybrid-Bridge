@@ -49,7 +49,7 @@ public class SendEmailImpl extends ABSApiImpl implements API.SendEmailHandler {
 					sendEmailBean.getMessage());
 			mContext.startActivity(Intent.createChooser(myIntent, "请选择邮件"));
 
-			BaseResponseBean bean = new BaseResponseBean();
+			BaseResponseBean<String> bean = new BaseResponseBean<>();
 			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData("");

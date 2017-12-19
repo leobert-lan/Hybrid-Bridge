@@ -29,6 +29,16 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
 
     private static boolean DEBUG_MODE = false;
 
+    private static int dialogTheme = 0;
+
+    public static int getDialogTheme() {
+        return dialogTheme;
+    }
+
+    public static void setDialogTheme(int dialogTheme) {
+        BridgeWebView.dialogTheme = dialogTheme;
+    }
+
     public static boolean isDebugMode() {
         return DEBUG_MODE;
     }

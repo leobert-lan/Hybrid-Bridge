@@ -24,7 +24,7 @@ import com.lht.qrcode.scan.ScanActivity;
  * @author leobert.lan
  * @version 1.0
  */
-public class ScanCodeImpl extends ABSLTRApiImpl implements API.ScanCodeHandler {
+public class ScanCodeImpl extends ABSLTRApiImpl<String> implements API.ScanCodeHandler {
 
 	private final Context mContext;
 
@@ -64,13 +64,13 @@ public class ScanCodeImpl extends ABSLTRApiImpl implements API.ScanCodeHandler {
 	private LTRExecutor executor;
 
 	@Override
-	protected boolean isBeanError(Object o) {
+	protected boolean isBeanError(String bean) {
 		return false;
 	}
 
 	class ScanCodeExecutor extends LTRExecutor {
 
-		public ScanCodeExecutor(ABSLTRApiImpl.LTRHandler h) {
+		public ScanCodeExecutor(ABSLTRApiImpl<String>.LTRHandler h) {
 			super(h);
 		}
 
@@ -123,7 +123,7 @@ public class ScanCodeImpl extends ABSLTRApiImpl implements API.ScanCodeHandler {
 		}
 
 		private void response(int ret,String msg,String data) {
-			BaseResponseBean bean = new BaseResponseBean();
+			BaseResponseBean<String> bean = new BaseResponseBean<>();
 			bean.setData(data);
 			bean.setMsg(msg);
 			bean.setRet(ret);

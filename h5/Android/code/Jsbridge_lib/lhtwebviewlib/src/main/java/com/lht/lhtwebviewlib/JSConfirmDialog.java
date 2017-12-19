@@ -31,7 +31,12 @@ public class JSConfirmDialog {
 	public JSConfirmDialog(Context ctx, JsResult r) {
 		this.result = r;
 
-		builder = new AlertDialog.Builder(ctx);
+		int theme = BridgeWebView.getDialogTheme();
+		if (theme == 0) {
+			builder = new AlertDialog.Builder(ctx);
+		} else {
+			builder = new AlertDialog.Builder(ctx,theme);
+		}
 		// 不需要绑定按键事件
 		// 屏蔽keycode等于84之类的按键
 		builder.setOnKeyListener(new OnKeyListener() {

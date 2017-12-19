@@ -16,7 +16,7 @@ import com.lht.lhtwebviewlib.BridgeWebView;
  * @version 1.0
  */
 @SuppressLint("HandlerLeak")
-public abstract class ABSLTRApiImpl extends ABSApiImpl {
+public abstract class ABSLTRApiImpl<B> extends ABSApiImpl<B> {
 
 	protected final String TAG = "ABSLTRApiImpl";
 

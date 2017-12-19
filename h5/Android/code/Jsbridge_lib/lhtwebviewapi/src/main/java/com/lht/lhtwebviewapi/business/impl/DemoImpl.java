@@ -22,7 +22,7 @@ import com.lht.lhtwebviewlib.business.impl.ABSApiImpl;
  * @author leobert.lan
  * @version 1.0
  */
-public class DemoImpl extends ABSApiImpl implements API.Demo {
+public class DemoImpl extends ABSApiImpl<DemoBean> implements API.Demo {
 	
 	public DemoImpl(Context ctx) {
 		super(ctx);
@@ -58,9 +58,7 @@ public class DemoImpl extends ABSApiImpl implements API.Demo {
 	}
 
 	@Override
-	protected boolean isBeanError(Object o) {
-		if (o instanceof DemoBean) {
-			DemoBean bean = (DemoBean) o;
+	protected boolean isBeanError(DemoBean bean) {
 			// 数据完整性、合法性 校验 example：
 			if (TextUtils.isEmpty(bean.getJsKeyOne())) {
 				Log.wtf(API_NAME,
@@ -69,11 +67,6 @@ public class DemoImpl extends ABSApiImpl implements API.Demo {
 			}
 			return BEAN_IS_CORRECT;
 
-		} else {
-			Log.wtf(API_NAME,
-					"check you code,bean not match because your error");
-			return BEAN_IS_ERROR;
-		}
 	}
 
 }

@@ -47,11 +47,11 @@ dependencies {
 }
 
 task makeJar(type: Copy) {
-    delete 'build/libs/bridge_core_1.0.0.jar'
+    delete 'build/libs/bridge_core_1.0.1.jar'
     from('build/intermediates/bundles/release/')
     into('build/libs/')
     include('classes.jar')
-    rename('classes.jar', 'bridge_core_1.0.0.jar')
+    rename('classes.jar', 'bridge_core_1.0.1.jar')
 }
 
 makeJar.dependsOn(build)

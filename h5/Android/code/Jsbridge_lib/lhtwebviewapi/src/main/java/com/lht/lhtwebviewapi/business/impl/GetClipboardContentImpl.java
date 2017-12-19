@@ -55,7 +55,8 @@ public class GetClipboardContentImpl extends ABSApiImpl implements
 			clipboard.setText(copyClipboardBean.getContent());
 			String text = clipboard.getText().toString();
 			*/
-			BaseResponseBean bean = new BaseResponseBean();
+
+			BaseResponseBean<String> bean = new BaseResponseBean<>();
 			bean.setRet(NativeRet.RET_SUCCESS);
 			bean.setMsg("OK");
 			bean.setData(copyClipboardBean.getContent());

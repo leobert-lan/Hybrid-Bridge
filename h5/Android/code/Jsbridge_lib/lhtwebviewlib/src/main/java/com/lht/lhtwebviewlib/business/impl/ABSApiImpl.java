@@ -14,7 +14,7 @@ import com.lht.lhtwebviewlib.BridgeWebView;
  * @author leobert.lan
  * @version 1.0
  */
-public abstract class ABSApiImpl {
+public abstract class ABSApiImpl<B> {
 //		implements API {
 
 	public ABSApiImpl() {
@@ -40,7 +40,7 @@ public abstract class ABSApiImpl {
 	 * @param o
 	 * @return BEAN_IS_ERROR(true) if error, BEAN_IS_CORRECT(false) otherwise;
 	 */
-	protected abstract boolean isBeanError(Object o);
+	protected abstract boolean isBeanError(B bean);
 
 	// if it is necessary to update View in native,
 	// you should modify a interface and a interface-set function,

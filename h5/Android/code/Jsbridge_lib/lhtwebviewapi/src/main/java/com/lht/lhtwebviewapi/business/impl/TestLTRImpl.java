@@ -14,7 +14,7 @@ import com.lht.lhtwebviewlib.business.impl.ABSLTRApiImpl;
  * @author leobert.lan
  * @version 1.0
  */
-public class TestLTRImpl extends ABSLTRApiImpl implements API.TestLTRHandler {
+public class TestLTRImpl extends ABSLTRApiImpl<String> implements API.TestLTRHandler {
 	private CallBackFunction mFunction;
 
 	@Override
@@ -35,14 +35,15 @@ public class TestLTRImpl extends ABSLTRApiImpl implements API.TestLTRHandler {
 		};
 	}
 
-	@Override
-	protected boolean isBeanError(Object o) {
-		return false;
-	}
 
 	@Override
 	protected LTRExecutor getLTRExecutor() {
 		return new DemoExecutor(getLTRHandler());
+	}
+
+	@Override
+	protected boolean isBeanError(String bean) {
+		return false;
 	}
 
 	class DemoExecutor extends LTRExecutor {

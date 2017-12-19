@@ -16,6 +16,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setTitle:@"video"];
+    
+    UIAlertController *alt = [UIAlertController alertControllerWithTitle:@"123" message:@"abv" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alt addAction:ok];
+    [self presentViewController:alt animated:YES completion:nil];
+    
+    UIAlertController *alt2 = [UIAlertController alertControllerWithTitle:@"345" message:@"zxc" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alt2 addAction:ok2];
+    [self presentViewController:alt2 animated:YES completion:nil];
 }
 
 

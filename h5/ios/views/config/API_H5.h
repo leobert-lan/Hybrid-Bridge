@@ -12,6 +12,27 @@
 typedef void (^H5Listener)(id bridge, id data, NetError *err, WVJBResponseCallback responseCallback);
 typedef void (^H5Callback)(id bridge, id data, NetError *err);
 
+//-------正式方法------//
+#pragma mark - 调用Native事件
+#define APP_N_PUBLIC_SIGN_LOGIN @"APP_N_PUBLIC_SIGN_LOGIN"
+
+
+
+
+#pragma mark - 调用web事件
+
+
+
+
+
+
+
+
+
+
+
+
+//-------测试方法------//
 //调H5方法
 #define JS_FUNCTION_DEMO @"JS_FUNCTION_DEMO"
 

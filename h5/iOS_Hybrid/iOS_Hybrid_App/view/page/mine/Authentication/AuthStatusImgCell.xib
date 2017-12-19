@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthStatusImgCell" rowHeight="80" id="OMM-OH-mcB" customClass="AuthStatusImgCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OMM-OH-mcB" id="T8H-RB-sSU">
+                <frame key="frameInset" width="375" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VWG-ex-R6Y"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tx6-0y-Aq9"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SxP-nQ-yjd"/>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="tx6-0y-Aq9" secondAttribute="bottom" id="Bdr-w6-wsR"/>
+                    <constraint firstItem="SxP-nQ-yjd" firstAttribute="top" secondItem="T8H-RB-sSU" secondAttribute="top" id="BkY-QU-gP1"/>
+                    <constraint firstAttribute="bottom" secondItem="VWG-ex-R6Y" secondAttribute="bottom" id="FB5-fw-qE3"/>
+                    <constraint firstItem="VWG-ex-R6Y" firstAttribute="top" secondItem="T8H-RB-sSU" secondAttribute="top" id="FBi-4f-H0l"/>
+                    <constraint firstItem="tx6-0y-Aq9" firstAttribute="leading" secondItem="VWG-ex-R6Y" secondAttribute="trailing" constant="5" id="Kma-E0-8f5"/>
+                    <constraint firstAttribute="bottom" secondItem="SxP-nQ-yjd" secondAttribute="bottom" id="Yc4-yh-Efq"/>
+                    <constraint firstItem="VWG-ex-R6Y" firstAttribute="width" secondItem="tx6-0y-Aq9" secondAttribute="width" id="Yo7-0w-l1a"/>
+                    <constraint firstItem="SxP-nQ-yjd" firstAttribute="leading" secondItem="tx6-0y-Aq9" secondAttribute="trailing" constant="5" id="cbm-de-TtH"/>
+                    <constraint firstItem="VWG-ex-R6Y" firstAttribute="leading" secondItem="T8H-RB-sSU" secondAttribute="leading" constant="15" id="gWi-oC-uKD"/>
+                    <constraint firstItem="tx6-0y-Aq9" firstAttribute="top" secondItem="T8H-RB-sSU" secondAttribute="top" id="j75-rP-8Kd"/>
+                    <constraint firstAttribute="trailing" secondItem="SxP-nQ-yjd" secondAttribute="trailing" constant="15" id="juH-ly-BjN"/>
+                    <constraint firstItem="tx6-0y-Aq9" firstAttribute="width" secondItem="SxP-nQ-yjd" secondAttribute="width" id="ypv-5Q-e3a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgConPhoto" destination="tx6-0y-Aq9" id="Ko5-mR-nmP"/>
+                <outlet property="imgPerPhoto" destination="SxP-nQ-yjd" id="VBb-px-QZp"/>
+                <outlet property="imgPhoto" destination="VWG-ex-R6Y" id="ru0-BS-LJP"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

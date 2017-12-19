@@ -1,0 +1,42 @@
+//
+//  PrefixHeader.pch
+//  APP
+//
+//  Created by carret on 15/1/16.
+//  Copyright (c) 2015年 carret. All rights reserved.
+//
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Availability.h>
+
+#ifdef __OBJC__
+//modoule .h
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "SystemMacro.h"
+    #import "GlobalManager.h"
+    #import "BaseModel.h"
+    #import "BaseModel+DB.h"
+    #import "CSS.h"
+    #import "Notification.h"
+    #import "NetError.h"
+    #import "QConstant.h"
+    #import "QYUserDefault.h"
+    #import "FileManager.h"
+    #import "NSString+EX.h"
+    #import "UIImageView+WebCache.h"
+    #import "UIImageView+SDWebImageEX.h"
+    #import "UIImage+EX.h"
+    #import "UIButton+EX.h"
+    #import "UIView+Extension.h"
+    #import "QConstant.h"
+    #import "WKWebViewJavascriptBridge.h"
+    #import <AssetsLibrary/AssetsLibrary.h>
+    #import "MJRefresh.h"
+    //放最后
+    #import "AppHeader.h"
+
+    
+#endif
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthCardPhotoCell" rowHeight="170" id="osD-gl-nWQ" customClass="AuthCardPhotoCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="osD-gl-nWQ" id="J2a-Nd-QOU">
+                <frame key="frameInset" width="375" height="169"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdj-dR-HNa">
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card1" translatesAutoresizingMaskIntoConstraints="NO" id="OxB-nI-Ivk"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDj-7Q-wfm">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Upload" translatesAutoresizingMaskIntoConstraints="NO" id="RZ6-ln-0cw">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="29" id="s7d-nz-381"/>
+                                            <constraint firstAttribute="height" constant="31" id="x0Y-Se-pdF"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="RZ6-ln-0cw" firstAttribute="centerY" secondItem="yDj-7Q-wfm" secondAttribute="centerY" id="I8y-fp-8ea"/>
+                                    <constraint firstItem="RZ6-ln-0cw" firstAttribute="centerX" secondItem="yDj-7Q-wfm" secondAttribute="centerX" id="KiH-5c-XkD"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZH-Tp-ei0">
+                                <connections>
+                                    <action selector="btnSelectCardPhotoAction:" destination="osD-gl-nWQ" eventType="touchUpInside" id="ldF-Xl-S0W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IZH-Tp-ei0" secondAttribute="bottom" id="DrL-yj-c8w"/>
+                            <constraint firstItem="IZH-Tp-ei0" firstAttribute="leading" secondItem="bdj-dR-HNa" secondAttribute="leading" id="GRI-iE-tXb"/>
+                            <constraint firstItem="yDj-7Q-wfm" firstAttribute="top" secondItem="bdj-dR-HNa" secondAttribute="top" id="IRb-Gs-x3l"/>
+                            <constraint firstItem="OxB-nI-Ivk" firstAttribute="top" secondItem="bdj-dR-HNa" secondAttribute="top" constant="5" id="N4w-gk-NlY"/>
+                            <constraint firstAttribute="trailing" secondItem="OxB-nI-Ivk" secondAttribute="trailing" constant="65" id="Pp5-MH-LUA"/>
+                            <constraint firstAttribute="bottom" secondItem="yDj-7Q-wfm" secondAttribute="bottom" id="QhT-Ty-cfm"/>
+                            <constraint firstAttribute="bottom" secondItem="OxB-nI-Ivk" secondAttribute="bottom" constant="5" id="Qvv-1Y-dnZ"/>
+                            <constraint firstAttribute="trailing" secondItem="IZH-Tp-ei0" secondAttribute="trailing" id="Te4-fb-XFG"/>
+                            <constraint firstItem="yDj-7Q-wfm" firstAttribute="leading" secondItem="OxB-nI-Ivk" secondAttribute="trailing" id="fYx-Ap-Yk2"/>
+                            <constraint firstItem="IZH-Tp-ei0" firstAttribute="top" secondItem="bdj-dR-HNa" secondAttribute="top" id="hGi-R4-jcL"/>
+                            <constraint firstAttribute="trailing" secondItem="yDj-7Q-wfm" secondAttribute="trailing" id="unN-nI-QZa"/>
+                            <constraint firstItem="OxB-nI-Ivk" firstAttribute="leading" secondItem="bdj-dR-HNa" secondAttribute="leading" constant="5" id="xxO-qE-F4J"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bdj-dR-HNa" firstAttribute="top" secondItem="J2a-Nd-QOU" secondAttribute="top" id="8mH-dt-r5v"/>
+                    <constraint firstAttribute="bottom" secondItem="bdj-dR-HNa" secondAttribute="bottom" id="DES-eI-BTQ"/>
+                    <constraint firstItem="bdj-dR-HNa" firstAttribute="leading" secondItem="J2a-Nd-QOU" secondAttribute="leading" constant="15" id="gPm-Jv-tmX"/>
+                    <constraint firstAttribute="trailing" secondItem="bdj-dR-HNa" secondAttribute="trailing" constant="15" id="oPd-Pa-JhG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgCard" destination="OxB-nI-Ivk" id="gtf-Wb-IKh"/>
+                <outlet property="imgCardR" destination="Pp5-MH-LUA" id="TJE-fM-R9g"/>
+                <outlet property="vCardPhoto" destination="bdj-dR-HNa" id="vPG-BO-0jq"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Upload" width="28" height="31"/>
+        <image name="card1" width="271" height="159"/>
+    </resources>
+</document>

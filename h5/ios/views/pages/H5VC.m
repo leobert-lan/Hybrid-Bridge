@@ -36,7 +36,7 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
     
     
     
-    
+    [self webFrame];
 }
 
 #pragma mark - 全局界面UI
@@ -83,7 +83,13 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
     [self loadExamplePage:self.webViewMain];
     [self loadExamplePage:self.webView2];
 }
-
+#pragma mark - 设置页面frame
+- (void)webFrame{
+    self.webViewMain.frame = self.view.bounds;
+//    self.webViewMain.y=kNavibarH;
+//    self.webViewMain.height-=kNavibarH;
+    //    DLog(@"webFrame %f-%f:%@",APP_H,SCREEN_H,NSStringFromCGRect(self.view.bounds));
+}
 - (void)reload {
     UIFont* font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
     
@@ -112,16 +118,16 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
 
 
 - (void)loadExamplePage:(WKWebView*)webView {
-    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
-    NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
-    [webView loadHTMLString:appHtml baseURL:baseURL];
+//    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
+//    NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+//    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
+//    [webView loadHTMLString:appHtml baseURL:baseURL];
     
     //https://qingyang.sinaapp.com/h5/ExampleApp.html
-//    NSURL *url=[NSURL URLWithString:@"https://qingyang.sinaapp.com/h5/ExampleApp.html"];
-//    
-//    NSURLRequest *request=[NSURLRequest requestWithURL:url];
-//    [webView loadRequest:request];
+    NSURL *url=[NSURL URLWithString:@"https://m.vsochina.com/maker/module/test.html"];
+    
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
 }
 
 #pragma mark - 添加监听
@@ -140,9 +146,9 @@ typedef void(^openGps)(CLLocation *location,NSString *name);
         dd[@"msg"]=@"这是第一个H5的内容";
         dd[@"data"]=data;
        
-        [DemoH5API demoCall:self.bridge2 data:dd callback:^(id bridge, id data, NetError *err) {
-            DLog(@">>>%@: %@",bridge, data);
-        }];
+//        [DemoH5API demoCall:self.bridge2 data:dd callback:^(id bridge, id data, NetError *err) {
+//            DLog(@">>>%@: %@",bridge, data);
+//        }];
 
     }];
     

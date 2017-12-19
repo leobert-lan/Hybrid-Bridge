@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthOkCell" rowHeight="90" id="CfD-l2-VHB" customClass="AuthOkCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CfD-l2-VHB" id="EnT-Ni-tjI">
+                <frame key="frameInset" width="375" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEz-Ud-3Ey">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="hCe-Fl-aTt"/>
+                        </constraints>
+                        <state key="normal" title="提交"/>
+                        <connections>
+                            <action selector="btnOkAction:" destination="CfD-l2-VHB" eventType="touchUpInside" id="Leh-A8-rzd"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="jEz-Ud-3Ey" firstAttribute="leading" secondItem="EnT-Ni-tjI" secondAttribute="leadingMargin" constant="15" id="0HQ-yg-Owp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="jEz-Ud-3Ey" secondAttribute="trailing" constant="15" id="4TV-wE-FPF"/>
+                    <constraint firstItem="jEz-Ud-3Ey" firstAttribute="top" secondItem="EnT-Ni-tjI" secondAttribute="topMargin" constant="30" id="B9q-Rm-1S8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnOk" destination="jEz-Ud-3Ey" id="a00-by-deY"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

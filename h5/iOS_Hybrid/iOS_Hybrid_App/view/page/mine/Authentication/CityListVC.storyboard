@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--City ListVC-->
+        <scene sceneID="9SL-yg-cs0">
+            <objects>
+                <viewController storyboardIdentifier="CityListVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h4d-qv-tuN" customClass="CityListVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oqS-kB-HaF"/>
+                        <viewControllerLayoutGuide type="bottom" id="nKz-dE-5XQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rTo-95-PoE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IVf-vE-ucW">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityListCell" id="jDC-k5-NLp" customClass="CityListCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jDC-k5-NLp" id="G3Y-K1-V8o">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmL-J3-4lE">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Submission_drop_down" translatesAutoresizingMaskIntoConstraints="NO" id="X7v-X9-Vh3">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="22" id="B3W-da-acR"/>
+                                                        <constraint firstAttribute="height" constant="22" id="wFd-Bx-y06"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="X7v-X9-Vh3" secondAttribute="trailing" constant="15" id="73f-BP-5eG"/>
+                                                <constraint firstAttribute="bottom" secondItem="WmL-J3-4lE" secondAttribute="bottom" id="Hnn-L3-5AP"/>
+                                                <constraint firstItem="WmL-J3-4lE" firstAttribute="leading" secondItem="G3Y-K1-V8o" secondAttribute="leading" constant="15" id="QeG-2c-URL"/>
+                                                <constraint firstItem="WmL-J3-4lE" firstAttribute="top" secondItem="G3Y-K1-V8o" secondAttribute="top" id="iL6-eD-Dox"/>
+                                                <constraint firstItem="X7v-X9-Vh3" firstAttribute="centerY" secondItem="G3Y-K1-V8o" secondAttribute="centerY" id="rj7-Iq-bcs"/>
+                                                <constraint firstItem="X7v-X9-Vh3" firstAttribute="leading" secondItem="WmL-J3-4lE" secondAttribute="trailing" id="v6t-dd-XYF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityName" destination="WmL-J3-4lE" id="JPH-r2-vR6"/>
+                                            <outlet property="imgDown" destination="X7v-X9-Vh3" id="6fN-bR-eFs"/>
+                                            <outlet property="lblnameL" destination="QeG-2c-URL" id="ACo-iT-r6H"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="h4d-qv-tuN" id="9dk-RM-qIW"/>
+                                    <outlet property="delegate" destination="h4d-qv-tuN" id="lnH-HQ-a8E"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IVf-vE-ucW" secondAttribute="trailing" id="3wV-SN-zh8"/>
+                            <constraint firstItem="IVf-vE-ucW" firstAttribute="top" secondItem="oqS-kB-HaF" secondAttribute="bottom" id="Qwd-am-5jv"/>
+                            <constraint firstItem="IVf-vE-ucW" firstAttribute="leading" secondItem="rTo-95-PoE" secondAttribute="leading" id="jMe-VR-tJr"/>
+                            <constraint firstItem="nKz-dE-5XQ" firstAttribute="top" secondItem="IVf-vE-ucW" secondAttribute="bottom" id="jh2-Ex-sbo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableMain" destination="IVf-vE-ucW" id="pJ9-d2-RbY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSL-Fm-4nZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="159" y="85"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Submission_drop_down" width="22" height="22"/>
+    </resources>
+</document>

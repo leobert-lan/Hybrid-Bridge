@@ -39,7 +39,7 @@ NSString * WebViewJavascriptBridge_js() {
         
         //初始化，废弃方法，为了兼容老版本
         function init(messageHandler) {
-
+            
         }
         
         function registerHandler(handlerName, handler) {
